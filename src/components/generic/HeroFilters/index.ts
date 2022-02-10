@@ -1,0 +1,1 @@
+export { HeroFilters } from './HeroFilters'

@@ -1,0 +1,44 @@
+{
+  "name": "next-typescript-2",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next eslint next-typescript"
+  },
+  "dependencies": {
+    "@apollo/client": "^3.5.8",
+    "@emotion/babel-plugin": "^11.7.2",
+    "@emotion/css": "^11.7.1",
+    "@emotion/react": "^11.7.1",
+    "@emotion/styled": "^11.6.0",
+    "emotion-normalize": "^11.0.1",
+    "graphql": "^16.3.0",
+    "next": "12.0.9",
+    "react": "17.0.2",
+    "react-custom-scrollbars": "^4.2.1",
+    "react-device-detect": "^2.1.2",
+    "react-dom": "17.0.2",
+    "react-hook-form": "^7.26.0",
+    "react-scrollbar": "^0.5.6",
+    "react-select": "^5.2.2",
+    "storeon": "^3.1.4",
+    "yup": "^0.32.11"
+  },
+  "devDependencies": {
+    "@svgr/webpack": "^6.2.1",
+    "@types/node": "16.11.21",
+    "@types/react": "17.0.38",
+    "@types/react-custom-scrollbars": "^4.0.10",
+    "@typescript-eslint/eslint-plugin": "^5.10.1",
+    "eslint": "8.8.0",
+    "eslint-config-next": "12.0.9",
+    "eslint-config-prettier": "^8.3.0",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.3.2",
+    "prettier": "^2.5.1",
+    "typescript": "4.5.5"
+  }
+}
