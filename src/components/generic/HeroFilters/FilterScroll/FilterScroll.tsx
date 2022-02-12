@@ -62,8 +62,8 @@ export const FilterScroll: React.FC = () => {
         universal
       >
         <InnerContainer width={options.length * 130}>
-          {options.map((option) => (
-            <FilterCategory key={option}>
+          {options.map((option, i) => (
+            <FilterCategory key={`${option}-${i}`}>
               <CategoryTitle>{option}</CategoryTitle>
               <FilterCounter>232</FilterCounter>
             </FilterCategory>

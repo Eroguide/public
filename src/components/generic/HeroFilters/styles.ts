@@ -17,14 +17,14 @@ export const HeroFiltersInner = styled.div`
   align-items: center;
   justify-content: center;
   background-color: white;
-  border: 1px solid #ebebf0;
+  border: 1px solid ${({ theme }) => theme.grayScale[1]};
 `
 
 export const Search = styled.div`
   height: 64px;
   width: 64px;
   position: relative;
-  background-color: #ff005d;
+  background-color: ${({ theme }) => theme.primary[1]};
   border-radius: 100%;
   display: flex;
   justify-content: center;

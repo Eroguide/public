@@ -3,6 +3,7 @@ import Head from 'next/head'
 import { BaseLayout } from '@/components/layouts/BaseLayout'
 import { HeroBanner } from '@/components/generic/HeroBanner'
 import { HeroFilters } from '@/components/generic/HeroFilters'
+import { CategoryScroll } from '@/components/generic/CategoryScroll'
 
 const Home: NextPage = () => {
   return (
@@ -15,6 +16,8 @@ const Home: NextPage = () => {
       <BaseLayout>
         <HeroBanner />
         <HeroFilters />
+        <CategoryScroll />
+
         {/*<main>MAIN</main>*/}
         {/*<footer>Footer</footer>*/}
       </BaseLayout>

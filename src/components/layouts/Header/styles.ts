@@ -1,10 +1,22 @@
 import styled from '@emotion/styled'
 
 export const HeaderContainer = styled.div`
-  width: calc(100% - 80px * 2);
+  width: 100%;
+  //width: calc(100% - 80px * 2);
+  padding: 0 80px;
   position: fixed;
+  left: 0;
+  right: 0;
   z-index: 9999;
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: #fff;
+  ${({ theme }) => theme.media.md`
+  padding: 0 32px;
+  `}
+  ${({ theme }) => theme.media.sm`
+  padding: 0 ;
+  `} ${({ theme }) => theme.media.mobile`
+  padding: 0 8px;
+  `}
 `
 
 export const HeaderInner = styled.div`
@@ -15,6 +27,7 @@ export const HeaderInner = styled.div`
   width: 100%;
   max-width: 1280px;
   padding: 0 32px;
+
   ${({ theme }) => theme.media.md`
     padding: 0;
     width: calc(100% - 32px * 2);

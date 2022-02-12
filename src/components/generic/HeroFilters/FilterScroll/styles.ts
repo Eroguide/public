@@ -18,6 +18,16 @@ export const ThumbHorizontal = styled.div`
   border-radius: 2px;
   background-color: #ff005d;
   height: 2px;
+  cursor: pointer;
+  position: relative;
+
+  &:after {
+    content: '';
+    width: 100%;
+    height: 10px;
+    background: #42772f;
+    position: absolute;
+  }
 `
 
 export const TrackHorizontal = styled.div`

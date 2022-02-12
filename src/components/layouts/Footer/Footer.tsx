@@ -29,11 +29,11 @@ export const Footer: React.FC = () => {
       <FooterContainer>
         <FooterInner>
           <FooterLogo>
-            <img src="/img/logo.png" alt="" />
+            <img width="130" height="auto" src="/img/logo.png" alt="" />
           </FooterLogo>
           <FooterLinks>
-            {navItems.map((item) => (
-              <LinkGroup>
+            {navItems.map((item, i) => (
+              <LinkGroup key={`group-links-${i}`}>
                 {item.map((linkName) => (
                   <Link key={linkName} href={'/'}>
                     {linkName}
