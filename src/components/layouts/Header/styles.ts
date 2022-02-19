@@ -7,7 +7,7 @@ export const HeaderContainer = styled.div`
   position: fixed;
   left: 0;
   right: 0;
-  z-index: 9999;
+  z-index: 500;
   background-color: #fff;
   ${({ theme }) => theme.media.md`
   padding: 0 32px;
@@ -44,6 +44,7 @@ export const HeaderInner = styled.div`
 export const Logo = styled.div`
   width: 130px;
   height: 24px;
+  cursor: pointer;
   img {
     width: 100%;
   }

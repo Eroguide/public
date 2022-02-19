@@ -1,14 +1,18 @@
 import styled from '@emotion/styled'
 
-export const CardMainContainer = styled.div`
+export const CardMainContainer = styled.div<{ margin?: string }>`
   width: 302px;
-  height: 500px;
   flex-direction: column;
   border-radius: 32px;
+  ${({ margin }) => margin && `margin:${margin};`}
+  margin-bottom: 32px;
+  position: relative;
+  ${({ theme }) => theme.media.mobile`
+      width: 100%;
+  `}
 `
 
 export const CardInner = styled.div`
-  margin-right: 24px;
   border-radius: 32px;
   border: 1px solid ${({ theme }) => theme.grayScale[1]};
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
@@ -40,9 +44,9 @@ export const CardImageWrapper = styled.div`
   display: flex;
   width: 100%;
   height: 368px;
-  background-size: cover;
   position: relative;
-  background: #ebebf0 url('/img/dog.jpg') no-repeat center center;
+  background: #ebebf0 url('/img/dog.jpg') no-repeat center top;
+  background-size: cover;
   overflow: hidden;
   z-index: 1;
 `
@@ -54,8 +58,7 @@ export const ImageProduct = styled.div`
 `
 
 export const CardContent = styled.div`
-  padding: 10px 16px 16px;
-  height: 128px;
+  padding: 32px 24px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -63,11 +66,13 @@ export const CardContent = styled.div`
   border-radius: 0 0 32px 32px;
   z-index: 10;
 `
+
 export const Title = styled.div`
   font-size: ${({ theme }) => theme.fontSize['xl']};
   font-weight: 600;
   color: ${({ theme }) => theme.grayScale[4]};
 `
+
 export const Description = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -83,8 +88,9 @@ export const Description = styled.div`
     }
   }
 `
-export const Status = styled.div`
+export const ScheduleButton = styled.div`
   color: ${({ theme }) => theme.support[2]};
+  display: flex;
 `
 export const Price = styled.div`
   display: flex;
@@ -112,7 +118,7 @@ export const Row = styled.div`
 `
 export const Left = styled.div``
 export const Right = styled.div``
-export const TopImageFlag = styled.span`
+export const TopImageTag = styled.span`
   position: absolute;
   background-color: ${({ theme }) => theme.primary[2]};
   font-size: ${({ theme }) => theme.fontSize['xxs']};
@@ -164,32 +170,6 @@ export const ImageOverlay = styled.div`
     rgba(0, 0, 0, 0) 0%,
     rgba(0, 0, 0, 0.5) 100%
   );
-`
-
-export const ToggleInformation = styled.div<{ isOpen: boolean }>`
-  width: 24px;
-  height: 24px;
-  background-color: rgba(255, 255, 255, 0.08);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 8px;
-  cursor: pointer;
-  margin-left: 8px;
-
-  ${({ isOpen }) =>
-    isOpen &&
-    `
-      svg {
-         transform: rotate(180deg);
-      }
-  `}
-`
-
-export const ChevronTitle = styled.span`
-  color: ${({ theme }) => theme.grayScale[0]};
-  font-size: ${({ theme }) => theme.fontSize['s']};
-  font-weight: 600;
 `
 
 export const LeftBlock = styled.div`

@@ -15,6 +15,8 @@ import {
   UnderFooterRight,
 } from './styles'
 import Link from 'next/link'
+import { DrawerBottom } from '@/components/generic'
+import { useState } from 'react'
 
 const navItems = [
   ['Private ladies', 'Salons'],
@@ -24,6 +26,12 @@ const navItems = [
 ]
 
 export const Footer: React.FC = () => {
+  const [drawerIsOpen, setDrawerIsOpen] = useState<boolean>(false)
+
+  const handleClose = (): void => {
+    setDrawerIsOpen(false)
+  }
+
   return (
     <FooterWrapper>
       <FooterContainer>
@@ -58,10 +66,15 @@ export const Footer: React.FC = () => {
           Copyright © 2021 Eroguide.cz All rights reserved
         </UnderFooterLeft>
         <UnderFooterRight>
-          <Link href={'/'}>Terms of Service</Link>
-          <Link href={'/'}>Privat Policy</Link>
+          <span onClick={() => setDrawerIsOpen(!drawerIsOpen)}>
+            Terms of Service
+          </span>
+          <span onClick={() => setDrawerIsOpen(!drawerIsOpen)}>
+            Privat Policy
+          </span>
         </UnderFooterRight>
       </UnderFooter>
+      <DrawerBottom isOpen={drawerIsOpen} handleClose={handleClose} />
     </FooterWrapper>
   )
 }

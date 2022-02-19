@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
+import { useStoreon } from '@/store/index'
+import { ChevronButton } from '@/components/generic/ChevronButton'
 import {
   CardMainContainer,
   CardInner,
@@ -9,7 +11,7 @@ import {
   Title,
   Description,
   Price,
-  Status,
+  ScheduleButton,
   BeforePrice,
   PriceValue,
   PriceSuffix,
@@ -17,10 +19,8 @@ import {
   Left,
   Right,
   FavoriteButton,
-  TopImageFlag,
+  TopImageTag,
   AdditionalInformation,
-  ToggleInformation,
-  ChevronTitle,
   AdditionalInformationContent,
   ImageOverlay,
   LeftBlock,
@@ -30,84 +30,110 @@ import {
 } from './styles'
 import HeartIcon from 'public/img/heart.svg'
 import HeartLinedIcon from 'public/img/heart-lined.svg'
-import ChevronIcon from 'public/img/chevron.svg'
 import { CardProps } from './types'
+import { FavoritesActions } from '@/store/favoritsModule'
 
-export const Card: React.FC<CardProps> = ({
-  id,
-  slug,
-  handleAddFavorite,
-  isActive = false,
-  isBest,
-}) => {
+export const Card: React.FC<CardProps> = ({ id, slug, tagTitle, margin }) => {
+  const {
+    dispatch,
+    favorites: { items },
+  } = useStoreon('favorites')
+
+  const isActive = items.some((element) => element.id === id)
   const [isOpenInfo, setIsOpenInfo] = useState<boolean>(false)
+  const [isOpenSchedule, setIsOpenSchedule] = useState<boolean>(false)
+
+  const handleIsOpen = () => {
+    setIsOpenInfo(!isOpenInfo)
+  }
+
+  const handleIsOpenSchedule = () => {
+    setIsOpenSchedule(!isOpenSchedule)
+  }
+
   return (
-    <CardMainContainer>
-      <CardInner>
-        <CardImageWrapper>
-          <ImageProduct>
-            {isBest && <TopImageFlag>Best</TopImageFlag>}
-            <ImageOverlay>
-              {isOpenInfo && (
-                <AdditionalInformationContent>
-                  <LeftBlock>
-                    <ContentColumn>
-                      <InfoItem>Height: 170lb</InfoItem>
-                      <InfoItem>Weight: 350lb</InfoItem>
-                    </ContentColumn>
-                    <ContentColumn>
-                      <InfoItem>Breast: 3</InfoItem>
-                      <InfoItem>Age: 19</InfoItem>
-                    </ContentColumn>
-                  </LeftBlock>
-                  <RightBlock>sd</RightBlock>
-                </AdditionalInformationContent>
-              )}
-            </ImageOverlay>
-            <AdditionalInformation>
-              <ChevronTitle>appearance</ChevronTitle>
-              <ToggleInformation
-                onClick={() => setIsOpenInfo(!isOpenInfo)}
-                isOpen={isOpenInfo}
+    <>
+      <CardMainContainer margin={margin}>
+        <CardInner>
+          <CardImageWrapper>
+            <ImageProduct>
+              {tagTitle && <TopImageTag>{tagTitle}</TopImageTag>}
+              <ImageOverlay>
+                {isOpenInfo && (
+                  <AdditionalInformationContent>
+                    <LeftBlock>
+                      <ContentColumn>
+                        <InfoItem>Height: 170lb</InfoItem>
+                        <InfoItem>Weight: 350lb</InfoItem>
+                      </ContentColumn>
+                      <ContentColumn>
+                        <InfoItem>Breast: 3</InfoItem>
+                        <InfoItem>Age: 19</InfoItem>
+                      </ContentColumn>
+                    </LeftBlock>
+                    <RightBlock>sd</RightBlock>
+                  </AdditionalInformationContent>
+                )}
+              </ImageOverlay>
+              <AdditionalInformation>
+                <ChevronButton
+                  title={'appearance'}
+                  handleIsOpen={handleIsOpen}
+                  isOpen={isOpenInfo}
+                  bgColor={'white'}
+                />
+              </AdditionalInformation>
+            </ImageProduct>
+          </CardImageWrapper>
+          <CardContent>
+            <Row>
+              <Left>
+                <Title>Alesandra,23</Title>
+              </Left>
+              <FavoriteButton
+                isActive={isActive}
+                onClick={() =>
+                  dispatch(FavoritesActions.addItem, {
+                    id,
+                    slug,
+                  })
+                }
               >
-                <ChevronIcon />
-              </ToggleInformation>
-            </AdditionalInformation>
-          </ImageProduct>
-        </CardImageWrapper>
-        <CardContent>
-          <Row>
-            <Left>
-              <Title>Alesandra,23</Title>
-            </Left>
-            <FavoriteButton
-              isActive={isActive}
-              onClick={() => handleAddFavorite({ id, slug })}
-            >
-              {isActive ? <HeartIcon /> : <HeartLinedIcon />}
-            </FavoriteButton>
-          </Row>
-          <Row>
-            <Left>
-              <Description>
-                <Link href={'/'}>Barbie SPA</Link>
-                <Link href={'/'}>Prague 1</Link>
-              </Description>
-            </Left>
-          </Row>
-          <Row>
-            <Left>
-              <Price>
-                <BeforePrice>od </BeforePrice> <PriceValue>2000</PriceValue>
-                <PriceSuffix>Kč/h</PriceSuffix>
-              </Price>
-            </Left>
-            <Right>
-              <Status>Available</Status>
-            </Right>
-          </Row>
-        </CardContent>
-      </CardInner>
-    </CardMainContainer>
+                {isActive ? <HeartIcon /> : <HeartLinedIcon />}
+              </FavoriteButton>
+            </Row>
+
+            <Row>
+              <Left>
+                <Description>
+                  <Link href={'/'}>Barbie SPA</Link>
+                  <Link href={'/'}>Prague 1</Link>
+                </Description>
+              </Left>
+            </Row>
+            <Row>
+              <Left>
+                <Price>
+                  <BeforePrice>od </BeforePrice>
+                  <PriceValue>2000</PriceValue>
+                  <PriceSuffix>Kč/h</PriceSuffix>
+                </Price>
+              </Left>
+
+              <Right>
+                <ScheduleButton>
+                  <ChevronButton
+                    title={'available'}
+                    handleIsOpen={handleIsOpenSchedule}
+                    isOpen={isOpenSchedule}
+                    bgColor={'green'}
+                  />
+                </ScheduleButton>
+              </Right>
+            </Row>
+          </CardContent>
+        </CardInner>
+      </CardMainContainer>
+    </>
   )
 }

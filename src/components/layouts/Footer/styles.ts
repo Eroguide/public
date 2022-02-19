@@ -147,12 +147,13 @@ export const UnderFooterRight = styled.div`
   margin-right: 10%;
   display: flex;
   justify-content: flex-end;
-  a {
+  span {
     margin-top: 16px;
     color: ${({ theme }) => theme.grayScale[4]};
     font-size: ${({ theme }) => theme.fontSize['xs']};
     text-decoration: none;
     margin-left: 8px;
+    cursor: pointer;
   }
 
   ${({ theme }) => theme.media.md`

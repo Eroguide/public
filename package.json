@@ -26,6 +26,7 @@
     "react-select": "^5.2.2",
     "react-slick": "^0.28.1",
     "storeon": "^3.1.4",
+    "swiper": "^8.0.6",
     "yup": "^0.32.11"
   },
   "devDependencies": {

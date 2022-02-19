@@ -1,1 +1,0 @@
-export { CategoryScroll } from './CategoryScroll'
