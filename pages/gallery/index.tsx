@@ -1,12 +1,7 @@
 import { NextPage } from 'next'
 import Head from 'next/head'
 import { BaseLayout } from '@/components/layouts/BaseLayout'
-import {
-  CardGallery,
-  CategoryScroll,
-  HeroBanner,
-  HeroFilters,
-} from '@/components/generic'
+import { CardGallery } from '@/components/generic'
 const fixtures = [
   { id: '222dsadas', slug: 'one-project-time', best: 1 },
   { id: 'asddsad222sadasd', slug: 'two-project-time', best: 0 },

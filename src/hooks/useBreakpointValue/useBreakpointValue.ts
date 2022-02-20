@@ -1,4 +1,4 @@
-import { useBreakpoints } from '@theme'
+import { useBreakpoints } from '@/src/theme'
 // types
 import { BreakpointValues } from './types'
 
@@ -11,7 +11,7 @@ import { BreakpointValues } from './types'
  */
 
 export const useBreakpointValue = <T>(
-  values: BreakpointValues<T>,
+  values: BreakpointValues<T>
 ): T | undefined => {
   const { cb } = useBreakpoints()
 

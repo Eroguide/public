@@ -63,6 +63,7 @@ export const ShowNewItems: React.FC<{
     tag?: string
     slug: string
     isLastInGroup?: boolean
+    writeDateTitle?: boolean
   }> = [
     { id: '222dsadas', slug: 'one-project-time', tag: 'bewst', date: 1 },
     { id: 'asddsad222sadasd', slug: 'two-project-time', tag: 'bewst', date: 2 },
@@ -102,10 +103,9 @@ export const ShowNewItems: React.FC<{
   const arrayGames = groupArrays.map((group) => {
     const dateGroupLength = group.games.length
     group.games[dateGroupLength - 1].isLastInGroup = true
+    group.games[0].writeDateTitle = true
     return group.games
   })
-  console.log('arrayGames', arrayGames.flat())
-
   const arrayFixturesWithDate = arrayGames.flat()
 
   return (
@@ -131,9 +131,10 @@ export const ShowNewItems: React.FC<{
                 <>
                   <Card {...item} tagTitle={item.tag} margin="0 15px 0 0" />
                   {item.date && (
-                    <TimeLine date={item.date} isLast={item.isLastInGroup}>
-                      <span> Today 21.24.2222</span>
-                    </TimeLine>
+                    <>
+                      <TimeLine date={item.date} isLast={item.isLastInGroup} />
+                      {item.writeDateTitle && <span> Today 21.24.2222</span>}
+                    </>
                   )}
                 </>
               </SwiperSlide>

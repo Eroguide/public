@@ -1,4 +1,8 @@
-import Scrollbars from 'react-custom-scrollbars'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { SwiperOptions, FreeMode } from 'swiper'
+import 'swiper/css'
+import 'swiper/css/effect-fade'
+import 'swiper/css/pagination'
 
 import {
   FilterScrollContainer,
@@ -6,10 +10,9 @@ import {
   FilterCounter,
   CategoryTitle,
   InnerContainer,
-  ThumbHorizontal,
-  TrackHorizontal,
 } from './styles'
-
+import { useState } from 'react'
+import Link from 'next/link'
 const options = [
   'All',
   'New',
@@ -51,25 +54,31 @@ const options = [
 ]
 
 export const FilterScroll: React.FC = () => {
+  const [initSlider, setInitSlider] = useState<boolean>(false)
+  const swiperSettings: SwiperOptions = {
+    slidesPerView: 7,
+    freeMode: true,
+    modules: [FreeMode],
+    spaceBetween: 48,
+  }
   return (
     <FilterScrollContainer>
-      <Scrollbars
-        renderTrackHorizontal={() => <TrackHorizontal />}
-        renderThumbHorizontal={() => <ThumbHorizontal />}
-        renderTrackVertical={() => <div />}
-        renderThumbVertical={() => <div />}
-        style={{ height: '64px', width: 'calc(100% - 64px)' }}
-        universal
-      >
-        <InnerContainer width={options.length * 130}>
-          {options.map((option, i) => (
-            <FilterCategory key={`${option}-${i}`}>
-              <CategoryTitle>{option}</CategoryTitle>
-              <FilterCounter>232</FilterCounter>
-            </FilterCategory>
-          ))}
-        </InnerContainer>
-      </Scrollbars>
+      <InnerContainer>
+        <Swiper {...swiperSettings} onAfterInit={() => setInitSlider(true)}>
+          {initSlider
+            ? options.map((option, i) => (
+                <SwiperSlide>
+                  <Link href={`/gallery/${option}`}>
+                    <FilterCategory key={`${option}-${i}`}>
+                      <CategoryTitle>{option}</CategoryTitle>
+                      <FilterCounter>232</FilterCounter>
+                    </FilterCategory>
+                  </Link>
+                </SwiperSlide>
+              ))
+            : 'loading'}
+        </Swiper>
+      </InnerContainer>
     </FilterScrollContainer>
   )
 }

@@ -11,46 +11,33 @@ export const FilterCategory = styled.div`
   display: flex;
   margin-right: 48px;
   align-items: center;
-  flex-basis: 120px;
+  min-width: 120px;
 `
 
-export const ThumbHorizontal = styled.div`
-  border-radius: 2px;
-  background-color: #ff005d;
-  height: 2px;
-  cursor: pointer;
+export const InnerContainer = styled.div`
+  display: flex;
+  width: 100%;
   position: relative;
-
-  &:after {
+  &::after {
     content: '';
-    width: 100%;
-    height: 10px;
-    background: #42772f;
     position: absolute;
+    inset: 0 0 0 auto;
+    background: rgb(255, 255, 255);
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0) 32%,
+      rgba(255, 255, 255, 1) 83%,
+      rgba(255, 255, 255, 1) 100%
+    );
+    width: 80px;
+    z-index: 5;
   }
-`
-
-export const TrackHorizontal = styled.div`
-  position: absolute;
-  bottom: 0;
-  display: flex;
-  align-items: center;
-  height: 2px;
-  left: 0;
-  right: 0;
-`
-
-export const InnerContainer = styled.div<{ width: number }>`
-  height: 64px;
-  display: flex;
-  width: ${({ width }) => (width ? `${width}px` : 0)};
 `
 
 export const CategoryTitle = styled.span`
   font-size: 24px;
   font-weight: 600;
   color: #40404a;
-  width: 100%;
   white-space: nowrap;
 `
 

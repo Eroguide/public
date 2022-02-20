@@ -57,7 +57,7 @@ export const TimeLine = styled.div<{ date: number; isLast: boolean }>`
       : date === 3
       ? `background: ${theme.primary[2]};`
       : `background: ${theme.grayScale[3]};`};
-  height: 4px;
+  height: 8px;
   border-radius: 8px;
 
   width: ${({ isLast }) => (isLast ? `100%` : `110%`)};

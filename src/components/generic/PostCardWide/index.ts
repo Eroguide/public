@@ -1,0 +1,1 @@
+export { PostCardWide } from './PostCardWide'

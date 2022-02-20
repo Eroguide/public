@@ -1,8 +1,5 @@
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Pagination, SwiperOptions, FreeMode } from 'swiper'
-import 'swiper/css'
-import 'swiper/css/effect-fade'
-import 'swiper/css/pagination'
 
 import {
   ContentCardRowContainer,

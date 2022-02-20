@@ -2,10 +2,10 @@ import { NextPage } from 'next'
 import Head from 'next/head'
 import { BaseLayout } from '@/components/layouts/BaseLayout'
 import { useRouter } from 'next/router'
+import { TopLineSinglePage, SinglePageContent } from '@/components/generic'
 
 const GalleryItem: NextPage = () => {
   const { query } = useRouter()
-
   return (
     <>
       <Head>
@@ -14,7 +14,8 @@ const GalleryItem: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <BaseLayout>
-        SINGLLE PRODUCT PAGE
+        <TopLineSinglePage />
+        <SinglePageContent />
         <p>{query.slug}</p>
       </BaseLayout>
     </>

@@ -3,10 +3,9 @@ import Head from 'next/head'
 import { BaseLayout } from '@/components/layouts/BaseLayout'
 import { HeroBanner } from '@/components/generic/HeroBanner'
 import { HeroFilters } from '@/components/generic/HeroFilters'
-import { CategoryScroll } from '@/components/generic/CategoryScroll'
 import { SalonCard } from '@/components/generic/SalonCard'
 import { ContentCardRow } from '@/components/generic/ContentCardRow'
-import { Card } from '@/components/generic'
+import { Card, PostCard, PostCardWide } from '@/components/generic'
 import { SwiperSlide } from 'swiper/react'
 import { ShowNewItems } from '@/components/generic/ShowNewItems'
 const fixtures = [
@@ -16,7 +15,7 @@ const fixtures = [
   { id: 'asdsdadasfffsadasd', slug: 'four-project-time', best: 0 },
   { id: 'asdxfsadasd', slug: 'four-project-time', best: 0 },
   { id: 'asdsdadvadasd', slug: 'four-project-time', best: 0 },
-  { id: 'xfffsadasd', slug: 'four-project-time', best: 0 },
+  { id: 'xfffsadasd', slug: 'four-project-time', best: 0, tag: 'dsd' },
 ]
 
 const Home: NextPage = () => {
@@ -66,6 +65,31 @@ const Home: NextPage = () => {
           {fixtures.map((item) => (
             <SwiperSlide key={item.id}>
               <Card {...item} tagTitle={item.tag} margin="0 15px 0 0" />
+            </SwiperSlide>
+          ))}
+        </ContentCardRow>
+
+        <ContentCardRow
+          title="New posts"
+          counter={34}
+          counterTitle="All posts"
+          itemsToShow={4}
+        >
+          {fixtures.map((item) => (
+            <SwiperSlide key={item.id}>
+              <PostCard {...item} tagTitle={item.tag} />
+            </SwiperSlide>
+          ))}
+        </ContentCardRow>
+        <ContentCardRow
+          title="New posts"
+          counter={23}
+          counterTitle="All posts"
+          itemsToShow={2}
+        >
+          {fixtures.map((item) => (
+            <SwiperSlide key={item.id}>
+              <PostCardWide {...item} tagTitle={item.tag} />
             </SwiperSlide>
           ))}
         </ContentCardRow>

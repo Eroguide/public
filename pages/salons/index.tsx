@@ -1,12 +1,6 @@
 import { NextPage } from 'next'
 import Head from 'next/head'
 import { BaseLayout } from '@/components/layouts/BaseLayout'
-import {
-  CardGallery,
-  CategoryScroll,
-  HeroBanner,
-  HeroFilters,
-} from '@/components/generic'
 
 const Salons: NextPage = () => {
   return (
