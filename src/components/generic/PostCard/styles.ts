@@ -9,6 +9,9 @@ export const CardMainContainer = styled.div`
   ${({ theme }) => theme.media.mobile`
       width: 100%;
   `}
+  &:hover {
+    cursor: pointer;
+  }
 `
 
 export const CardImageWrapper = styled.div`

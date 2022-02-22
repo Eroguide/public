@@ -11,7 +11,7 @@ import {
   ReadMoreButton,
 } from './styles'
 import { PostCardWideProps } from './types'
-
+import Link from 'next/link'
 export const PostCardWide: React.FC<PostCardWideProps> = ({ id }) => {
   return (
     <>
@@ -31,7 +31,9 @@ export const PostCardWide: React.FC<PostCardWideProps> = ({ id }) => {
           </Description>
           <BottomLine>
             <DateText>today 19:00</DateText>
-            <ReadMoreButton>Read more</ReadMoreButton>
+            <Link href={`/journal/${id}`} passHref>
+              <ReadMoreButton>Read more</ReadMoreButton>
+            </Link>
           </BottomLine>
         </CardContent>
       </CardMainContainer>

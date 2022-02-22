@@ -57,7 +57,7 @@ export const Divider = styled.div`
   margin: 0 40px;
 `
 
-export const NavLink = styled.span`
+export const NavLink = styled.a`
   font-size: 14px;
   color: #a0a0b0;
 `

@@ -17,12 +17,24 @@ import {
 import Link from 'next/link'
 import { DrawerBottom } from '@/components/generic'
 import { useState } from 'react'
-
+import Image from 'next/image'
 const navItems = [
-  ['Private ladies', 'Salons'],
-  ['About', 'Journal'],
-  ['F.A.Q', 'Support'],
-  ['Profile', 'Invite'],
+  [
+    { name: 'Private ladies', href: '/' },
+    { name: 'Salons', href: '/' },
+  ],
+  [
+    { name: 'About', href: '/about' },
+    { name: 'Journal', href: '/journal' },
+  ],
+  [
+    { name: 'F.A.Q', href: '/faq' },
+    { name: 'Support', href: '/' },
+  ],
+  [
+    { name: 'Profile', href: '/' },
+    { name: 'Invite', href: '/' },
+  ],
 ]
 
 export const Footer: React.FC = () => {
@@ -37,14 +49,14 @@ export const Footer: React.FC = () => {
       <FooterContainer>
         <FooterInner>
           <FooterLogo>
-            <img width="130" height="auto" src="/img/logo.png" alt="" />
+            <Image width="130" height="24" src="/img/logo.png" alt="" />
           </FooterLogo>
           <FooterLinks>
             {navItems.map((item, i) => (
               <LinkGroup key={`group-links-${i}`}>
                 {item.map((linkName) => (
-                  <Link key={linkName} href={'/'}>
-                    {linkName}
+                  <Link key={linkName.name} href={linkName.href}>
+                    {linkName.name}
                   </Link>
                 ))}
               </LinkGroup>

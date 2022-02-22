@@ -19,7 +19,14 @@ import { Card } from '@/components/generic'
 
 import ArrowLeftIcon from '../../../../public/img/arrow-left.svg'
 import ArrowRightIcon from '../../../../public/img/arrow-right.svg'
-
+export type ShowNewProps = {
+  date: number
+  id: string
+  tag?: string
+  slug: string
+  isLastInGroup?: boolean
+  writeDateTitle?: boolean
+}
 export const ShowNewItems: React.FC<{
   title: string
   itemsToShow: number
@@ -57,14 +64,7 @@ export const ShowNewItems: React.FC<{
     },
   }
 
-  const fixtures: Array<{
-    date: number
-    id: string
-    tag?: string
-    slug: string
-    isLastInGroup?: boolean
-    writeDateTitle?: boolean
-  }> = [
+  const fixtures: Array<ShowNewProps> = [
     { id: '222dsadas', slug: 'one-project-time', tag: 'bewst', date: 1 },
     { id: 'asddsad222sadasd', slug: 'two-project-time', tag: 'bewst', date: 2 },
     { id: 'asdsad3242asd', slug: 'three-project-time', tag: 'bewst', date: 2 },
@@ -80,17 +80,17 @@ export const ShowNewItems: React.FC<{
     { id: 'xfffsadasssd', slug: 'four-project-time', date: 8 },
   ]
   const [initSlider, setInitSlider] = useState<boolean>(false)
-  const groupsGen: any = fixtures.reduce((groups, game) => {
-    const date = String(game.date)
-    // @ts-ignore
-    if (!groups[date]) {
-      // @ts-ignore
-      groups[date] = []
-    }
-    // @ts-ignore
-    groups[date].push(game)
-    return groups
-  }, {})
+  const groupsGen: Array<Array<ShowNewProps>> = fixtures.reduce(
+    (groups, game) => {
+      const date = String(game.date)
+      if (!groups[date]) {
+        groups[date] = []
+      }
+      groups[date].push(game)
+      return groups
+    },
+    []
+  )
 
   // Edit: to add it in the array format instead
   const groupArrays = Object.keys(groupsGen).map((date) => {

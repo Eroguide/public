@@ -10,8 +10,8 @@ import {
 } from './styles'
 import { HeartCounter } from '@/components/layouts/Header/HeartCounter'
 import PersonIcon from './assets/person-icon.svg'
-import { HeartCounterWrapper } from '@/components/layouts/Header/HeartCounter/styles'
 import { useRouter } from 'next/router'
+import Link from 'next/link'
 
 export const Header: React.FC = () => {
   const { push } = useRouter()
@@ -26,14 +26,18 @@ export const Header: React.FC = () => {
               })
             }
           >
-            <img src="/img/logo.png" alt="" />
+            <img width="130" height="24" src="/img/logo.png" alt="" />
           </Logo>
           <Divider />
           <NavLink>Prague</NavLink>
         </LeftBlock>
         <RightBlock>
-          <NavLink>About</NavLink>
-          <NavLink>Journal</NavLink>
+          <Link href="/about" passHref>
+            <NavLink>About</NavLink>
+          </Link>
+          <Link href="/journal" passHref>
+            <NavLink>Journal</NavLink>
+          </Link>
           <HeartCounter />
           <PersonalLink>
             <PersonIcon />

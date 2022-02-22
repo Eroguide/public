@@ -1,4 +1,5 @@
 import styled from '@emotion/styled'
+import Link from 'next/link'
 
 export const CardMainContainer = styled.div<{ margin?: string }>`
   width: 302px;
@@ -67,10 +68,11 @@ export const CardContent = styled.div`
   z-index: 10;
 `
 
-export const Title = styled.div`
+export const TitleLink = styled.a`
   font-size: ${({ theme }) => theme.fontSize['xl']};
   font-weight: 600;
   color: ${({ theme }) => theme.grayScale[4]};
+  cursor: pointer;
 `
 
 export const Description = styled.div`

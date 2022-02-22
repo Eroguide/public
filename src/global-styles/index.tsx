@@ -23,6 +23,7 @@ export const globalStyles = (
       p {
         padding: 0;
         margin: 0;
+        line-height: 1.6;
       }
 
       h1,

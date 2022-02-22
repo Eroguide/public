@@ -5,6 +5,15 @@ export const CardGalleryContainer = styled.div`
   width: 100%;
   flex-flow: row wrap;
 `
+export const MessageBox = styled.span`
+  display: flex;
+  width: 100%;
+  height: 300px;
+  justify-content: center;
+  align-items: center;
+  font-size: ${({ theme }) => theme.fontSize.xl};
+  color: ${({ theme }) => theme.grayScale[2]};
+`
 
 export const GalleryItem = styled.div`
   margin: 0 12px;

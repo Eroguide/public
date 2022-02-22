@@ -8,7 +8,7 @@ import {
   CardImageWrapper,
   ImageProduct,
   CardContent,
-  Title,
+  TitleLink,
   Description,
   Price,
   ScheduleButton,
@@ -88,7 +88,9 @@ export const Card: React.FC<CardProps> = ({ id, slug, tagTitle, margin }) => {
           <CardContent>
             <Row>
               <Left>
-                <Title>Alesandra,23</Title>
+                <Link href={`/gallery/${id}`}>
+                  <TitleLink>Alesandra,23</TitleLink>
+                </Link>
               </Left>
               <FavoriteButton
                 isActive={isActive}

@@ -23,7 +23,7 @@ import {
 } from './styles'
 import BlueCheckIcon from '/public/img/check-blue-lg.svg'
 import StartIcon from '/public/img/start-lined.svg'
-import HeartLined from '/public/img/heart-lined.svg'
+// import HeartLined from '/public/img/heart-lined.svg'
 import Heart from '/public/img/heart.svg'
 import Cloud from '/public/img/cloud-icon.svg'
 import Whazaap from '/public/img/whazaap-icon.svg'
@@ -67,9 +67,7 @@ export const SinglePageContent: React.FC = () => {
                 </Parameter>
               </ParametersList>
             </FirstSection>
-
             <Divider />
-
             <ButtonsRow>
               <IconWrapper>
                 {/*<HeartLined />*/}
@@ -83,12 +81,9 @@ export const SinglePageContent: React.FC = () => {
               </IconWrapper>
               <ButtonLined> Contact</ButtonLined>
             </ButtonsRow>
-
             <Divider />
-
             <MemberSince>Member 655054 since Mar 15. 2021</MemberSince>
           </Widget>
-
           <Widget>
             <ScheduleBlockWidget>
               <LastCheckDate>

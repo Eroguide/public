@@ -39,21 +39,11 @@ const Home: NextPage = () => {
           counterTitle="All salons"
           itemsToShow={3}
         >
-          <SwiperSlide>
-            <SalonCard />
-          </SwiperSlide>
-          <SwiperSlide>
-            <SalonCard />
-          </SwiperSlide>
-          <SwiperSlide>
-            <SalonCard />
-          </SwiperSlide>
-          <SwiperSlide>
-            <SalonCard />
-          </SwiperSlide>
-          <SwiperSlide>
-            <SalonCard />
-          </SwiperSlide>
+          {fixtures.map((item) => (
+            <SwiperSlide key={item.id}>
+              <SalonCard {...item} />
+            </SwiperSlide>
+          ))}
         </ContentCardRow>
 
         <ContentCardRow

@@ -1,5 +1,5 @@
 import TextTruncate from 'react-text-truncate'
-
+import Link from 'next/link'
 import {
   CardMainContainer,
   CardImageWrapper,
@@ -10,7 +10,7 @@ import { PostCardProps } from './types'
 
 export const PostCard: React.FC<PostCardProps> = ({ id }) => {
   return (
-    <>
+    <Link href={`/journal/${id}`}>
       <CardMainContainer>
         <CardImageWrapper>
           <ImageProduct />
@@ -24,6 +24,6 @@ export const PostCard: React.FC<PostCardProps> = ({ id }) => {
           />
         </Description>
       </CardMainContainer>
-    </>
+    </Link>
   )
 }

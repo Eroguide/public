@@ -30,7 +30,7 @@ import RatingStartIcon from 'public/img/star-icon.svg'
 import DotIcon from 'public/img/dot.svg'
 import CheckIcon from 'public/img/check-blue.svg'
 import { Left, Right } from '@/components/generic/Card/styles'
-export const SalonCard: React.FC<SalonCardProps> = () => {
+export const SalonCard: React.FC<SalonCardProps> = ({ id }) => {
   return (
     <SalonCardMainContainer>
       <SalonCardInner>
@@ -39,7 +39,9 @@ export const SalonCard: React.FC<SalonCardProps> = () => {
             <ImageOverlay>
               <InformationContent>
                 <LeftBlock>
-                  <Title>Nasty ladies room</Title>
+                  <Link href={`/salons/${id}`} passHref>
+                    <Title>Nasty ladies room</Title>
+                  </Link>
                   <Description>Prague 2</Description>
                 </LeftBlock>
                 <RightBlock>
@@ -52,7 +54,7 @@ export const SalonCard: React.FC<SalonCardProps> = () => {
         </CardImageWrapper>
         <CardContent>
           <SmallGallery>
-            <Link href={'#'}>
+            <Link href={'#'} passHref>
               <SmallGalleryItem>
                 <WorkingHoursTag>12-20</WorkingHoursTag>
                 <SmallGalleryItemDescription>
@@ -61,7 +63,7 @@ export const SalonCard: React.FC<SalonCardProps> = () => {
                 </SmallGalleryItemDescription>
               </SmallGalleryItem>
             </Link>
-            <Link href={'#'}>
+            <Link href={'#'} passHref>
               <SmallGalleryItem>
                 <WorkingHoursTag>12-20</WorkingHoursTag>
                 <SmallGalleryItemDescription>
@@ -70,7 +72,7 @@ export const SalonCard: React.FC<SalonCardProps> = () => {
                 </SmallGalleryItemDescription>
               </SmallGalleryItem>
             </Link>
-            <Link href={'#'}>
+            <Link href={'#'} passHref>
               <SmallGalleryItem>
                 <WorkingHoursTag>12-20</WorkingHoursTag>
                 <SmallGalleryItemDescription>

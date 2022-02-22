@@ -67,9 +67,9 @@ export const FilterScroll: React.FC = () => {
         <Swiper {...swiperSettings} onAfterInit={() => setInitSlider(true)}>
           {initSlider
             ? options.map((option, i) => (
-                <SwiperSlide>
-                  <Link href={`/gallery/${option}`}>
-                    <FilterCategory key={`${option}-${i}`}>
+                <SwiperSlide key={`${option}-${i}`}>
+                  <Link href={`/gallery/${option}`} passHref>
+                    <FilterCategory>
                       <CategoryTitle>{option}</CategoryTitle>
                       <FilterCounter>232</FilterCounter>
                     </FilterCategory>

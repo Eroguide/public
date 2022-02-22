@@ -52,11 +52,12 @@ export const ImageOverlay = styled.div`
   );
 `
 
-export const Title = styled.h3`
+export const Title = styled.a`
   font-size: ${({ theme }) => theme.fontSize['xl']};
   font-weight: 600;
   color: ${({ theme }) => theme.grayScale[0]};
   margin: 0;
+  text-decoration: none;
 `
 
 export const CounterText = styled.span`
@@ -163,7 +164,7 @@ export const SmallGalleryImageOverlay = styled.div`
   inset: 0;
 `
 
-export const SmallGalleryItem = styled.span`
+export const SmallGalleryItem = styled.div`
   width: 116px;
   height: 168px;
   border-radius: 10px;

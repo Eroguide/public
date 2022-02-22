@@ -1,0 +1,1 @@
+export { GalleryLanding } from './GalleryLanding'
