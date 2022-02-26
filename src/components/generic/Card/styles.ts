@@ -1,13 +1,17 @@
 import styled from '@emotion/styled'
-import Link from 'next/link'
 
-export const CardMainContainer = styled.div<{ margin?: string }>`
-  width: 302px;
+export const CardMainContainer = styled.div<{
+  margin?: string
+  inSwipe?: boolean
+}>`
+  width: ${({ inSwipe }) => (inSwipe ? '100%' : '302px')};
+  min-width: 302px;
   flex-direction: column;
   border-radius: 32px;
   ${({ margin }) => margin && `margin:${margin};`}
   margin-bottom: 32px;
   position: relative;
+
   ${({ theme }) => theme.media.mobile`
       width: 100%;
   `}

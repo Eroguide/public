@@ -3,4 +3,5 @@ export type PostCardWideProps = {
   description?: string
   imageUrl?: string
   id?: string
+  inSwipe?: boolean
 }

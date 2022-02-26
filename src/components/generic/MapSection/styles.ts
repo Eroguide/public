@@ -1,0 +1,55 @@
+import styled from '@emotion/styled'
+
+export const Container = styled.div`
+  width: 100%;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+`
+
+export const Wrapper = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 24px;
+  overflow: hidden;
+  background: gray url('/img/map.jpg') no-repeat center center;
+  background-size: cover;
+`
+
+// export const MapOverLay = styled.h1`
+//   font-size: ${({ theme }) => theme.fontSize['extra']};
+//   font-weight: 600;
+//   color: ${({ theme }) => theme.primary[0]};
+//   margin-bottom: 56px;
+//   ${({ theme }) => theme.media.mobile`
+//   font-size: ${theme.fontSize['extraMobile']};
+//   `}
+// `
+
+export const MapOverLay = styled.div`
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+`
+
+export const ButtonMap = styled.button`
+  color: ${({ theme }) => theme.grayScale[0]};
+  background-color: ${({ theme }) => theme.primary[0]};
+  height: 48px;
+  border-radius: 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  padding: 12px 32px;
+  font-size: ${({ theme }) => theme.fontSize['s']};
+`
+
+// background-color: ${({ theme }) => theme.grayScale[1]};

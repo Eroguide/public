@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 
-export const SalonCardMainContainer = styled.div`
-  width: 410px;
+export const SalonCardMainContainer = styled.div<{ inSwipe?: boolean }>`
+  width: ${({ inSwipe }) => (inSwipe ? '100%' : '410px')};
   height: 520px;
   flex-direction: column;
   border-radius: 32px;

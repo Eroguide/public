@@ -30,9 +30,9 @@ import RatingStartIcon from 'public/img/star-icon.svg'
 import DotIcon from 'public/img/dot.svg'
 import CheckIcon from 'public/img/check-blue.svg'
 import { Left, Right } from '@/components/generic/Card/styles'
-export const SalonCard: React.FC<SalonCardProps> = ({ id }) => {
+export const SalonCard: React.FC<SalonCardProps> = ({ id, inSwipe }) => {
   return (
-    <SalonCardMainContainer>
+    <SalonCardMainContainer inSwipe={inSwipe}>
       <SalonCardInner>
         <CardImageWrapper>
           <ImageProduct>

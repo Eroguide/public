@@ -2,7 +2,11 @@ import styled from '@emotion/styled'
 
 export const Container = styled.div`
   width: 100%;
-  height: 70vh;
+  height: 60vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 `
 
 export const Wrapper = styled.div`
@@ -11,6 +15,7 @@ export const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   text-align: center;
+  max-width: 720px;
 `
 
 export const HeroTitle = styled.h1`
@@ -27,7 +32,7 @@ export const DescriptionText = styled.p`
   font-size: ${({ theme }) => theme.fontSize['xl']};
   font-weight: 600;
   color: ${({ theme }) => theme.grayScale[4]};
-  max-width: 50%;
+  width: 100%;
   margin: auto;
 `
 

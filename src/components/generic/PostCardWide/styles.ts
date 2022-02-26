@@ -1,7 +1,8 @@
 import styled from '@emotion/styled'
 
-export const CardMainContainer = styled.div`
-  width: 628px;
+export const CardMainContainer = styled.div<{ inSwipe?: boolean }>`
+  width: ${({ inSwipe }) => (inSwipe ? '100%' : '628px')};
+  min-width: 500px;
   flex-direction: column;
   border-radius: 32px;
   margin-bottom: 32px;
@@ -9,6 +10,7 @@ export const CardMainContainer = styled.div`
   position: relative;
   ${({ theme }) => theme.media.mobile`
       width: 100%;
+      min-width: 320px;
   `}
 `
 

@@ -1,7 +1,6 @@
 import {
   Container,
   Wrapper,
-  Divider,
   FilterPanel,
   LeftFilters,
   RightFilters,
@@ -24,6 +23,7 @@ export const GalleryContent: React.FC = () => {
         <LeftFilters>Buttons</LeftFilters>
         <RightFilters>1756 posts</RightFilters>
       </FilterPanel>
+
       <Container>
         <Wrapper>
           {fixtures.map((item) => (

@@ -1,0 +1,1 @@
+export { FaqNav } from './FaqNav'

@@ -2,6 +2,7 @@ import { NextPage } from 'next'
 import Head from 'next/head'
 import { BaseLayout } from '@/components/layouts/BaseLayout'
 import { CardGallery } from '@/components/generic'
+
 const fixtures = [
   { id: '222dsadas', slug: 'one-project-time', best: 1 },
   { id: 'asddsad222sadasd', slug: 'two-project-time', best: 0 },
@@ -12,6 +13,7 @@ const fixtures = [
   { id: 'asdsad3242asdssdss', slug: 'three-project-time', best: 0 },
   { id: 'asdsdadasfffsadadsdsdsd', slug: 'four-project-time', best: 0 },
 ]
+
 const Gallery: NextPage = () => {
   return (
     <>

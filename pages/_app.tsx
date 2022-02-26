@@ -4,13 +4,19 @@ import { store, StoreonCustomContext } from '@/store/index'
 import { globalStyles } from '@/src/global-styles'
 import { theme } from '@/src/theme'
 
+import { ApolloProvider } from '@apollo/client'
+import { useApollo } from '../lib/apollo'
+
 function MyApp({ Component, pageProps }: AppProps) {
+  const apolloClient = useApollo(pageProps.initialApolloState)
   return (
     <ThemeProvider theme={theme}>
       {globalStyles}
-      <StoreonCustomContext.Provider value={store}>
-        <Component {...pageProps} />
-      </StoreonCustomContext.Provider>
+      <ApolloProvider client={apolloClient}>
+        <StoreonCustomContext.Provider value={store}>
+          <Component {...pageProps} />
+        </StoreonCustomContext.Provider>
+      </ApolloProvider>
     </ThemeProvider>
   )
 }

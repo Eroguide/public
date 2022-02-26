@@ -6,7 +6,7 @@ export const TopLineContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 80px;
+  margin-bottom: 64px;
   margin-top: 24px;
 `
 

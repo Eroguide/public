@@ -12,10 +12,10 @@ import {
 } from './styles'
 import { PostCardWideProps } from './types'
 import Link from 'next/link'
-export const PostCardWide: React.FC<PostCardWideProps> = ({ id }) => {
+export const PostCardWide: React.FC<PostCardWideProps> = ({ id, inSwipe }) => {
   return (
     <>
-      <CardMainContainer>
+      <CardMainContainer inSwipe={inSwipe}>
         <CardImageWrapper>
           <ImageProduct />
         </CardImageWrapper>

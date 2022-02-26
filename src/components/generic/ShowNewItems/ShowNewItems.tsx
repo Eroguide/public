@@ -29,30 +29,30 @@ export type ShowNewProps = {
 }
 export const ShowNewItems: React.FC<{
   title: string
-  itemsToShow: number
+  itemsToShow: Array<number>
 }> = ({ title, itemsToShow }) => {
   const navigationPrevRef = useRef<HTMLDivElement>(null)
   const navigationNextRef = useRef<HTMLDivElement>(null)
   const swiperSettings: SwiperOptions = {
-    slidesPerView: itemsToShow,
+    slidesPerView: itemsToShow[0],
     freeMode: true,
     modules: [FreeMode, Navigation],
     spaceBetween: 16,
     breakpoints: {
       0: {
-        slidesPerView: 1,
+        slidesPerView: itemsToShow[3],
         spaceBetween: 12,
       },
       700: {
-        slidesPerView: 2,
+        slidesPerView: itemsToShow[2],
         spaceBetween: 12,
       },
       991: {
-        slidesPerView: 3,
+        slidesPerView: itemsToShow[1],
         spaceBetween: 16,
       },
       1420: {
-        slidesPerView: itemsToShow,
+        slidesPerView: itemsToShow[0],
         spaceBetween: 16,
       },
     },
@@ -129,7 +129,12 @@ export const ShowNewItems: React.FC<{
             arrayFixturesWithDate.map((item) => (
               <SwiperSlide key={item.id}>
                 <>
-                  <Card {...item} tagTitle={item.tag} margin="0 15px 0 0" />
+                  <Card
+                    {...item}
+                    tagTitle={item.tag}
+                    margin="0 15px 0 0"
+                    inSwipe
+                  />
                   {item.date && (
                     <>
                       <TimeLine date={item.date} isLast={item.isLastInGroup} />

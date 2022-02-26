@@ -23,6 +23,8 @@
       "@/src/*": ["src/*"],
       "@/theme/*": ["src/theme/*"],
       "@/hooks/*": ["src/hooks/*"],
+      "@/graphql/*": ["graphql/*"],
+      "@/lib/*": ["lib/*"],
     }
   },
   "include": [

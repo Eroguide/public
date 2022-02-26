@@ -1,7 +1,6 @@
 import {
   Container,
   Wrapper,
-  Divider,
   TagLine,
   LeftTag,
   RightDate,
@@ -9,8 +8,8 @@ import {
   SubTitle,
   Text,
 } from './styles'
-import { ContentCardRow, PostCard, PostCardWide } from '@/components/generic'
-import { BaseLayout } from '@/components/layouts/BaseLayout'
+import { ContentCardRow, PostCard } from '@/components/generic'
+import Image from 'next/image'
 const fixtures = [
   { id: '222dsadas', slug: 'one-project-time', best: 1 },
   { id: 'asddsad222sadasd', slug: 'two-project-time', best: 0 },
@@ -67,13 +66,9 @@ export const SinglePostContent: React.FC = () => {
             sed ipsum ut dictum. Amet semper eu mauris et et cursus a,
             parturient. Et in iaculis fringilla sit ipsum quisque massa dui.
           </Text>
-          <imgsssss
-            src="/img/dog.jpg"
-            width="100%"
-            height="auto"
-            alt=""
-            style={{ marginBottom: '56px' }}
-          />
+          <div style={{ marginBottom: '56px', width: '100%' }}>
+            <Image src="/img/dog.jpg" width="100%" height="24px" alt="" />
+          </div>
           <Text>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ultrices
             pellentesque curabitur vel amet. Mauris tempor bibendum tempor sit
@@ -96,11 +91,11 @@ export const SinglePostContent: React.FC = () => {
         title="Recent posts"
         counter={34}
         counterTitle="All posts"
-        itemsToShow={4}
+        itemsToShow={[4, 3, 2, 1]}
       >
         {fixtures.map((item) => (
           <SwiperSlide key={item.id}>
-            <PostCard {...item} tagTitle={item.tag} />
+            <PostCard {...item} tagTitle={item.tag} inSwipe />
           </SwiperSlide>
         ))}
       </ContentCardRow>

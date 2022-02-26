@@ -1,0 +1,58 @@
+import styled from '@emotion/styled'
+
+export const AccordionItemContainer = styled.div`
+  width: 100%;
+  flex-direction: column;
+  display: flex;
+`
+
+export const ItemTitle = styled.h4`
+  width: 100%;
+  display: flex;
+`
+
+export const ItemContent = styled.div<{ isActive: boolean }>`
+  width: 100%;
+  padding: ${({ isActive }) => (isActive ? '24px 0' : '0')};
+  display: flex;
+  height: ${({ isActive }) => (isActive ? 'auto' : '0')};
+  overflow: hidden;
+  border-top: ${({ theme, isActive }) =>
+    isActive ? `1px ` : `0px ` + 'solid ' + theme.grayScale[1]};
+  transition: 0.3s ease-in-out;
+  position: relative;
+  p {
+    opacity: ${({ isActive }) => (isActive ? '1' : '0')};
+    transition: 0.3s ease-in-out;
+  }
+`
+
+export const FaqText = styled.p`
+  width: 100%;
+  font-size: ${({ theme }) => theme.fontSize.s};
+  color: ${({ theme }) => theme.grayScale[3]};
+  text-align: left;
+  transition: 0.3s ease-in-out;
+`
+
+export const ItemTop = styled.div`
+  width: 100%;
+  border-top: 1px solid ${({ theme }) => theme.grayScale[1]};
+  padding: 24px 16px 24px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+`
+
+export const IconWrapper = styled.div<{ isActive: boolean }>`
+  width: 24px;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  svg {
+    transform: rotate(${({ isActive }) => (isActive ? '90deg' : '-90deg')});
+    transition: transform 0.15s ease-in-out;
+  }
+`

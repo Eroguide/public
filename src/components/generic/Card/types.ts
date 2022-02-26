@@ -5,4 +5,5 @@ export type CardProps = FavoritesItems & {
   withTimeLine?: boolean
   margin?: string
   date?: number
+  inSwipe?: boolean
 }

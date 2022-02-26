@@ -36,6 +36,17 @@ export const RightFilters = styled.div`
 export const Wrapper = styled.div`
   flex-flow: column wrap;
   width: 50%;
+  display: flex;
+  align-items: center;
+  ${({ theme }) => theme.media.md`
+      width: 100%;
+  `}
+  ${({ theme }) => theme.media.sm`
+     width: 100%;
+  `}
+  ${({ theme }) => theme.media.mobile`
+     width: 100%;
+  `}
 `
 
 export const PostsCounter = styled.span`

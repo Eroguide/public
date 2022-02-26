@@ -33,7 +33,13 @@ import HeartLinedIcon from 'public/img/heart-lined.svg'
 import { CardProps } from './types'
 import { FavoritesActions } from '@/store/favoritsModule'
 
-export const Card: React.FC<CardProps> = ({ id, slug, tagTitle, margin }) => {
+export const Card: React.FC<CardProps> = ({
+  id,
+  slug,
+  tagTitle,
+  margin,
+  inSwipe,
+}) => {
   const {
     dispatch,
     favorites: { items },
@@ -53,7 +59,7 @@ export const Card: React.FC<CardProps> = ({ id, slug, tagTitle, margin }) => {
 
   return (
     <>
-      <CardMainContainer margin={margin}>
+      <CardMainContainer margin={margin} inSwipe={inSwipe}>
         <CardInner>
           <CardImageWrapper>
             <ImageProduct>
@@ -88,7 +94,7 @@ export const Card: React.FC<CardProps> = ({ id, slug, tagTitle, margin }) => {
           <CardContent>
             <Row>
               <Left>
-                <Link href={`/gallery/${id}`}>
+                <Link href={`/gallery/${id}`} passHref>
                   <TitleLink>Alesandra,23</TitleLink>
                 </Link>
               </Left>
