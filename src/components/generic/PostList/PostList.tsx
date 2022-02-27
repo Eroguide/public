@@ -1,6 +1,7 @@
 import { useState } from 'react'
-import { Swiper } from 'swiper/react'
+import { Swiper, SwiperSlide } from 'swiper/react'
 import { Pagination, SwiperOptions, FreeMode } from 'swiper'
+
 import {
   PostListRowContainer,
   TopLine,
@@ -13,13 +14,13 @@ import {
   ErrorMessage,
 } from './styles'
 import { ContentCardRow, PostCard } from '@/components/generic'
-import { SwiperSlide } from 'swiper/react/swiper-react'
 
 export const PostList: React.FC<{
   title: string
   counter: number
   counterTitle: string
-}> = ({ children, title, counterTitle, counter }) => {
+  postData: Array<any>
+}> = ({ children, title, counterTitle, counter, postData }) => {
   const swiperSettings: SwiperOptions = {
     slidesPerView: 4,
     loop: true,
@@ -60,14 +61,18 @@ export const PostList: React.FC<{
       </TopLine>
       <ContentRow>
         <Swiper {...swiperSettings} onAfterInit={() => setInitSlider(true)}>
-          lala
-          {/*{initSlider*/}
-          {/*  ? allPosts.map((post) => (*/}
-          {/*      <SwiperSlide key={post.id}>*/}
-          {/*        <PostCard {...post} tagTitle={post.tag} inSwipe />*/}
-          {/*      </SwiperSlide>*/}
-          {/*    ))*/}
-          {/*  : 'loading'}*/}
+          {initSlider
+            ? postData.map((post) => (
+                <SwiperSlide key={post.mission_name}>
+                  <PostCard
+                    {...post}
+                    title={post.mission_name}
+                    tagTitle={post.tag}
+                    inSwipe
+                  />
+                </SwiperSlide>
+              ))
+            : 'loading'}
         </Swiper>
       </ContentRow>
     </PostListRowContainer>

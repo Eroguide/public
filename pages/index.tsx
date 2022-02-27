@@ -14,6 +14,13 @@ import {
 } from '@/components/generic'
 import { SwiperSlide } from 'swiper/react'
 import { ShowNewItems } from '@/components/generic/ShowNewItems'
+
+import { testQuery } from '@/graphql/queries.graphql'
+// import { apolloClient } from '../graphql/index'
+import { addApolloState, initializeApollo } from '@/graphql/apollo'
+// import { LAUNCH_TILE_DATA } from '@/graphql/schema'
+// import { initializeApollo } from '@/graphql/apollo'
+
 const fixtures = [
   { id: '222dsadas', slug: 'one-project-time', best: 1 },
   { id: 'asddsad222sadasd', slug: 'two-project-time', best: 0 },
@@ -23,12 +30,10 @@ const fixtures = [
   { id: 'asdsdadvadasd', slug: 'four-project-time', best: 0 },
   { id: 'xfffsadasd', slug: 'four-project-time', best: 0, tag: 'dsd' },
 ]
-import { initializeApollo } from '@/lib/apollo'
-import { typeDefs } from '@/lib/schema'
-import { GET_LAUNCHES } from './launches'
 
-const Home: NextPage = ({ props }) => {
-  console.log('data', props)
+const Home: NextPage = ({ launches }) => {
+  console.log('props', launches)
+
   return (
     <>
       <Head>
@@ -39,10 +44,7 @@ const Home: NextPage = ({ props }) => {
       <BaseLayout>
         <HeroBanner />
         <HeroFilters />
-        {/*<CategoryScroll />*/}
-
         <ShowNewItems itemsToShow={[4, 3, 2, 1]} title={'New'} />
-
         <ContentCardRow
           title="Salons"
           counter={535}
@@ -77,7 +79,7 @@ const Home: NextPage = ({ props }) => {
         >
           {fixtures.map((item) => (
             <SwiperSlide key={item.id}>
-              <PostCard {...item} tagTitle={item.tag} inSwipe />
+              <PostCard {...item} title={item.tag} inSwipe />
             </SwiperSlide>
           ))}
         </ContentCardRow>
@@ -94,7 +96,12 @@ const Home: NextPage = ({ props }) => {
             </SwiperSlide>
           ))}
         </ContentCardRow>
-        <PostList title="New posts" counter={23} counterTitle="All posts" />
+        <PostList
+          title="New posts"
+          counter={23}
+          counterTitle="All posts"
+          postData={launches}
+        />
       </BaseLayout>
     </>
   )
@@ -102,14 +109,16 @@ const Home: NextPage = ({ props }) => {
 
 export async function getServerSideProps() {
   const apolloClient = initializeApollo()
-
   const { data } = await apolloClient.query({
-    query: GET_LAUNCHES,
+    query: testQuery,
   })
   console.log('data', data)
-  return {
-    props: { data },
-  }
+
+  return addApolloState(apolloClient, {
+    props: {
+      launches: data.launchesPast,
+    },
+  })
 }
 
 export default Home

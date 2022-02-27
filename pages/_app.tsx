@@ -5,10 +5,11 @@ import { globalStyles } from '@/src/global-styles'
 import { theme } from '@/src/theme'
 
 import { ApolloProvider } from '@apollo/client'
-import { useApollo } from '../lib/apollo'
+import { useApollo } from '@/graphql/apollo'
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const apolloClient = useApollo(pageProps.initialApolloState)
+  const apolloClient = useApollo(pageProps)
+  console.log('apolloClient', apolloClient)
   return (
     <ThemeProvider theme={theme}>
       {globalStyles}

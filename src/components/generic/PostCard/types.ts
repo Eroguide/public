@@ -1,5 +1,5 @@
 export type PostCardProps = {
-  tagTitle?: string
+  title?: string
   description?: string
   imageUrl?: string
   id?: string
