@@ -1,0 +1,1 @@
+export { SalonGallery } from './SalonGallery'

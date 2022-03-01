@@ -6,13 +6,16 @@ import { headerHeight } from '@/src/components/layouts/Header'
 // types
 import { BaseLayoutProps } from './types'
 
-export const BaseLayout: React.FC<BaseLayoutProps> = ({ children }) => (
+export const BaseLayout: React.FC<BaseLayoutProps> = ({
+  children,
+  noFooter,
+}) => (
   <Layout>
     <Header />
     <Container>
       <Inner topOffset={headerHeight}>
         <PageContent>{children}</PageContent>
-        <Footer />
+        {!noFooter && <Footer />}
       </Inner>
     </Container>
   </Layout>

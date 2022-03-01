@@ -17,7 +17,10 @@ const Journal: NextPage = () => {
       </Head>
       <BaseLayout>
         <TopLineSinglePage />
-        <GalleryLanding />
+        <GalleryLanding
+          title="Journal"
+          text="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, aperiam assumenda distinctio eaque esse, exercitationem harum inventore iste iusto maiores numquam provident quibusdam, repudiandae. Atque cum et nulla pariatur vel?"
+        />
         <GalleryContent />
       </BaseLayout>
     </>

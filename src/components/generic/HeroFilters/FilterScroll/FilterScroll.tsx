@@ -60,6 +60,24 @@ export const FilterScroll: React.FC = () => {
     freeMode: true,
     modules: [FreeMode],
     spaceBetween: 48,
+    breakpoints: {
+      0: {
+        slidesPerView: 4,
+        spaceBetween: 12,
+      },
+      700: {
+        slidesPerView: 5,
+        spaceBetween: 12,
+      },
+      991: {
+        slidesPerView: 6,
+        spaceBetween: 16,
+      },
+      1420: {
+        slidesPerView: 7,
+        spaceBetween: 16,
+      },
+    },
   }
   return (
     <FilterScrollContainer>
@@ -68,7 +86,7 @@ export const FilterScroll: React.FC = () => {
           {initSlider
             ? options.map((option, i) => (
                 <SwiperSlide key={`${option}-${i}`}>
-                  <Link href={`/gallery/${option}`} passHref>
+                  <Link href={`/category/${option}`} passHref>
                     <FilterCategory>
                       <CategoryTitle>{option}</CategoryTitle>
                       <FilterCounter>232</FilterCounter>

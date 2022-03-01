@@ -116,7 +116,7 @@ export const CardImageWrapper = styled.div`
   width: 100%;
   height: 240px;
   position: relative;
-  background: #ebebf0 url('/img/dog.jpg') no-repeat center top;
+  background: #ebebf0 url('/img/bg.jpg') no-repeat center top;
   background-size: cover;
   overflow: hidden;
   z-index: 1;
@@ -165,10 +165,10 @@ export const SmallGalleryImageOverlay = styled.div`
 `
 
 export const SmallGalleryItem = styled.div`
-  width: 116px;
+  width: 115px;
   height: 168px;
   border-radius: 10px;
-  background: url('/img/dog.jpg') no-repeat center top;
+  background: url('/img/bg.jpg') no-repeat center top;
   background-size: cover;
   overflow: hidden;
   position: relative;
@@ -229,5 +229,4 @@ export const CounterTitle = styled.span`
   margin-right: 4px;
 `
 
-export const Left = styled.div``
 export const Right = styled.div``

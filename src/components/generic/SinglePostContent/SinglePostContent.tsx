@@ -67,7 +67,7 @@ export const SinglePostContent: React.FC = () => {
             parturient. Et in iaculis fringilla sit ipsum quisque massa dui.
           </Text>
           <div style={{ marginBottom: '56px', width: '100%' }}>
-            <Image src="/img/dog.jpg" width="100%" height="24px" alt="" />
+            <Image src="/img/bg.jpg" width="100%" height="100%" alt="" />
           </div>
           <Text>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ultrices
@@ -87,15 +87,16 @@ export const SinglePostContent: React.FC = () => {
           </Text>
         </Wrapper>
       </Container>
+      {/*{//TODO make it in a separate component}*/}
       <ContentCardRow
         title="Recent posts"
         counter={34}
         counterTitle="All posts"
-        itemsToShow={[4, 3, 2, 1]}
+        itemsToShow={4}
       >
         {fixtures.map((item) => (
           <SwiperSlide key={item.id}>
-            <PostCard {...item} tagTitle={item.tag} inSwipe />
+            <PostCard {...item} title={item.tag} inSwipe />
           </SwiperSlide>
         ))}
       </ContentCardRow>

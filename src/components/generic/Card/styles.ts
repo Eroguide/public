@@ -5,13 +5,13 @@ export const CardMainContainer = styled.div<{
   inSwipe?: boolean
 }>`
   width: ${({ inSwipe }) => (inSwipe ? '100%' : '302px')};
-  min-width: 302px;
+  min-width: 312px;
   flex-direction: column;
   border-radius: 32px;
   ${({ margin }) => margin && `margin:${margin};`}
   margin-bottom: 32px;
   position: relative;
-
+  padding: 5px;
   ${({ theme }) => theme.media.mobile`
       width: 100%;
   `}
@@ -50,7 +50,7 @@ export const CardImageWrapper = styled.div`
   width: 100%;
   height: 368px;
   position: relative;
-  background: #ebebf0 url('/img/dog.jpg') no-repeat center top;
+  background: #ebebf0 url('/img/bg.jpg') no-repeat center top;
   background-size: cover;
   overflow: hidden;
   z-index: 1;
@@ -60,6 +60,7 @@ export const ImageProduct = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
+  cursor: pointer;
 `
 
 export const CardContent = styled.div`

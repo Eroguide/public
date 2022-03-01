@@ -41,3 +41,57 @@ export const CloseButton = styled.div`
   align-items: center;
   cursor: pointer;
 `
+export const InnerContent = styled.div`
+  position: relative;
+  width: 80%;
+  max-width: 860px;
+  margin: auto;
+  & {
+    -ms-overflow-style: none; /* for Internet Explorer, Edge */
+    scrollbar-width: none; /* for Firefox */
+    overflow-y: scroll;
+  }
+
+  &::-webkit-scrollbar {
+    display: none; /* for Chrome, Safari, and Opera */
+  }
+  overflow-y: scroll;
+  padding-top: 64px;
+  ${({ theme }) => theme.media.mobile`
+     width: 100%;
+  `}
+`
+
+export const HeroTitle = styled.h4`
+  font-size: ${({ theme }) => theme.fontSize['extra']};
+  font-weight: 800;
+  color: ${({ theme }) => theme.primary[0]};
+  margin-bottom: 56px;
+  text-align: center;
+  ${({ theme }) => theme.media.mobile`
+  font-size: ${theme.fontSize['extraMobile']};
+  `}
+`
+
+export const SubTitle = styled.h5`
+  font-size: ${({ theme }) => theme.fontSize['xxl']};
+  font-weight: 800;
+  color: ${({ theme }) => theme.grayScale[5]};
+  margin-bottom: 56px;
+  padding: 0 124px;
+
+  ${({ theme }) => theme.media.mobile`
+   padding: 0 64px;
+  `}
+`
+
+export const TextContent = styled.p`
+  color: ${({ theme }) => theme.grayScale[4]};
+  font-size: ${({ theme }) => theme.fontSize['m']};
+  margin-bottom: 56px;
+  padding: 0 124px;
+
+  ${({ theme }) => theme.media.mobile`
+   padding: 0 64px;
+  `}
+`

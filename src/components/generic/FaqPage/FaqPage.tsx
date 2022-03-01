@@ -27,7 +27,6 @@ export const FaqPage: React.FC = () => {
       </TitleSection>
       <FaqWrapper>
         {isSmall ? <SelectWrapper>Select</SelectWrapper> : <FaqNav />}
-
         <FaqContent />
       </FaqWrapper>
     </>

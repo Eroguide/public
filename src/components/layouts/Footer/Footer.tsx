@@ -21,7 +21,7 @@ import Image from 'next/image'
 const navItems = [
   [
     { name: 'Private ladies', href: '/' },
-    { name: 'Salons', href: '/' },
+    { name: 'Salons', href: '/salons' },
   ],
   [
     { name: 'About', href: '/about' },

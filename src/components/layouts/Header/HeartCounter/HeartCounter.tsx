@@ -9,7 +9,7 @@ export const HeartCounter: React.FC = () => {
   const {
     favorites: { items },
   } = useStoreon('favorites')
-  console.log('items.length', items.length)
+
   return (
     <HeartCounterWrapper
       onClick={() =>

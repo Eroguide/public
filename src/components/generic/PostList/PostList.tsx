@@ -11,16 +11,16 @@ import {
   CounterTitle,
   Quantity,
   Counter,
-  ErrorMessage,
 } from './styles'
-import { ContentCardRow, PostCard } from '@/components/generic'
+import { PostCard } from '@/components/generic'
+import { GetLaunches_launchesPast } from '@/graphql/__generated__/GetLaunches'
 
 export const PostList: React.FC<{
   title: string
   counter: number
   counterTitle: string
-  postData: Array<any>
-}> = ({ children, title, counterTitle, counter, postData }) => {
+  postData: Array<GetLaunches_launchesPast | null> | null
+}> = ({ title, counterTitle, counter, postData }) => {
   const swiperSettings: SwiperOptions = {
     slidesPerView: 4,
     loop: true,
@@ -46,7 +46,6 @@ export const PostList: React.FC<{
       },
     },
   }
-
   const [initSlider, setInitSlider] = useState<boolean>(false)
   return (
     <PostListRowContainer>
@@ -61,17 +60,15 @@ export const PostList: React.FC<{
       </TopLine>
       <ContentRow>
         <Swiper {...swiperSettings} onAfterInit={() => setInitSlider(true)}>
-          {initSlider
-            ? postData.map((post) => (
-                <SwiperSlide key={post.mission_name}>
-                  <PostCard
-                    {...post}
-                    title={post.mission_name}
-                    tagTitle={post.tag}
-                    inSwipe
-                  />
-                </SwiperSlide>
-              ))
+          {initSlider && postData
+            ? postData.map(
+                (post) =>
+                  post && (
+                    <SwiperSlide key={post.id}>
+                      <PostCard {...post} title={post?.mission_name} inSwipe />
+                    </SwiperSlide>
+                  )
+              )
             : 'loading'}
         </Swiper>
       </ContentRow>

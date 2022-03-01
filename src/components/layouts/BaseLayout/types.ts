@@ -10,6 +10,7 @@ export type BaseLayoutProps = {
   withDrawers?: boolean
   withoutFooter?: boolean
   customContentStructure?: boolean
+  noFooter?: boolean
 }
 
 export type InnerProps = {

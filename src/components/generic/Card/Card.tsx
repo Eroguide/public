@@ -62,41 +62,41 @@ export const Card: React.FC<CardProps> = ({
       <CardMainContainer margin={margin} inSwipe={inSwipe}>
         <CardInner>
           <CardImageWrapper>
-            <ImageProduct>
-              {tagTitle && <TopImageTag>{tagTitle}</TopImageTag>}
-              <ImageOverlay>
-                {isOpenInfo && (
-                  <AdditionalInformationContent>
-                    <LeftBlock>
-                      <ContentColumn>
-                        <InfoItem>Height: 170lb</InfoItem>
-                        <InfoItem>Weight: 350lb</InfoItem>
-                      </ContentColumn>
-                      <ContentColumn>
-                        <InfoItem>Breast: 3</InfoItem>
-                        <InfoItem>Age: 19</InfoItem>
-                      </ContentColumn>
-                    </LeftBlock>
-                    <RightBlock>sd</RightBlock>
-                  </AdditionalInformationContent>
-                )}
-              </ImageOverlay>
-              <AdditionalInformation>
-                <ChevronButton
-                  title={'appearance'}
-                  handleIsOpen={handleIsOpen}
-                  isOpen={isOpenInfo}
-                  bgColor={'white'}
-                />
-              </AdditionalInformation>
-            </ImageProduct>
+            <Link href={`/gallery/${id}`} passHref>
+              <ImageProduct>
+                {tagTitle && <TopImageTag>{tagTitle}</TopImageTag>}
+                <ImageOverlay>
+                  {isOpenInfo && (
+                    <AdditionalInformationContent>
+                      <LeftBlock>
+                        <ContentColumn>
+                          <InfoItem>Height: 170lb</InfoItem>
+                          <InfoItem>Weight: 350lb</InfoItem>
+                        </ContentColumn>
+                        <ContentColumn>
+                          <InfoItem>Breast: 3</InfoItem>
+                          <InfoItem>Age: 19</InfoItem>
+                        </ContentColumn>
+                      </LeftBlock>
+                      <RightBlock>sd</RightBlock>
+                    </AdditionalInformationContent>
+                  )}
+                </ImageOverlay>
+                <AdditionalInformation>
+                  <ChevronButton
+                    title={'appearance'}
+                    handleIsOpen={handleIsOpen}
+                    isOpen={isOpenInfo}
+                    bgColor={'white'}
+                  />
+                </AdditionalInformation>
+              </ImageProduct>
+            </Link>
           </CardImageWrapper>
           <CardContent>
             <Row>
               <Left>
-                <Link href={`/gallery/${id}`} passHref>
-                  <TitleLink>Alesandra,23</TitleLink>
-                </Link>
+                <TitleLink>Alesandra,23</TitleLink>
               </Left>
               <FavoriteButton
                 isActive={isActive}

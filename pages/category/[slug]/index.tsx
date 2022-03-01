@@ -1,7 +1,7 @@
 import { NextPage } from 'next'
 import Head from 'next/head'
 import { BaseLayout } from '@/components/layouts/BaseLayout'
-import { CardGallery } from '@/components/generic'
+import { CardGallery, TopLineSinglePage } from '@/components/generic'
 const fixtures = [
   { id: '222dsadas', slug: 'one-project-time', best: 1 },
   { id: 'asddsad222sadasd', slug: 'two-project-time', best: 0 },
@@ -21,6 +21,7 @@ const CategoryPage: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <BaseLayout>
+        <TopLineSinglePage />
         <CardGallery cards={fixtures} />
       </BaseLayout>
     </>

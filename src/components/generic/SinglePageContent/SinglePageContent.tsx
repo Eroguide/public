@@ -28,6 +28,7 @@ import Heart from '/public/img/heart.svg'
 import Cloud from '/public/img/cloud-icon.svg'
 import Whazaap from '/public/img/whazaap-icon.svg'
 import GreenCheck from '/public/img/green-check.svg'
+import { WorkingDays } from '@/components/generic'
 
 export const SinglePageContent: React.FC = () => {
   return (
@@ -37,7 +38,7 @@ export const SinglePageContent: React.FC = () => {
         <LeftWidgets>
           <Widget>
             <FirstSection>
-              <AvatarImage src="/img/dog.jpg" alt="" />
+              <AvatarImage src="/img/bg.jpg" alt="" />
               <NameWrapper>
                 <Name>Victoria</Name>
                 <BlueCheckIcon />
@@ -92,6 +93,7 @@ export const SinglePageContent: React.FC = () => {
                 </IconWrapper>
                 Schedule checked Nov 18. 2021
               </LastCheckDate>
+              <WorkingDays />
             </ScheduleBlockWidget>
           </Widget>
         </LeftWidgets>

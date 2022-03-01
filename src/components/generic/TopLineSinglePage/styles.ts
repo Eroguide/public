@@ -25,6 +25,7 @@ export const ButtonShadow = styled.a`
   cursor: pointer;
   text-decoration: none;
 `
+
 export const IconWrapper = styled.span`
   width: 16px;
   height: 16px;
@@ -32,7 +33,4 @@ export const IconWrapper = styled.span`
   align-items: center;
   display: flex;
   margin-right: 8px;
-`
-export const BreadCrumbs = styled.div`
-  display: flex;
 `

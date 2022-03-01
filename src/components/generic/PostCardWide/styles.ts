@@ -20,7 +20,7 @@ export const CardImageWrapper = styled.div`
   width: 100%;
   height: 296px;
   position: relative;
-  background: #ebebf0 url('/img/dog.jpg') no-repeat center top;
+  background: #ebebf0 url('/img/bg.jpg') no-repeat center top;
   background-size: cover;
   overflow: hidden;
 `

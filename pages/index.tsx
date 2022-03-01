@@ -14,12 +14,9 @@ import {
 } from '@/components/generic'
 import { SwiperSlide } from 'swiper/react'
 import { ShowNewItems } from '@/components/generic/ShowNewItems'
-
-import { testQuery } from '@/graphql/queries.graphql'
-// import { apolloClient } from '../graphql/index'
+import { getLaunches } from '@/graphql/queries.graphql'
 import { addApolloState, initializeApollo } from '@/graphql/apollo'
-// import { LAUNCH_TILE_DATA } from '@/graphql/schema'
-// import { initializeApollo } from '@/graphql/apollo'
+import { GetLaunches } from '@/graphql/__generated__/GetLaunches'
 
 const fixtures = [
   { id: '222dsadas', slug: 'one-project-time', best: 1 },
@@ -31,9 +28,7 @@ const fixtures = [
   { id: 'xfffsadasd', slug: 'four-project-time', best: 0, tag: 'dsd' },
 ]
 
-const Home: NextPage = ({ launches }) => {
-  console.log('props', launches)
-
+const Home: NextPage<GetLaunches> = ({ launchesPast }) => {
   return (
     <>
       <Head>
@@ -44,12 +39,12 @@ const Home: NextPage = ({ launches }) => {
       <BaseLayout>
         <HeroBanner />
         <HeroFilters />
-        <ShowNewItems itemsToShow={[4, 3, 2, 1]} title={'New'} />
+        <ShowNewItems itemsToShow={4} title={'New'} />
         <ContentCardRow
           title="Salons"
           counter={535}
           counterTitle="All salons"
-          itemsToShow={[3, 3, 2, 1]}
+          itemsToShow={3}
         >
           {fixtures.map((item) => (
             <SwiperSlide key={item.id}>
@@ -62,11 +57,16 @@ const Home: NextPage = ({ launches }) => {
           title="Private ladies"
           counter={535}
           counterTitle="All private ladies"
-          itemsToShow={[4, 3, 2, 1]}
+          itemsToShow={4}
         >
           {fixtures.map((item) => (
             <SwiperSlide key={item.id}>
-              <Card {...item} tagTitle={item.tag} margin="0 15px 0 0" inSwipe />
+              <Card
+                {...item}
+                tagTitle={item.slug}
+                margin="0 15px 0 0"
+                inSwipe
+              />
             </SwiperSlide>
           ))}
         </ContentCardRow>
@@ -75,11 +75,11 @@ const Home: NextPage = ({ launches }) => {
           title="New posts"
           counter={34}
           counterTitle="All posts"
-          itemsToShow={[4, 3, 2, 1]}
+          itemsToShow={4}
         >
           {fixtures.map((item) => (
             <SwiperSlide key={item.id}>
-              <PostCard {...item} title={item.tag} inSwipe />
+              <PostCard {...item} title={item.slug} inSwipe />
             </SwiperSlide>
           ))}
         </ContentCardRow>
@@ -88,11 +88,11 @@ const Home: NextPage = ({ launches }) => {
           title="New posts"
           counter={23}
           counterTitle="All posts"
-          itemsToShow={[2, 2, 2, 1]}
+          itemsToShow={2}
         >
           {fixtures.map((item) => (
             <SwiperSlide key={item.id}>
-              <PostCardWide {...item} tagTitle={item.tag} inSwipe />
+              <PostCardWide {...item} tagTitle={item.slug} inSwipe />
             </SwiperSlide>
           ))}
         </ContentCardRow>
@@ -100,7 +100,7 @@ const Home: NextPage = ({ launches }) => {
           title="New posts"
           counter={23}
           counterTitle="All posts"
-          postData={launches}
+          postData={launchesPast}
         />
       </BaseLayout>
     </>
@@ -110,13 +110,12 @@ const Home: NextPage = ({ launches }) => {
 export async function getServerSideProps() {
   const apolloClient = initializeApollo()
   const { data } = await apolloClient.query({
-    query: testQuery,
+    query: getLaunches,
   })
-  console.log('data', data)
 
   return addApolloState(apolloClient, {
     props: {
-      launches: data.launchesPast,
+      launchesPast: data.launchesPast,
     },
   })
 }

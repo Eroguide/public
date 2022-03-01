@@ -29,7 +29,11 @@ export const ContentRow = styled.div`
   display: flex;
   width: 100%;
   justify-content: space-between;
-  margin-top: 40px;
+  min-width: 1280px;
+  margin: 40px -5px 0 -5px;
+  ${({ theme }) => theme.media.mobile`
+       min-width: auto;
+  `}
 `
 export const NextButton = styled.div``
 export const PrevButton = styled.div``
@@ -51,9 +55,9 @@ export const NextPrevWrapper = styled.div`
 export const TimeLine = styled.div<{ date: number; isLast: boolean }>`
   ${({ theme, date }) =>
     date === 1
-      ? `background: ${theme.primary[1]};`
+      ? `background: ${theme.primary[0]};`
       : date === 2
-      ? `background: ${theme.grayScale[2]};`
+      ? `background: ${theme.primary[1]};`
       : date === 3
       ? `background: ${theme.primary[2]};`
       : `background: ${theme.grayScale[3]};`};

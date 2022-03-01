@@ -29,30 +29,26 @@ export type ShowNewProps = {
 }
 export const ShowNewItems: React.FC<{
   title: string
-  itemsToShow: Array<number>
+  itemsToShow: number
 }> = ({ title, itemsToShow }) => {
   const navigationPrevRef = useRef<HTMLDivElement>(null)
   const navigationNextRef = useRef<HTMLDivElement>(null)
   const swiperSettings: SwiperOptions = {
-    slidesPerView: itemsToShow[0],
+    slidesPerView: itemsToShow,
     freeMode: true,
     modules: [FreeMode, Navigation],
     spaceBetween: 16,
     breakpoints: {
       0: {
-        slidesPerView: itemsToShow[3],
+        slidesPerView: 1,
         spaceBetween: 12,
       },
-      700: {
-        slidesPerView: itemsToShow[2],
+      600: {
+        slidesPerView: itemsToShow,
         spaceBetween: 12,
-      },
-      991: {
-        slidesPerView: itemsToShow[1],
-        spaceBetween: 16,
       },
       1420: {
-        slidesPerView: itemsToShow[0],
+        slidesPerView: itemsToShow,
         spaceBetween: 16,
       },
     },
@@ -108,6 +104,15 @@ export const ShowNewItems: React.FC<{
   })
   const arrayFixturesWithDate = arrayGames.flat()
 
+  const days = {
+    1: 'Today',
+    2: 'Yesterday',
+    3: 'Three days ago',
+    4: 'Some date',
+    5: 'Some date',
+    8: 'Some date',
+  }
+
   return (
     <ContentCardRowContainer>
       <TopLine>
@@ -138,7 +143,7 @@ export const ShowNewItems: React.FC<{
                   {item.date && (
                     <>
                       <TimeLine date={item.date} isLast={item.isLastInGroup} />
-                      {item.writeDateTitle && <span> Today 21.24.2222</span>}
+                      {item.writeDateTitle && <span>{days[item.date]}</span>}
                     </>
                   )}
                 </>

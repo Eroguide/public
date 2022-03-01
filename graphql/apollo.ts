@@ -10,7 +10,7 @@ import isEqual from 'lodash/isEqual'
 
 export const APOLLO_STATE_PROP_NAME = 'APOLLO_STATE_PROP_NAME'
 
-let apolloClient: ApolloClient<any>
+let apolloClient: ApolloClient<NormalizedCacheObject>
 
 function createApolloClient() {
   return new ApolloClient({
@@ -24,13 +24,11 @@ function createApolloClient() {
 
 export function initializeApollo(initialState = null) {
   const _apolloClient = apolloClient ?? createApolloClient()
-  console.log('INITIALZATION', initialState)
   // If your page has Next.js data fetching methods that use Apollo Client, the initial state
   // gets hydrated here
   if (initialState) {
     // Get existing cache, loaded during client side data fetching
     const existingCache = _apolloClient.extract()
-    console.log('HYDRATE', initialState)
     // Merge the initialState from getStaticProps/getServerSideProps in the existing cache
     const data = merge(existingCache, initialState, {
       // combine arrays using object equality (like in sets)
@@ -55,7 +53,7 @@ export function initializeApollo(initialState = null) {
 
 export function addApolloState(
   client: { cache: { extract: () => any } },
-  pageProps: { props }
+  pageProps: { props: { [x: string]: any } }
 ) {
   if (pageProps?.props) {
     pageProps.props[APOLLO_STATE_PROP_NAME] = client.cache.extract()
@@ -64,7 +62,7 @@ export function addApolloState(
   return pageProps
 }
 
-export function useApollo(pageProps) {
+export function useApollo(pageProps: { [x: string]: any }) {
   if (!pageProps) {
     return
   }

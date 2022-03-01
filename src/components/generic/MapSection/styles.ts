@@ -22,24 +22,7 @@ export const Wrapper = styled.div`
   background-size: cover;
 `
 
-// export const MapOverLay = styled.h1`
-//   font-size: ${({ theme }) => theme.fontSize['extra']};
-//   font-weight: 600;
-//   color: ${({ theme }) => theme.primary[0]};
-//   margin-bottom: 56px;
-//   ${({ theme }) => theme.media.mobile`
-//   font-size: ${theme.fontSize['extraMobile']};
-//   `}
-// `
-
-export const MapOverLay = styled.div`
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-`
-
-export const ButtonMap = styled.button`
+export const ButtonMap = styled.a`
   color: ${({ theme }) => theme.grayScale[0]};
   background-color: ${({ theme }) => theme.primary[0]};
   height: 48px;
@@ -51,5 +34,3 @@ export const ButtonMap = styled.button`
   padding: 12px 32px;
   font-size: ${({ theme }) => theme.fontSize['s']};
 `
-
-// background-color: ${({ theme }) => theme.grayScale[1]};

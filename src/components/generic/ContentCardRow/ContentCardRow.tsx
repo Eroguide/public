@@ -17,29 +17,25 @@ export const ContentCardRow: React.FC<{
   title: string
   counter: number
   counterTitle: string
-  itemsToShow: Array<number>
+  itemsToShow: number
 }> = ({ children, title, counterTitle, counter, itemsToShow }) => {
   const swiperSettings: SwiperOptions = {
-    slidesPerView: 'auto',
     loop: true,
     freeMode: true,
-    modules: [Pagination, FreeMode],
+    slidesPerView: itemsToShow,
     spaceBetween: 16,
+    modules: [Pagination, FreeMode],
     breakpoints: {
       0: {
-        slidesPerView: itemsToShow[3],
+        slidesPerView: 1,
         spaceBetween: 12,
       },
-      700: {
-        slidesPerView: itemsToShow[2],
+      600: {
+        slidesPerView: itemsToShow,
         spaceBetween: 12,
       },
-      991: {
-        slidesPerView: itemsToShow[1],
-        spaceBetween: 16,
-      },
-      1420: {
-        slidesPerView: itemsToShow[0],
+      1400: {
+        slidesPerView: itemsToShow,
         spaceBetween: 16,
       },
     },

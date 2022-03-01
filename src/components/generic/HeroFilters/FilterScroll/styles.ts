@@ -18,6 +18,7 @@ export const InnerContainer = styled.div`
   display: flex;
   width: 100%;
   position: relative;
+  cursor: pointer;
   &::after {
     content: '';
     position: absolute;

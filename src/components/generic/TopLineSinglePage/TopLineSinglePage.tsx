@@ -1,9 +1,5 @@
-import {
-  TopLineContainer,
-  ButtonShadow,
-  IconWrapper,
-  BreadCrumbs,
-} from './styles'
+import { TopLineContainer, ButtonShadow, IconWrapper } from './styles'
+import { Breadcrumbs } from '@/components/generic'
 import ArrowLeftChevron from '/public/img/chevron-left.svg'
 export const TopLineSinglePage: React.FC = () => {
   return (
@@ -14,7 +10,7 @@ export const TopLineSinglePage: React.FC = () => {
         </IconWrapper>
         Go home
       </ButtonShadow>
-      <BreadCrumbs>BreadCrumbs</BreadCrumbs>
+      <Breadcrumbs />
     </TopLineContainer>
   )
 }

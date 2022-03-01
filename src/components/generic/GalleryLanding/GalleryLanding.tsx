@@ -5,17 +5,15 @@ import {
   DescriptionText,
   Divider,
 } from './styles'
-export const GalleryLanding: React.FC = () => {
+export const GalleryLanding: React.FC<{ title: string; text: string }> = ({
+  title,
+  text,
+}) => {
   return (
     <Container>
       <Wrapper>
-        <HeroTitle>Journal</HeroTitle>
-        <DescriptionText>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium
-          alias commodi consequuntur debitis, dicta doloribus eveniet excepturi
-          illum, natus neque odio quis quod ratione rerum temporibus ut
-          voluptas. Quia, rerum.
-        </DescriptionText>
+        <HeroTitle>{title}</HeroTitle>
+        <DescriptionText>{text}</DescriptionText>
       </Wrapper>
       <Divider />
     </Container>
