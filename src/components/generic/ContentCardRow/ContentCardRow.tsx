@@ -1,5 +1,5 @@
 import { Swiper } from 'swiper/react'
-import { Pagination, SwiperOptions, FreeMode } from 'swiper'
+import { Pagination, SwiperOptions, FreeMode, Navigation } from 'swiper'
 
 import {
   ContentCardRowContainer,
@@ -11,7 +11,7 @@ import {
   Quantity,
   Counter,
 } from './styles'
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 
 export const ContentCardRow: React.FC<{
   title: string
@@ -25,6 +25,7 @@ export const ContentCardRow: React.FC<{
     slidesPerView: itemsToShow,
     spaceBetween: 16,
     modules: [Pagination, FreeMode],
+
     breakpoints: {
       0: {
         slidesPerView: 1,

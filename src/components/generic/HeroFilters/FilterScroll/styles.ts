@@ -12,6 +12,7 @@ export const FilterCategory = styled.div`
   margin-right: 48px;
   align-items: center;
   min-width: 120px;
+  justify-content: center;
 `
 
 export const InnerContainer = styled.div`

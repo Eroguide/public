@@ -27,11 +27,13 @@ import {
   RightBlock,
   ContentColumn,
   InfoItem,
+  WorkingDaysWrapper,
 } from './styles'
 import HeartIcon from 'public/img/heart.svg'
 import HeartLinedIcon from 'public/img/heart-lined.svg'
 import { CardProps } from './types'
 import { FavoritesActions } from '@/store/favoritsModule'
+import { WorkingDays } from '@/components/generic'
 
 export const Card: React.FC<CardProps> = ({
   id,
@@ -95,6 +97,11 @@ export const Card: React.FC<CardProps> = ({
           </CardImageWrapper>
           <CardContent>
             <Row>
+              {isOpenSchedule && (
+                <WorkingDaysWrapper>
+                  <WorkingDays />
+                </WorkingDaysWrapper>
+              )}
               <Left>
                 <TitleLink>Alesandra,23</TitleLink>
               </Left>

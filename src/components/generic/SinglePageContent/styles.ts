@@ -19,6 +19,13 @@ export const SinglePageBody = styled.div`
   width: 90%;
   margin: auto;
   border-radius: 24px;
+  display: flex;
+  flex-direction: row;
+`
+
+export const DetailsSection = styled.div`
+  width: 100%;
+  max-width: 508px;
 `
 
 export const LeftWidgets = styled.div`
@@ -159,6 +166,7 @@ export const ButtonLined = styled.button`
 export const ScheduleBlockWidget = styled.div`
   display: flex;
   flex-direction: column;
+  width: 100%;
 `
 
 export const LastCheckDate = styled.div`
@@ -167,4 +175,103 @@ export const LastCheckDate = styled.div`
   align-items: center;
   font-size: ${({ theme }) => theme.fontSize['xs']};
   margin-bottom: 24px;
+`
+
+export const WorkingDaysWrapper = styled.div`
+  margin: 24px 0 32px 0;
+`
+
+export const PriceBlock = styled.div`
+  justify-content: center;
+  display: flex;
+  margin: 32px 0 16px 0;
+  align-items: baseline;
+`
+export const Prefix = styled.span`
+  margin-right: 4px;
+  font-size: ${({ theme }) => theme.fontSize['m']};
+  color: ${({ theme }) => theme.grayScale[3]};
+  line-height: 24px;
+`
+
+export const Price = styled.span`
+  margin-right: 4px;
+  font-size: ${({ theme }) => theme.fontSize['xxl']};
+  font-weight: 600;
+  color: ${({ theme }) => theme.grayScale[5]};
+  line-height: 24px;
+`
+
+export const Suffix = styled.span`
+  line-height: 24px;
+  font-weight: 600;
+  font-size: ${({ theme }) => theme.fontSize['m']};
+  color: ${({ theme }) => theme.grayScale[5]};
+`
+
+export const GlobusText = styled.span`
+  line-height: 24px;
+  font-weight: 600;
+  font-size: ${({ theme }) => theme.fontSize['m']};
+  color: ${({ theme }) => theme.grayScale[5]};
+  align-items: center;
+  margin-left: 8px;
+`
+
+export const WidgetInner = styled.div`
+  padding: 0 68px;
+`
+
+export const SalonImage = styled.img`
+  width: 100%;
+  height: 136px;
+  border-radius: 32px;
+  margin-bottom: 24px;
+  overflow: hidden;
+`
+
+export const Row = styled.div`
+  width: 100%;
+  margin-bottom: 32px;
+  justify-content: space-between;
+  display: flex;
+`
+
+export const TitleSalon = styled.h4`
+  font-size: ${({ theme }) => theme.fontSize['xl']};
+  font-weight: 600;
+  color: ${({ theme }) => theme.grayScale[5]};
+  max-width: 125px;
+`
+export const RatingSalon = styled.span`
+  font-size: ${({ theme }) => theme.fontSize['xl']};
+  font-weight: 600;
+  color: ${({ theme }) => theme.support[2]};
+`
+export const LocationText = styled.span`
+  font-size: ${({ theme }) => theme.fontSize['s']};
+  color: ${({ theme }) => theme.grayScale[3]};
+  margin-left: 8px;
+`
+
+export const Left = styled.div`
+  display: flex;
+  align-items: center;
+`
+
+export const Right = styled.div`
+  display: flex;
+`
+
+export const IconWrapperChevron = styled.div`
+  display: flex;
+  height: 24px;
+  width: 24px;
+  justify-content: center;
+  align-items: center;
+`
+
+export const BodyContent = styled.div`
+  width: calc(100% - 375px);
+  padding: 40px;
 `

@@ -79,3 +79,25 @@ export const ButtonLined = styled.button`
   padding: 8px 16px;
   font-size: ${({ theme }) => theme.fontSize['s']};
 `
+
+export const ButtonDarkPlay = styled.button`
+  color: ${({ theme }) => theme.grayScale[0]};
+  background-color: ${({ theme }) => theme.grayScale[5]};
+  border: 2px solid ${({ theme }) => theme.grayScale[5]};
+  height: 40px;
+  border-radius: 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 16px;
+  font-size: ${({ theme }) => theme.fontSize['m']};
+  font-weight: 600;
+  position: absolute;
+  bottom: 48px;
+  left: 24px;
+  cursor: pointer;
+  &:hover {
+    background-color: ${({ theme }) => theme.grayScale[4]};
+    border: 2px solid ${({ theme }) => theme.grayScale[4]};
+  }
+`

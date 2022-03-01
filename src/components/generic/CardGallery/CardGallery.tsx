@@ -13,9 +13,11 @@ export const CardGallery: React.FC<CardGalleryProps> = ({ cards }) => {
   return (
     <>
       <TitlePanel>
-        <LeftFilters>
-          <Counter>Salons: 136</Counter>
-        </LeftFilters>
+        {cards.length > 0 && (
+          <LeftFilters>
+            <Counter>Salons: 136</Counter>
+          </LeftFilters>
+        )}
       </TitlePanel>
       <CardGalleryContainer>
         {cards.length ? (

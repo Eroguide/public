@@ -6,7 +6,7 @@ import {
   SubTitle,
   SelectWrapper,
 } from './styles'
-
+import Link from 'next/link'
 import { useBreakpoint } from '@/hooks/useBreakpoint'
 import { breakpoints, BreakpointsEnum } from '@/src/theme'
 import { FaqNav, FaqContent } from '@/components/generic'
@@ -22,7 +22,7 @@ export const FaqPage: React.FC = () => {
         <LargeTitle>Frequently asked questions</LargeTitle>
         <SubTitle>
           Join Eroguide community now to get free updates and also of freebies
-          are waiting for you or <a href="/faq">Contact Support</a>
+          are waiting for you or <Link href="/faq">Contact Support</Link>
         </SubTitle>
       </TitleSection>
       <FaqWrapper>

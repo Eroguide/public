@@ -1,34 +1,9 @@
-import { Container, Wrapper, IconWrapper, Label, NavItem } from './styles'
-import Icon from '/public/img/heart-lined.svg'
+import { Container, Wrapper } from './styles'
+
 export const Blank: React.FC = () => {
   return (
     <Container>
-      <Wrapper>
-        <NavItem>
-          <IconWrapper>
-            <Icon />
-          </IconWrapper>
-          <Label>Navigation title</Label>
-        </NavItem>
-        <NavItem>
-          <IconWrapper>
-            <Icon />
-          </IconWrapper>
-          <Label>Navigation title</Label>
-        </NavItem>
-        <NavItem>
-          <IconWrapper>
-            <Icon />
-          </IconWrapper>
-          <Label>Navigation title</Label>
-        </NavItem>
-        <NavItem>
-          <IconWrapper>
-            <Icon />
-          </IconWrapper>
-          <Label>Navigation title</Label>
-        </NavItem>
-      </Wrapper>
+      <Wrapper>blank component</Wrapper>
     </Container>
   )
 }

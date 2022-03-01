@@ -1,6 +1,6 @@
 import { ButtonBasic, ButtonLink } from './styles'
 import Link from 'next/link'
-import Icon from '/public/img/heart-lined.svg'
+// import Icon from '/public/img/heart-lined.svg'
 
 export enum ButtonStyleTypeEnum {
   primary = 'primary',
@@ -19,15 +19,15 @@ export type ButtonProps = {
 
 export const ButtonStyled: React.FC<ButtonProps> = ({
   isLink,
-  buttonType,
-  styleType,
+  // buttonType,
+  // styleType,
   title,
   href,
 }) => {
   return (
     <>
       {isLink ? (
-        <Link href={href}>
+        <Link href={href} passHref>
           <ButtonLink>{title}</ButtonLink>
         </Link>
       ) : (

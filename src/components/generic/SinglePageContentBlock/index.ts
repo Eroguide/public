@@ -1,0 +1,1 @@
+export { SinglePageContentBlock } from './SinglePageContentBlock'

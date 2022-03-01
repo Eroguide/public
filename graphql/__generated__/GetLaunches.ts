@@ -8,11 +8,11 @@
 // ====================================================
 
 export interface GetLaunches_launchesPast {
-  __typename: "Launch";
-  mission_name: string | null;
-  id: string | null;
+  __typename: 'Launch'
+  mission_name: string
+  id: string
 }
 
 export interface GetLaunches {
-  launchesPast: (GetLaunches_launchesPast | null)[] | null;
+  launchesPast: Array<GetLaunches_launchesPast> | null
 }

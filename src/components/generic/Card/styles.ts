@@ -65,6 +65,7 @@ export const ImageProduct = styled.div`
 
 export const CardContent = styled.div`
   padding: 32px 24px;
+  height: 132px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -120,8 +121,8 @@ export const PriceSuffix = styled.div`
 export const Row = styled.div`
   display: flex;
   justify-content: space-between;
-  height: 30px;
   align-items: center;
+  position: relative;
 `
 export const Left = styled.div``
 export const Right = styled.div``
@@ -197,4 +198,11 @@ export const InfoItem = styled.div`
   color: ${({ theme }) => theme.grayScale[0]};
   font-size: ${({ theme }) => theme.fontSize['xs']};
   font-weight: 600;
+`
+
+export const WorkingDaysWrapper = styled.div`
+  position: absolute;
+  width: 100%;
+  background: ${({ theme }) => theme.grayScale[0]};
+  z-index: 50;
 `

@@ -14,7 +14,7 @@ let apolloClient: ApolloClient<NormalizedCacheObject>
 
 function createApolloClient() {
   return new ApolloClient({
-    ssrMode: typeof window === 'undefined',
+    ssrMode: !process.browser,
     link: new HttpLink({
       uri: 'https://api.spacex.land/graphql', // Server URL (must be absolute)
     }),
@@ -44,7 +44,7 @@ export function initializeApollo(initialState = null) {
     _apolloClient.cache.restore(data)
   }
   // For SSG and SSR always create a new Apollo Client
-  if (typeof window === 'undefined') return _apolloClient
+  if (!process.browser) return _apolloClient
   // Create the Apollo Client once in the client
   if (!apolloClient) apolloClient = _apolloClient
 

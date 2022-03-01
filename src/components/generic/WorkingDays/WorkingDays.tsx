@@ -1,9 +1,12 @@
 import { useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Pagination, SwiperOptions } from 'swiper'
-import { Container, Wrapper, DayCard, Day, Time } from './styles'
+import { Container, Wrapper, DayCard, Day, Time, DateTop } from './styles'
 import PlaneIcon from '/public/img/plane-icon.svg'
-export const WorkingDays: React.FC = () => {
+
+export const WorkingDays: React.FC<{ withDateTop?: boolean }> = ({
+  withDateTop,
+}) => {
   const days = [
     {
       name: 'Mon',
@@ -36,9 +39,11 @@ export const WorkingDays: React.FC = () => {
     },
   ]
   const swiperSettings: SwiperOptions = {
-    slidesPerView: 5,
+    slidesPerView: 4,
     modules: [Pagination],
+    loop: true,
     spaceBetween: 4,
+    nested: true,
   }
   const [initSlider, setInitSlider] = useState<boolean>(false)
   return (
@@ -48,6 +53,7 @@ export const WorkingDays: React.FC = () => {
           {initSlider && days
             ? days.map((day) => (
                 <SwiperSlide key={day.name}>
+                  {withDateTop && <DateTop>{day.name}</DateTop>}
                   <DayCard key={day.name}>
                     <Day isFree={day?.isFree}>{day.name}</Day>
                     {day?.isFree ? <PlaneIcon /> : <Time>{day.time}</Time>}

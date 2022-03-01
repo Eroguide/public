@@ -16,7 +16,7 @@ export const ErrorPage: React.FC = () => {
         <Left>
           <CtaBlock>
             <Title>whooops... this page is not available</Title>
-            <Link href="/">
+            <Link href="/" passHref>
               <ButtonPrimaryLink>Turn back</ButtonPrimaryLink>
             </Link>
           </CtaBlock>

@@ -17,7 +17,8 @@ import {
 import Link from 'next/link'
 import { DrawerBottom } from '@/components/generic'
 import { useState } from 'react'
-import Image from 'next/image'
+import { useRouter } from 'next/router'
+
 const navItems = [
   [
     { name: 'Private ladies', href: '/' },
@@ -39,7 +40,7 @@ const navItems = [
 
 export const Footer: React.FC = () => {
   const [drawerIsOpen, setDrawerIsOpen] = useState<boolean>(false)
-
+  const { push } = useRouter()
   const handleClose = (): void => {
     setDrawerIsOpen(false)
   }
@@ -48,9 +49,15 @@ export const Footer: React.FC = () => {
     <FooterWrapper>
       <FooterContainer>
         <FooterInner>
-          <FooterLogo>
-            <Image width="130" height="24" src="/img/logo.png" alt="" />
-          </FooterLogo>
+          <FooterLogo
+            src="/img/logo.png"
+            alt=""
+            onClick={() =>
+              push('/', undefined, {
+                shallow: true,
+              })
+            }
+          />
           <FooterLinks>
             {navItems.map((item, i) => (
               <LinkGroup key={`group-links-${i}`}>

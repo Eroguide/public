@@ -41,13 +41,10 @@ export const HeaderInner = styled.div`
   `}
 `
 
-export const Logo = styled.div`
+export const Logo = styled.img`
   width: 130px;
   height: 24px;
   cursor: pointer;
-  img {
-    width: 100%;
-  }
 `
 
 export const Divider = styled.div`

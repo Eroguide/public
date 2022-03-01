@@ -21,7 +21,7 @@ export const FooterInner = styled.div`
   `}
 `
 
-export const FooterLogo = styled.div`
+export const FooterLogoWrapper = styled.div`
   display: flex;
   padding: 50px 0;
   justify-content: flex-start;
@@ -30,6 +30,11 @@ export const FooterLogo = styled.div`
    justify-content: flex-start;
     width: 100%;
   `}
+`
+export const FooterLogo = styled.img`
+  width: 130px;
+  height: 24px;
+  cursor: pointer;
 `
 
 export const FooterLinks = styled.div`

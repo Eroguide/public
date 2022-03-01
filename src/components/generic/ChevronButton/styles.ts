@@ -9,6 +9,12 @@ export const ChevronTitle = styled.span<{
   font-weight: 600;
 `
 
+export const Container = styled.div`
+  width: 100%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+`
 export const ToggleInformation = styled.div<{
   isOpen: boolean
   bgColor: ChevronButtonProps['bgColor']
@@ -34,14 +40,12 @@ export const ToggleInformation = styled.div<{
     fill: ${({ bgColor, theme }) =>
       bgColor === 'white' ? `white` : `${theme.support[2]}`};
   }
-
   ${({ isOpen, bgColor }) =>
     isOpen &&
     `
       svg {
          transform: rotate(180deg);
       }
-      
         background-color: ${
           bgColor === 'green'
             ? `rgba(47, 194, 125, 0.08)`

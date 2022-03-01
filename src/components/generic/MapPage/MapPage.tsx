@@ -1,4 +1,4 @@
-import { Container, Wrapper, MapOverLay, ButtonMap } from './styles'
+import { Container, Wrapper, ButtonMap } from './styles'
 import GoogleMapReact, { Coords, MapOptions } from 'google-map-react'
 
 const AnyReactComponent: React.FC<Coords & { text: string }> = ({ text }) => (

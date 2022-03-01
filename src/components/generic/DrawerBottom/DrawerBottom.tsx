@@ -13,7 +13,7 @@ export const DrawerBottom: React.FC<DrawerBottomProps> = ({
   isOpen,
   handleClose,
 }) => {
-  if (!(typeof window === 'undefined')) {
+  if (process.browser) {
     if (isOpen) {
       document.body.style.height = '100vh'
       document.body.style.overflow = 'hidden'
