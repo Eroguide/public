@@ -14,7 +14,7 @@ let apolloClient: ApolloClient<NormalizedCacheObject>
 
 function createApolloClient() {
   return new ApolloClient({
-    ssrMode: !process.browser,
+    ssrMode: typeof window === 'undefined',
     link: new HttpLink({
       uri: 'https://api.spacex.land/graphql', // Server URL (must be absolute)
     }),
@@ -58,7 +58,6 @@ export function addApolloState(
   if (pageProps?.props) {
     pageProps.props[APOLLO_STATE_PROP_NAME] = client.cache.extract()
   }
-  console.log('pageProps', pageProps)
   return pageProps
 }
 

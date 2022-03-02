@@ -8,12 +8,11 @@ module.exports = {
       use: ['@svgr/webpack'],
     })
 
-    config.module.rules.push({
-      test: /\.graphqls$/,
-      exclude: /node_modules/,
-      use: ['graphql-let/schema/loader'],
-    })
-
     return config
+  },
+
+  images: {
+    loader: 'akamai',
+    path: '',
   },
 }

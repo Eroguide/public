@@ -6,7 +6,6 @@ import { theme } from '@/src/theme'
 
 import { ApolloProvider } from '@apollo/client'
 import { useApollo } from '@/graphql/apollo'
-import { ScrollButtonTop } from '@/components/generic'
 
 function MyApp({ Component, pageProps }: AppProps) {
   const apolloClient = useApollo(pageProps)
@@ -19,7 +18,6 @@ function MyApp({ Component, pageProps }: AppProps) {
       <ApolloProvider client={apolloClient}>
         <StoreonCustomContext.Provider value={store}>
           <Component {...pageProps} />
-          <ScrollButtonTop />
         </StoreonCustomContext.Provider>
       </ApolloProvider>
     </ThemeProvider>

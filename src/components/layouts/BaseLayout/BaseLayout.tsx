@@ -5,6 +5,7 @@ import { Layout, Inner, Container } from './styles'
 import { headerHeight } from '@/src/components/layouts/Header'
 // types
 import { BaseLayoutProps } from './types'
+import { ScrollButtonTop } from '@/components/generic'
 
 export const BaseLayout: React.FC<BaseLayoutProps> = ({
   children,
@@ -15,6 +16,7 @@ export const BaseLayout: React.FC<BaseLayoutProps> = ({
     <Container>
       <Inner topOffset={headerHeight}>
         <PageContent>{children}</PageContent>
+        <ScrollButtonTop />
         {!noFooter && <Footer />}
       </Inner>
     </Container>
