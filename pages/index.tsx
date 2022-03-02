@@ -17,6 +17,8 @@ import { ShowNewItems } from '@/components/generic/ShowNewItems'
 import { getLaunches } from '@/graphql/queries.graphql'
 import { addApolloState, initializeApollo } from '@/graphql/apollo'
 import { GetLaunches } from '@/graphql/__generated__/GetLaunches'
+import { useBreakpoint } from '@/hooks/useBreakpoint'
+import { breakpoints, BreakpointsEnum } from '@/src/theme'
 
 const fixtures = [
   { id: '222dsadas', slug: 'one-project-time', best: 1 },
@@ -29,6 +31,11 @@ const fixtures = [
 ]
 
 const Home: NextPage<GetLaunches> = ({ launchesPast }) => {
+  const isSmall = useBreakpoint({
+    min: breakpoints[BreakpointsEnum.xxs].min,
+    max: breakpoints[BreakpointsEnum.sm].max,
+  })
+
   return (
     <>
       <Head>
@@ -38,7 +45,7 @@ const Home: NextPage<GetLaunches> = ({ launchesPast }) => {
       </Head>
       <BaseLayout>
         <HeroBanner />
-        <HeroFilters />
+        {!isSmall && <HeroFilters />}
         <ShowNewItems itemsToShow={4} title={'New'} />
         <ContentCardRow
           title="Salons"

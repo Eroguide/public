@@ -62,11 +62,17 @@ import { ExperianceWidget } from '@/components/widgets/ExperianceWidget'
 import { VideoPlayerWidget } from '@/components/widgets/VideoPlayerWidget'
 import { AudioPlayerWidget } from '@/components/widgets/AudioPlayerWidget'
 import { LadiesGalleryWidget } from '@/components/widgets/LadiesGalleryWidget'
+import { useBreakpoint } from '@/hooks/useBreakpoint'
+import { breakpoints, BreakpointsEnum } from '@/src/theme'
 
 export const SinglePageContent: React.FC = () => {
+  const isSmall = useBreakpoint({
+    min: breakpoints[BreakpointsEnum.xxs].min,
+    max: breakpoints[BreakpointsEnum.sm].max,
+  })
   return (
     <SinglePageContentContainer>
-      <Banner />
+      {!isSmall && <Banner />}
       <SinglePageBody>
         <LeftWidgets>
           <Widget>
@@ -76,12 +82,10 @@ export const SinglePageContent: React.FC = () => {
                 <Name>Victoria</Name>
                 <BlueCheckIcon />
               </NameWrapper>
-
               <ReviewsCounter>
                 <StartIcon />
                 256 reviews
               </ReviewsCounter>
-
               <ParametersList>
                 <Parameter>
                   <ParameterTitle>interview</ParameterTitle>
@@ -176,7 +180,6 @@ export const SinglePageContent: React.FC = () => {
             </Row>
           </SalonWidget>
         </LeftWidgets>
-
         <BodyContent>
           <SinglePageContentBlock title="Photo">
             <ProductSlider />

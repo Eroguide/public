@@ -13,21 +13,35 @@ export const HeroBannerContainer = styled.div`
   align-items: flex-start;
   border: 1px solid #808080;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+
+  ${({ theme }) => theme.media.mobile`
+      max-height: 320px
+  `}
 `
 
 export const HeroTitle = styled.h1`
-  font-size: 96px;
+  font-size: ${({ theme }) => theme.fontSize.extra};
   font-weight: 800;
-  color: #40404a;
+  color: ${({ theme }) => theme.grayScale[4]};
   margin: 0;
   max-width: 500px;
   line-height: 80px;
+
+  ${({ theme }) => theme.media.mobile`
+     font-size: ${theme.fontSize.extraMobile};
+     line-height:${theme.fontSize.extraMobile};
+  `}
 `
 
 export const HeroSubtitle = styled.h2`
   margin: 40px 0 0 0;
   font-size: 24px;
   font-weight: 600;
-  color: #ff005d;
+  color: ${({ theme }) => theme.primary[0]};
   max-width: 500px;
+`
+
+export const MobileTitleContainer = styled.div`
+  margin-top: 40px;
+  margin-bottom: 146px;
 `

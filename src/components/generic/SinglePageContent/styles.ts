@@ -21,11 +21,31 @@ export const SinglePageBody = styled.div`
   border-radius: 24px;
   display: flex;
   flex-direction: row;
+
+  ${({ theme }) => theme.media.md`
+      width: 100%;
+  `}
+  ${({ theme }) => theme.media.sm`
+   width: 100%;
+   flex-direction: column;
+    align-items: center;
+  `}
+  ${({ theme }) => theme.media.mobile`
+   width: 100%;
+   flex-direction: column;
+    align-items: center;
+  `}
 `
 
 export const DetailsSection = styled.div`
   width: 100%;
   max-width: 508px;
+  ${({ theme }) => theme.media.sm`
+      max-width: 100%;
+  `}
+  ${({ theme }) => theme.media.mobile`
+       max-width: 100%;
+  `}
 `
 
 export const LeftWidgets = styled.div`
@@ -34,6 +54,19 @@ export const LeftWidgets = styled.div`
   width: 375px;
   overflow: hidden;
   margin-top: -64px;
+
+  ${({ theme }) => theme.media.md`
+     width: 455px;
+  `}
+  ${({ theme }) => theme.media.sm`
+    margin-top: 0;
+  width: 100%;
+  `}
+  
+  ${({ theme }) => theme.media.mobile`
+    margin-top: 0;
+    width: 100%;
+  `}
 `
 
 export const Widget = styled.div`
@@ -44,6 +77,16 @@ export const Widget = styled.div`
   padding: 64px 0;
   background-color: white;
   border: 1px solid ${({ theme }) => theme.grayScale[1]};
+
+  ${({ theme }) => theme.media.md`
+   padding:  64px 48px;
+  `}
+  ${({ theme }) => theme.media.sm`
+   padding: 64px  32px;
+  `}
+  ${({ theme }) => theme.media.mobile`
+   padding: 64px 16px;
+  `}
 `
 
 export const AvatarImage = styled.img`
@@ -85,6 +128,16 @@ export const ParametersList = styled.ul`
   flex-direction: column;
   font-size: ${({ theme }) => theme.fontSize['s']};
   margin-bottom: 24px;
+
+  ${({ theme }) => theme.media.md`
+    width: 200px;
+  `}
+  ${({ theme }) => theme.media.sm`
+    width: 200px;
+  `}
+  ${({ theme }) => theme.media.mobile`
+   width: 200px;
+  `}
 `
 export const Parameter = styled.li`
   font-weight: 400;
@@ -123,6 +176,9 @@ export const Divider = styled.div`
 export const FirstSection = styled.div`
   width: 100%;
   padding: 0 108px 0 108px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `
 
 export const ButtonsRow = styled.div`
@@ -274,4 +330,16 @@ export const IconWrapperChevron = styled.div`
 export const BodyContent = styled.div`
   width: calc(100% - 375px);
   padding: 40px;
+
+  ${({ theme }) => theme.media.md`
+   padding: 32px;
+  `}
+  ${({ theme }) => theme.media.sm`
+      width: 100%;
+      padding: 16px;
+  `}
+  ${({ theme }) => theme.media.mobile`
+       width: 100%;
+       padding: 16px;
+  `}
 `

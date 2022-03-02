@@ -2,10 +2,10 @@ import { ButtonScrollTop } from './styles'
 import { useState } from 'react'
 import IconChevron from '/public/img/chevron-top-icon.svg'
 
-export const ScrollButtonTop = () => {
-  const [visible, setVisible] = useState(false)
+export const ScrollButtonTop: React.FC = () => {
+  const [visible, setVisible] = useState<boolean>(false)
 
-  const toggleVisible = () => {
+  const toggleVisible = (): void => {
     if (!process.browser) {
       return
     }
@@ -17,7 +17,7 @@ export const ScrollButtonTop = () => {
     }
   }
 
-  const scrollToTop = () => {
+  const scrollToTop = (): void => {
     if (!process.browser) {
       return
     }
@@ -28,6 +28,7 @@ export const ScrollButtonTop = () => {
                in place of 'smooth' */
     })
   }
+
   if (process.browser) {
     window.addEventListener('scroll', toggleVisible)
   }

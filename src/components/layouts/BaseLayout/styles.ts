@@ -22,7 +22,7 @@ export const Layout = styled.div`
     padding: 0 32px;
   `}
   ${({ theme }) => theme.media.mobile`
-    padding: 0 8px;
+    padding: 0 16px;
   `}
 `
 

@@ -77,7 +77,7 @@ export const ProductSlider: React.FC = () => {
             ? fixtures.map(
                 (post) =>
                   post && (
-                    <SwiperSlide>
+                    <SwiperSlide key={post.id}>
                       <ThumbsSliderImage src="/img/bg.jpg" />
                     </SwiperSlide>
                   )

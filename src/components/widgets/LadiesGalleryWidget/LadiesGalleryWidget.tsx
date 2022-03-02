@@ -16,7 +16,7 @@ export const LadiesGalleryWidget: React.FC = () => {
     <Container>
       <Inner>
         {fixtures.map((item) => (
-          <LadyCard key={item.id} />
+          <LadyCard key={item.id} href={item.id} />
         ))}
       </Inner>
     </Container>

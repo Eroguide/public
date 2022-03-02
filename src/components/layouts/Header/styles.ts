@@ -86,3 +86,16 @@ export const RightBlock = styled.div`
     margin-left: 40px;
   }
 `
+
+export const LogoWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 26px;
+`
+
+export const SearchIconWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`

@@ -1,50 +1,102 @@
-import { Container, Wrapper, ButtonMap } from './styles'
+import {
+  Container,
+  Wrapper,
+  MapPin,
+  Details,
+  MapPinLeg,
+  MapPinWrapper,
+} from './styles'
 import GoogleMapReact, { Coords, MapOptions } from 'google-map-react'
+import { useState } from 'react'
 
-const AnyReactComponent: React.FC<Coords & { text: string }> = ({ text }) => (
-  <ButtonMap>{text}</ButtonMap>
+const AnyReactComponent: React.FC<Coords & { type: string }> = (props) => (
+  <MapPinWrapper>
+    <MapPinLeg />
+    <MapPin {...props}>{props.type === 'lady' ? 'M' : 'S'}</MapPin>
+    {/*<Details>Some textsddasds</Details>*/}
+  </MapPinWrapper>
 )
 
-export const MapPage: React.FC = () => {
-  // AIzaSyCgVmkz6wPvOXKkUQB9TprjnuN_9nbEFQw
-  const center: Coords = {
-    lat: 59.95,
-    lng: 30.33,
-  }
+const pinList: Array<Coords & { type: string }> = [
+  {
+    lat: 50.0865,
+    lng: 14.40767,
+    type: 'salon',
+  },
+  {
+    lat: 50.086,
+    lng: 14.4076,
+    type: 'salon',
+  },
+  {
+    lat: 50.0864,
+    lng: 14.43,
+    type: 'lady',
+  },
+  {
+    lat: 50.0864,
+    lng: 14.42,
+    type: 'salon',
+  },
+  {
+    lat: 50.0890062,
+    lng: 14.4163511,
+    type: 'lady',
+  },
+]
 
+export const MapPage: React.FC = () => {
+  // AIzaSyB5Yyn6-srMHw2DiyWnYOBsAixzReJD7hQ
+  const center: Coords = {
+    lat: 50.0865,
+    lng: 14.40767,
+  }
+  const [isReady, setIsReady] = useState<boolean>(false)
   const options: MapOptions = {
     zoomControl: false,
     styles: [
       {
+        featureType: 'all',
+        elementType: 'all',
+        stylers: [{ saturation: '-100' }],
+      },
+      {
         featureType: 'administrative',
         elementType: 'all',
-        stylers: [{ saturation: '-1300' }],
+        stylers: [{ visibility: 'off' }],
       },
       {
         featureType: 'administrative.neighborhood',
         stylers: [{ visibility: 'off' }],
       },
       {
-        elementType: 'labels.text.stroke',
-        stylers: [{ color: '#2b6abf' }],
-      },
-      {
-        stylers: [{ color: '#31a557' }],
+        featureType: 'poi',
+        elementType: 'all',
+        stylers: [{ visibility: 'off' }],
       },
     ],
+  }
+  const handleApiLoaded = (): void => {
+    // console.log('map', map, maps)
+    setIsReady(true)
   }
 
   return (
     <Container>
-      <Wrapper>
+      <Wrapper isReady={isReady}>
         <GoogleMapReact
-          bootstrapURLKeys={{ key: 'AIzaSyCgVmkz6wPvOXKkUQB9TprjnuN_9nbEFQw' }}
+          bootstrapURLKeys={{ key: 'AIzaSyB5Yyn6-srMHw2DiyWnYOBsAixzReJD7hQ' }}
           center={center}
           options={options}
           heatmapLibrary={true}
-          zoom={11}
+          zoom={14}
+          onGoogleApiLoaded={() => handleApiLoaded()}
+          // onGoogleApiLoaded={({ map, maps }) => handleApiLoaded(map, maps)}
         >
-          <AnyReactComponent {...center} text="My Marker" />
+          {isReady &&
+            pinList.map((pin, i) => (
+              <AnyReactComponent key={pin.lat * pin.lng * i} {...pin} />
+            ))}
         </GoogleMapReact>
       </Wrapper>
     </Container>

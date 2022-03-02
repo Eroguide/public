@@ -4,13 +4,13 @@ import { RefObject, Dispatch, SetStateAction } from 'react'
 import { DimensionsEnum, DimensionType } from './types'
 
 export const useDimensions = <T extends HTMLElement>(
-  dimensions: Array<keyof typeof DimensionsEnum>,
+  dimensions: Array<keyof typeof DimensionsEnum>
 ): [
   RefObject<T>,
   {
     [DimensionsEnum.height]: DimensionType
     [DimensionsEnum.width]: DimensionType
-  },
+  }
 ] => {
   const heightRequired = dimensions.includes(DimensionsEnum.height)
   const widthRequired = dimensions.includes(DimensionsEnum.width)
@@ -29,7 +29,7 @@ export const useDimensions = <T extends HTMLElement>(
       setHeight(ref && ref.current ? ref.current.clientHeight : null)
     if (widthRequired)
       setWidth(ref && ref.current ? ref.current.clientWidth : null)
-  })
+  }, [heightRequired, widthRequired])
 
   return [ref, { height, width }]
 }
