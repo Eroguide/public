@@ -1,6 +1,6 @@
 import { Container, Inner, ParameterItem } from './styles'
 import Icon from '/public/img/sand-watch-icon.svg'
-export const ApperianceWidget: React.FC = ({ children }) => {
+export const ApperianceWidget: React.FC = () => {
   return (
     <Container>
       <Inner>

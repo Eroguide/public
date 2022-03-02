@@ -12,7 +12,7 @@ import {
 } from './styles'
 import GenderIcon from '/public/img/gender-icon.svg'
 import ParameterIcon from '/public/img/parameter.svg'
-export const ExperianceWidget: React.FC = ({ children }) => {
+export const ExperianceWidget: React.FC = () => {
   return (
     <Container>
       <Inner>
@@ -56,7 +56,7 @@ export const ExperianceWidget: React.FC = ({ children }) => {
         </ParametersAnnotation>
         <ParametersList>
           {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12].map((x) => (
-            <ParametersListItem>
+            <ParametersListItem key={x}>
               <IconWrapperParameter>
                 <ParameterIcon />
               </IconWrapperParameter>

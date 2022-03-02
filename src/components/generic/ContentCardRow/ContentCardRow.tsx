@@ -1,5 +1,5 @@
 import { Swiper } from 'swiper/react'
-import { Pagination, SwiperOptions, FreeMode, Navigation } from 'swiper'
+import { Pagination, SwiperOptions, FreeMode } from 'swiper'
 
 import {
   ContentCardRowContainer,
@@ -11,7 +11,7 @@ import {
   Quantity,
   Counter,
 } from './styles'
-import { useRef, useState } from 'react'
+import { useState } from 'react'
 
 export const ContentCardRow: React.FC<{
   title: string

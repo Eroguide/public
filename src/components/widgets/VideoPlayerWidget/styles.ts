@@ -16,8 +16,3 @@ export const VideoWrapper = styled.div`
   overflow: hidden;
   position: relative;
 `
-
-export const PlayIconWrapper = styled.button`
-  width: 100%;
-  border-radius: 32px;
-`

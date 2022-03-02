@@ -1,4 +1,4 @@
-import { Container, Inner, VideoWrapper, PlayIconWrapper } from './styles'
+import { Container, Inner, VideoWrapper } from './styles'
 import ReactPlayer from 'react-player/youtube'
 import { ButtonDarkPlay } from '@/components/generic/ButtonStyled/styles'
 import PlayIcon from '/public/img/play-icon.svg'

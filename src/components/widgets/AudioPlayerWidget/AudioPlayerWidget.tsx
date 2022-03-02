@@ -11,10 +11,14 @@ import {
   Genre,
   Left,
   Right,
+  PlayIconOverlay,
+  IconWrapper,
+  Timer,
 } from './styles'
 import { SyntheticEvent, useRef, useState } from 'react'
-
-export const AudioPlayerWidget: React.FC = ({ children }) => {
+import PlayIcon from '/public/img/play-icon.svg'
+import StopIcon from '/public/img/stop-icon.svg'
+export const AudioPlayerWidget: React.FC = () => {
   const [percentage, setPercentage] = useState<number>(0)
   const [isPlaying, setIsPlaying] = useState<boolean>(false)
   const [duration, setDuration] = useState<number>(0)
@@ -24,16 +28,16 @@ export const AudioPlayerWidget: React.FC = ({ children }) => {
     if (!seconds) return '00m 00s'
 
     let duration = seconds
-    let hours = duration / 3600
+    const hours = duration / 3600
     duration = duration % 3600
 
-    let min = parseInt(String(duration / 60))
+    const min = parseInt(String(duration / 60))
     duration = duration % 60
 
-    let sec = parseInt(String(duration))
+    const sec = parseInt(String(duration))
 
-    let secondsToShow: string = String(sec)
-    let minutesToShow: string = String(min)
+    let secondsToShow = String(sec)
+    let minutesToShow = String(min)
 
     if (sec < 10) {
       secondsToShow = `0${sec}`
@@ -91,7 +95,6 @@ export const AudioPlayerWidget: React.FC = ({ children }) => {
       100
     ).toFixed(2)
     const time = e.currentTarget.currentTime
-
     setPercentage(+percent)
     setCurrentTime(Number(time.toFixed(2)))
   }
@@ -113,22 +116,25 @@ export const AudioPlayerWidget: React.FC = ({ children }) => {
             }}
           />
           <PlayIconWrapper onClick={play}>
-            {isPlaying ? 'stop' : 'play'}
+            <PlayIconOverlay />
+            <IconWrapper>{isPlaying ? <StopIcon /> : <PlayIcon />}</IconWrapper>
           </PlayIconWrapper>
 
           <Details>
             <Left>
               <Title>Nelly</Title>
               <Genre>interview</Genre>
+              {!isPlaying ? (
+                <Timer>{secondsToHms(duration)}</Timer>
+              ) : (
+                <Timer isActive>{secondsToHms(Number(currentTime))}</Timer>
+              )}
             </Left>
             <Right>
               <UploadTag>updload:</UploadTag>
               <UploadDate>Nov 18. 2021</UploadDate>
             </Right>
           </Details>
-
-          {/*<p>{secondsToHms(Number(currentTime))}</p>{' '}*/}
-          {/*<p>{secondsToHms(duration)}</p>*/}
           <TimeLine
             percentage={percentage === 100 ? 0 : percentage}
             onChange={onChange}

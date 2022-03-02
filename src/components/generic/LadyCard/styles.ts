@@ -1,10 +1,10 @@
 import styled from '@emotion/styled'
 
 export const Container = styled.div`
-  width: calc((100% / 6) - 10px);
-  margin: 5px;
+  width: calc((100% / 6) - 16px);
+  margin: 8px;
   ${({ theme }) => theme.media.mobile`
-     width: calc((100% / 3) - 10px);
+     width: calc((100% / 3) - 16px);
   `}
 `
 
@@ -37,4 +37,31 @@ export const Tag = styled.span`
   justify-content: center;
   font-size: ${({ theme }) => theme.fontSize.xs};
   color: ${({ theme }) => theme.primary[0]};
+`
+
+export const StatusTag = styled.div`
+  width: 18px;
+  height: 18px;
+  border-radius: 100%;
+  position: absolute;
+  right: 2px;
+  bottom: 2px;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`
+
+export const Circle = styled.span`
+  width: 12px;
+  height: 12px;
+  border-radius: 100%;
+  background: ${({ theme }) => theme.support[2]};
+`
+
+export const Title = styled.p`
+  margin-top: 8px;
+  font-size: ${({ theme }) => theme.fontSize.xs};
+  font-weight: 600;
+  color: ${({ theme }) => theme.grayScale[5]};
 `

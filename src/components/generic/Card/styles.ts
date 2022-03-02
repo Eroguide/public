@@ -131,6 +131,7 @@ export const TopImageTag = styled.span`
   background-color: ${({ theme }) => theme.primary[2]};
   font-size: ${({ theme }) => theme.fontSize['xxs']};
   border-radius: 0 0 8px 8px;
+  padding: 2px 16px;
   min-width: 60px;
   text-align: center;
   color: ${({ theme }) => theme.grayScale[0]};

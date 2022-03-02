@@ -94,8 +94,11 @@ export const ButtonDarkPlay = styled.button`
   font-weight: 600;
   position: absolute;
   bottom: 48px;
-  left: 24px;
+  right: 24px;
   cursor: pointer;
+  span {
+    margin-left: 8px;
+  }
   &:hover {
     background-color: ${({ theme }) => theme.grayScale[4]};
     border: 2px solid ${({ theme }) => theme.grayScale[4]};

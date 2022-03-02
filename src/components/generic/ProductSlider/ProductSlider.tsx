@@ -18,9 +18,10 @@ import {
 } from '@/components/generic/ShowNewItems/styles'
 import ArrowLeftIcon from '../../../../public/img/arrow-left.svg'
 import ArrowRightIcon from '../../../../public/img/arrow-right.svg'
+import { Swiper as SwiperClass } from 'swiper/types'
 
 export const ProductSlider: React.FC = () => {
-  const [thumbsSwiper, setThumbsSwiper] = useState<any>(null)
+  const [thumbsSwiper, setThumbsSwiper] = useState<SwiperClass>()
   const navigationPrevRef = useRef<HTMLDivElement>(null)
   const navigationNextRef = useRef<HTMLDivElement>(null)
   const swiperSettings: SwiperOptions = {
@@ -64,7 +65,7 @@ export const ProductSlider: React.FC = () => {
             : 'loading'}
         </Swiper>
         <Swiper
-          onSwiper={setThumbsSwiper}
+          onSwiper={(e) => setThumbsSwiper(e)}
           loop={true}
           spaceBetween={8}
           slidesPerView={4}

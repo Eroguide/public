@@ -21,20 +21,43 @@ export const AudioWrapper = styled.div`
   align-items: center;
 `
 
-export const PlayIconWrapper = styled.span`
+export const PlayIconOverlay = styled.div`
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+`
+export const PlayIconWrapper = styled.div`
   border-radius: 12px;
   height: 72px;
   width: 72px;
-  background: gray url('/img/bg.jpg') no-repeat center center;
+  background: url('/img/bg.jpg') no-repeat center center;
   background-size: cover;
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 10;
-  bottom: 48px;
-  left: 24px;
+  position: relative;
   cursor: pointer;
   margin-right: 24px;
+  mix-blend-mode: darken;
+  overflow: hidden;
+
+  &:hover {
+    ${PlayIconOverlay} {
+      background: rgba(0, 0, 0, 0.5);
+      transition: 0.15s ease-in-out;
+    }
+  }
+`
+export const IconWrapper = styled.div`
+  z-index: 100;
+  cursor: pointer;
+`
+export const Timer = styled.span<{ isActive?: boolean }>`
+  font-size: ${({ theme }) => theme.fontSize.m};
+  color: ${({ theme, isActive }) =>
+    isActive ? theme.grayScale[4] : theme.grayScale[3]};
 `
 
 export const TimeLine = styled.span<{ percentage: number }>`
@@ -72,7 +95,7 @@ export const Title = styled.span`
 export const Details = styled.div`
   display: flex;
   justify-content: space-between;
-
+  align-items: center;
   width: 80%;
 `
 

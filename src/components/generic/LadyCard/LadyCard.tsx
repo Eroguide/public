@@ -1,4 +1,12 @@
-import { Container, Wrapper, CardImage, Tag } from './styles'
+import {
+  Container,
+  Wrapper,
+  CardImage,
+  Tag,
+  StatusTag,
+  Circle,
+  Title,
+} from './styles'
 
 export const LadyCard: React.FC = () => {
   return (
@@ -6,7 +14,11 @@ export const LadyCard: React.FC = () => {
       <Wrapper>
         <CardImage>
           <Tag>New</Tag>
+          <StatusTag>
+            <Circle />
+          </StatusTag>
         </CardImage>
+        <Title>Lorem </Title>
       </Wrapper>
     </Container>
   )
