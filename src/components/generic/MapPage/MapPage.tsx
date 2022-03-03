@@ -2,7 +2,7 @@ import {
   Container,
   Wrapper,
   MapPin,
-  Details,
+  // Details,
   MapPinLeg,
   MapPinWrapper,
 } from './styles'

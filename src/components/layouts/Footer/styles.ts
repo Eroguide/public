@@ -23,10 +23,10 @@ export const FooterInner = styled.div`
 
 export const FooterLogoWrapper = styled.div`
   display: flex;
-  padding: 50px 0;
-  justify-content: flex-start;
+
   ${({ theme }) => theme.media.mobile`
    margin-left: 0;
+    padding: 50px 0;
    justify-content: flex-start;
     width: 100%;
   `}

@@ -12,6 +12,7 @@ import {
   FooterWrapper,
   UnderFooter,
   UnderFooterLeft,
+  FooterLogoWrapper,
   UnderFooterRight,
 } from './styles'
 import Link from 'next/link'
@@ -21,7 +22,7 @@ import { useRouter } from 'next/router'
 
 const navItems = [
   [
-    { name: 'Private ladies', href: '/' },
+    { name: 'Private ladies', href: '/gallery' },
     { name: 'Salons', href: '/salons' },
   ],
   [
@@ -49,15 +50,18 @@ export const Footer: React.FC = () => {
     <FooterWrapper>
       <FooterContainer>
         <FooterInner>
-          <FooterLogo
-            src="/img/logo.png"
-            alt=""
-            onClick={() =>
-              push('/', undefined, {
-                shallow: true,
-              })
-            }
-          />
+          <FooterLogoWrapper>
+            <FooterLogo
+              src="/img/logo.png"
+              alt=""
+              onClick={() =>
+                push('/', undefined, {
+                  shallow: true,
+                })
+              }
+            />
+          </FooterLogoWrapper>
+
           <FooterLinks>
             {navItems.map((item, i) => (
               <LinkGroup key={`group-links-${i}`}>

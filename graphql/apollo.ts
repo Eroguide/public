@@ -7,7 +7,7 @@ import {
 } from '@apollo/client'
 import merge from 'deepmerge'
 import isEqual from 'lodash/isEqual'
-
+//https://github.com/vladwulf/apollo-codegen-tutorial/blob/main/package.json
 export const APOLLO_STATE_PROP_NAME = 'APOLLO_STATE_PROP_NAME'
 
 let apolloClient: ApolloClient<NormalizedCacheObject>

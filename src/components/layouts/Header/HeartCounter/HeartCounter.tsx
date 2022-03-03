@@ -1,14 +1,24 @@
 import { HeartCounterWrapper, Counter } from './styles'
-import HeartIcon from 'public/img/heart.svg'
 import { useStoreon } from '@/store/index'
-import HeartLinedIcon from '../../../../../public/img/heart-lined.svg'
+import HeartAnimated from '/public/img/heart-counter-icon.svg'
 import { useRouter } from 'next/router'
+import { useEffect, useState } from 'react'
 
 export const HeartCounter: React.FC = () => {
   const { push } = useRouter()
   const {
     favorites: { items },
   } = useStoreon('favorites')
+
+  const [isActive, setIsActive] = useState<boolean>(false)
+
+  useEffect(() => {
+    if (items.length > 0) {
+      setIsActive(true)
+    } else {
+      setIsActive(false)
+    }
+  }, [items])
 
   return (
     <HeartCounterWrapper
@@ -17,10 +27,10 @@ export const HeartCounter: React.FC = () => {
           shallow: true,
         })
       }
-      hasItems={Boolean(items.length)}
+      hasItems={isActive}
     >
-      {Boolean(items.length) ? <HeartIcon /> : <HeartLinedIcon />}
-      {items.length > 0 && <Counter>{items.length}</Counter>}
+      <HeartAnimated />
+      {isActive && <Counter>{items.length}</Counter>}
     </HeartCounterWrapper>
   )
 }

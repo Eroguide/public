@@ -7,6 +7,7 @@ import Document, {
 } from 'next/document'
 // types
 import { DocumentInitialProps } from 'next/document'
+import { Loader } from '@/components/widgets/LoaderWidget'
 
 class MyDocument extends Document {
   static async getInitialProps(
@@ -52,6 +53,7 @@ class MyDocument extends Document {
         </Head>
 
         <body>
+          <Loader />
           <Main />
           <NextScript />
         </body>
