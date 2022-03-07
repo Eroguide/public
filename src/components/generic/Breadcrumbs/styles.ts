@@ -21,6 +21,7 @@ export const CrumbTitle = styled.span`
   font-size: ${({ theme }) => theme.fontSize['s']};
   font-weight: 600;
   color: ${({ theme }) => theme.grayScale[3]};
+  text-transform: capitalize;
 `
 
 export const IconWrapper = styled.div`
@@ -30,4 +31,7 @@ export const IconWrapper = styled.div`
   height: 24px;
   width: 24px;
   margin: 0 8px;
+  svg path {
+    stroke: ${({ theme }) => theme.grayScale[2]};
+  }
 `

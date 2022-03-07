@@ -6,7 +6,9 @@ import { HeroFilters } from '@/components/generic/HeroFilters'
 import { SalonCard } from '@/components/generic/SalonCard'
 import { ContentCardRow } from '@/components/generic/ContentCardRow'
 import {
+  CustomButton,
   Card,
+  CardGallery,
   MapSection,
   PostCard,
   PostCardWide,
@@ -59,7 +61,6 @@ const Home: NextPage<GetLaunches> = ({ launchesPast }) => {
             </SwiperSlide>
           ))}
         </ContentCardRow>
-
         <ContentCardRow
           title="Private ladies"
           counter={535}
@@ -77,7 +78,7 @@ const Home: NextPage<GetLaunches> = ({ launchesPast }) => {
             </SwiperSlide>
           ))}
         </ContentCardRow>
-
+        <CardGallery cards={fixtures} title={'Ladies gallery'} />
         <ContentCardRow
           title="New posts"
           counter={34}
@@ -86,7 +87,7 @@ const Home: NextPage<GetLaunches> = ({ launchesPast }) => {
         >
           {fixtures.map((item) => (
             <SwiperSlide key={item.id}>
-              <PostCard {...item} title={item.slug} inSwipe />
+              <PostCard {...item} title={item.slug} />
             </SwiperSlide>
           ))}
         </ContentCardRow>
@@ -103,6 +104,7 @@ const Home: NextPage<GetLaunches> = ({ launchesPast }) => {
             </SwiperSlide>
           ))}
         </ContentCardRow>
+
         <PostList
           title="New posts"
           counter={23}

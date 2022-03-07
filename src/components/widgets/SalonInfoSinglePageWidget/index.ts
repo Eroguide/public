@@ -1,0 +1,1 @@
+export { SalonInfoSinglePageWidget } from './SalonInfoSinglePageWidget'

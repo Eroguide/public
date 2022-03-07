@@ -48,3 +48,23 @@ export const Right = styled.div`
   border-radius: 32px;
   overflow: hidden;
 `
+
+export const TitleBeforeSlider = styled.div`
+  display: flex;
+  border-radius: 32px;
+  height: 24px;
+  align-items: center;
+  overflow: hidden;
+  font-size: ${({ theme }) => theme.fontSize['xs']};
+  color: ${({ theme }) => theme.grayScale[3]};
+  margin-bottom: 16px;
+`
+
+export const IconWrapper = styled.div`
+  width: 24px;
+  height: 24px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  margin-right: 8px;
+`

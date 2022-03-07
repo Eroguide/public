@@ -7,7 +7,6 @@ import {
   FooterCta,
   TitleCta,
   SubTitleCta,
-  ButtonCta,
   ContentCta,
   FooterWrapper,
   UnderFooter,
@@ -16,9 +15,10 @@ import {
   UnderFooterRight,
 } from './styles'
 import Link from 'next/link'
-import { DrawerBottom } from '@/components/generic'
+import { CustomButton, DrawerBottom } from '@/components/generic'
 import { useState } from 'react'
 import { useRouter } from 'next/router'
+import { ButtonsRow } from '@/components/widgets/SalonInfoSinglePageWidget/styles'
 
 const navItems = [
   [
@@ -66,8 +66,10 @@ export const Footer: React.FC = () => {
             {navItems.map((item, i) => (
               <LinkGroup key={`group-links-${i}`}>
                 {item.map((linkName) => (
-                  <Link key={linkName.name} href={linkName.href}>
-                    {linkName.name}
+                  <Link key={linkName.name} href={linkName.href} passHref>
+                    <CustomButton styleType="link" isLink>
+                      {linkName.name}
+                    </CustomButton>
                   </Link>
                 ))}
               </LinkGroup>
@@ -78,7 +80,9 @@ export const Footer: React.FC = () => {
             <ContentCta>
               <TitleCta>Not with us yet?</TitleCta>
               <SubTitleCta>List your questionnaire</SubTitleCta>
-              <ButtonCta>Create now</ButtonCta>
+              <CustomButton styleType="primary" sizeType="medium">
+                Create now
+              </CustomButton>
             </ContentCta>
           </FooterCta>
         </FooterInner>

@@ -38,6 +38,7 @@ export const ImageProduct = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
+  cursor: pointer;
 `
 
 export const Title = styled.h4`
@@ -77,4 +78,7 @@ export const ReadMoreButton = styled.a`
   padding: 8px 16px;
   border: 2px solid ${({ theme }) => theme.grayScale[1]};
   border-radius: 32px;
+  text-decoration: none;
+  font-size: ${({ theme }) => theme.fontSize['xs']};
+  color: ${({ theme }) => theme.grayScale['3']};
 `

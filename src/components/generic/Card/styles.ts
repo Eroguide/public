@@ -4,17 +4,12 @@ export const CardMainContainer = styled.div<{
   margin?: string
   inSwipe?: boolean
 }>`
-  width: ${({ inSwipe }) => (inSwipe ? '100%' : '302px')};
-  min-width: 312px;
+  width: 100%;
   flex-direction: column;
   border-radius: 32px;
   ${({ margin }) => margin && `margin:${margin};`}
-  margin-bottom: 32px;
   position: relative;
-  padding: 5px;
-  ${({ theme }) => theme.media.mobile`
-      width: 100%;
-  `}
+  padding: 12px;
 `
 
 export const CardInner = styled.div`
@@ -50,7 +45,7 @@ export const CardImageWrapper = styled.div`
   width: 100%;
   height: 368px;
   position: relative;
-  background: #ebebf0 url('/img/bg.jpg') no-repeat center top;
+  background: #ebebf0 url('/img/woman.jpg') no-repeat center top;
   background-size: cover;
   overflow: hidden;
   z-index: 1;
@@ -158,6 +153,7 @@ export const AdditionalInformation = styled.div`
   bottom: 8px;
   right: 16px;
   display: flex;
+  z-index: 11;
 `
 
 export const AdditionalInformationContent = styled.div`
@@ -165,6 +161,8 @@ export const AdditionalInformationContent = styled.div`
   display: flex;
   height: 96px;
   padding: 24px 16px 12px 16px;
+  justify-content: space-between;
+  align-items: flex-start;
 `
 
 export const ImageOverlay = styled.div`
@@ -183,11 +181,9 @@ export const ImageOverlay = styled.div`
 
 export const LeftBlock = styled.div`
   display: flex;
-  width: 70%;
 `
 export const RightBlock = styled.div`
   display: flex;
-  width: 30%;
 `
 
 export const ContentColumn = styled.div`
@@ -198,7 +194,6 @@ export const ContentColumn = styled.div`
 export const InfoItem = styled.div`
   color: ${({ theme }) => theme.grayScale[0]};
   font-size: ${({ theme }) => theme.fontSize['xs']};
-  font-weight: 600;
 `
 
 export const WorkingDaysWrapper = styled.div`
@@ -206,4 +201,22 @@ export const WorkingDaysWrapper = styled.div`
   width: 100%;
   background: ${({ theme }) => theme.grayScale[0]};
   z-index: 50;
+`
+
+export const PhotoCounter = styled.div`
+  display: flex;
+  align-items: center;
+
+  span {
+    margin-left: 4px;
+    color: ${({ theme }) => theme.grayScale[0]};
+    font-size: ${({ theme }) => theme.fontSize['xs']};
+    font-weight: 600;
+  }
+`
+
+export const VideoIconWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  margin-left: 16px;
 `

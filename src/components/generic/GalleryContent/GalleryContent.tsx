@@ -1,10 +1,4 @@
-import {
-  Container,
-  Wrapper,
-  FilterPanel,
-  LeftFilters,
-  RightFilters,
-} from './styles'
+import { Container, Wrapper } from './styles'
 import { PostCardWide } from '@/components/generic'
 const fixtures = [
   { id: '222dsadas', slug: 'one-project-time', best: 1 },
@@ -19,11 +13,6 @@ const fixtures = [
 export const GalleryContent: React.FC = () => {
   return (
     <>
-      <FilterPanel>
-        <LeftFilters>Buttons</LeftFilters>
-        <RightFilters>1756 posts</RightFilters>
-      </FilterPanel>
-
       <Container>
         <Wrapper>
           {fixtures.map((item) => (

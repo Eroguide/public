@@ -1,0 +1,1 @@
+export { ServiceFeaturesSalonWidget } from './ServiceFeaturesSalonWidget'

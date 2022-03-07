@@ -74,6 +74,15 @@ export const HeartCounterWrapper = styled.div<{ hasItems: boolean }>`
         ? `fill:${theme.primary[0]}; stroke:${theme.primary[0]}`
         : `fill: white; stroke: ${theme.grayScale[3]};`};
   }
+
+  &:hover {
+    svg {
+      ${({ hasItems }) =>
+        hasItems
+          ? `fill:${theme.primary[1]}; stroke:${theme.primary[1]}`
+          : `fill: white; stroke: ${theme.primary[0]};`};
+    }
+  }
 `
 // ${({ hasItems }) =>
 // hasItems

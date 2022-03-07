@@ -21,16 +21,3 @@ export const Wrapper = styled.div`
   background: gray url('/img/map.jpg') no-repeat center center;
   background-size: cover;
 `
-
-export const ButtonMap = styled.a`
-  color: ${({ theme }) => theme.grayScale[0]};
-  background-color: ${({ theme }) => theme.primary[0]};
-  height: 48px;
-  border-radius: 28px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: none;
-  padding: 12px 32px;
-  font-size: ${({ theme }) => theme.fontSize['s']};
-`

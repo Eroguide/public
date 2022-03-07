@@ -6,6 +6,7 @@ export const HeaderContainer = styled.div`
   padding: 0 80px;
   position: fixed;
   left: 0;
+  top: 0;
   right: 0;
   z-index: 500;
   background-color: #fff;
@@ -63,6 +64,20 @@ export const PersonalLink = styled.div`
   font-size: 14px;
   color: #a0a0b0;
   margin-left: 40px;
+  cursor: pointer;
+  svg {
+    stroke: ${({ theme }) => theme.grayScale[3]};
+  }
+  &:hover {
+    svg {
+      stroke: ${({ theme }) => theme.grayScale[4]};
+    }
+  }
+  &:active {
+    svg {
+      stroke: ${({ theme }) => theme.grayScale[5]};
+    }
+  }
 `
 
 export const LeftBlock = styled.div`

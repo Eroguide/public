@@ -6,6 +6,7 @@ import {
   TopLineSinglePage,
   GalleryContent,
 } from '@/components/generic'
+import { TagFilterWidget } from '@/components/widgets/TagFilterWidget'
 
 const Journal: NextPage = () => {
   return (
@@ -21,6 +22,7 @@ const Journal: NextPage = () => {
           title="Journal"
           text="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, aperiam assumenda distinctio eaque esse, exercitationem harum inventore iste iusto maiores numquam provident quibusdam, repudiandae. Atque cum et nulla pariatur vel?"
         />
+        <TagFilterWidget />
         <GalleryContent />
       </BaseLayout>
     </>

@@ -30,7 +30,7 @@ export const ContentRow = styled.div`
   width: 100%;
   justify-content: space-between;
   min-width: 1280px;
-  margin: 40px -5px 0 -5px;
+  margin: 40px -12px 0 -12px;
   ${({ theme }) => theme.media.mobile`
        min-width: auto;
   `}
@@ -63,6 +63,6 @@ export const TimeLine = styled.div<{ date: number; isLast: boolean }>`
       : `background: ${theme.grayScale[3]};`};
   height: 8px;
   border-radius: 8px;
-
-  width: ${({ isLast }) => (isLast ? `100%` : `110%`)};
+  margin-top: 32px;
+  width: ${({ isLast }) => (isLast ? `99%` : `105%`)};
 `

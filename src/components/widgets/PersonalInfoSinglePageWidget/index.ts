@@ -1,0 +1,1 @@
+export { PersonalInfoSinglePageWidget } from './PersonalInfoSinglePageWidget'

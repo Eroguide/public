@@ -52,7 +52,7 @@ export const ImageOverlay = styled.div`
   );
 `
 
-export const Title = styled.a`
+export const Title = styled.h4`
   font-size: ${({ theme }) => theme.fontSize['xl']};
   font-weight: 600;
   color: ${({ theme }) => theme.grayScale[0]};
@@ -67,7 +67,7 @@ export const CounterText = styled.span`
   margin-left: 4px;
 `
 
-export const ButtonShadow = styled.button`
+export const ButtonShadow = styled.a`
   color: ${({ theme }) => theme.grayScale[5]};
   font-weight: 600;
   background-color: ${({ theme }) => theme.grayScale[0]};
@@ -79,6 +79,7 @@ export const ButtonShadow = styled.button`
   align-items: center;
   padding: 8px 16px;
   font-size: ${({ theme }) => theme.fontSize['s']};
+  text-decoration: none;
 `
 export const InformationContent = styled.div`
   width: 100%;
@@ -137,6 +138,7 @@ export const ImageProduct = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
+  cursor: pointer;
 `
 
 export const RatingValue = styled.span`

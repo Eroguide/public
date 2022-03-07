@@ -30,31 +30,32 @@ import RatingStartIcon from 'public/img/star-icon.svg'
 import DotIcon from 'public/img/dot.svg'
 import CheckIcon from 'public/img/check-blue.svg'
 import { Left, Right } from '@/components/generic/Card/styles'
+import { CustomButton } from '@/components/generic'
 export const SalonCard: React.FC<SalonCardProps> = ({ id, inSwipe }) => {
   return (
     <SalonCardMainContainer inSwipe={inSwipe}>
       <SalonCardInner>
         <CardImageWrapper>
-          <ImageProduct>
-            <ImageOverlay>
-              <InformationContent>
-                <LeftBlock>
-                  <Link href={`/salons/${id}`} passHref>
+          <Link href={`/salons/${id}`} passHref>
+            <ImageProduct>
+              <ImageOverlay>
+                <InformationContent>
+                  <LeftBlock>
                     <Title>Nasty ladies room</Title>
-                  </Link>
-                  <Description>Prague 2</Description>
-                </LeftBlock>
-                <RightBlock>
-                  <RatingStartIcon />
-                  <RatingValue>4.5</RatingValue>
-                </RightBlock>
-              </InformationContent>
-            </ImageOverlay>
-          </ImageProduct>
+                    <Description>Prague 2</Description>
+                  </LeftBlock>
+                  <RightBlock>
+                    <RatingStartIcon />
+                    <RatingValue>4.5</RatingValue>
+                  </RightBlock>
+                </InformationContent>
+              </ImageOverlay>
+            </ImageProduct>
+          </Link>
         </CardImageWrapper>
         <CardContent>
           <SmallGallery>
-            <Link href={'#'} passHref>
+            <Link href={`/gallery/${id}`} passHref>
               <SmallGalleryItem>
                 <WorkingHoursTag>12-20</WorkingHoursTag>
                 <SmallGalleryItemDescription>
@@ -63,7 +64,7 @@ export const SalonCard: React.FC<SalonCardProps> = ({ id, inSwipe }) => {
                 </SmallGalleryItemDescription>
               </SmallGalleryItem>
             </Link>
-            <Link href={'#'} passHref>
+            <Link href={`/gallery/${id}`} passHref>
               <SmallGalleryItem>
                 <WorkingHoursTag>12-20</WorkingHoursTag>
                 <SmallGalleryItemDescription>
@@ -72,7 +73,7 @@ export const SalonCard: React.FC<SalonCardProps> = ({ id, inSwipe }) => {
                 </SmallGalleryItemDescription>
               </SmallGalleryItem>
             </Link>
-            <Link href={'#'} passHref>
+            <Link href={`/gallery/${id}`} passHref>
               <SmallGalleryItem>
                 <WorkingHoursTag>12-20</WorkingHoursTag>
                 <SmallGalleryItemDescription>
@@ -94,7 +95,11 @@ export const SalonCard: React.FC<SalonCardProps> = ({ id, inSwipe }) => {
               </CounterAvailable>
             </Left>
             <Right>
-              <ButtonShadow>Details</ButtonShadow>
+              <Link href={`/salons/${id}`} passHref>
+                <CustomButton isLink styleType="tertiary" sizeType="medium">
+                  Details
+                </CustomButton>
+              </Link>
             </Right>
           </BottomRow>
         </CardContent>

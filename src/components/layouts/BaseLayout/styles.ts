@@ -8,7 +8,7 @@ export const Container = styled.div`
 `
 
 export const Layout = styled.div`
-  overflow: hidden;
+  //overflow: hidden;
   width: 100%;
   min-height: 100vh;
   left: 0;

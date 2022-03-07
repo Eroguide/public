@@ -1,11 +1,9 @@
 import { NextPage } from 'next'
 import Head from 'next/head'
 import { BaseLayout } from '@/components/layouts/BaseLayout'
-import { useRouter } from 'next/router'
 import { SinglePostContent, TopLineSinglePage } from '@/components/generic'
 
 const Post: NextPage = () => {
-  const { query } = useRouter()
   return (
     <>
       <Head>
@@ -16,7 +14,6 @@ const Post: NextPage = () => {
       <BaseLayout>
         <TopLineSinglePage />
         <SinglePostContent />
-        <p>{query.slug}</p>
       </BaseLayout>
     </>
   )

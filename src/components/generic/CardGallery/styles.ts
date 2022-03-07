@@ -1,10 +1,11 @@
 import styled from '@emotion/styled'
 
 export const CardGalleryContainer = styled.div`
-  display: flex;
-  width: 100%;
-  flex-flow: row wrap;
-  margin: 0 -17px;
+  margin-left: -12px;
+  margin-right: -12px;
+  height: auto;
+  width: calc(100% + 24px);
+  position: relative;
 `
 export const MessageBox = styled.span`
   display: flex;
@@ -17,21 +18,21 @@ export const MessageBox = styled.span`
 `
 
 export const GalleryItem = styled.div`
-  margin: 0 5px;
-  width: calc(25% - 10px);
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
+  width: 25%;
   display: flex;
-  min-width: 302px;
+  padding: 6px;
+  margin-bottom: 16px;
+  ${({ theme }) => theme.media.lg`
+    width: calc(100% / 4);
+  `}
   ${({ theme }) => theme.media.md`
-    width: calc(100% / 3 - 10px);
+    width: calc(100% / 3);
   `}
   ${({ theme }) => theme.media.sm`
-   width: calc(100% / 2 - 10px);
+   width: calc(100% / 2 );
   `}
   ${({ theme }) => theme.media.mobile`
-      width: calc(100% / 1 - 10px);
+      width: calc(100% / 1);
   `}
 `
 
@@ -41,7 +42,7 @@ export const TitlePanel = styled.div`
   justify-content: space-between;
   display: flex;
   height: 32px;
-  margin-bottom: 40px;
+  margin: 40px 0;
 `
 
 export const LeftFilters = styled.div`
@@ -56,4 +57,10 @@ export const Counter = styled.div`
   font-size: ${({ theme }) => theme.fontSize['xxl']};
   font-weight: 600;
   color: ${({ theme }) => theme.grayScale[5]};
+`
+
+export const ListWrapper = styled.div`
+  display: flex;
+  width: 100%;
+  flex-flow: row wrap;
 `

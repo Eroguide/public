@@ -18,6 +18,7 @@ import { useBreakpoint } from '@/hooks/useBreakpoint'
 import { breakpoints, BreakpointsEnum } from '@/src/theme'
 import LogoIconMobile from '/public/img/logo-mobile.svg'
 import SearchIcon from '/public/img/search-header-icon.svg'
+import { CustomButton } from '@/components/generic'
 
 export const Header: React.FC = () => {
   const { push } = useRouter()
@@ -49,10 +50,14 @@ export const Header: React.FC = () => {
           {!isSmall && (
             <>
               <Link href="/about" passHref>
-                <NavLink>About</NavLink>
+                <CustomButton styleType="link" isLink>
+                  About
+                </CustomButton>
               </Link>
               <Link href="/journal" passHref>
-                <NavLink>Journal</NavLink>
+                <CustomButton styleType="link" isLink>
+                  Journal
+                </CustomButton>
               </Link>
             </>
           )}

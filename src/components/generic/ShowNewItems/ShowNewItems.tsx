@@ -17,8 +17,8 @@ import {
 } from './styles'
 import { Card } from '@/components/generic'
 
-import ArrowLeftIcon from '../../../../public/img/arrow-left.svg'
-import ArrowRightIcon from '../../../../public/img/arrow-right.svg'
+import ArrowLeftIcon from '/public/img/arrow-left.svg'
+import ArrowRightIcon from '/public/img/arrow-right.svg'
 export type ShowNewProps = {
   date: number
   id: string
@@ -37,19 +37,16 @@ export const ShowNewItems: React.FC<{
     slidesPerView: itemsToShow,
     freeMode: true,
     modules: [FreeMode, Navigation],
-    spaceBetween: 16,
+    spaceBetween: 10,
     breakpoints: {
       0: {
         slidesPerView: 1,
-        spaceBetween: 12,
       },
       600: {
         slidesPerView: itemsToShow,
-        spaceBetween: 12,
       },
       1420: {
         slidesPerView: itemsToShow,
-        spaceBetween: 16,
       },
     },
     allowSlidePrev: true,

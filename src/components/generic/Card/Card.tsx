@@ -28,9 +28,13 @@ import {
   ContentColumn,
   InfoItem,
   WorkingDaysWrapper,
+  PhotoCounter,
+  VideoIconWrapper,
 } from './styles'
 import HeartIcon from 'public/img/heart.svg'
 import HeartLinedIcon from 'public/img/heart-lined.svg'
+import PhotoIcon from 'public/img/photo-icon.svg'
+import VideoIcon from 'public/img/video-icon.svg'
 import { CardProps } from './types'
 import { FavoritesActions } from '@/store/favoritsModule'
 import { WorkingDays } from '@/components/generic'
@@ -46,19 +50,15 @@ export const Card: React.FC<CardProps> = ({
     dispatch,
     favorites: { items },
   } = useStoreon('favorites')
-
   const isActive = items.some((element) => element.id === id)
   const [isOpenInfo, setIsOpenInfo] = useState<boolean>(false)
   const [isOpenSchedule, setIsOpenSchedule] = useState<boolean>(false)
-
   const handleIsOpen = () => {
     setIsOpenInfo(!isOpenInfo)
   }
-
   const handleIsOpenSchedule = () => {
     setIsOpenSchedule(!isOpenSchedule)
   }
-
   return (
     <>
       <CardMainContainer margin={margin} inSwipe={inSwipe}>
@@ -67,33 +67,41 @@ export const Card: React.FC<CardProps> = ({
             <Link href={`/gallery/${id}`} passHref>
               <ImageProduct>
                 {tagTitle && <TopImageTag>{tagTitle}</TopImageTag>}
-                <ImageOverlay>
-                  {isOpenInfo && (
-                    <AdditionalInformationContent>
-                      <LeftBlock>
-                        <ContentColumn>
-                          <InfoItem>Height: 170lb</InfoItem>
-                          <InfoItem>Weight: 350lb</InfoItem>
-                        </ContentColumn>
-                        <ContentColumn>
-                          <InfoItem>Breast: 3</InfoItem>
-                          <InfoItem>Age: 19</InfoItem>
-                        </ContentColumn>
-                      </LeftBlock>
-                      <RightBlock>sd</RightBlock>
-                    </AdditionalInformationContent>
-                  )}
-                </ImageOverlay>
-                <AdditionalInformation>
-                  <ChevronButton
-                    title={'appearance'}
-                    handleIsOpen={handleIsOpen}
-                    isOpen={isOpenInfo}
-                    bgColor={'white'}
-                  />
-                </AdditionalInformation>
               </ImageProduct>
             </Link>
+            <AdditionalInformation>
+              <ChevronButton
+                title={'appearance'}
+                handleIsOpen={handleIsOpen}
+                isOpen={isOpenInfo}
+                bgColor={'white'}
+              />
+            </AdditionalInformation>
+            <ImageOverlay>
+              {isOpenInfo && (
+                <AdditionalInformationContent>
+                  <LeftBlock>
+                    <ContentColumn>
+                      <InfoItem>Height: 170lb</InfoItem>
+                      <InfoItem>Weight: 350lb</InfoItem>
+                    </ContentColumn>
+                    <ContentColumn>
+                      <InfoItem>Breast: 3</InfoItem>
+                      <InfoItem>Age: 19</InfoItem>
+                    </ContentColumn>
+                  </LeftBlock>
+                  <RightBlock>
+                    <PhotoCounter>
+                      <PhotoIcon />
+                      <span>27</span>
+                      <VideoIconWrapper>
+                        <VideoIcon />
+                      </VideoIconWrapper>
+                    </PhotoCounter>
+                  </RightBlock>
+                </AdditionalInformationContent>
+              )}
+            </ImageOverlay>
           </CardImageWrapper>
           <CardContent>
             <Row>

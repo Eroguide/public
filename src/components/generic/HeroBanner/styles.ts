@@ -6,7 +6,7 @@ export const HeroBannerContainer = styled.div`
   padding: 0 80px;
   display: flex;
   flex-flow: column wrap;
-  background: #f0f0f0 url('/img/placeholder-image.png') no-repeat center center;
+  background: #f0f0f0 url('/img/woman.jpg') no-repeat center center;
   background-size: cover;
   border-radius: 24px;
   justify-content: center;
@@ -14,8 +14,14 @@ export const HeroBannerContainer = styled.div`
   border: 1px solid #808080;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 
+  ${({ theme }) => theme.media.md`
+      height: 520px
+  `}
+  ${({ theme }) => theme.media.sm`
+      height: 450px
+  `}
   ${({ theme }) => theme.media.mobile`
-      max-height: 320px
+      height: 320px
   `}
 `
 

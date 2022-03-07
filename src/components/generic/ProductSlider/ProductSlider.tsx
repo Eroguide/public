@@ -6,6 +6,8 @@ import {
   BottomRow,
   Left,
   Right,
+  TitleBeforeSlider,
+  IconWrapper,
 } from './styles'
 import { useRef, useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
@@ -16,8 +18,9 @@ import {
   NextPrevWrapper,
   PrevButton,
 } from '@/components/generic/ShowNewItems/styles'
-import ArrowLeftIcon from '../../../../public/img/arrow-left.svg'
-import ArrowRightIcon from '../../../../public/img/arrow-right.svg'
+import ArrowLeftIcon from '/public/img/arrow-left.svg'
+import ArrowRightIcon from '/public/img/arrow-right.svg'
+import GreenCheckIcon from '/public/img/green-circle-check.svg'
 import { Swiper as SwiperClass } from 'swiper/types'
 
 export const ProductSlider: React.FC = () => {
@@ -50,54 +53,65 @@ export const ProductSlider: React.FC = () => {
     { id: 'asdsdadasfffsadadsdsdsd', slug: 'four-project-time', best: 0 },
   ]
   return (
-    <Container>
-      <Wrapper>
-        <Swiper {...swiperSettings} onAfterInit={() => setInitSlider(true)}>
-          {initSlider && fixtures
-            ? fixtures.map(
-                (post) =>
-                  post && (
-                    <SwiperSlide key={post.id}>
-                      <GallerySliderImage src="/img/bg.jpg" />
-                    </SwiperSlide>
-                  )
-              )
-            : 'loading'}
-        </Swiper>
-        <Swiper
-          onSwiper={(e) => setThumbsSwiper(e)}
-          loop={true}
-          spaceBetween={8}
-          slidesPerView={4}
-          freeMode={true}
-          watchSlidesProgress={true}
-          modules={[FreeMode, Thumbs, Navigation]}
-        >
-          {initSlider && fixtures
-            ? fixtures.map(
-                (post) =>
-                  post && (
-                    <SwiperSlide key={post.id}>
-                      <ThumbsSliderImage src="/img/bg.jpg" />
-                    </SwiperSlide>
-                  )
-              )
-            : 'loading'}
-        </Swiper>
-        <BottomRow>
-          <Left>Photo update: Nov 18. 2021</Left>
-          <Right>
-            <NextPrevWrapper>
-              <PrevButton ref={navigationPrevRef}>
-                <ArrowLeftIcon />
-              </PrevButton>
-              <NextButton ref={navigationNextRef}>
-                <ArrowRightIcon />
-              </NextButton>
-            </NextPrevWrapper>
-          </Right>
-        </BottomRow>
-      </Wrapper>
-    </Container>
+    <>
+      <TitleBeforeSlider>
+        <IconWrapper>
+          <GreenCheckIcon />
+        </IconWrapper>
+        <span>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores,
+          natus.
+        </span>
+      </TitleBeforeSlider>
+      <Container>
+        <Wrapper>
+          <Swiper {...swiperSettings} onAfterInit={() => setInitSlider(true)}>
+            {initSlider && fixtures
+              ? fixtures.map(
+                  (post) =>
+                    post && (
+                      <SwiperSlide key={post.id}>
+                        <GallerySliderImage src="/img/bg.jpg" />
+                      </SwiperSlide>
+                    )
+                )
+              : 'loading'}
+          </Swiper>
+          <Swiper
+            onSwiper={(e) => setThumbsSwiper(e)}
+            loop={true}
+            spaceBetween={8}
+            slidesPerView={4}
+            freeMode={true}
+            watchSlidesProgress={true}
+            modules={[FreeMode, Thumbs, Navigation]}
+          >
+            {initSlider && fixtures
+              ? fixtures.map(
+                  (post) =>
+                    post && (
+                      <SwiperSlide key={post.id}>
+                        <ThumbsSliderImage src="/img/bg.jpg" />
+                      </SwiperSlide>
+                    )
+                )
+              : 'loading'}
+          </Swiper>
+          <BottomRow>
+            <Left>Photo update: Nov 18. 2021</Left>
+            <Right>
+              <NextPrevWrapper>
+                <PrevButton ref={navigationPrevRef}>
+                  <ArrowLeftIcon />
+                </PrevButton>
+                <NextButton ref={navigationNextRef}>
+                  <ArrowRightIcon />
+                </NextButton>
+              </NextPrevWrapper>
+            </Right>
+          </BottomRow>
+        </Wrapper>
+      </Container>
+    </>
   )
 }

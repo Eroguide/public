@@ -9,10 +9,10 @@ import {
 } from './styles'
 import { PostCardProps } from './types'
 
-export const PostCard: React.FC<PostCardProps> = ({ id, inSwipe, title }) => {
+export const PostCard: React.FC<PostCardProps> = ({ id, title }) => {
   return (
-    <Link href={id ? `/journal/${id}` : `/journal/somelink`} passHref>
-      <CardMainContainer inSwipe={inSwipe}>
+    <Link href={`/journal/${id}`} passHref>
+      <CardMainContainer>
         <PostCardInner>
           <CardImageWrapper>
             <ImageProduct />

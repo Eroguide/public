@@ -12,6 +12,8 @@ import {
 } from './styles'
 import { PostCardWideProps } from './types'
 import Link from 'next/link'
+import { CustomButton } from '@/components/generic'
+import { BaseLayout } from '@/components/layouts/BaseLayout'
 export const PostCardWide: React.FC<PostCardWideProps> = ({ id, inSwipe }) => {
   return (
     <>
@@ -34,7 +36,9 @@ export const PostCardWide: React.FC<PostCardWideProps> = ({ id, inSwipe }) => {
           <BottomLine>
             <DateText>today 19:00</DateText>
             <Link href={id ? `/journal/${id}` : `/journal/somelink`} passHref>
-              <ReadMoreButton>Read more</ReadMoreButton>
+              <CustomButton styleType="tertiary" sizeType="medium" isLink>
+                Read more
+              </CustomButton>
             </Link>
           </BottomLine>
         </CardContent>

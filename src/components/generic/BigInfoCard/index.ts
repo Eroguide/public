@@ -1,0 +1,1 @@
+export { BigInfoCard } from './BigInfoCard'

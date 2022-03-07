@@ -9,6 +9,9 @@ export const FooterContainer = styled.div`
   display: flex;
   padding-left: 40px;
   margin-top: 100px;
+  ${({ theme }) => theme.media.mobile`
+   padding-left: 0;
+  `}
 `
 
 export const FooterInner = styled.div`
@@ -109,13 +112,15 @@ export const SubTitleCta = styled.p`
 export const ContentCta = styled.div`
   display: flex;
   flex-flow: column wrap;
-  max-width: 110px;
 `
 
 export const FooterWrapper = styled.div`
   display: flex;
-  flex-flow: column wrap;
+  flex-flow: column;
   height: 70vh;
+  ${({ theme }) => theme.media.mobile`
+  height: auto;
+  `}
 `
 
 export const ButtonCta = styled.button`
@@ -138,6 +143,14 @@ export const UnderFooter = styled.div`
   padding-left: 40px;
   align-items: center;
   justify-content: space-between;
+
+  ${({ theme }) => theme.media.mobile`
+     margin: 40px 0;
+     height: auto;
+     flex-direction: column;
+     align-items: flex-start;
+     padding-left:0;
+  `}
 `
 
 export const UnderFooterLeft = styled.div`
@@ -163,6 +176,7 @@ export const UnderFooterRight = styled.div`
 
   ${({ theme }) => theme.media.md`
     margin-right: 0;
+     width: 100%
   `}
 
   ${({ theme }) => theme.media.sm`
@@ -171,5 +185,10 @@ export const UnderFooterRight = styled.div`
   
   ${({ theme }) => theme.media.mobile`
     margin-right: 0;
+      width: 100%;
+      flex-direction: column;
+      span{
+       margin-left: 0;
+      }
   `}
 `

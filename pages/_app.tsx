@@ -17,10 +17,12 @@ function MyApp({ Component, pageProps }: AppProps) {
     <ThemeProvider theme={theme}>
       {globalStyles}
       <ApolloProvider client={apolloClient}>
+        {/*<Provider store={store}>*/}
         <StoreonCustomContext.Provider value={store}>
           <Component {...pageProps} />
           <Loader />
         </StoreonCustomContext.Provider>
+        {/*</Provider>*/}
       </ApolloProvider>
     </ThemeProvider>
   )

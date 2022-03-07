@@ -1,0 +1,1 @@
+export { SalonSinglePageContent } from './SalonSinglePageContent'

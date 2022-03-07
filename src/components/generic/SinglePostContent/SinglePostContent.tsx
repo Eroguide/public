@@ -93,10 +93,11 @@ export const SinglePostContent: React.FC = () => {
         counter={34}
         counterTitle="All posts"
         itemsToShow={4}
+        withControls
       >
         {fixtures.map((item) => (
           <SwiperSlide key={item.id}>
-            <PostCard {...item} title={item.tag} inSwipe />
+            <PostCard {...item} title={item.tag} />
           </SwiperSlide>
         ))}
       </ContentCardRow>

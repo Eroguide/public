@@ -21,6 +21,7 @@ export const Notification = styled.div`
   align-items: center;
   margin-bottom: 48px;
 `
+
 export const IconWrapper = styled.div`
   display: flex;
   justify-content: center;

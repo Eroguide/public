@@ -1,16 +1,13 @@
 import styled from '@emotion/styled'
 
-export const CardMainContainer = styled.div<{ inSwipe?: boolean }>`
-  width: ${({ inSwipe }) => (inSwipe ? '100%' : '302px')};
-  min-width: 302px;
+export const CardMainContainer = styled.div`
+  width: 100%;
+  min-width: 312px;
   flex-direction: column;
   border-radius: 32px;
   margin-bottom: 32px;
   position: relative;
-  padding: 5px;
-  ${({ theme }) => theme.media.mobile`
-      width: 100%;
-  `}
+  padding: 6px;
 `
 
 export const PostCardInner = styled.div`
@@ -53,10 +50,16 @@ export const CardImageWrapper = styled.div`
   width: 100%;
   height: 296px;
   position: relative;
-  background: #ebebf0 url('/img/bg.jpg') no-repeat center top;
+  background: #ebebf0 url('/img/woman.jpg') no-repeat center top;
   background-size: cover;
   overflow: hidden;
   z-index: 1;
+  box-shadow: inset 2px 1px 5px #fff;
+  transition: box-shadow 0.15s ease-in-out;
+  &:hover {
+    transition: box-shadow 0.15s ease-in-out;
+    box-shadow: inset 0 0 0 #fff;
+  }
 `
 
 export const ImageProduct = styled.div`

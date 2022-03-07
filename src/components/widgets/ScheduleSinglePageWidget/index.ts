@@ -1,0 +1,1 @@
+export { ScheduleSinglePageWidget } from './ScheduleSinglePageWidget'

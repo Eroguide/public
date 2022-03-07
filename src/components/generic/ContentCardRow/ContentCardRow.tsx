@@ -1,5 +1,5 @@
 import { Swiper } from 'swiper/react'
-import { Pagination, SwiperOptions, FreeMode } from 'swiper'
+import { SwiperOptions, FreeMode, Navigation } from 'swiper'
 
 import {
   ContentCardRowContainer,
@@ -11,33 +11,55 @@ import {
   Quantity,
   Counter,
 } from './styles'
-import { useState } from 'react'
+import { useRef, useState } from 'react'
+import {
+  NextButton,
+  NextPrevWrapper,
+  PrevButton,
+} from '@/components/generic/ShowNewItems/styles'
+import ArrowLeftIcon from '/public/img/arrow-left.svg'
+import ArrowRightIcon from '/public/img/arrow-right.svg'
+import { CustomButton } from '@/components/generic'
+import { ContentCta } from '@/components/layouts/Footer/styles'
 
 export const ContentCardRow: React.FC<{
   title: string
   counter: number
   counterTitle: string
   itemsToShow: number
-}> = ({ children, title, counterTitle, counter, itemsToShow }) => {
+  withControls?: boolean
+}> = ({
+  children,
+  title,
+  counterTitle,
+  counter,
+  itemsToShow,
+  withControls = false,
+}) => {
+  const navigationPrevRef = useRef<HTMLDivElement>(null)
+  const navigationNextRef = useRef<HTMLDivElement>(null)
+
   const swiperSettings: SwiperOptions = {
     loop: true,
     freeMode: true,
     slidesPerView: itemsToShow,
-    spaceBetween: 16,
-    modules: [Pagination, FreeMode],
-
+    spaceBetween: 10,
+    modules: [FreeMode, Navigation],
+    allowSlidePrev: true,
+    allowSlideNext: true,
+    navigation: {
+      prevEl: navigationPrevRef.current,
+      nextEl: navigationNextRef.current,
+    },
     breakpoints: {
       0: {
         slidesPerView: 1,
-        spaceBetween: 12,
       },
       600: {
         slidesPerView: itemsToShow,
-        spaceBetween: 12,
       },
       1400: {
         slidesPerView: itemsToShow,
-        spaceBetween: 16,
       },
     },
   }
@@ -48,10 +70,24 @@ export const ContentCardRow: React.FC<{
       <TopLine>
         <Title>{title}</Title>
         <RightWidget>
-          <Counter>
-            <CounterTitle>{counterTitle}</CounterTitle>
-            <Quantity>{counter}</Quantity>
-          </Counter>
+          {withControls ? (
+            <NextPrevWrapper>
+              <PrevButton ref={navigationPrevRef}>
+                <ArrowLeftIcon />
+              </PrevButton>
+              <NextButton ref={navigationNextRef}>
+                <ArrowRightIcon />
+              </NextButton>
+            </NextPrevWrapper>
+          ) : (
+            <CustomButton
+              styleType="tertiary"
+              sizeType="medium"
+              counter={counter}
+            >
+              {counterTitle}
+            </CustomButton>
+          )}
         </RightWidget>
       </TopLine>
       <ContentRow>

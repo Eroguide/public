@@ -12,7 +12,7 @@ import {
   Quantity,
   Counter,
 } from './styles'
-import { PostCard } from '@/components/generic'
+import { CustomButton, PostCard } from '@/components/generic'
 import { GetLaunches_launchesPast } from '@/graphql/__generated__/GetLaunches'
 
 export const PostList: React.FC<{
@@ -52,10 +52,13 @@ export const PostList: React.FC<{
       <TopLine>
         <Title>{title}</Title>
         <RightWidget>
-          <Counter>
-            <CounterTitle>{counterTitle}</CounterTitle>
-            <Quantity>{counter}</Quantity>
-          </Counter>
+          <CustomButton
+            styleType="tertiary"
+            sizeType="medium"
+            counter={counter}
+          >
+            {counterTitle}
+          </CustomButton>
         </RightWidget>
       </TopLine>
       <ContentRow>
@@ -65,7 +68,7 @@ export const PostList: React.FC<{
                 (post) =>
                   post && (
                     <SwiperSlide key={post.id}>
-                      <PostCard {...post} title={post?.mission_name} inSwipe />
+                      <PostCard {...post} title={post?.mission_name} />
                     </SwiperSlide>
                   )
               )
