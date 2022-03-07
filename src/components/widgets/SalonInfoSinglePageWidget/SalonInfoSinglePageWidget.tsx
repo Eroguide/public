@@ -1,11 +1,9 @@
 import Link from 'next/link'
-import { ButtonShadowLink } from '@/components/generic/ButtonStyled/styles'
 import {
   Container,
   AvatarImage,
   Name,
   NameWrapper,
-  ButtonLined,
   ButtonsRow,
   Divider,
   IconWrapper,
@@ -13,7 +11,6 @@ import {
   Row,
   ImageWrapper,
   RatingSalon,
-  IconWrapperChevron,
   Left,
   LocationText,
   Right,

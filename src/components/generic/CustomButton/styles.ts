@@ -40,8 +40,10 @@ export const Button = styled.button<StyledComponentProps>`
   border: ${({ theme, styleType }) => theme.button.border[styleType]};
   max-width: 200px;
   cursor: pointer;
-  ${({ iconRight }) => iconRight && 'padding-right: 0;'}
-  ${({ iconLeft }) => iconLeft && 'padding-left: 0;'}
+
+  ${({ iconRight }) => iconRight && 'padding-right: 0;padding-left: 16px;'};
+  ${({ iconLeft }) => iconLeft && 'padding-left: 0;padding-right: 16px;'};
+  ${({ styleType }) => styleType === 'link' && 'padding: 0;'};
   svg path {
     stroke: ${({ theme, styleType }) => theme.button.icon[styleType]};
   }

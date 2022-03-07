@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import { ButtonShadowLink } from '@/components/generic/ButtonStyled/styles'
 import {
   Container,
   Inner,
@@ -9,14 +8,12 @@ import {
   Left,
   Right,
   GlobusText,
-  IconWrapperChevron,
   LocationText,
   RatingSalon,
 } from './styles'
 import AttentionIcon from '../../../../public/img/attention-icon.svg'
 import GlobusIcon from '../../../../public/img/globus-icon.svg'
 import LocationIcon from '../../../../public/img/location-pin-icon.svg'
-import ChevronRight from '../../../../public/img/chevron-right.svg'
 import { CustomButton } from '@/components/generic'
 
 export const SalonSinglePageWidget: React.FC = () => {

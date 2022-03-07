@@ -67,18 +67,3 @@ export const DateText = styled.div`
   font-size: ${({ theme }) => theme.fontSize['xs']};
   color: ${({ theme }) => theme.grayScale['2']};
 `
-
-export const ReadMoreButton = styled.a`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 40px;
-  flex-wrap: nowrap;
-  flex-direction: row;
-  padding: 8px 16px;
-  border: 2px solid ${({ theme }) => theme.grayScale[1]};
-  border-radius: 32px;
-  text-decoration: none;
-  font-size: ${({ theme }) => theme.fontSize['xs']};
-  color: ${({ theme }) => theme.grayScale['3']};
-`

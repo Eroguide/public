@@ -146,14 +146,6 @@ export const GlobusText = styled.span`
   margin-left: 8px;
 `
 
-export const IconWrapperChevron = styled.div`
-  display: flex;
-  height: 24px;
-  width: 24px;
-  justify-content: center;
-  align-items: center;
-`
-
 export const LocationText = styled.span`
   font-size: ${({ theme }) => theme.fontSize['s']};
   color: ${({ theme }) => theme.grayScale[3]};

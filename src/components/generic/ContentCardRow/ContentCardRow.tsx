@@ -7,9 +7,6 @@ import {
   Title,
   RightWidget,
   ContentRow,
-  CounterTitle,
-  Quantity,
-  Counter,
 } from './styles'
 import { useRef, useState } from 'react'
 import {
@@ -20,7 +17,6 @@ import {
 import ArrowLeftIcon from '/public/img/arrow-left.svg'
 import ArrowRightIcon from '/public/img/arrow-right.svg'
 import { CustomButton } from '@/components/generic'
-import { ContentCta } from '@/components/layouts/Footer/styles'
 
 export const ContentCardRow: React.FC<{
   title: string

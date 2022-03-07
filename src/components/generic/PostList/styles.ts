@@ -41,23 +41,3 @@ export const Counter = styled.div`
   border: 2px solid ${({ theme }) => theme.grayScale[1]};
   border-radius: 32px;
 `
-
-export const CounterTitle = styled.span`
-  font-size: ${({ theme }) => theme.fontSize.s};
-  color: ${({ theme }) => theme.grayScale[4]};
-  font-weight: 600;
-`
-
-export const Quantity = styled.span`
-  margin-left: 16px;
-  font-size: ${({ theme }) => theme.fontSize.s};
-  color: ${({ theme }) => theme.grayScale[2]};
-  font-weight: 600;
-`
-
-export const ErrorMessage = styled.span`
-  margin-left: 16px;
-  font-size: ${({ theme }) => theme.fontSize.s};
-  color: ${({ theme }) => theme.primary[2]};
-  font-weight: 600;
-`

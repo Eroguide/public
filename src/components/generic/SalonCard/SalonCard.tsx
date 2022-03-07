@@ -11,7 +11,6 @@ import {
   Description,
   CounterAvailable,
   CounterText,
-  ButtonShadow,
   InformationContent,
   SmallGallery,
   SmallGalleryItem,

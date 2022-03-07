@@ -11,10 +11,8 @@ import {
   WorkingDaysWrapper,
 } from './styles'
 
-import GreenCheck from '../../../../public/img/green-check.svg'
+import GreenCheck from '/public/img/green-check.svg'
 import { CustomButton, WorkingDays } from '@/components/generic'
-import { ButtonShadowLink } from '@/components/generic/ButtonStyled/styles'
-import { RightWidget } from '@/components/generic/PostList/styles'
 
 export const ScheduleSinglePageWidget: React.FC = () => {
   return (

@@ -18,7 +18,6 @@ import Link from 'next/link'
 import { CustomButton, DrawerBottom } from '@/components/generic'
 import { useState } from 'react'
 import { useRouter } from 'next/router'
-import { ButtonsRow } from '@/components/widgets/SalonInfoSinglePageWidget/styles'
 
 const navItems = [
   [

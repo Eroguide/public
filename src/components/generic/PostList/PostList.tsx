@@ -8,9 +8,6 @@ import {
   Title,
   RightWidget,
   ContentRow,
-  CounterTitle,
-  Quantity,
-  Counter,
 } from './styles'
 import { CustomButton, PostCard } from '@/components/generic'
 import { GetLaunches_launchesPast } from '@/graphql/__generated__/GetLaunches'

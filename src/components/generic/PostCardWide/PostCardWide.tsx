@@ -8,12 +8,11 @@ import {
   CardContent,
   BottomLine,
   DateText,
-  ReadMoreButton,
 } from './styles'
 import { PostCardWideProps } from './types'
 import Link from 'next/link'
 import { CustomButton } from '@/components/generic'
-import { BaseLayout } from '@/components/layouts/BaseLayout'
+
 export const PostCardWide: React.FC<PostCardWideProps> = ({ id, inSwipe }) => {
   return (
     <>

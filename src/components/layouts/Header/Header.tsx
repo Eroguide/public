@@ -44,18 +44,22 @@ export const Header: React.FC = () => {
             <Logo src="/img/logo.png" alt="" onClick={() => goHome()} />
           )}
           <Divider />
-          <NavLink>Prague</NavLink>
+          <Link href="/map" passHref>
+            <CustomButton styleType="link" isLink>
+              Prague
+            </CustomButton>
+          </Link>
         </LeftBlock>
         <RightBlock>
           {!isSmall && (
             <>
               <Link href="/about" passHref>
-                <CustomButton styleType="link" isLink>
+                <CustomButton styleType="link" isLink margin="0 20px">
                   About
                 </CustomButton>
               </Link>
               <Link href="/journal" passHref>
-                <CustomButton styleType="link" isLink>
+                <CustomButton styleType="link" isLink margin="0 20px">
                   Journal
                 </CustomButton>
               </Link>

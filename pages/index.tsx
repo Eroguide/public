@@ -6,7 +6,6 @@ import { HeroFilters } from '@/components/generic/HeroFilters'
 import { SalonCard } from '@/components/generic/SalonCard'
 import { ContentCardRow } from '@/components/generic/ContentCardRow'
 import {
-  CustomButton,
   Card,
   CardGallery,
   MapSection,
