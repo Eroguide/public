@@ -1,6 +1,5 @@
 import styled from '@emotion/styled'
 import { headerHeight } from '@/src/components/layouts/Header/constants'
-import { WrapperProps, InnerProps } from './types'
 
 export const Container = styled.div`
   max-width: 1280px;
@@ -8,7 +7,6 @@ export const Container = styled.div`
 `
 
 export const Layout = styled.div`
-  //overflow: hidden;
   width: 100%;
   min-height: 100vh;
   left: 0;
@@ -26,7 +24,7 @@ export const Layout = styled.div`
   `}
 `
 
-export const Wrapper = styled.div<WrapperProps>`
+export const Wrapper = styled.div`
   max-width: 1920px;
   margin: 0 auto;
   padding: 0 24px;
@@ -45,7 +43,7 @@ export const Wrapper = styled.div<WrapperProps>`
   `}
 `
 
-export const Inner = styled.div<InnerProps>`
+export const Inner = styled.div`
   display: flex;
   flex-direction: column;
   margin-top: ${headerHeight}px;

@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Pagination, SwiperOptions, FreeMode } from 'swiper'
-
+import Link from 'next/link'
 import {
   PostListRowContainer,
   TopLine,
@@ -23,23 +23,18 @@ export const PostList: React.FC<{
     loop: true,
     freeMode: true,
     modules: [Pagination, FreeMode],
-    spaceBetween: 16,
     breakpoints: {
       0: {
         slidesPerView: 1,
-        spaceBetween: 12,
       },
       700: {
         slidesPerView: 2,
-        spaceBetween: 12,
       },
       991: {
         slidesPerView: 3,
-        spaceBetween: 16,
       },
       1420: {
         slidesPerView: 4,
-        spaceBetween: 16,
       },
     },
   }
@@ -49,13 +44,16 @@ export const PostList: React.FC<{
       <TopLine>
         <Title>{title}</Title>
         <RightWidget>
-          <CustomButton
-            styleType="tertiary"
-            sizeType="medium"
-            counter={counter}
-          >
-            {counterTitle}
-          </CustomButton>
+          <Link href="/journal" passHref>
+            <CustomButton
+              styleType="tertiary"
+              sizeType="medium"
+              counter={counter}
+              isLink
+            >
+              {counterTitle}
+            </CustomButton>
+          </Link>
         </RightWidget>
       </TopLine>
       <ContentRow>

@@ -2,7 +2,10 @@ import styled from '@emotion/styled'
 
 export const ContentCardRowContainer = styled.div`
   width: 100%;
+  max-width: 1304px;
+  padding: 0 12px;
   margin-top: 64px;
+  overflow-x: hidden;
 `
 export const TopLine = styled.div`
   width: 100%;
@@ -26,8 +29,8 @@ export const ContentRow = styled.div`
   display: flex;
   width: 100%;
   justify-content: space-between;
-  min-width: 1280px;
-  margin: 40px -5px 0 -5px;
+  min-width: 1304px;
+  margin: 40px -12px 0 -12px;
   ${({ theme }) => theme.media.mobile`
        min-width: auto;
   `}

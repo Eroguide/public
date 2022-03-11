@@ -14,7 +14,7 @@ export const TopLineSinglePage: React.FC = () => {
       {!isSmall && (
         <Link href={'/'} passHref>
           <CustomButton iconLeft styleType="tertiary" sizeType="medium">
-            Create now
+            Back to home
           </CustomButton>
         </Link>
       )}

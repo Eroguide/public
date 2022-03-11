@@ -14,6 +14,7 @@ import {
   NextPrevWrapper,
   PrevButton,
   TimeLine,
+  DateTag,
 } from './styles'
 import { Card } from '@/components/generic'
 
@@ -37,7 +38,6 @@ export const ShowNewItems: React.FC<{
     slidesPerView: itemsToShow,
     freeMode: true,
     modules: [FreeMode, Navigation],
-    spaceBetween: 10,
     breakpoints: {
       0: {
         slidesPerView: 1,
@@ -69,6 +69,8 @@ export const ShowNewItems: React.FC<{
     },
     { id: 'asdxfsadasd', slug: 'four-project-time', date: 3 },
     { id: 'asdsdadvadasd', slug: 'four-project-time', date: 4 },
+    { id: 'asdsdadsdasdvadasd', slug: 'x-project-time', date: 4 },
+    { id: 'asdsdadsdasdsssvadasd', slug: 'x-project-time', date: 4 },
     { id: 'xfffsadasd', slug: 'four-project-time', date: 5 },
     { id: 'xfffsadasssd', slug: 'four-project-time', date: 8 },
   ]
@@ -140,7 +142,9 @@ export const ShowNewItems: React.FC<{
                   {item.date && (
                     <>
                       <TimeLine date={item.date} isLast={item.isLastInGroup} />
-                      {item.writeDateTitle && <span>{days[item.date]}</span>}
+                      {item.writeDateTitle && (
+                        <DateTag>{days[item.date]}</DateTag>
+                      )}
                     </>
                   )}
                 </>

@@ -7,8 +7,8 @@ import {
   Right,
   ImageWrapper,
 } from './styles'
-import { ButtonPrimaryLink } from '@/components/generic/ButtonStyled/styles'
 import Link from 'next/link'
+import { CustomButton } from '@/components/generic'
 export const ErrorPage: React.FC = () => {
   return (
     <Container>
@@ -17,7 +17,9 @@ export const ErrorPage: React.FC = () => {
           <CtaBlock>
             <Title>whooops... this page is not available</Title>
             <Link href="/" passHref>
-              <ButtonPrimaryLink>Turn back</ButtonPrimaryLink>
+              <CustomButton isLink styleType="primary">
+                Turn back
+              </CustomButton>
             </Link>
           </CtaBlock>
         </Left>

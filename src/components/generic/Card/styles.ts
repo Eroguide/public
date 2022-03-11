@@ -48,6 +48,7 @@ export const CardImageWrapper = styled.div`
   background: #ebebf0 url('/img/woman.jpg') no-repeat center top;
   background-size: cover;
   overflow: hidden;
+  align-items: flex-end;
   z-index: 1;
 `
 
@@ -56,6 +57,8 @@ export const ImageProduct = styled.div`
   display: flex;
   justify-content: center;
   cursor: pointer;
+  position: absolute;
+  inset: 0;
 `
 
 export const CardContent = styled.div`
@@ -163,6 +166,7 @@ export const AdditionalInformationContent = styled.div`
   padding: 24px 16px 12px 16px;
   justify-content: space-between;
   align-items: flex-start;
+  z-index: 10;
 `
 
 export const ImageOverlay = styled.div`

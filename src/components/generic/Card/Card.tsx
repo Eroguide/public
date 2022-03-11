@@ -64,6 +64,7 @@ export const Card: React.FC<CardProps> = ({
       <CardMainContainer margin={margin} inSwipe={inSwipe}>
         <CardInner>
           <CardImageWrapper>
+            <ImageOverlay />
             <Link href={`/gallery/${id}`} passHref>
               <ImageProduct>
                 {tagTitle && <TopImageTag>{tagTitle}</TopImageTag>}
@@ -77,31 +78,30 @@ export const Card: React.FC<CardProps> = ({
                 bgColor={'white'}
               />
             </AdditionalInformation>
-            <ImageOverlay>
-              {isOpenInfo && (
-                <AdditionalInformationContent>
-                  <LeftBlock>
-                    <ContentColumn>
-                      <InfoItem>Height: 170lb</InfoItem>
-                      <InfoItem>Weight: 350lb</InfoItem>
-                    </ContentColumn>
-                    <ContentColumn>
-                      <InfoItem>Breast: 3</InfoItem>
-                      <InfoItem>Age: 19</InfoItem>
-                    </ContentColumn>
-                  </LeftBlock>
-                  <RightBlock>
-                    <PhotoCounter>
-                      <PhotoIcon />
-                      <span>27</span>
-                      <VideoIconWrapper>
-                        <VideoIcon />
-                      </VideoIconWrapper>
-                    </PhotoCounter>
-                  </RightBlock>
-                </AdditionalInformationContent>
-              )}
-            </ImageOverlay>
+
+            {isOpenInfo && (
+              <AdditionalInformationContent>
+                <LeftBlock>
+                  <ContentColumn>
+                    <InfoItem>Height: 170lb</InfoItem>
+                    <InfoItem>Weight: 350lb</InfoItem>
+                  </ContentColumn>
+                  <ContentColumn>
+                    <InfoItem>Breast: 3</InfoItem>
+                    <InfoItem>Age: 19</InfoItem>
+                  </ContentColumn>
+                </LeftBlock>
+                <RightBlock>
+                  <PhotoCounter>
+                    <PhotoIcon />
+                    <span>27</span>
+                    <VideoIconWrapper>
+                      <VideoIcon />
+                    </VideoIconWrapper>
+                  </PhotoCounter>
+                </RightBlock>
+              </AdditionalInformationContent>
+            )}
           </CardImageWrapper>
           <CardContent>
             <Row>

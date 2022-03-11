@@ -151,9 +151,9 @@ const button = {
       [ButtonStylesEnum.link]: grayScale[5],
     },
     border: {
-      [ButtonStylesEnum.primary]: null,
-      [ButtonStylesEnum.secondary]: null,
-      [ButtonStylesEnum.tertiary]: null,
+      [ButtonStylesEnum.primary]: `2px solid ${grayScale[1]}`,
+      [ButtonStylesEnum.secondary]: `2px solid ${grayScale[1]}`,
+      [ButtonStylesEnum.tertiary]: `2px solid ${grayScale[0]}`,
       [ButtonStylesEnum.link]: null,
     },
   },

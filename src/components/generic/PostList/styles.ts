@@ -4,6 +4,7 @@ export const PostListRowContainer = styled.div`
   width: 100%;
   max-width: 1280px;
   margin-top: 64px;
+  overflow-x: hidden;
 `
 
 export const TopLine = styled.div`
@@ -29,6 +30,11 @@ export const ContentRow = styled.div`
   width: 100%;
   justify-content: space-between;
   margin-top: 40px;
+  min-width: 1304px;
+  margin: 40px -12px 0 -12px;
+  ${({ theme }) => theme.media.mobile`
+       min-width: auto;
+  `}
 `
 
 export const Counter = styled.div`

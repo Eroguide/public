@@ -2,7 +2,6 @@ import styled from '@emotion/styled'
 
 export const HeaderContainer = styled.div`
   width: 100%;
-  //width: calc(100% - 80px * 2);
   padding: 0 80px;
   position: fixed;
   left: 0;
@@ -10,13 +9,15 @@ export const HeaderContainer = styled.div`
   right: 0;
   z-index: 500;
   background-color: #fff;
+  align-items: center;
   ${({ theme }) => theme.media.md`
   padding: 0 32px;
   `}
   ${({ theme }) => theme.media.sm`
-  padding: 0 ;
+  padding: 0;
   `} ${({ theme }) => theme.media.mobile`
-  padding: 0 8px;
+  padding: 0;
+  
   `}
 `
 
@@ -38,7 +39,7 @@ export const HeaderInner = styled.div`
     width: calc(100% - 32px * 2);
   `}
   ${({ theme }) => theme.media.mobile`
-    padding: 0;
+  padding: 0 16px;
   `}
 `
 
@@ -60,24 +61,11 @@ export const NavLink = styled.a`
   color: #a0a0b0;
 `
 
-export const PersonalLink = styled.div`
-  font-size: 14px;
-  color: #a0a0b0;
+export const BurgerButton = styled.div`
   margin-left: 40px;
-  cursor: pointer;
-  svg {
-    stroke: ${({ theme }) => theme.grayScale[3]};
-  }
-  &:hover {
-    svg {
-      stroke: ${({ theme }) => theme.grayScale[4]};
-    }
-  }
-  &:active {
-    svg {
-      stroke: ${({ theme }) => theme.grayScale[5]};
-    }
-  }
+  width: 24px;
+  height: 24px;
+  position: relative;
 `
 
 export const LeftBlock = styled.div`
@@ -113,4 +101,24 @@ export const SearchIconWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+`
+
+export const BurgerIconWrapper = styled.div`
+  font-size: 14px;
+  color: #a0a0b0;
+  cursor: pointer;
+  position: relative;
+  svg path {
+    stroke: ${({ theme }) => theme.grayScale[3]};
+  }
+  &:hover {
+    svg path {
+      stroke: ${({ theme }) => theme.grayScale[4]};
+    }
+  }
+  &:active {
+    svg path {
+      stroke: ${({ theme }) => theme.grayScale[5]};
+    }
+  }
 `

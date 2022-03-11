@@ -1,5 +1,6 @@
 import { Container, Wrapper } from './styles'
 import { PostCardWide } from '@/components/generic'
+import { PaginationWidget } from '@/components/widgets/PaginationWidget'
 const fixtures = [
   { id: '222dsadas', slug: 'one-project-time', best: 1 },
   { id: 'asddsad222sadasd', slug: 'two-project-time', best: 0 },
@@ -12,15 +13,13 @@ const fixtures = [
 
 export const GalleryContent: React.FC = () => {
   return (
-    <>
-      <Container>
-        <Wrapper>
-          {fixtures.map((item) => (
-            <PostCardWide key={item.id} {...item} />
-          ))}
-          Pagination will be here...
-        </Wrapper>
-      </Container>
-    </>
+    <Container>
+      <Wrapper>
+        {fixtures.map((item) => (
+          <PostCardWide key={item.id} {...item} />
+        ))}
+        <PaginationWidget itemsPerPage={4} />
+      </Wrapper>
+    </Container>
   )
 }

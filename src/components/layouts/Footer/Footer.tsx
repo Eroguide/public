@@ -2,23 +2,22 @@ import {
   FooterContainer,
   FooterInner,
   FooterLogo,
-  FooterLinks,
   LinkGroup,
-  FooterCta,
-  TitleCta,
-  SubTitleCta,
-  ContentCta,
   FooterWrapper,
   UnderFooter,
   UnderFooterLeft,
-  FooterLogoWrapper,
   UnderFooterRight,
+  FirstFooterSection,
+  MiddleFooterSection,
+  EndFooterSection,
 } from './styles'
 import Link from 'next/link'
 import { CustomButton, DrawerBottom } from '@/components/generic'
 import { useState } from 'react'
 import { useRouter } from 'next/router'
+import { CtaWidget } from '@/components/widgets/CtaWidget'
 
+const currentYear = new Date().getFullYear()
 const navItems = [
   [
     { name: 'Private ladies', href: '/gallery' },
@@ -49,7 +48,7 @@ export const Footer: React.FC = () => {
     <FooterWrapper>
       <FooterContainer>
         <FooterInner>
-          <FooterLogoWrapper>
+          <FirstFooterSection>
             <FooterLogo
               src="/img/logo.png"
               alt=""
@@ -59,9 +58,9 @@ export const Footer: React.FC = () => {
                 })
               }
             />
-          </FooterLogoWrapper>
+          </FirstFooterSection>
 
-          <FooterLinks>
+          <MiddleFooterSection>
             {navItems.map((item, i) => (
               <LinkGroup key={`group-links-${i}`}>
                 {item.map((linkName) => (
@@ -73,23 +72,18 @@ export const Footer: React.FC = () => {
                 ))}
               </LinkGroup>
             ))}
-          </FooterLinks>
+          </MiddleFooterSection>
 
-          <FooterCta>
-            <ContentCta>
-              <TitleCta>Not with us yet?</TitleCta>
-              <SubTitleCta>List your questionnaire</SubTitleCta>
-              <CustomButton styleType="primary" sizeType="medium">
-                Create now
-              </CustomButton>
-            </ContentCta>
-          </FooterCta>
+          <EndFooterSection>
+            <CtaWidget />
+          </EndFooterSection>
         </FooterInner>
       </FooterContainer>
 
       <UnderFooter>
         <UnderFooterLeft>
-          Copyright © 2021 Eroguide.cz All rights reserved
+          © {currentYear}
+          <Link href="/"> Eroguide.cz </Link>
         </UnderFooterLeft>
         <UnderFooterRight>
           <span onClick={() => setDrawerIsOpen(!drawerIsOpen)}>

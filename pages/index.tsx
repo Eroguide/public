@@ -53,6 +53,7 @@ const Home: NextPage<GetLaunches> = ({ launchesPast }) => {
           counter={535}
           counterTitle="All salons"
           itemsToShow={3}
+          href="/salons"
         >
           {fixtures.map((item) => (
             <SwiperSlide key={item.id}>
@@ -65,6 +66,7 @@ const Home: NextPage<GetLaunches> = ({ launchesPast }) => {
           counter={535}
           counterTitle="All private ladies"
           itemsToShow={4}
+          href="/gallery"
         >
           {fixtures.map((item) => (
             <SwiperSlide key={item.id}>
@@ -77,12 +79,13 @@ const Home: NextPage<GetLaunches> = ({ launchesPast }) => {
             </SwiperSlide>
           ))}
         </ContentCardRow>
-        <CardGallery cards={fixtures} title={'Ladies gallery'} />
+        <CardGallery cards={fixtures} title={'Ladies gallery:'} />
         <ContentCardRow
           title="New posts"
           counter={34}
           counterTitle="All posts"
           itemsToShow={4}
+          href="/journal"
         >
           {fixtures.map((item) => (
             <SwiperSlide key={item.id}>
@@ -96,6 +99,7 @@ const Home: NextPage<GetLaunches> = ({ launchesPast }) => {
           counter={23}
           counterTitle="All posts"
           itemsToShow={2}
+          href="/journal"
         >
           {fixtures.map((item) => (
             <SwiperSlide key={item.id}>

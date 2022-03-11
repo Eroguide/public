@@ -6,6 +6,7 @@ import {
   SubTitle,
   SelectWrapper,
 } from './styles'
+import Select from 'react-select'
 import Link from 'next/link'
 import { useBreakpoint } from '@/hooks/useBreakpoint'
 import { breakpoints, BreakpointsEnum } from '@/src/theme'
@@ -15,6 +16,14 @@ export const FaqPage: React.FC = () => {
     min: breakpoints[BreakpointsEnum.xxs].min,
     max: breakpoints[BreakpointsEnum.sm].max,
   })
+
+  const navOption = [
+    { label: 'General', value: 'general' },
+    { label: 'Support', value: 'support' },
+    { label: 'Salon', value: 'salon' },
+    { label: 'Messause', value: 'messause' },
+  ]
+
   return (
     <>
       <TitleSection>
@@ -26,7 +35,13 @@ export const FaqPage: React.FC = () => {
         </SubTitle>
       </TitleSection>
       <FaqWrapper>
-        {isSmall ? <SelectWrapper>Select</SelectWrapper> : <FaqNav />}
+        {isSmall ? (
+          <SelectWrapper>
+            <Select options={navOption} />
+          </SelectWrapper>
+        ) : (
+          <FaqNav navOption={navOption} />
+        )}
         <FaqContent />
       </FaqWrapper>
     </>

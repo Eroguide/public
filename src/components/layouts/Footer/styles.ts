@@ -18,56 +18,26 @@ export const FooterInner = styled.div`
   width: 100%;
   display: flex;
   align-items: center;
-
+  ${({ theme }) => theme.media.sm`
+   flex-direction: column;
+  `}
   ${({ theme }) => theme.media.mobile`
    flex-direction: column;
   `}
 `
 
-export const FooterLogoWrapper = styled.div`
-  display: flex;
-
-  ${({ theme }) => theme.media.mobile`
-   margin-left: 0;
-    padding: 50px 0;
-   justify-content: flex-start;
-    width: 100%;
-  `}
-`
 export const FooterLogo = styled.img`
   width: 130px;
   height: 24px;
   cursor: pointer;
 `
 
-export const FooterLinks = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  margin-left: 70px;
-  font-size: ${({ theme }) => theme.fontSize['s']};
-  font-weight: 600;
-  width: 60%;
-  a {
-    margin-top: 16px;
-    color: ${({ theme }) => theme.grayScale[3]};
-    text-decoration: none;
-  }
-
-  ${({ theme }) => theme.media.mobile`
-   margin-left: 0;
-   width: 100%;
-  `}
-`
-
 export const LinkGroup = styled.div`
   display: flex;
   flex-flow: column nowrap;
-  justify-content: center;
+  justify-content: flex-start;
   width: 25%;
 
-  ${({ theme }) => theme.media.md`
-     width: 50%;
-  `}
   ${({ theme }) => theme.media.sm`
      width: 50%;
   `}
@@ -76,64 +46,10 @@ export const LinkGroup = styled.div`
   `}
 `
 
-export const FooterCta = styled.div`
-  margin-right: 10%;
-  display: flex;
-  width: 20%;
-  min-width: 110px;
-  justify-content: flex-end;
-  text-align: center;
-  ${({ theme }) => theme.media.md`
-     margin-right: 0;
-  `}
-  ${({ theme }) => theme.media.sm`
-  margin-right: 0;
-  `}
-  ${({ theme }) => theme.media.mobile`
-  margin-right: 0;
-  padding: 50px 0;
-  width: 100%;
-  justify-content: flex-start;
-  `}
-`
-
-export const TitleCta = styled.p`
-  color: ${({ theme }) => theme.grayScale[5]};
-  font-size: ${({ theme }) => theme.fontSize['s']};
-  font-weight: 600;
-`
-
-export const SubTitleCta = styled.p`
-  color: ${({ theme }) => theme.grayScale[3]};
-  font-size: ${({ theme }) => theme.fontSize['xxs']};
-  margin-bottom: 16px;
-`
-
-export const ContentCta = styled.div`
-  display: flex;
-  flex-flow: column wrap;
-`
-
 export const FooterWrapper = styled.div`
   display: flex;
   flex-flow: column;
-  height: 70vh;
-  ${({ theme }) => theme.media.mobile`
   height: auto;
-  `}
-`
-
-export const ButtonCta = styled.button`
-  color: ${({ theme }) => theme.grayScale[0]};
-  background-color: ${({ theme }) => theme.primary[0]};
-  height: 40px;
-  border-radius: 28px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: none;
-  padding: 8px 16px;
-  font-size: ${({ theme }) => theme.fontSize['s']};
 `
 
 export const UnderFooter = styled.div`
@@ -158,6 +74,15 @@ export const UnderFooterLeft = styled.div`
   display: flex;
   color: ${({ theme }) => theme.grayScale[4]};
   font-size: ${({ theme }) => theme.fontSize['xs']};
+  a {
+    color: ${({ theme }) => theme.grayScale[3]};
+    font-size: ${({ theme }) => theme.fontSize['xs']};
+    text-decoration: none;
+    margin: 0 4px;
+    &:hover {
+      color: ${({ theme }) => theme.grayScale[5]};
+    }
+  }
 `
 
 export const UnderFooterRight = styled.div`
@@ -165,30 +90,100 @@ export const UnderFooterRight = styled.div`
   margin-right: 10%;
   display: flex;
   justify-content: flex-end;
+  align-items: center;
   span {
-    margin-top: 16px;
     color: ${({ theme }) => theme.grayScale[4]};
     font-size: ${({ theme }) => theme.fontSize['xs']};
     text-decoration: none;
-    margin-left: 8px;
+    margin-left: 16px;
+    display: flex;
+    align-items: center;
     cursor: pointer;
   }
 
   ${({ theme }) => theme.media.md`
     margin-right: 0;
-     width: 100%
+     width: 100%;
+       align-items: flex-start;
+         margin-top: 16px;
   `}
 
   ${({ theme }) => theme.media.sm`
-    margin-right: 0;
+    margin-right: 0; 
+    width: 100%; margin-top: 16px;
+    flex-direction: column;
+      align-items: flex-start;
   `} 
   
   ${({ theme }) => theme.media.mobile`
     margin-right: 0;
       width: 100%;
+       margin-top: 16px;
       flex-direction: column;
+       align-items: flex-start;
       span{
        margin-left: 0;
+        align-items: left;
+         margin-top: 16px;
       }
+  `}
+`
+
+export const FirstFooterSection = styled.div`
+  width: 200px;
+  display: flex;
+  flex-grow: 1;
+  height: 100%;
+  padding: 50px 0;
+
+  ${({ theme }) => theme.media.sm`
+  padding: 32px 0; 
+    margin-right: 0;
+  width: 100%;
+  `}
+  ${({ theme }) => theme.media.mobile`
+   margin-left: 0; 
+   padding: 32px 0; 
+   width: 100%;
+  `}
+`
+export const MiddleFooterSection = styled.div`
+  width: calc(100% - 400px);
+  display: flex;
+  flex-flow: row wrap;
+  padding: 50px 0;
+  margin-left: 70px;
+
+  ${({ theme }) => theme.media.sm`
+    padding: 32px 0; 
+    margin-left: 0;
+    width: 100%;
+  `}
+  ${({ theme }) => theme.media.mobile`
+    margin-left: 0;  
+    padding-top: 32px; 
+    width: 100%;
+  `}
+`
+export const EndFooterSection = styled.div`
+  width: 200px;
+  display: flex;
+  flex-grow: 1;
+  margin-right: 10%;
+  min-width: 110px;
+  justify-content: flex-end;
+  text-align: center;
+
+  ${({ theme }) => theme.media.sm`
+    margin-right: 0;
+    padding: 32px 0;
+    width: 100%;
+    justify-content: flex-start;
+  `}
+  ${({ theme }) => theme.media.mobile`
+    margin-right: 0;
+    padding: 32px 0;
+    width: 100%;
+    justify-content: flex-start;
   `}
 `

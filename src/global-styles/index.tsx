@@ -43,6 +43,7 @@ export const globalStyles = (
         font-family: 'Inter', Helvetica, Arial, sans-serif;
         padding: 0;
         margin: 0;
+        //  scroll-behavior: smooth;
       }
 
       body {

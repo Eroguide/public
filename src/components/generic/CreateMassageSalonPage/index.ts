@@ -1,0 +1,1 @@
+export { CreateMassageSalonPage } from './CreateMassageSalonPage'

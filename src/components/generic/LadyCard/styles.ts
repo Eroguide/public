@@ -36,7 +36,7 @@ export const Tag = styled.span`
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: ${({ theme }) => theme.fontSize.xs};
+  font-size: ${({ theme }) => theme.fontSize.s};
   color: ${({ theme }) => theme.primary[0]};
 `
 

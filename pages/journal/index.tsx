@@ -7,8 +7,18 @@ import {
   GalleryContent,
 } from '@/components/generic'
 import { TagFilterWidget } from '@/components/widgets/TagFilterWidget'
+import {
+  JournalContentWrapper,
+  FilterColumn,
+} from '@/components/widgets/TagFilterWidget/styles'
+import { useBreakpoint } from '@/hooks/useBreakpoint'
+import { breakpoints, BreakpointsEnum } from '@/src/theme'
 
 const Journal: NextPage = () => {
+  const isSmall = useBreakpoint({
+    min: breakpoints[BreakpointsEnum.xxs].min,
+    max: breakpoints[BreakpointsEnum.sm].max,
+  })
   return (
     <>
       <Head>
@@ -18,12 +28,24 @@ const Journal: NextPage = () => {
       </Head>
       <BaseLayout>
         <TopLineSinglePage />
+
         <GalleryLanding
           title="Journal"
           text="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, aperiam assumenda distinctio eaque esse, exercitationem harum inventore iste iusto maiores numquam provident quibusdam, repudiandae. Atque cum et nulla pariatur vel?"
         />
-        <TagFilterWidget />
-        <GalleryContent />
+        {isSmall ? (
+          <>
+            <TagFilterWidget />
+            <GalleryContent />
+          </>
+        ) : (
+          <JournalContentWrapper>
+            <GalleryContent />
+            <FilterColumn>
+              <TagFilterWidget />
+            </FilterColumn>
+          </JournalContentWrapper>
+        )}
       </BaseLayout>
     </>
   )

@@ -41,13 +41,8 @@ export const SubTitle = styled.h2`
   margin-bottom: 8px;
 `
 
-export const SelectWrapper = styled.h2`
-  height: 30px;
+export const SelectWrapper = styled.div`
   width: 100%;
   justify-content: center;
   align-items: center;
-  display: none;
-  ${({ theme }) => theme.media.mobile`
-     display:flex;
-  `}
 `

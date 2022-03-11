@@ -1,7 +1,7 @@
 import { NextPage } from 'next'
 import Head from 'next/head'
 import { BaseLayout } from '@/components/layouts/BaseLayout'
-import { GalleryLanding, TopLineSinglePage } from '@/components/generic'
+import { CreateHowPage, TopLineSinglePage } from '@/components/generic'
 
 const CreateRequestPage: NextPage = () => {
   return (
@@ -13,10 +13,7 @@ const CreateRequestPage: NextPage = () => {
       </Head>
       <BaseLayout>
         <TopLineSinglePage />
-        <GalleryLanding
-          title="Create"
-          text="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, aperiam assumenda distinctio eaque esse, exercitationem harum inventore iste iusto maiores numquam provident quibusdam, repudiandae. Atque cum et nulla pariatur vel?"
-        />
+        <CreateHowPage />
       </BaseLayout>
     </>
   )

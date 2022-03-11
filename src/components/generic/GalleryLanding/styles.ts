@@ -7,6 +7,15 @@ export const Container = styled.div`
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  ${({ theme }) => theme.media.md`
+     padding: 64px;
+  `}
+  ${({ theme }) => theme.media.sm`
+      padding: 32px;
+  `}
+  ${({ theme }) => theme.media.mobile`
+       padding: 16px;
+  `}
 `
 
 export const Wrapper = styled.div`
@@ -20,7 +29,8 @@ export const Wrapper = styled.div`
 
 export const HeroTitle = styled.h1`
   font-size: ${({ theme }) => theme.fontSize['extra']};
-  font-weight: 600;
+  line-height: ${({ theme }) => theme.fontSize['extra']};
+  font-weight: 800;
   color: ${({ theme }) => theme.primary[0]};
   margin-bottom: 56px;
   ${({ theme }) => theme.media.mobile`

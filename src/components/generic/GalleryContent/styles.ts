@@ -2,19 +2,10 @@ import styled from '@emotion/styled'
 
 export const Container = styled.div`
   width: 100%;
-  align-items: center;
+  align-items: flex-end;
   flex-direction: column;
   display: flex;
   margin-top: 104px;
-`
-
-export const FilterPanel = styled.div`
-  width: 100%;
-  flex-direction: row;
-  justify-content: space-between;
-  display: flex;
-  height: 32px;
-  margin-top: 48px;
 `
 
 export const LeftFilters = styled.div`
@@ -25,17 +16,8 @@ export const LeftFilters = styled.div`
   display: flex;
 `
 
-export const RightFilters = styled.div`
-  width: 50%;
-  flex-direction: row;
-  justify-content: flex-end;
-  align-items: center;
-  display: flex;
-`
-
 export const Wrapper = styled.div`
   flex-flow: column wrap;
-  width: 50%;
   display: flex;
   align-items: center;
   ${({ theme }) => theme.media.md`

@@ -4,6 +4,8 @@ export const ContentCardRowContainer = styled.div`
   width: 100%;
   max-width: 1280px;
   margin-top: 64px;
+  overflow-x: hidden;
+  //padding: 0 12px;
 `
 export const TopLine = styled.div`
   width: 100%;
@@ -64,5 +66,10 @@ export const TimeLine = styled.div<{ date: number; isLast: boolean }>`
   height: 8px;
   border-radius: 8px;
   margin-top: 32px;
-  width: ${({ isLast }) => (isLast ? `99%` : `105%`)};
+  margin-left: 12px;
+  width: ${({ isLast }) => (isLast ? `calc(99% - 12px);` : `105%;`)};
+`
+
+export const DateTag = styled.span`
+  margin-left: 12px;
 `

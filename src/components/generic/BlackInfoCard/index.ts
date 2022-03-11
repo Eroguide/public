@@ -1,0 +1,1 @@
+export { BlackInfoCard } from './BlackInfoCard'

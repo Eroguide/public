@@ -1,13 +1,14 @@
 import { Container, Content, Title, Details } from './styles'
 
-export const BigInfoCard: React.FC = () => {
+export const BigInfoCard: React.FC<{ title: string; details?: string }> = ({
+  title,
+  details,
+}) => {
   return (
     <Container>
       <Content>
-        <Title>Lorem ipsum dolor sit.</Title>
-        <Details>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum, harum?
-        </Details>
+        <Title>{title}</Title>
+        {details && <Details>{details}</Details>}
       </Content>
     </Container>
   )

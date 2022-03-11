@@ -2,7 +2,7 @@ import { Header } from '@/src/components/layouts/Header'
 import { PageContent } from '@/src/components/layouts/PageContent'
 import { Footer } from '@/src/components/layouts/Footer'
 import { Layout, Inner, Container } from './styles'
-import { headerHeight } from '@/src/components/layouts/Header'
+
 // types
 import { BaseLayoutProps } from './types'
 import { ScrollButtonTop } from '@/components/generic'
@@ -14,7 +14,7 @@ export const BaseLayout: React.FC<BaseLayoutProps> = ({
   <Layout>
     <Header />
     <Container>
-      <Inner topOffset={headerHeight}>
+      <Inner>
         <PageContent>{children}</PageContent>
         <ScrollButtonTop />
         {!noFooter && <Footer />}

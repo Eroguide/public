@@ -1,0 +1,1 @@
+export { CreatePrivatSalonPage } from './CreatePrivatSalonPage'

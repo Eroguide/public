@@ -38,6 +38,9 @@ export const CtaBlock = styled.div`
   max-width: 320px;
   position: relative;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   ${({ theme }) => theme.media.mobile`
     max-width: 100%;
   `}

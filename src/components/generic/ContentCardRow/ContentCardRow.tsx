@@ -17,6 +17,7 @@ import {
 import ArrowLeftIcon from '/public/img/arrow-left.svg'
 import ArrowRightIcon from '/public/img/arrow-right.svg'
 import { CustomButton } from '@/components/generic'
+import Link from 'next/link'
 
 export const ContentCardRow: React.FC<{
   title: string
@@ -24,6 +25,7 @@ export const ContentCardRow: React.FC<{
   counterTitle: string
   itemsToShow: number
   withControls?: boolean
+  href?: string
 }> = ({
   children,
   title,
@@ -31,6 +33,7 @@ export const ContentCardRow: React.FC<{
   counter,
   itemsToShow,
   withControls = false,
+  href = '/',
 }) => {
   const navigationPrevRef = useRef<HTMLDivElement>(null)
   const navigationNextRef = useRef<HTMLDivElement>(null)
@@ -76,13 +79,15 @@ export const ContentCardRow: React.FC<{
               </NextButton>
             </NextPrevWrapper>
           ) : (
-            <CustomButton
-              styleType="tertiary"
-              sizeType="medium"
-              counter={counter}
-            >
-              {counterTitle}
-            </CustomButton>
+            <Link href={href} passHref>
+              <CustomButton
+                styleType="tertiary"
+                sizeType="medium"
+                counter={counter}
+              >
+                {counterTitle}
+              </CustomButton>
+            </Link>
           )}
         </RightWidget>
       </TopLine>

@@ -11,8 +11,17 @@ export const Container = styled.div`
   border: 1px solid ${({ theme }) => theme.grayScale[1]};
   margin: 0 8px;
   padding: 56px 32px;
+  ${({ theme }) => theme.media.md`
+     padding: 64px; 
+       width: 100%;
+  `}
+  ${({ theme }) => theme.media.sm`
+    width: 100%;
+    margin: 16px auto;
+  `}
   ${({ theme }) => theme.media.mobile`
       width: 100%;
+      margin: 16px auto;
   `}
 `
 

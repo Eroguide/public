@@ -1,0 +1,1 @@
+export { CreatePrivatLadyPage } from './CreatePrivatLadyPage'

@@ -16,7 +16,7 @@ const Favorites: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <BaseLayout>
-        <CardGallery cards={items} />
+        <CardGallery cards={items} title={'Favourite ladies:'} />
       </BaseLayout>
     </>
   )

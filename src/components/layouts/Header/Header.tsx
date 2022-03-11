@@ -4,34 +4,38 @@ import {
   LeftBlock,
   RightBlock,
   Divider,
-  NavLink,
-  PersonalLink,
+  BurgerButton,
   HeaderInner,
   LogoWrapper,
   SearchIconWrapper,
+  BurgerIconWrapper,
 } from './styles'
 import { HeartCounter } from '@/components/layouts/Header/HeartCounter'
-import PersonIcon from './assets/person-icon.svg'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import { useBreakpoint } from '@/hooks/useBreakpoint'
 import { breakpoints, BreakpointsEnum } from '@/src/theme'
 import LogoIconMobile from '/public/img/logo-mobile.svg'
 import SearchIcon from '/public/img/search-header-icon.svg'
-import { CustomButton } from '@/components/generic'
+import BurgerIcon from '/public/img/burger-icon.svg'
+import { CustomButton, FloatingNavigation } from '@/components/generic'
+import { useState } from 'react'
 
 export const Header: React.FC = () => {
   const { push } = useRouter()
+
+  const [menuIsOpen, setMenuIsOpen] = useState<boolean>(false)
+
   const isSmall = useBreakpoint({
     min: breakpoints[BreakpointsEnum.xxs].min,
     max: breakpoints[BreakpointsEnum.sm].max,
   })
-
   const goHome = (): void => {
     push('/', undefined, {
-      shallow: true,
+      shallow: false,
     })
   }
+
   return (
     <HeaderContainer>
       <HeaderInner>
@@ -71,9 +75,12 @@ export const Header: React.FC = () => {
             </SearchIconWrapper>
           )}
           <HeartCounter />
-          <PersonalLink>
-            <PersonIcon />
-          </PersonalLink>
+          <BurgerButton>
+            <BurgerIconWrapper onClick={() => setMenuIsOpen(!menuIsOpen)}>
+              <BurgerIcon />
+            </BurgerIconWrapper>
+            {menuIsOpen && <FloatingNavigation handleClose={setMenuIsOpen} />}
+          </BurgerButton>
         </RightBlock>
       </HeaderInner>
     </HeaderContainer>

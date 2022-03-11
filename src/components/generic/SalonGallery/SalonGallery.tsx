@@ -7,6 +7,7 @@ import {
   GalleryItem,
 } from './styles'
 import { SalonCard } from '@/components/generic'
+import { PaginationWidget } from '@/components/widgets/PaginationWidget'
 const fixtures = [
   { id: '222dsadas', slug: 'one-project-time', best: 1 },
   { id: 'asddsad222sadasd', slug: 'two-project-time', best: 0 },
@@ -33,7 +34,7 @@ export const SalonGallery: React.FC = () => {
             </GalleryItem>
           ))}
         </Wrapper>
-        Pagination will be here...
+        <PaginationWidget itemsPerPage={4} />
       </Container>
     </>
   )

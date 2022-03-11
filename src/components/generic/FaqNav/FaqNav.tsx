@@ -1,33 +1,19 @@
 import { Container, Wrapper, IconWrapper, Label, NavItem } from './styles'
 import Icon from '/public/img/heart-lined.svg'
-export const FaqNav: React.FC = () => {
+export const FaqNav: React.FC<{
+  navOption: Array<{ label: string; value: string }>
+}> = ({ navOption }) => {
   return (
     <Container>
       <Wrapper>
-        <NavItem>
-          <IconWrapper>
-            <Icon />
-          </IconWrapper>
-          <Label>Navigation title</Label>
-        </NavItem>
-        <NavItem>
-          <IconWrapper>
-            <Icon />
-          </IconWrapper>
-          <Label>Navigation title</Label>
-        </NavItem>
-        <NavItem>
-          <IconWrapper>
-            <Icon />
-          </IconWrapper>
-          <Label>Navigation title</Label>
-        </NavItem>
-        <NavItem>
-          <IconWrapper>
-            <Icon />
-          </IconWrapper>
-          <Label>Navigation title</Label>
-        </NavItem>
+        {navOption.map((navItem) => (
+          <NavItem key={navItem.value}>
+            <IconWrapper>
+              <Icon />
+            </IconWrapper>
+            <Label>{navItem.label}</Label>
+          </NavItem>
+        ))}
       </Wrapper>
     </Container>
   )

@@ -1,0 +1,1 @@
+export { CreatePrivatMasseusePage } from './CreatePrivatMasseusePage'

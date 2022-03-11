@@ -42,7 +42,7 @@ export const TitlePanel = styled.div`
   justify-content: space-between;
   display: flex;
   height: 32px;
-  margin: 40px 0;
+  margin: 64px 0 40px 0;
 `
 
 export const LeftFilters = styled.div`
