@@ -43,14 +43,36 @@ export const ProductSlider: React.FC = () => {
   const [initSlider, setInitSlider] = useState(false)
 
   const fixtures = [
-    { id: '222dsadas', slug: 'one-project-time', best: 1 },
-    { id: 'asddsad222sadasd', slug: 'two-project-time', best: 0 },
-    { id: 'asdsad3242asd', slug: 'three-project-time', best: 0 },
-    { id: 'asdsdadasfffsadasd', slug: 'four-project-time', best: 0 },
-    { id: '222dsadassssd', slug: 'one-project-time', best: 1 },
-    { id: 'asddsad222sadasssdsdsd', slug: 'two-project-time', best: 0 },
-    { id: 'asdsad3242asdssdss', slug: 'three-project-time', best: 0 },
-    { id: 'asdsdadasfffsadadsdsdsd', slug: 'four-project-time', best: 0 },
+    {
+      id: '222dsadas',
+      slug: 'one-project-time',
+      best: 1,
+      img: '/img/single-slider-1.jpg',
+    },
+    {
+      id: 'asddsad222sadasd',
+      slug: 'two-project-time',
+      best: 0,
+      img: '/img/single-slider-1.jpg',
+    },
+    {
+      id: 'asdsad3242asd',
+      slug: 'three-project-time',
+      best: 0,
+      img: '/img/single-slider-1.jpg',
+    },
+    {
+      id: 'asdsdadasfffsadasd',
+      slug: 'four-project-time',
+      best: 0,
+      img: '/img/single-slider-1.jpg',
+    },
+    {
+      id: '222dsadassssd',
+      slug: 'one-project-time',
+      best: 1,
+      img: '/img/single-slider-1.jpg',
+    },
   ]
   return (
     <>
@@ -71,7 +93,7 @@ export const ProductSlider: React.FC = () => {
                   (post) =>
                     post && (
                       <SwiperSlide key={post.id}>
-                        <GallerySliderImage src="/img/bg.jpg" />
+                        <GallerySliderImage src={post.img} />
                       </SwiperSlide>
                     )
                 )
@@ -91,7 +113,7 @@ export const ProductSlider: React.FC = () => {
                   (post) =>
                     post && (
                       <SwiperSlide key={post.id}>
-                        <ThumbsSliderImage src="/img/bg.jpg" />
+                        <ThumbsSliderImage src={post.img} />
                       </SwiperSlide>
                     )
                 )

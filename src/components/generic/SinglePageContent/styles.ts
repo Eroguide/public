@@ -9,7 +9,7 @@ export const SinglePageContentContainer = styled.div`
 export const Banner = styled.div`
   width: 100%;
   height: 320px;
-  background: #ebebf0 url('/img/bg.jpg') no-repeat center;
+  background: #ebebf0 url('/img/banner-single-page.jpg') no-repeat center;
   background-size: cover;
   overflow: hidden;
   border-radius: 24px;
@@ -58,6 +58,7 @@ export const LeftWidgets = styled.div`
   ${({ theme }) => theme.media.md`
      width: 455px;
   `}
+
   ${({ theme }) => theme.media.sm`
     margin-top: 0;
   width: 100%;

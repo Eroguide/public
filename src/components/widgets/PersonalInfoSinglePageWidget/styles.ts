@@ -13,7 +13,7 @@ export const AvatarImage = styled.div`
   border-radius: 100%;
   margin-bottom: 24px;
   overflow: hidden;
-  background: white url('/img/woman.jpg') no-repeat center center;
+  background: white url('/img/single-avatar.jpg') no-repeat center center;
   background-size: cover;
 `
 
