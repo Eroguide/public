@@ -10,6 +10,8 @@ import {
   FirstFooterSection,
   MiddleFooterSection,
   EndFooterSection,
+  Block,
+  SectionFooterWrap,
 } from './styles'
 import Link from 'next/link'
 import { CustomButton, DrawerBottom } from '@/components/generic'
@@ -18,24 +20,28 @@ import { useRouter } from 'next/router'
 import { CtaWidget } from '@/components/widgets/CtaWidget'
 
 const currentYear = new Date().getFullYear()
-const navItems = [
-  [
-    { name: 'Private ladies', href: '/gallery' },
-    { name: 'Salons', href: '/salons' },
-  ],
-  [
-    { name: 'About', href: '/about' },
-    { name: 'Journal', href: '/journal' },
-  ],
-  [
-    { name: 'F.A.Q', href: '/faq' },
-    { name: 'Support', href: '/' },
-  ],
-  [
-    { name: 'Profile', href: '/' },
-    { name: 'Invite', href: '/' },
-  ],
-]
+const navItems = {
+  navBlock1: {
+    1: [
+      { name: 'Private ladies', href: '/gallery' },
+      { name: 'Salons', href: '/salons' },
+    ],
+    2: [
+      { name: 'About', href: '/about' },
+      { name: 'Journal', href: '/journal' },
+    ],
+  },
+  navBlock2: {
+    1: [
+      { name: 'F.A.Q', href: '/faq' },
+      { name: 'Support', href: '/' },
+    ],
+    2: [
+      { name: 'Profile', href: '/' },
+      { name: 'Invite', href: '/' },
+    ],
+  },
+}
 
 export const Footer: React.FC = () => {
   const [drawerIsOpen, setDrawerIsOpen] = useState<boolean>(false)
@@ -60,23 +66,39 @@ export const Footer: React.FC = () => {
             />
           </FirstFooterSection>
 
-          <MiddleFooterSection>
-            {navItems.map((item, i) => (
-              <LinkGroup key={`group-links-${i}`}>
-                {item.map((linkName) => (
-                  <Link key={linkName.name} href={linkName.href} passHref>
-                    <CustomButton styleType="link" isLink>
-                      {linkName.name}
-                    </CustomButton>
-                  </Link>
+          <SectionFooterWrap>
+            <MiddleFooterSection>
+              <Block>
+                {Object.values(navItems.navBlock1).map((item, i) => (
+                  <LinkGroup key={`group-links-${i}`}>
+                    {item.map((linkName) => (
+                      <Link key={linkName.name} href={linkName.href} passHref>
+                        <CustomButton styleType="link" isLink>
+                          {linkName.name}
+                        </CustomButton>
+                      </Link>
+                    ))}
+                  </LinkGroup>
                 ))}
-              </LinkGroup>
-            ))}
-          </MiddleFooterSection>
-
-          <EndFooterSection>
-            <CtaWidget />
-          </EndFooterSection>
+              </Block>
+              <Block>
+                {Object.values(navItems.navBlock2).map((item, i) => (
+                  <LinkGroup key={`group-links-${i}`}>
+                    {item.map((linkName) => (
+                      <Link key={linkName.name} href={linkName.href} passHref>
+                        <CustomButton styleType="link" isLink>
+                          {linkName.name}
+                        </CustomButton>
+                      </Link>
+                    ))}
+                  </LinkGroup>
+                ))}
+              </Block>
+            </MiddleFooterSection>
+            <EndFooterSection>
+              <CtaWidget isCentered />
+            </EndFooterSection>
+          </SectionFooterWrap>
         </FooterInner>
       </FooterContainer>
 

@@ -34,15 +34,15 @@ export const FooterLogo = styled.img`
 
 export const LinkGroup = styled.div`
   display: flex;
-  flex-flow: column nowrap;
+  flex-flow: column;
   justify-content: flex-start;
-  width: 25%;
-
+  width: 50%;
+  padding-right: 8px;
   ${({ theme }) => theme.media.sm`
-     width: 50%;
+  width: 100%;
   `}
   ${({ theme }) => theme.media.mobile`
-      width: 50%;
+   width: 100%;
   `}
 `
 
@@ -147,17 +147,20 @@ export const FirstFooterSection = styled.div`
    width: 100%;
   `}
 `
+
 export const MiddleFooterSection = styled.div`
-  width: calc(100% - 400px);
+  width: calc(100% - 200px);
   display: flex;
   flex-flow: row wrap;
   padding: 50px 0;
   margin-left: 70px;
 
+  ${({ theme }) => theme.media.md`
+    margin-left: 0;
+  `}
   ${({ theme }) => theme.media.sm`
     padding: 32px 0; 
     margin-left: 0;
-    width: 100%;
   `}
   ${({ theme }) => theme.media.mobile`
     margin-left: 0;  
@@ -165,19 +168,23 @@ export const MiddleFooterSection = styled.div`
     width: 100%;
   `}
 `
+
 export const EndFooterSection = styled.div`
   width: 200px;
   display: flex;
   flex-grow: 1;
+  height: 100%;
   margin-right: 10%;
   min-width: 110px;
   justify-content: flex-end;
   text-align: center;
 
+  ${({ theme }) => theme.media.md`
+    margin-right: 0;
+  `}
   ${({ theme }) => theme.media.sm`
     margin-right: 0;
     padding: 32px 0;
-    width: 100%;
     justify-content: flex-start;
   `}
   ${({ theme }) => theme.media.mobile`
@@ -185,5 +192,31 @@ export const EndFooterSection = styled.div`
     padding: 32px 0;
     width: 100%;
     justify-content: flex-start;
+  `}
+`
+
+export const Block = styled.div`
+  display: flex;
+  width: 50%;
+  flex-direction: row;
+  ${({ theme }) => theme.media.sm`
+  flex-direction: column;
+  `}
+  ${({ theme }) => theme.media.mobile`
+  flex-direction: column;
+  `}
+`
+
+export const SectionFooterWrap = styled.div`
+  display: flex;
+  width: calc(100% - 200px);
+  align-items: center;
+  flex-grow: 1;
+  ${({ theme }) => theme.media.sm`
+  width: 100%;
+  `}
+  ${({ theme }) => theme.media.mobile`
+  width: 100%;
+  flex-direction:column;
   `}
 `

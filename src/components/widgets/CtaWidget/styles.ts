@@ -12,8 +12,8 @@ export const SubTitleCta = styled.p`
   margin-bottom: 16px;
 `
 
-export const ContentCta = styled.div`
+export const ContentCta = styled.div<{ isCentered?: boolean }>`
   display: flex;
   flex-flow: column wrap;
-  align-items: flex-start;
+  align-items: ${({ isCentered }) => (isCentered ? 'center' : 'flex-start')};
 `

@@ -12,6 +12,7 @@ import {
 } from './styles'
 import GenderIcon from '/public/img/gender-icon.svg'
 import ParameterIcon from '/public/img/parameter.svg'
+
 export const ExperianceWidget: React.FC = () => {
   return (
     <Container>
