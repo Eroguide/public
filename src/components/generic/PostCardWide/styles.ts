@@ -6,8 +6,9 @@ export const CardMainContainer = styled.div<{ inSwipe?: boolean }>`
   flex-direction: column;
   border-radius: 32px;
   margin-bottom: 32px;
-  border: 2px solid ${({ theme }) => theme.grayScale[1]};
+  padding: 12px;
   position: relative;
+
   ${({ theme }) => theme.media.mobile`
       width: 100%;
       min-width: 320px;
@@ -66,4 +67,31 @@ export const DateText = styled.div`
   display: flex;
   font-size: ${({ theme }) => theme.fontSize['xs']};
   color: ${({ theme }) => theme.grayScale['2']};
+`
+
+export const InnerContainer = styled.div`
+  border-radius: 32px;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  background-color: #fff;
+  position: relative;
+  z-index: 1;
+  border: 1px solid ${({ theme }) => theme.grayScale[1]};
+
+  &:before {
+    content: '';
+    position: absolute;
+    inset: 0 0 0 0;
+    filter: blur(0);
+    transition: filter 0.15s ease-in-out;
+    z-index: -1;
+    border-radius: 32px;
+  }
+  &:hover {
+    &:before {
+      content: '';
+      background-color: ${({ theme }) => theme.opacity[70][0]};
+      transition: filter 0.15s ease-in-out;
+      filter: blur(4px);
+    }
+  }
 `

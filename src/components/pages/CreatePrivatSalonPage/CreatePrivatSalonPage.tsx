@@ -6,10 +6,14 @@ import {
   FormDescription,
   FormInputList,
 } from './styles'
-import { BigInfoCard, BlackInfoCard, CustomButton } from '@/components/generic/'
+import {
+  BigInfoCard,
+  BlackInfoCard,
+  CustomButton,
+} from '@/components/pages/CreatePrivatSalonPage/CreatePrivatSalonPage'
 import { CustomInput } from '@/components/generic/CustomInput'
 
-export const CreatePrivatLadyPage: React.FC = () => {
+export const CreatePrivatSalonPage: React.FC = () => {
   return (
     <Container>
       <Row>

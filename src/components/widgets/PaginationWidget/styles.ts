@@ -61,6 +61,7 @@ export const ReactPaginateStyled = styled(ReactPaginate)`
     border-radius: 4px;
     color: ${({ theme }) => theme.grayScale[3]};
     font-size: ${({ theme }) => theme.fontSize.s};
+    margin: 0 2px;
     a {
       height: 100%;
       width: 100%;
@@ -70,11 +71,11 @@ export const ReactPaginateStyled = styled(ReactPaginate)`
       justify-content: center;
     }
     &:hover {
-      background-color: #ff005d03;
+      background-color: #ff005d0d;
       color: ${({ theme }) => theme.primary[0]};
     }
     &.selected {
-      background-color: #ff005d08;
+      background-color: #ff005d17;
       color: ${({ theme }) => theme.primary[0]};
     }
   }

@@ -6,6 +6,9 @@ export const ContentCardRowContainer = styled.div`
   padding: 0 12px;
   margin-top: 64px;
   overflow-x: hidden;
+  ${({ theme }) => theme.media.mobile`
+       padding: 0;
+  `}
 `
 export const TopLine = styled.div`
   width: 100%;
@@ -13,6 +16,9 @@ export const TopLine = styled.div`
   justify-content: space-between;
   display: flex;
   align-items: center;
+  ${({ theme }) => theme.media.mobile`
+     padding: 0 12px;
+  `}
 `
 
 export const Title = styled.h3`
@@ -23,6 +29,10 @@ export const Title = styled.h3`
 
 export const RightWidget = styled.div`
   display: flex;
+  margin-right: -12px;
+  ${({ theme }) => theme.media.mobile`
+       margin:0;
+  `}
 `
 
 export const ContentRow = styled.div`
@@ -33,6 +43,7 @@ export const ContentRow = styled.div`
   margin: 40px -12px 0 -12px;
   ${({ theme }) => theme.media.mobile`
        min-width: auto;
+       margin: 40px 0;
   `}
 `
 
@@ -45,17 +56,4 @@ export const Counter = styled.div`
   padding: 8px 16px;
   border: 2px solid ${({ theme }) => theme.grayScale[1]};
   border-radius: 32px;
-`
-
-export const CounterTitle = styled.span`
-  font-size: ${({ theme }) => theme.fontSize.s};
-  color: ${({ theme }) => theme.grayScale[4]};
-  font-weight: 600;
-`
-
-export const Quantity = styled.span`
-  margin-left: 16px;
-  font-size: ${({ theme }) => theme.fontSize.s};
-  color: ${({ theme }) => theme.grayScale[2]};
-  font-weight: 600;
 `

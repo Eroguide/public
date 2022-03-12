@@ -15,13 +15,18 @@ export const CrumbLink = styled.a`
   font-size: ${({ theme }) => theme.fontSize['s']};
   font-weight: 600;
   color: ${({ theme }) => theme.grayScale[2]};
+  text-decoration: none;
+  text-transform: lowercase;
+  &:hover {
+    color: ${({ theme }) => theme.grayScale[4]};
+  }
 `
 
 export const CrumbTitle = styled.span`
   font-size: ${({ theme }) => theme.fontSize['s']};
   font-weight: 600;
   color: ${({ theme }) => theme.grayScale[3]};
-  text-transform: capitalize;
+  text-transform: lowercase;
 `
 
 export const IconWrapper = styled.div`

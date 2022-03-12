@@ -15,13 +15,18 @@ export const HeroBannerContainer = styled.div`
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 
   ${({ theme }) => theme.media.md`
-      height: 520px
+      height: 520px;
+       padding: 0 16px;
   `}
   ${({ theme }) => theme.media.sm`
-      height: 450px
+      height: 450px;
+       padding: 0 16px;
   `}
   ${({ theme }) => theme.media.mobile`
-      height: 320px
+      height: 320px;
+      width: calc(100% - 32px);
+      padding: 0 16px;
+      margin: 0 auto;
   `}
 `
 
@@ -36,6 +41,8 @@ export const HeroTitle = styled.h1`
   ${({ theme }) => theme.media.mobile`
      font-size: ${theme.fontSize.extraMobile};
      line-height:${theme.fontSize.extraMobile};
+      padding: 0 16px;
+      margin: 0 auto;
   `}
 `
 
@@ -45,6 +52,11 @@ export const HeroSubtitle = styled.h2`
   font-weight: 600;
   color: ${({ theme }) => theme.primary[0]};
   max-width: 500px;
+
+  ${({ theme }) => theme.media.mobile`
+      padding: 0 16px;
+      margin: 0 auto;
+  `}
 `
 
 export const MobileTitleContainer = styled.div`

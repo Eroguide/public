@@ -1,12 +1,8 @@
 import { NextPage } from 'next'
 import Head from 'next/head'
 import { BaseLayout } from '@/components/layouts/BaseLayout'
-import {
-  CreatePrivatMasseusePage,
-  GalleryLanding,
-  TopLineSinglePage,
-} from '@/components/generic'
-
+import { GalleryLanding, TopLinePageContent } from '@/components/generic'
+import { CreatePrivatMasseusePage } from '@/components/pages'
 const CreateRequestSalonPage: NextPage = () => {
   return (
     <>
@@ -16,7 +12,7 @@ const CreateRequestSalonPage: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <BaseLayout>
-        <TopLineSinglePage />
+        <TopLinePageContent />
         <GalleryLanding
           title="List your salon quastionare"
           text="Eroguide is a professional nude photographer.

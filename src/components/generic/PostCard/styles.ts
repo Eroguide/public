@@ -7,7 +7,7 @@ export const CardMainContainer = styled.div`
   border-radius: 32px;
   margin-bottom: 32px;
   position: relative;
-  padding: 6px;
+  padding: 12px;
 `
 
 export const PostCardInner = styled.div`

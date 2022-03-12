@@ -8,6 +8,7 @@ import {
   CardContent,
   BottomLine,
   DateText,
+  InnerContainer,
 } from './styles'
 import { PostCardWideProps } from './types'
 import Link from 'next/link'
@@ -17,30 +18,32 @@ export const PostCardWide: React.FC<PostCardWideProps> = ({ id, inSwipe }) => {
   return (
     <>
       <CardMainContainer inSwipe={inSwipe}>
-        <CardImageWrapper>
-          <Link href={id ? `/journal/${id}` : `/journal/somelink`} passHref>
-            <ImageProduct />
-          </Link>
-        </CardImageWrapper>
-        <CardContent>
-          <Description>
-            <Title>Lorem Ipsum is simply dummy text of the printing</Title>
-            <TextTruncate
-              line={2}
-              element="span"
-              truncateText="…"
-              text="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
-            />
-          </Description>
-          <BottomLine>
-            <DateText>today 19:00</DateText>
+        <InnerContainer>
+          <CardImageWrapper>
             <Link href={id ? `/journal/${id}` : `/journal/somelink`} passHref>
-              <CustomButton styleType="tertiary" sizeType="medium" isLink>
-                Read more
-              </CustomButton>
+              <ImageProduct />
             </Link>
-          </BottomLine>
-        </CardContent>
+          </CardImageWrapper>
+          <CardContent>
+            <Description>
+              <Title>Lorem Ipsum is simply dummy text of the printing</Title>
+              <TextTruncate
+                line={2}
+                element="span"
+                truncateText="…"
+                text="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+              />
+            </Description>
+            <BottomLine>
+              <DateText>today 19:00</DateText>
+              <Link href={id ? `/journal/${id}` : `/journal/somelink`} passHref>
+                <CustomButton styleType="tertiary" sizeType="medium" isLink>
+                  Read more
+                </CustomButton>
+              </Link>
+            </BottomLine>
+          </CardContent>
+        </InnerContainer>
       </CardMainContainer>
     </>
   )

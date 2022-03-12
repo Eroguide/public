@@ -3,7 +3,7 @@ import { Breadcrumbs, CustomButton } from '@/components/generic'
 import { useBreakpoint } from '@/hooks/useBreakpoint'
 import { breakpoints, BreakpointsEnum } from '@/src/theme'
 import Link from 'next/link'
-export const TopLineSinglePage: React.FC = () => {
+export const TopLinePageContent: React.FC = () => {
   const isSmall = useBreakpoint({
     min: breakpoints[BreakpointsEnum.xxs].min,
     max: breakpoints[BreakpointsEnum.sm].max,

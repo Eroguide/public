@@ -9,7 +9,6 @@ import {
   Title,
   Counter,
 } from './styles'
-
 import ShoeIcon from '/public/img/shoe-nav-icon.svg'
 import SalonIcon from '/public/img/salon-nav-icon.svg'
 import HeartIcon from '/public/img/heart-lined.svg'
@@ -20,8 +19,6 @@ import BlogIcon from '/public/img/blog-nav-icon.svg'
 import AboutIcon from '/public/img/about-nav-icon.svg'
 import { CtaWidget } from '@/components/widgets/CtaWidget'
 import Link from 'next/link'
-import { useClickOutside } from '@/hooks/useClickOutside'
-import { Dispatch, SetStateAction, useRef } from 'react'
 
 export type MobileNavItemType = {
   id: string
@@ -108,14 +105,9 @@ export const NavItemComponent: React.FC<MobileNavItemType> = ({
   )
 }
 
-export const FloatingNavigation: React.FC<{
-  handleClose: Dispatch<SetStateAction<boolean>>
-}> = ({ handleClose }) => {
-  const ref = useRef<HTMLDivElement>(null)
-  useClickOutside(ref, () => handleClose(false))
-
+export const FloatingNavigation: React.FC = () => {
   return (
-    <Container ref={ref}>
+    <Container>
       <Wrapper>
         <Content>
           <NavSection>

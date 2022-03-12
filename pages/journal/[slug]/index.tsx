@@ -1,7 +1,7 @@
 import { NextPage } from 'next'
 import Head from 'next/head'
 import { BaseLayout } from '@/components/layouts/BaseLayout'
-import { SinglePostContent, TopLineSinglePage } from '@/components/generic'
+import { SinglePostContent, TopLinePageContent } from '@/components/generic'
 
 const Post: NextPage = () => {
   return (
@@ -12,7 +12,7 @@ const Post: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <BaseLayout>
-        <TopLineSinglePage />
+        <TopLinePageContent />
         <SinglePostContent />
       </BaseLayout>
     </>

@@ -57,7 +57,7 @@ export const PaginationWidget: React.FC<{
         breakLabel="..."
         nextLabel={
           <Controls>
-            <span> next</span>
+            <span>next</span>
             <IconWrapper>
               <NextIcon />
             </IconWrapper>

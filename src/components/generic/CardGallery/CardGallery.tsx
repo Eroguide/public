@@ -9,6 +9,7 @@ import {
 } from './styles'
 import { CardGalleryProps } from './types'
 import { Card } from '@/components/generic/Card'
+import { CardForGallery } from '@/components/generic'
 
 export const CardGallery: React.FC<CardGalleryProps> = ({ cards, title }) => {
   return (
@@ -27,7 +28,7 @@ export const CardGallery: React.FC<CardGalleryProps> = ({ cards, title }) => {
           {cards.length ? (
             cards.map((card) => (
               <GalleryItem key={card.id}>
-                <Card {...card} />
+                <CardForGallery {...card} />
               </GalleryItem>
             ))
           ) : (

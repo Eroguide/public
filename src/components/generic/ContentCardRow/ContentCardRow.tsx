@@ -42,7 +42,6 @@ export const ContentCardRow: React.FC<{
     loop: true,
     freeMode: true,
     slidesPerView: itemsToShow,
-    spaceBetween: 10,
     modules: [FreeMode, Navigation],
     allowSlidePrev: true,
     allowSlideNext: true,
@@ -54,7 +53,7 @@ export const ContentCardRow: React.FC<{
       0: {
         slidesPerView: 1,
       },
-      600: {
+      700: {
         slidesPerView: itemsToShow,
       },
       1400: {

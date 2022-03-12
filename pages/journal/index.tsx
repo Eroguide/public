@@ -3,7 +3,7 @@ import Head from 'next/head'
 import { BaseLayout } from '@/components/layouts/BaseLayout'
 import {
   GalleryLanding,
-  TopLineSinglePage,
+  TopLinePageContent,
   GalleryContent,
 } from '@/components/generic'
 import { TagFilterWidget } from '@/components/widgets/TagFilterWidget'
@@ -27,7 +27,7 @@ const Journal: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <BaseLayout>
-        <TopLineSinglePage />
+        <TopLinePageContent />
 
         <GalleryLanding
           title="Journal"

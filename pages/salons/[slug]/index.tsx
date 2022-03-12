@@ -2,7 +2,7 @@ import { NextPage } from 'next'
 import Head from 'next/head'
 import { BaseLayout } from '@/components/layouts/BaseLayout'
 
-import { TopLineSinglePage } from '@/components/generic'
+import { TopLinePageContent } from '@/components/generic'
 import { SalonSinglePageContent } from '@/components/generic/SalonSinglePageContent'
 
 const SalonsItem: NextPage = () => {
@@ -14,7 +14,7 @@ const SalonsItem: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <BaseLayout>
-        <TopLineSinglePage />
+        <TopLinePageContent />
         <SalonSinglePageContent />
       </BaseLayout>
     </>

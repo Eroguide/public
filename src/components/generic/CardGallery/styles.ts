@@ -23,16 +23,17 @@ export const GalleryItem = styled.div`
   padding: 6px;
   margin-bottom: 16px;
   ${({ theme }) => theme.media.lg`
-    width: calc(100% / 4);
+    width: 25%;
   `}
   ${({ theme }) => theme.media.md`
     width: calc(100% / 3);
   `}
   ${({ theme }) => theme.media.sm`
-   width: calc(100% / 2 );
+   width: 50%;
   `}
   ${({ theme }) => theme.media.mobile`
-      width: calc(100% / 1);
+    width: 100%;
+    justify-content: center;
   `}
 `
 

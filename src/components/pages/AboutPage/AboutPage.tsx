@@ -1,5 +1,5 @@
 import { Container, Row } from './styles'
-import { BigInfoCard, BlackInfoCard } from '@/components/generic/'
+import { BigInfoCard, BlackInfoCard } from '@/components/generic'
 
 export const AboutPage: React.FC = () => {
   return (

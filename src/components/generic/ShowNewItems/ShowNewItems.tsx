@@ -133,12 +133,7 @@ export const ShowNewItems: React.FC<{
             arrayFixturesWithDate.map((item) => (
               <SwiperSlide key={item.id}>
                 <>
-                  <Card
-                    {...item}
-                    tagTitle={item.tag}
-                    margin="0 15px 0 0"
-                    inSwipe
-                  />
+                  <Card {...item} tagTitle={item.tag} inSwipe />
                   {item.date && (
                     <>
                       <TimeLine date={item.date} isLast={item.isLastInGroup} />

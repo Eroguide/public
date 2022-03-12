@@ -1,7 +1,8 @@
 import { NextPage } from 'next'
 import Head from 'next/head'
 import { BaseLayout } from '@/components/layouts/BaseLayout'
-import { CreateHowPage, TopLineSinglePage } from '@/components/generic'
+import { TopLinePageContent } from '@/components/generic'
+import { CreateHowPage } from '@/components/pages'
 
 const CreateRequestPage: NextPage = () => {
   return (
@@ -12,7 +13,7 @@ const CreateRequestPage: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <BaseLayout>
-        <TopLineSinglePage />
+        <TopLinePageContent />
         <CreateHowPage />
       </BaseLayout>
     </>

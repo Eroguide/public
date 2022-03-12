@@ -6,7 +6,11 @@ import {
   FormDescription,
   FormInputList,
 } from './styles'
-import { BigInfoCard, BlackInfoCard, CustomButton } from '@/components/generic/'
+import {
+  BigInfoCard,
+  BlackInfoCard,
+  CustomButton,
+} from '@/components/pages/CreatePrivatMasseusePage/CreatePrivatMasseusePage'
 import { CustomInput } from '@/components/generic/CustomInput'
 
 export const CreatePrivatMasseusePage: React.FC = () => {

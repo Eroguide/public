@@ -2,13 +2,12 @@ import styled from '@emotion/styled'
 
 export const SalonCardMainContainer = styled.div<{ inSwipe?: boolean }>`
   width: ${({ inSwipe }) => (inSwipe ? '100%' : '410px')};
-  height: 520px;
   flex-direction: column;
   border-radius: 32px;
-  margin-bottom: 32px;
-  &:first-of-type {
-    margin-right: 0;
-  }
+  padding: 12px;
+  //&:first-of-type {
+  //  margin-right: 0;
+  //}
 `
 
 export const SalonCardInner = styled.div`
@@ -25,6 +24,14 @@ export const SalonCardInner = styled.div`
     transition: filter 0.15s ease-in-out;
     z-index: -1;
     border-radius: 32px;
+  }
+  &:hover {
+    &:before {
+      content: '';
+      background-color: ${({ theme }) => theme.opacity[70][0]};
+      transition: filter 0.15s ease-in-out;
+      filter: blur(4px);
+    }
   }
 `
 
@@ -161,6 +168,10 @@ export const SmallGalleryItem = styled.div`
   overflow: hidden;
   position: relative;
   cursor: pointer;
+
+  ${({ theme }) => theme.media.mobile`
+  width: calc(100% / 3 - 8px);
+  `}
 `
 
 export const WorkingHoursTag = styled.span`

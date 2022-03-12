@@ -2,10 +2,11 @@ import styled from '@emotion/styled'
 
 export const ContentCardRowContainer = styled.div`
   width: 100%;
-  max-width: 1280px;
+  //max-width: 1280px;
   margin-top: 64px;
   overflow-x: hidden;
-  //padding: 0 12px;
+  max-width: 1304px;
+  padding: 0 12px;
 `
 export const TopLine = styled.div`
   width: 100%;
@@ -23,18 +24,22 @@ export const Title = styled.h3`
 
 export const RightWidget = styled.div`
   display: flex;
-  width: 100px;
   justify-content: space-between;
+  margin-right: -12px;
+  ${({ theme }) => theme.media.mobile`
+       margin:0;
+  `}
 `
 
 export const ContentRow = styled.div`
   display: flex;
   width: 100%;
   justify-content: space-between;
-  min-width: 1280px;
+  min-width: 1304px;
   margin: 40px -12px 0 -12px;
   ${({ theme }) => theme.media.mobile`
        min-width: auto;
+       margin: 40px 0;
   `}
 `
 export const NextButton = styled.div``

@@ -19,13 +19,12 @@ import LogoIconMobile from '/public/img/logo-mobile.svg'
 import SearchIcon from '/public/img/search-header-icon.svg'
 import BurgerIcon from '/public/img/burger-icon.svg'
 import { CustomButton, FloatingNavigation } from '@/components/generic'
-import { useState } from 'react'
+import { useRef, useState } from 'react'
+import { useClickOutside } from '@/hooks/useClickOutside'
 
 export const Header: React.FC = () => {
   const { push } = useRouter()
-
   const [menuIsOpen, setMenuIsOpen] = useState<boolean>(false)
-
   const isSmall = useBreakpoint({
     min: breakpoints[BreakpointsEnum.xxs].min,
     max: breakpoints[BreakpointsEnum.sm].max,
@@ -35,6 +34,8 @@ export const Header: React.FC = () => {
       shallow: false,
     })
   }
+  const ref = useRef<HTMLDivElement>(null)
+  useClickOutside(ref, () => setMenuIsOpen(false))
 
   return (
     <HeaderContainer>
@@ -75,11 +76,11 @@ export const Header: React.FC = () => {
             </SearchIconWrapper>
           )}
           <HeartCounter />
-          <BurgerButton>
+          <BurgerButton ref={ref}>
             <BurgerIconWrapper onClick={() => setMenuIsOpen(!menuIsOpen)}>
               <BurgerIcon />
             </BurgerIconWrapper>
-            {menuIsOpen && <FloatingNavigation handleClose={setMenuIsOpen} />}
+            {menuIsOpen && <FloatingNavigation />}
           </BurgerButton>
         </RightBlock>
       </HeaderInner>

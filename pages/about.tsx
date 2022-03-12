@@ -1,8 +1,8 @@
 import { NextPage } from 'next'
 import Head from 'next/head'
 import { BaseLayout } from '@/components/layouts/BaseLayout'
-import { GalleryLanding, TopLineSinglePage } from '@/components/generic'
-import { AboutPage as AboutPageContent } from '@/components/generic'
+import { GalleryLanding, TopLinePageContent } from '@/components/generic'
+import { AboutPage as AboutPageContent } from '@/components/pages'
 
 const AboutPage: NextPage = () => {
   return (
@@ -13,7 +13,7 @@ const AboutPage: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <BaseLayout>
-        <TopLineSinglePage />
+        <TopLinePageContent />
         <GalleryLanding
           title="About"
           text="Eroguide is a professional nude photographer.
