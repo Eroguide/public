@@ -4,7 +4,7 @@ import { BaseLayout } from '@/components/layouts/BaseLayout'
 import { TopLinePageContent } from '@/components/generic'
 import { FaqPage } from '@/components/pages'
 
-const Faq: NextPage = () => {
+const FaqPageNext: NextPage = () => {
   return (
     <>
       <Head>
@@ -20,4 +20,4 @@ const Faq: NextPage = () => {
   )
 }
 
-export default Faq
+export default FaqPageNext

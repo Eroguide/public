@@ -1,7 +1,8 @@
 import { NextPage } from 'next'
 import Head from 'next/head'
 import { BaseLayout } from '@/components/layouts/BaseLayout'
-import { TopLinePageContent, MapPage } from '@/components/generic'
+import { TopLinePageContent } from '@/components/generic'
+import { MapPage } from '@/components/pages'
 
 const Map: NextPage = () => {
   return (

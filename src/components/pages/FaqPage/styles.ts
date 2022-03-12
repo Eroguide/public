@@ -24,11 +24,12 @@ export const TitleSection = styled.div`
 `
 
 export const SmallTitle = styled.h5`
-  font-size: ${({ theme }) => theme.fontSize.xxs};
-  color: ${({ theme }) => theme.grayScale[4]};
-  font-weight: 200;
+  font-size: ${({ theme }) => theme.fontSize.xs};
+  color: ${({ theme }) => theme.grayScale[3]};
+  font-weight: 500;
   margin-bottom: 8px;
 `
+
 export const LargeTitle = styled.h1`
   font-size: ${({ theme }) => theme.fontSize.xxl};
   color: ${({ theme }) => theme.grayScale[5]};
@@ -36,9 +37,14 @@ export const LargeTitle = styled.h1`
 `
 
 export const SubTitle = styled.h2`
-  font-size: ${({ theme }) => theme.fontSize.l};
+  font-size: ${({ theme }) => theme.fontSize.m};
   color: ${({ theme }) => theme.grayScale[3]};
   margin-bottom: 8px;
+  font-weight: 400;
+  a {
+    color: ${({ theme }) => theme.support[0]};
+    text-decoration: none;
+  }
 `
 
 export const SelectWrapper = styled.div`

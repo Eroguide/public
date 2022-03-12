@@ -8,12 +8,7 @@ import {
   IconWrapper,
 } from './styles'
 import ChevronIcon from '/public/img/chevron-left.svg'
-
-export type AccordionItemProps = {
-  title: string
-  content: string
-  isOpen: boolean
-}
+import { AccordionItemProps } from './types'
 
 export const AccordionItem: React.FC<AccordionItemProps> = ({
   title,

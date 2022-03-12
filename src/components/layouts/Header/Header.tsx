@@ -7,8 +7,9 @@ import {
   BurgerButton,
   HeaderInner,
   LogoWrapper,
-  SearchIconWrapper,
+  MapPinIconWrapper,
   BurgerIconWrapper,
+  LocationText,
 } from './styles'
 import { HeartCounter } from '@/components/layouts/Header/HeartCounter'
 import { useRouter } from 'next/router'
@@ -16,9 +17,9 @@ import Link from 'next/link'
 import { useBreakpoint } from '@/hooks/useBreakpoint'
 import { breakpoints, BreakpointsEnum } from '@/src/theme'
 import LogoIconMobile from '/public/img/logo-mobile.svg'
-import SearchIcon from '/public/img/search-header-icon.svg'
+import PinIcon from '/public/img/location-pin-icon.svg'
 import BurgerIcon from '/public/img/burger-icon.svg'
-import { CustomButton, FloatingNavigation } from '@/components/generic'
+import { FloatingNavigation } from '@/components/generic'
 import { useRef, useState } from 'react'
 import { useClickOutside } from '@/hooks/useClickOutside'
 
@@ -49,32 +50,14 @@ export const Header: React.FC = () => {
             <Logo src="/img/logo.png" alt="" onClick={() => goHome()} />
           )}
           <Divider />
-          <Link href="/map" passHref>
-            <CustomButton styleType="link" isLink>
-              Prague
-            </CustomButton>
-          </Link>
+          <LocationText>Prague</LocationText>
         </LeftBlock>
         <RightBlock>
-          {!isSmall && (
-            <>
-              <Link href="/about" passHref>
-                <CustomButton styleType="link" isLink margin="0 20px">
-                  About
-                </CustomButton>
-              </Link>
-              <Link href="/journal" passHref>
-                <CustomButton styleType="link" isLink margin="0 20px">
-                  Journal
-                </CustomButton>
-              </Link>
-            </>
-          )}
-          {isSmall && (
-            <SearchIconWrapper>
-              <SearchIcon />
-            </SearchIconWrapper>
-          )}
+          <Link href="/map" passHref>
+            <MapPinIconWrapper>
+              <PinIcon />
+            </MapPinIconWrapper>
+          </Link>
           <HeartCounter />
           <BurgerButton ref={ref}>
             <BurgerIconWrapper onClick={() => setMenuIsOpen(!menuIsOpen)}>

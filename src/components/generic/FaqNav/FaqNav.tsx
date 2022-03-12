@@ -1,20 +1,25 @@
-import { Container, Wrapper, IconWrapper, Label, NavItem } from './styles'
-import Icon from '/public/img/heart-lined.svg'
-export const FaqNav: React.FC<{
-  navOption: Array<{ label: string; value: string }>
-}> = ({ navOption }) => {
+import { FaqNavContainer, Wrapper, IconWrapper, Label, NavItem } from './styles'
+import { FaqNavProps } from './types'
+
+export const FaqNav: React.FC<FaqNavProps> = ({
+  navOption,
+  handleFaqSectionValue,
+  valueIsActive,
+}) => {
   return (
-    <Container>
+    <FaqNavContainer>
       <Wrapper>
         {navOption.map((navItem) => (
-          <NavItem key={navItem.value}>
-            <IconWrapper>
-              <Icon />
-            </IconWrapper>
+          <NavItem
+            key={navItem.value}
+            onClick={() => handleFaqSectionValue(navItem.value)}
+            isActive={valueIsActive === navItem.value}
+          >
+            <IconWrapper>{navItem.icon}</IconWrapper>
             <Label>{navItem.label}</Label>
           </NavItem>
         ))}
       </Wrapper>
-    </Container>
+    </FaqNavContainer>
   )
 }

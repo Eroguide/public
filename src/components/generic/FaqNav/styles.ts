@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 
-export const Container = styled.div`
+export const FaqNavContainer = styled.div`
   width: 20%;
   justify-content: center;
   align-items: center;
@@ -10,7 +10,7 @@ export const Container = styled.div`
       width: 30%;
   `}
   ${({ theme }) => theme.media.sm`
-      width: 100%;
+      width: 30%;
   `}
   ${({ theme }) => theme.media.mobile`
       width: 100%;
@@ -22,15 +22,28 @@ export const Wrapper = styled.ul`
   height: 100%;
 `
 
-export const NavItem = styled.li`
+export const NavItem = styled.li<{ isActive: boolean }>`
   display: flex;
   justify-content: flex-start;
   align-items: center;
   margin-bottom: 24px;
+  svg path {
+    stroke: ${({ theme }) => theme.grayScale[3]};
+  }
+
+  ${({ isActive, theme }) =>
+    isActive &&
+    `svg path {
+      stroke: ${theme.grayScale[5]};
+    }
+    span {
+      color: ${theme.grayScale[5]};
+    }`}
+
   &:hover {
     cursor: pointer;
-    svg {
-      fill: ${({ theme }) => theme.grayScale[5]};
+    svg path {
+      stroke: ${({ theme }) => theme.grayScale[5]};
     }
 
     span {
@@ -43,15 +56,15 @@ export const IconWrapper = styled.div`
   width: 20px;
   height: 20px;
   margin-right: 16px;
-  svg {
-    fill: ${({ theme }) => theme.grayScale[3]};
-  }
 `
 
 export const Label = styled.span`
   font-size: ${({ theme }) => theme.fontSize['s']};
   font-weight: 600;
   color: ${({ theme }) => theme.grayScale[3]};
+  height: 24px;
+  display: flex;
+  align-items: center;
 `
 
 export const Divider = styled.div`

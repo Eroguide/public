@@ -17,8 +17,7 @@ export const HeaderContainer = styled.div`
   padding: 0;
   `} ${({ theme }) => theme.media.mobile`
   padding: 0;
-  
-  `}
+    `}
 `
 
 export const HeaderInner = styled.div`
@@ -61,6 +60,11 @@ export const NavLink = styled.a`
   color: #a0a0b0;
 `
 
+export const LocationText = styled.p`
+  font-size: ${({ theme }) => theme.fontSize.s};
+  color: ${({ theme }) => theme.grayScale[3]};
+`
+
 export const BurgerButton = styled.div`
   margin-left: 40px;
   width: 24px;
@@ -97,10 +101,24 @@ export const LogoWrapper = styled.div`
   margin-left: 26px;
 `
 
-export const SearchIconWrapper = styled.div`
+export const MapPinIconWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
+  svg path {
+    stroke: ${({ theme }) => theme.grayScale[3]};
+  }
+  &:hover {
+    svg path {
+      stroke: ${({ theme }) => theme.grayScale[4]};
+    }
+  }
+  &:active {
+    svg path {
+      stroke: ${({ theme }) => theme.grayScale[5]};
+    }
+  }
 `
 
 export const BurgerIconWrapper = styled.div`

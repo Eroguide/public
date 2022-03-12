@@ -13,17 +13,17 @@ export const ItemTitle = styled.h4`
 
 export const ItemContent = styled.div<{ isActive: boolean }>`
   width: 100%;
-  padding: ${({ isActive }) => (isActive ? '24px 0' : '0')};
+  padding: ${({ isActive }) => (isActive ? '6px 0 24px 0' : '0')};
   display: flex;
   height: ${({ isActive }) => (isActive ? 'auto' : '0')};
   overflow: hidden;
   border-top: ${({ theme, isActive }) =>
     isActive ? `1px ` : `0px ` + 'solid ' + theme.grayScale[1]};
-  transition: 0.3s ease-in-out;
+  transition: 0.15s ease-in-out;
   position: relative;
   p {
     opacity: ${({ isActive }) => (isActive ? '1' : '0')};
-    transition: 0.3s ease-in-out;
+    transition: 0.15s ease-in-out;
   }
 `
 
@@ -32,7 +32,7 @@ export const FaqText = styled.p`
   font-size: ${({ theme }) => theme.fontSize.s};
   color: ${({ theme }) => theme.grayScale[3]};
   text-align: left;
-  transition: 0.3s ease-in-out;
+  transition: 0.15s ease-in-out;
 `
 
 export const ItemTop = styled.div`
@@ -52,6 +52,9 @@ export const IconWrapper = styled.div<{ isActive: boolean }>`
   justify-content: center;
   align-items: center;
   svg {
+    path {
+      stroke: ${({ theme }) => theme.grayScale[2]};
+    }
     transform: rotate(${({ isActive }) => (isActive ? '90deg' : '-90deg')});
     transition: transform 0.15s ease-in-out;
   }
