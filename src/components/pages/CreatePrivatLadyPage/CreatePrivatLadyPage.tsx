@@ -6,11 +6,7 @@ import {
   FormDescription,
   FormInputList,
 } from './styles'
-import {
-  BigInfoCard,
-  BlackInfoCard,
-  CustomButton,
-} from '@/components/pages/CreatePrivatLadyPage/CreatePrivatLadyPage'
+import { BigInfoCard, BlackInfoCard, CustomButton } from '@/components/generic'
 import { CustomInput } from '@/components/generic/CustomInput'
 
 export const CreatePrivatLadyPage: React.FC = () => {

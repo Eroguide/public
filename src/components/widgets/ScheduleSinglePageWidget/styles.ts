@@ -71,9 +71,7 @@ export const IconWrapper = styled.div`
   margin-right: 16px;
 `
 
-export const WidgetInner = styled.div`
-  padding: 0 68px;
-`
+export const WidgetInner = styled.div``
 
 export const LastCheckDate = styled.div`
   display: flex;

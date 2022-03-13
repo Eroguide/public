@@ -4,7 +4,7 @@ export const SalonCardMainContainer = styled.div<{ inSwipe?: boolean }>`
   width: ${({ inSwipe }) => (inSwipe ? '100%' : '410px')};
   flex-direction: column;
   border-radius: 32px;
-  padding: 12px;
+  padding: 9px;
   //&:first-of-type {
   //  margin-right: 0;
   //}

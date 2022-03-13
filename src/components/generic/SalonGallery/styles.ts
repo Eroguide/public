@@ -5,7 +5,7 @@ export const Container = styled.div`
   align-items: center;
   flex-direction: column;
   display: flex;
-  margin: 0 -12px;
+  margin: 0 -9px;
 `
 
 export const TitlePanel = styled.div`

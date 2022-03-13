@@ -1,5 +1,5 @@
 import { BaseLayout } from '@/components/layouts/BaseLayout'
-import { ErrorPage } from '@/components/generic'
+import { ErrorPage } from '@/components/pages'
 
 export default function Custom404() {
   return (

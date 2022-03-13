@@ -11,10 +11,10 @@ export const Container = styled.div`
      padding: 64px;
   `}
   ${({ theme }) => theme.media.sm`
-      padding: 32px;
+      padding: 0;
   `}
   ${({ theme }) => theme.media.mobile`
-       padding: 16px;
+       padding: 0;
   `}
 `
 
@@ -34,7 +34,8 @@ export const HeroTitle = styled.h1`
   color: ${({ theme }) => theme.primary[0]};
   margin-bottom: 56px;
   ${({ theme }) => theme.media.mobile`
-  font-size: ${theme.fontSize['extraMobile']};
+    font-size: ${theme.fontSize['extraMobile']};
+     line-height: ${theme.fontSize['extraMobile']};
   `}
 `
 

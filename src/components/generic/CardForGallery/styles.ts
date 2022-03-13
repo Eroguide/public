@@ -1,14 +1,12 @@
 import styled from '@emotion/styled'
 
 export const CardMainContainer = styled.div<{
-  margin?: string
   inSwipe?: boolean
 }>`
   width: 100%;
   flex-direction: column;
   border-radius: 32px;
-  padding: 6px;
-  ${({ margin }) => margin && `margin:${margin};`}
+  padding: 9px;
   position: relative;
 `
 

@@ -92,7 +92,7 @@ export const SinglePostContent: React.FC = () => {
         title="Recent posts"
         counter={34}
         counterTitle="All posts"
-        itemsToShow={4}
+        itemsToShow={[4, 3, 2]}
         withControls
       >
         {fixtures.map((item) => (

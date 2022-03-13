@@ -16,10 +16,10 @@ export const DrawerBottom: React.FC<DrawerBottomProps> = ({
   if (process.browser) {
     if (isOpen) {
       document.body.style.height = '100vh'
-      document.body.style.overflow = 'hidden'
+      document.body.style.overflowY = 'hidden'
     } else {
       document.body.style.height = '100%'
-      document.body.style.overflow = 'auto'
+      document.body.style.overflowY = 'auto'
     }
   }
 

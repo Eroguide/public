@@ -1,8 +1,5 @@
 import { Container, Row } from './styles'
-import {
-  BigInfoCard,
-  BlackInfoCard,
-} from '@/components/pages/SupportPage/SupportPage'
+import { BigInfoCard, BlackInfoCard } from '@/components/generic'
 
 export const SupportPage: React.FC = () => {
   return (
@@ -22,7 +19,7 @@ export const SupportPage: React.FC = () => {
       </Row>
       <Row>
         <BigInfoCard
-          title="When an admin has a specific sense of humor..."
+          title="When an aSimple rulesdmin has a specific sense of humor..."
           details="our ladies are waiting for you"
         />
         <BigInfoCard

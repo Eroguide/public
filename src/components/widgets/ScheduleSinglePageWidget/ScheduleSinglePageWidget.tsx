@@ -30,7 +30,7 @@ export const ScheduleSinglePageWidget: React.FC = () => {
       </WorkingDaysWrapper>
       <Divider />
       <PriceBlock>
-        <Prefix>from</Prefix>
+        <Prefix>od</Prefix>
         <Price>2500</Price>
         <Suffix>Kč/h</Suffix>
       </PriceBlock>

@@ -121,7 +121,7 @@ export const InfoCardItem = styled.div`
   align-items: center;
 
   width: 50%;
-  padding: 12px;
+  padding: 9px;
 `
 
 export const CovidProtectionCardContent = styled.div`

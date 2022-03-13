@@ -71,7 +71,7 @@ export const UnderFooter = styled.div`
 `
 
 export const UnderFooterLeft = styled.div`
-  width: 60%;
+  width: 30%;
   display: flex;
   color: ${({ theme }) => theme.grayScale[4]};
   font-size: ${({ theme }) => theme.fontSize['xs']};
@@ -84,10 +84,17 @@ export const UnderFooterLeft = styled.div`
       color: ${({ theme }) => theme.grayScale[5]};
     }
   }
+  ${({ theme }) => theme.media.sm`
+  width: 100%;
+  `}
+  ${({ theme }) => theme.media.mobile`
+  width: 100%;
+  padding-left: 78px;
+  `}
 `
 
 export const UnderFooterRight = styled.div`
-  width: 40%;
+  width: 70%;
   margin-right: 10%;
   display: flex;
   justify-content: flex-end;
@@ -96,7 +103,7 @@ export const UnderFooterRight = styled.div`
     color: ${({ theme }) => theme.grayScale[4]};
     font-size: ${({ theme }) => theme.fontSize['xs']};
     text-decoration: none;
-    margin-left: 16px;
+    margin-left: 32px;
     display: flex;
     align-items: center;
     cursor: pointer;
@@ -105,26 +112,26 @@ export const UnderFooterRight = styled.div`
   ${({ theme }) => theme.media.md`
     margin-right: 0;
      width: 100%;
-       align-items: flex-start;
-         margin-top: 16px;
+     align-items: flex-start;
+     margin-top: 16px;
   `}
 
-  ${({ theme }) => theme.media.sm`
-    margin-right: 0; 
+  ${({ theme }) => theme.media.sm`  
+       margin-right: 0;
     width: 100%; margin-top: 16px;
-    flex-direction: column;
       align-items: flex-start;
   `} 
   
   ${({ theme }) => theme.media.mobile`
     margin-right: 0;
+      padding-left: 78px;
       width: 100%;
        margin-top: 16px;
       flex-direction: column;
        align-items: flex-start;
       span{
-       margin-left: 0;
-        align-items: left;
+         margin-left: 0;
+         align-items: left;
          margin-top: 16px;
       }
   `}
@@ -143,8 +150,7 @@ export const FirstFooterSection = styled.div`
   width: 100%;
   `}
   ${({ theme }) => theme.media.mobile`
-   margin-left: 45px; 
-   padding: 56px 0 45px 0; 
+   padding: 56px 0 45px 45px; 
    width: 100%;
   `}
 `
@@ -221,6 +227,6 @@ export const SectionFooterWrap = styled.div`
   ${({ theme }) => theme.media.mobile`
   width: 100%;
   flex-direction:column;
-  margin-left: 78px;
+  padding-left: 78px;
   `}
 `

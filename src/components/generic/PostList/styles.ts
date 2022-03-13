@@ -2,10 +2,8 @@ import styled from '@emotion/styled'
 
 export const PostListRowContainer = styled.div`
   width: 100%;
-  max-width: 1304px;
   margin-top: 64px;
-  overflow-x: hidden;
-  padding: 0 12px;
+  padding: 0 9px;
   ${({ theme }) => theme.media.mobile`
        padding: 0;
   `}
@@ -17,9 +15,6 @@ export const TopLine = styled.div`
   justify-content: space-between;
   display: flex;
   align-items: center;
-  ${({ theme }) => theme.media.mobile`
-     padding: 0 12px;
-  `}
 `
 
 export const Title = styled.h3`
@@ -30,21 +25,19 @@ export const Title = styled.h3`
 
 export const RightWidget = styled.div`
   display: flex;
-  margin-right: -12px;
+  margin-right: -9px;
   ${({ theme }) => theme.media.mobile`
        margin:0;
   `}
 `
 
 export const ContentRow = styled.div`
+  width: auto;
   display: flex;
-  width: 100%;
-  justify-content: space-between;
-  min-width: 1304px;
-  margin: 40px -12px 0 -12px;
+  min-width: 1298px;
+  margin: 40px -9px 0 -9px;
   ${({ theme }) => theme.media.mobile`
        min-width: auto;
-       margin:40px 0;
   `}
 `
 

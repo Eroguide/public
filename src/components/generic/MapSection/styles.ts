@@ -7,7 +7,10 @@ export const Container = styled.div`
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  padding: 0 12px;
+  padding: 0 9px;
+  ${({ theme }) => theme.media.mobile`
+  padding: 0;
+  `}
 `
 
 export const Wrapper = styled.div`

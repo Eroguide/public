@@ -43,7 +43,6 @@ export const CardForGallery: React.FC<CardProps> = ({
   id,
   slug,
   tagTitle,
-  margin,
   inSwipe,
 }) => {
   const {
@@ -61,7 +60,7 @@ export const CardForGallery: React.FC<CardProps> = ({
   }
   return (
     <>
-      <CardMainContainer margin={margin} inSwipe={inSwipe}>
+      <CardMainContainer inSwipe={inSwipe}>
         <CardInner>
           <CardImageWrapper>
             <ImageOverlay />

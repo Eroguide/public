@@ -38,6 +38,9 @@ export const globalStyles = (
         margin: 0;
       }
 
+      body {
+        overflow-x: hidden;
+      }
       html,
       body {
         line-height: ${theme.lineHeight};

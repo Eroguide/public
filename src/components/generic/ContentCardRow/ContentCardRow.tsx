@@ -1,5 +1,5 @@
 import { Swiper } from 'swiper/react'
-import { SwiperOptions, FreeMode, Navigation } from 'swiper'
+import { SwiperOptions, Navigation } from 'swiper'
 
 import {
   ContentCardRowContainer,
@@ -23,7 +23,7 @@ export const ContentCardRow: React.FC<{
   title: string
   counter: number
   counterTitle: string
-  itemsToShow: number
+  itemsToShow: Array<number>
   withControls?: boolean
   href?: string
 }> = ({
@@ -39,12 +39,13 @@ export const ContentCardRow: React.FC<{
   const navigationNextRef = useRef<HTMLDivElement>(null)
 
   const swiperSettings: SwiperOptions = {
-    loop: true,
-    freeMode: true,
-    slidesPerView: itemsToShow,
-    modules: [FreeMode, Navigation],
+    loop: false,
+    slidesPerView: itemsToShow[0],
+    modules: [Navigation],
+    watchOverflow: true,
     allowSlidePrev: true,
     allowSlideNext: true,
+    centeredSlidesBounds: true,
     navigation: {
       prevEl: navigationPrevRef.current,
       nextEl: navigationNextRef.current,
@@ -54,10 +55,13 @@ export const ContentCardRow: React.FC<{
         slidesPerView: 1,
       },
       700: {
-        slidesPerView: itemsToShow,
+        slidesPerView: itemsToShow[2],
       },
-      1400: {
-        slidesPerView: itemsToShow,
+      960: {
+        slidesPerView: itemsToShow[1],
+      },
+      1280: {
+        slidesPerView: itemsToShow[0],
       },
     },
   }

@@ -69,14 +69,14 @@ export const ExperianceWidget: React.FC = () => {
           </IconWrapper>
           <Description>
             Any programs and additions exclude sex. In the presence of the
-            services of the show "Mistress", Role-playing games ", Foot fetish,
+            services of the show Mistress, Role-playing games , Foot fetish,
             Lesbian show, they are held in the form of a staged show.
           </Description>
         </Notification>
 
         <ParametersAnnotation>
           {detailsList.map((listItem) => (
-            <ParametersItem>
+            <ParametersItem key={listItem.id}>
               <IconWrapperParameter>{listItem.icon}</IconWrapperParameter>
               <span>{listItem.label}</span>
             </ParametersItem>

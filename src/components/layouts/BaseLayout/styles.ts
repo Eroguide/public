@@ -2,7 +2,7 @@ import styled from '@emotion/styled'
 import { headerHeight } from '@/src/components/layouts/Header/constants'
 
 export const Container = styled.div`
-  max-width: 1304px;
+  max-width: 1298px;
   margin: 0 auto;
 `
 

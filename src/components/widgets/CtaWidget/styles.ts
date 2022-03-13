@@ -16,4 +16,7 @@ export const ContentCta = styled.div<{ isCentered?: boolean }>`
   display: flex;
   flex-flow: column wrap;
   align-items: ${({ isCentered }) => (isCentered ? 'center' : 'flex-start')};
+  ${({ theme }) => theme.media.mobile`
+    align-items: flex-start;
+  `}
 `

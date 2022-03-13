@@ -6,7 +6,7 @@ export const CardMainContainer = styled.div<{ inSwipe?: boolean }>`
   flex-direction: column;
   border-radius: 32px;
   margin-bottom: 32px;
-  padding: 12px;
+  padding: 9px;
   position: relative;
 
   ${({ theme }) => theme.media.mobile`

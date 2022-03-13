@@ -10,4 +10,4 @@ export type ContentTypeProps = {
   title: string
   content: string
 }
-export type FixturesFaqType = Record<any, Array<ContentTypeProps>>
+export type FixturesFaqType = Record<string, Array<ContentTypeProps>>

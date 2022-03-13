@@ -2,12 +2,12 @@ import styled from '@emotion/styled'
 
 export const CardMainContainer = styled.div`
   width: 100%;
-  min-width: 312px;
+  min-width: 250px;
   flex-direction: column;
   border-radius: 32px;
   margin-bottom: 32px;
   position: relative;
-  padding: 12px;
+  padding: 9px;
 `
 
 export const PostCardInner = styled.div`

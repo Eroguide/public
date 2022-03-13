@@ -1,12 +1,23 @@
 import styled from '@emotion/styled'
 
+export const Container = styled.div`
+  width: 100%;
+  position: relative;
+  margin-top: 64px;
+  padding: 0 9px;
+
+  ${({ theme }) => theme.media.mobile`
+    padding: 0;
+  `}
+`
+
 export const CardGalleryContainer = styled.div`
-  margin-left: -12px;
-  margin-right: -12px;
+  margin-left: -9px;
+  margin-right: -9px;
   height: auto;
-  width: calc(100% + 24px);
   position: relative;
 `
+
 export const MessageBox = styled.span`
   display: flex;
   width: 100%;
@@ -20,7 +31,6 @@ export const MessageBox = styled.span`
 export const GalleryItem = styled.div`
   width: 25%;
   display: flex;
-  padding: 6px;
   margin-bottom: 16px;
   ${({ theme }) => theme.media.lg`
     width: 25%;
@@ -43,7 +53,7 @@ export const TitlePanel = styled.div`
   justify-content: space-between;
   display: flex;
   height: 32px;
-  margin: 64px 0 40px 0;
+  margin-bottom: 40px;
 `
 
 export const LeftFilters = styled.div`

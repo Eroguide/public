@@ -16,6 +16,7 @@ export const Wrapper = styled.ul`
   flex-direction: row;
   position: relative;
   width: 100%;
+
   &:before {
     content: '';
     position: absolute;
@@ -30,8 +31,15 @@ export const Wrapper = styled.ul`
     width: 80px;
     z-index: 5;
   }
-  &:after {
-  }
+
+  ${({ theme }) => theme.media.sm`
+     max-width: 320px;
+     margin: auto;
+  `}
+  ${({ theme }) => theme.media.mobile`
+  max-width: 320px;
+  margin: auto;
+  `}
 `
 
 export const DayCard = styled.li`

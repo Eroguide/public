@@ -50,6 +50,16 @@ export const ParametersItem = styled.li`
   margin-right: 40px;
   display: flex;
   justify-content: flex-start;
+  align-items: center;
+  ${({ theme }) => theme.media.md`
+  margin-right: 24px;
+  `}
+  ${({ theme }) => theme.media.sm`
+  margin-right:24px;
+  `}
+  ${({ theme }) => theme.media.mobile`
+     margin-right:24px;
+  `}
 `
 
 export const IconWrapperParameter = styled(IconWrapper)`

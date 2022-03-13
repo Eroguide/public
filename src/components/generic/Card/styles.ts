@@ -9,7 +9,7 @@ export const CardMainContainer = styled.div<{
   border-radius: 32px;
   ${({ margin }) => margin && `margin:${margin};`}
   position: relative;
-  padding: 12px;
+  padding: 9px;
 `
 
 export const CardInner = styled.div`
