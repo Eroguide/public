@@ -26,6 +26,9 @@ export const globalStyles = (
         line-height: 1.6;
       }
 
+      ul {
+        list-style: none;
+      }
       h1,
       h2,
       h3,

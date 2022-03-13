@@ -46,7 +46,7 @@ export const ParametersAnnotation = styled.ul`
 
 export const ParametersItem = styled.li`
   font-size: ${({ theme }) => theme.fontSize.xs};
-  color: ${({ theme }) => theme.grayScale[3]};
+  color: ${({ theme }) => theme.grayScale[5]};
   margin-right: 40px;
   display: flex;
   justify-content: flex-start;
@@ -56,19 +56,36 @@ export const IconWrapperParameter = styled(IconWrapper)`
   margin-right: 8px;
 `
 
+export const Title = styled.span<{ isCrossed: boolean }>`
+  margin-right: 4px;
+  font-size: ${({ theme }) => theme.fontSize.xs};
+  color: ${({ theme }) => theme.grayScale[5]};
+  ${({ isCrossed }) => isCrossed && 'text-decoration: line-through;'};
+`
+
+export const Details = styled.span`
+  font-size: ${({ theme }) => theme.fontSize.xs};
+  color: ${({ theme }) => theme.primary[1]};
+`
+
 export const ParametersList = styled.ul`
-  list-style: none;
   width: 100%;
-  column-count: 2;
-  column-gap: 48px;
+  display: flex;
+  flex-wrap: wrap;
 `
 
 export const ParametersListItem = styled.li`
-  font-size: ${({ theme }) => theme.fontSize.m};
-  color: ${({ theme }) => theme.grayScale[3]};
-  margin-right: 40px;
   display: flex;
-  justify-content: flex-start;
   margin-bottom: 16px;
   align-items: center;
+  width: 50%;
+  ${({ theme }) => theme.media.md`
+  width: 100%;
+  `}
+  ${({ theme }) => theme.media.sm`
+  width: 50%;
+  `}
+  ${({ theme }) => theme.media.mobile`
+    width: 100%;
+  `}
 `
