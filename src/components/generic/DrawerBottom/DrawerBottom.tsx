@@ -9,6 +9,8 @@ import {
 } from './styles'
 import { DrawerBottomProps } from './types'
 import CloseIcon from '/public/img/cross-icon.svg'
+import { GalleryLanding } from '@/components/generic'
+import { BaseLayout } from '@/components/layouts/BaseLayout'
 export const DrawerBottom: React.FC<DrawerBottomProps> = ({
   isOpen,
   handleClose,
@@ -31,13 +33,20 @@ export const DrawerBottom: React.FC<DrawerBottomProps> = ({
           <CloseIcon />
         </CloseButton>
         <InnerContent>
-          <HeroTitle>Legal information and legal notices</HeroTitle>
+          <GalleryLanding
+            title="Legal information and legal notices"
+            text="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt
+            ipsum obcaecati praesentium repellat similique? A ab, adipisci amet
+            architecto aspernatur autem culpa cum cupiditate deserunt
+            dignissimos dolore dolorum, ducimus enim eos et, eveniet excepturi"
+          />
+          {/*<HeroTitle>Legal information and legal notices</HeroTitle>*/}
 
-          <SubTitle>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias
-            aspernatur debitis deserunt distinctio ea iste laboriosam nihil
-            nulla pariatur tenetur!
-          </SubTitle>
+          {/*<SubTitle>*/}
+          {/*  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias*/}
+          {/*  aspernatur debitis deserunt distinctio ea iste laboriosam nihil*/}
+          {/*  nulla pariatur tenetur!*/}
+          {/*</SubTitle>*/}
           <TextContent>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt
             ipsum obcaecati praesentium repellat similique? A ab, adipisci amet

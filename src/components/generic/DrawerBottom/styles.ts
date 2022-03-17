@@ -16,6 +16,15 @@ export const DrawerBottomContainer = styled.div<{ isOpen: boolean }>`
   justify-content: center;
   align-items: flex-start;
   z-index: 1001;
+  ${({ theme }) => theme.media.md`
+    padding: 0 32px;
+  `}
+  ${({ theme }) => theme.media.sm`
+    padding: 0 32px;
+  `}
+  ${({ theme }) => theme.media.mobile`
+    padding: 0 16px;
+  `}
 `
 
 export const BgOverlay = styled.div`
@@ -88,10 +97,16 @@ export const SubTitle = styled.h5`
 export const TextContent = styled.p`
   color: ${({ theme }) => theme.grayScale[4]};
   font-size: ${({ theme }) => theme.fontSize['m']};
-  margin-bottom: 56px;
+  margin: 56px auto;
   padding: 0 124px;
 
+  ${({ theme }) => theme.media.md`
+    padding: 0 104px;
+  `}
+  ${({ theme }) => theme.media.sm`
+    padding: 0 80px;
+  `}
   ${({ theme }) => theme.media.mobile`
-   padding: 0 64px;
+    padding: 0 64px;
   `}
 `
