@@ -1,0 +1,1 @@
+export { CategoryLanding } from './CategoryLanding'

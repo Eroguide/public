@@ -7,11 +7,7 @@ export const ContentCardRowContainer = styled.div`
   .swiper {
     overflow: visible;
   }
-  ${({ theme }) => theme.media.md`
-      .swiper {
-        overflow: hidden;
-      }
-  `}
+
   ${({ theme }) => theme.media.mobile`
        padding: 0;
       .swiper {

@@ -57,7 +57,6 @@ export const TitlePanel = styled.div`
 `
 
 export const LeftFilters = styled.div`
-  width: 50%;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;

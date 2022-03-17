@@ -79,6 +79,7 @@ export const FilterScroll: React.FC = () => {
       },
     },
   }
+
   return (
     <FilterScrollContainer>
       <InnerContainer>
@@ -86,7 +87,10 @@ export const FilterScroll: React.FC = () => {
           {initSlider
             ? options.map((option, i) => (
                 <SwiperSlide key={`${option}-${i}`}>
-                  <Link href={`/category/${option}`} passHref>
+                  <Link
+                    href={i === 0 ? '/category' : `/category/${option}`}
+                    passHref
+                  >
                     <FilterCategory>
                       <CategoryTitle>{option}</CategoryTitle>
                       <FilterCounter>232</FilterCounter>

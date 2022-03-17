@@ -98,7 +98,7 @@ export const LogoWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-left: 26px;
+  margin-left: 8px;
 `
 
 export const MapPinIconWrapper = styled.div`
