@@ -15,6 +15,7 @@ import {
 
 import {
   InfoCard,
+  InfoCardCollapse,
   ProductSlider,
   SinglePageContentBlock,
 } from '@/components/generic'
@@ -100,6 +101,7 @@ export const SalonSinglePageContent: React.FC = () => {
                   Prices confirmed
                 </PriceInfoNote>
               </InfoCard>
+              <InfoCardCollapse />
             </SinglePageContentBlock>
 
             <SinglePageContentBlock title="Program additions">

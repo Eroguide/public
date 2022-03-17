@@ -31,6 +31,6 @@ export * from './BigInfoCard'
 export * from './CustomButton'
 export * from './BlackInfoCard'
 export * from './RadioButton'
-
 export * from './FloatingNavigation'
 export * from './CardForGallery'
+export * from './InfoCardCollapse'

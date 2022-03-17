@@ -1,0 +1,1 @@
+export { InfoCardCollapse } from './InfoCardCollapse'

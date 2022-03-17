@@ -56,8 +56,6 @@ export const InnerContent = styled.div`
   max-width: 860px;
   margin: auto;
   & {
-    -ms-overflow-style: none; /* for Internet Explorer, Edge */
-    scrollbar-width: none; /* for Firefox */
     overflow-y: scroll;
   }
 
