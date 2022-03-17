@@ -4,8 +4,6 @@ import { BaseLayout } from '@/components/layouts/BaseLayout'
 import { CardGallery, TopLinePageContent } from '@/components/generic'
 import { useRouter } from 'next/router'
 import { CategoryLanding } from '@/components/pages'
-import { addApolloState, initializeApollo } from '@/graphql/apollo'
-import { getLaunches } from '@/graphql/queries.graphql'
 const fixtures = [
   { id: '222dsadas', slug: 'one-project-time', best: 1 },
   { id: 'asddsad222sadasd', slug: 'two-project-time', best: 0 },

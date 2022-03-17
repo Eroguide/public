@@ -4,10 +4,7 @@ export const Container = styled.div`
   align-items: center;
   text-align: center;
   display: flex;
-
-  ${({ theme }) => theme.media.mobile`
-      width: 100%;
-  `}
+  width: 100%;
 `
 
 export const Wrapper = styled.ul<{ fadeRight?: boolean }>`
@@ -17,10 +14,11 @@ export const Wrapper = styled.ul<{ fadeRight?: boolean }>`
   position: relative;
   width: 100%;
 
-  &:before {
+  ${({ theme, fadeRight }) => theme.media.md`
+   &:before {
     content: '';
     position: absolute;
-    inset: 0 auto 0 0;
+    inset: ${fadeRight ? '0  0 0 auto' : '0 auto 0 0'};
     background: rgb(255, 255, 255);
     background: linear-gradient(
       270deg,
@@ -31,14 +29,12 @@ export const Wrapper = styled.ul<{ fadeRight?: boolean }>`
     width: 80px;
     z-index: 5;
   }
-
+  `}
   ${({ theme }) => theme.media.sm`
-     max-width: 320px;
-     margin: auto;
+   
   `}
   ${({ theme }) => theme.media.mobile`
-  max-width: 320px;
-  margin: auto;
+
   `}
 `
 
@@ -86,12 +82,13 @@ export const DayCard = styled.li`
 export const Day = styled.span<{ isFree?: boolean }>`
   font-size: ${({ theme }) => theme.fontSize['xs']};
   color: ${({ theme, isFree }) =>
-    isFree ? theme.grayScale[2] : theme.grayScale[3]};
+    isFree ? theme.grayScale[2] : theme.grayScale[4]};
 `
 
 export const Time = styled.span`
   font-size: ${({ theme }) => theme.fontSize['xs']};
   color: ${({ theme }) => theme.grayScale[5]};
+  font-weight: 600;
 `
 
 export const DateTop = styled.span`

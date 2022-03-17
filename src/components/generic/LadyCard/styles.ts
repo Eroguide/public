@@ -1,12 +1,8 @@
 import styled from '@emotion/styled'
 
 export const Container = styled.div`
-  width: calc((100% / 6) - 16px);
   margin: 8px;
   cursor: pointer;
-  ${({ theme }) => theme.media.mobile`
-     width: calc((100% / 3) - 16px);
-  `}
 `
 
 export const Wrapper = styled.div`

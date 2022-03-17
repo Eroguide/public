@@ -69,29 +69,6 @@ export const InnerContent = styled.div`
   `}
 `
 
-export const HeroTitle = styled.h4`
-  font-size: ${({ theme }) => theme.fontSize['extra']};
-  font-weight: 800;
-  color: ${({ theme }) => theme.primary[0]};
-  margin-bottom: 56px;
-  text-align: center;
-  ${({ theme }) => theme.media.mobile`
-  font-size: ${theme.fontSize['extraMobile']};
-  `}
-`
-
-export const SubTitle = styled.h5`
-  font-size: ${({ theme }) => theme.fontSize['xxl']};
-  font-weight: 800;
-  color: ${({ theme }) => theme.grayScale[5]};
-  margin-bottom: 56px;
-  padding: 0 124px;
-
-  ${({ theme }) => theme.media.mobile`
-   padding: 0 64px;
-  `}
-`
-
 export const TextContent = styled.p`
   color: ${({ theme }) => theme.grayScale[4]};
   font-size: ${({ theme }) => theme.fontSize['m']};

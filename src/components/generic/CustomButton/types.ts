@@ -5,6 +5,7 @@ export type ButtonProps = {
   isLink?: boolean
   iconRight?: boolean
   iconLeft?: boolean
+  href?: string
   counter?: number
   type?: 'submit' | 'button'
   onClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void

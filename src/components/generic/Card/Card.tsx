@@ -65,7 +65,7 @@ export const Card: React.FC<CardProps> = ({
         <CardInner>
           <CardImageWrapper>
             <ImageOverlay />
-            <Link href={`/gallery/${id}`} passHref>
+            <Link href={`/gallery/${id}`}>
               <ImageProduct>
                 {tagTitle && <TopImageTag>{tagTitle}</TopImageTag>}
               </ImageProduct>

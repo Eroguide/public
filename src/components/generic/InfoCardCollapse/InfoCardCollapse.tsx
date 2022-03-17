@@ -35,11 +35,10 @@ export const InfoCardCollapse: React.FC<InfoCardProps> = ({
       <Description isOpen={isOpen} strokeColor={strokeColor}>
         {isOpen && (
           <>
-            <span>Prices confirmed</span> - lorem ipsum dolor sit amet,
-            consectetur adipisicing elit. A aliquam\n' + ' amet, architecto
-            consectetur debitis deserunt eaque enim et excepturi\n' + '
-            explicabo fugit id nam neque omnis ratione soluta, veniam vero\n' +
-            ' voluptates.`
+            <span>Prices confirmed</span> - Lorem ipsum dolor sit amet,
+            consectetur adipisicing elit. Ab ad, aspernatur aut cum cumque dicta
+            dignissimos dolores dolorum impedit ipsum labore laborum odio porro
+            quasi quia quidem quis suscipit, voluptates.
           </>
         )}
       </Description>

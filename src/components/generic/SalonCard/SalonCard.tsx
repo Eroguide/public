@@ -94,11 +94,14 @@ export const SalonCard: React.FC<SalonCardProps> = ({ id, inSwipe }) => {
               </CounterAvailable>
             </Left>
             <Right>
-              <Link href={`/salons/${id}`} passHref>
-                <CustomButton isLink styleType="tertiary" sizeType="medium">
-                  Details
-                </CustomButton>
-              </Link>
+              <CustomButton
+                isLink
+                styleType="tertiary"
+                sizeType="medium"
+                href={`/salons/${id}`}
+              >
+                Details
+              </CustomButton>
             </Right>
           </BottomRow>
         </CardContent>

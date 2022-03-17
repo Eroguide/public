@@ -4,7 +4,7 @@ import { Pagination, SwiperOptions } from 'swiper'
 import { Container, Wrapper, DayCard, Day, Time, DateTop } from './styles'
 import PlaneIcon from '/public/img/plane-icon.svg'
 
-export const WorkingDays: React.FC<{
+export const SchedyleCardWorkingDays: React.FC<{
   withDateTop?: boolean
   withDateBottom?: boolean
   itemsToShow?: number
@@ -46,7 +46,20 @@ export const WorkingDays: React.FC<{
     modules: [Pagination],
     loop: true,
     spaceBetween: 8,
-    nested: true,
+    breakpoints: {
+      0: {
+        slidesPerView: 3,
+      },
+      700: {
+        slidesPerView: 3,
+      },
+      960: {
+        slidesPerView: 5,
+      },
+      1280: {
+        slidesPerView: 7,
+      },
+    },
   }
   const [initSlider, setInitSlider] = useState<boolean>(false)
   return (
@@ -61,7 +74,6 @@ export const WorkingDays: React.FC<{
                     <Day isFree={day?.isFree}>{day.name}</Day>
                     {day?.isFree ? <PlaneIcon /> : <Time>{day.time}</Time>}
                   </DayCard>
-
                   {withDateBottom && <DateTop>{day.name}</DateTop>}
                 </SwiperSlide>
               ))

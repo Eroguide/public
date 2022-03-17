@@ -36,11 +36,15 @@ export const PostCardWide: React.FC<PostCardWideProps> = ({ id, inSwipe }) => {
             </Description>
             <BottomLine>
               <DateText>today 19:00</DateText>
-              <Link href={id ? `/journal/${id}` : `/journal/somelink`} passHref>
-                <CustomButton styleType="tertiary" sizeType="medium" isLink>
-                  Read more
-                </CustomButton>
-              </Link>
+
+              <CustomButton
+                styleType="tertiary"
+                sizeType="medium"
+                isLink
+                href={id ? `/journal/${id}` : `/journal/somelink`}
+              >
+                Read more
+              </CustomButton>
             </BottomLine>
           </CardContent>
         </InnerContainer>

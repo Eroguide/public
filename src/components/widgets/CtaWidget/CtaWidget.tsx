@@ -1,6 +1,4 @@
 import { ContentCta, SubTitleCta, TitleCta } from './styles'
-
-import Link from 'next/link'
 import { CustomButton } from '@/components/generic'
 export const CtaWidget: React.FC<{ isCentered?: boolean }> = ({
   isCentered,
@@ -9,11 +7,9 @@ export const CtaWidget: React.FC<{ isCentered?: boolean }> = ({
     <ContentCta isCentered={isCentered}>
       <TitleCta>Not with us yet?</TitleCta>
       <SubTitleCta>List your questionnaire</SubTitleCta>
-      <Link href="/create" passHref>
-        <CustomButton styleType="primary" sizeType="medium" isLink>
-          Create now
-        </CustomButton>
-      </Link>
+      <CustomButton styleType="primary" sizeType="medium" isLink href="/create">
+        Create now
+      </CustomButton>
     </ContentCta>
   )
 }

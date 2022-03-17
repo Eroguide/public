@@ -2,15 +2,12 @@ import {
   DrawerBottomContainer,
   BgOverlay,
   CloseButton,
-  HeroTitle,
   InnerContent,
-  SubTitle,
   TextContent,
 } from './styles'
 import { DrawerBottomProps } from './types'
 import CloseIcon from '/public/img/cross-icon.svg'
 import { GalleryLanding } from '@/components/generic'
-import { BaseLayout } from '@/components/layouts/BaseLayout'
 export const DrawerBottom: React.FC<DrawerBottomProps> = ({
   isOpen,
   handleClose,

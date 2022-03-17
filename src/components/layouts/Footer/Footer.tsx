@@ -72,11 +72,14 @@ export const Footer: React.FC = () => {
                 {Object.values(navItems.navBlock1).map((item, i) => (
                   <LinkGroup key={`group-links-${i}`}>
                     {item.map((linkName) => (
-                      <Link key={linkName.name} href={linkName.href} passHref>
-                        <CustomButton styleType="link" isLink>
-                          {linkName.name}
-                        </CustomButton>
-                      </Link>
+                      <CustomButton
+                        styleType="link"
+                        isLink
+                        key={linkName.name}
+                        href={linkName.href}
+                      >
+                        {linkName.name}
+                      </CustomButton>
                     ))}
                   </LinkGroup>
                 ))}
@@ -85,11 +88,14 @@ export const Footer: React.FC = () => {
                 {Object.values(navItems.navBlock2).map((item, i) => (
                   <LinkGroup key={`group-links-${i}`}>
                     {item.map((linkName) => (
-                      <Link key={linkName.name} href={linkName.href} passHref>
-                        <CustomButton styleType="link" isLink>
-                          {linkName.name}
-                        </CustomButton>
-                      </Link>
+                      <CustomButton
+                        styleType="link"
+                        isLink
+                        key={linkName.name}
+                        href={linkName.href}
+                      >
+                        {linkName.name}
+                      </CustomButton>
                     ))}
                   </LinkGroup>
                 ))}

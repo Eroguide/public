@@ -7,7 +7,7 @@ import {
 export const Container = styled.div<InfoCardProps>`
   width: 100%;
   display: flex;
-  box-shadow: 0px 4px 8px rgba(26, 26, 26, 0.2);
+  box-shadow: 0 4px 8px rgba(26, 26, 26, 0.2);
   border-radius: 32px;
   padding: ${({ padding }) => padding ?? '24px 40px'};
   margin: ${({ margin }) => margin ?? '8px 0'};
@@ -27,10 +27,6 @@ export const Description = styled.span<{
   height: ${({ isOpen }) => (isOpen ? 'auto' : 0)};
   transition: height 0.2s ease-in-out;
   will-change: height;
-  // & span {
-  //   color: ${({ theme }) => theme.support[2]};
-  //   font-weight: bold;
-  // }
 `
 
 export const Left = styled.div`
@@ -118,8 +114,9 @@ export const BottomRow = styled.div`
 export const IconsRow = styled.div`
   display: flex;
   align-items: center;
-  height: 40px;
   width: 100%;
+  flex-flow: wrap row;
+  margin-left: -4px;
 `
 
 export const Price = styled.span`
@@ -148,10 +145,5 @@ export const SingleIconWrapper = styled.div`
   justify-content: center;
   border-radius: 8px;
   border: 1px solid ${({ theme }) => theme.grayScale[2]};
-  &:not(:first-of-type) {
-    margin-left: 4px;
-  }
-  &:not(:last-of-type) {
-    margin-right: 4px;
-  }
+  margin: 4px;
 `

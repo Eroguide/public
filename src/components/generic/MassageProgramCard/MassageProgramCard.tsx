@@ -107,11 +107,10 @@ export const MassageProgramCard: React.FC<InfoCardProps> = ({
       <Description isOpen={isOpen} strokeColor={strokeColor}>
         {isOpen && (
           <>
-            <span>Prices confirmed</span> - lorem ipsum dolor sit amet,
-            consectetur adipisicing elit. A aliquam\n' + ' amet, architecto
-            consectetur debitis deserunt eaque enim et excepturi\n' + '
-            explicabo fugit id nam neque omnis ratione soluta, veniam vero\n' +
-            ' voluptates.`
+            <span>Prices confirmed</span> - Lorem ipsum dolor sit amet,
+            consectetur adipisicing elit. Adipisci blanditiis dolores dolorum
+            eum facere ipsum iusto provident, repudiandae voluptatem voluptatum.
+            Ab autem cum enim est minima optio recusandae reprehenderit sit!
           </>
         )}
       </Description>

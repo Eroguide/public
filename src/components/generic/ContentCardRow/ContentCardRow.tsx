@@ -17,7 +17,6 @@ import {
 import ArrowLeftIcon from '/public/img/arrow-left.svg'
 import ArrowRightIcon from '/public/img/arrow-right.svg'
 import { CustomButton } from '@/components/generic'
-import Link from 'next/link'
 
 export const ContentCardRow: React.FC<{
   title: string
@@ -82,15 +81,15 @@ export const ContentCardRow: React.FC<{
               </NextButton>
             </NextPrevWrapper>
           ) : (
-            <Link href={href} passHref>
-              <CustomButton
-                styleType="tertiary"
-                sizeType="medium"
-                counter={counter}
-              >
-                {counterTitle}
-              </CustomButton>
-            </Link>
+            <CustomButton
+              styleType="tertiary"
+              sizeType="medium"
+              counter={counter}
+              isLink
+              href={href}
+            >
+              {counterTitle}
+            </CustomButton>
           )}
         </RightWidget>
       </TopLine>

@@ -44,16 +44,15 @@ export const PostList: React.FC<{
       <TopLine>
         <Title>{title}</Title>
         <RightWidget>
-          <Link href="/journal" passHref>
-            <CustomButton
-              styleType="tertiary"
-              sizeType="medium"
-              counter={counter}
-              isLink
-            >
-              {counterTitle}
-            </CustomButton>
-          </Link>
+          <CustomButton
+            styleType="tertiary"
+            sizeType="medium"
+            counter={counter}
+            isLink
+            href="/journal"
+          >
+            {counterTitle}
+          </CustomButton>
         </RightWidget>
       </TopLine>
       <ContentRow>

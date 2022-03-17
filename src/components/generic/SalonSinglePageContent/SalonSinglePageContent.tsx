@@ -18,6 +18,7 @@ import {
   InfoCardCollapse,
   MassageProgramCard,
   ProductSlider,
+  SalonScheduleCard,
   SinglePageContentBlock,
 } from '@/components/generic'
 import { useBreakpoint } from '@/hooks/useBreakpoint'
@@ -79,11 +80,13 @@ export const SalonSinglePageContent: React.FC = () => {
               </CovidProtectionCardContent>
             </InfoCard>
           </SinglePageContentBlock>
-
+          <SinglePageContentBlock title="Schedule">
+            <SalonScheduleCard />
+            <SalonScheduleCard />
+            <SalonScheduleCard />
+            <SalonScheduleCard />
+          </SinglePageContentBlock>
           <DetailsSection>
-            <SinglePageContentBlock title="Schedule">
-              Schedule
-            </SinglePageContentBlock>
             <SinglePageContentBlock title="Massage programs">
               <InfoCard strokeColor="yellow">
                 <IconWrapper>

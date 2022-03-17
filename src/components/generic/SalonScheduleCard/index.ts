@@ -1,0 +1,1 @@
+export { SalonScheduleCard } from './SalonScheduleCard'

@@ -7,7 +7,6 @@ import {
   Right,
   ImageWrapper,
 } from './styles'
-import Link from 'next/link'
 import { CustomButton } from '@/components/generic'
 export const ErrorPage: React.FC = () => {
   return (
@@ -16,11 +15,9 @@ export const ErrorPage: React.FC = () => {
         <Left>
           <CtaBlock>
             <Title>whooops... this page is not available</Title>
-            <Link href="/" passHref>
-              <CustomButton isLink styleType="primary">
-                Turn back
-              </CustomButton>
-            </Link>
+            <CustomButton isLink styleType="primary" href="/">
+              Turn back
+            </CustomButton>
           </CtaBlock>
         </Left>
         <Right>
