@@ -15,7 +15,6 @@ export type InfoCardProps = {
 }
 
 export const InfoCardCollapse: React.FC<InfoCardProps> = ({
-  children,
   padding,
   margin,
   strokeColor,
@@ -33,12 +32,16 @@ export const InfoCardCollapse: React.FC<InfoCardProps> = ({
           <ChevronIcon />
         </ToggleButton>
       </MainInfo>
-      <Description isOpen={isOpen}>
-        {isOpen &&
-          ' Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aliquam\n' +
-            '        amet, architecto consectetur debitis deserunt eaque enim et excepturi\n' +
-            '        explicabo fugit id nam neque omnis ratione soluta, veniam vero\n' +
-            '        voluptates.'}
+      <Description isOpen={isOpen} strokeColor={strokeColor}>
+        {isOpen && (
+          <>
+            <span>Prices confirmed</span> - lorem ipsum dolor sit amet,
+            consectetur adipisicing elit. A aliquam\n' + ' amet, architecto
+            consectetur debitis deserunt eaque enim et excepturi\n' + '
+            explicabo fugit id nam neque omnis ratione soluta, veniam vero\n' +
+            ' voluptates.`
+          </>
+        )}
       </Description>
     </Container>
   )

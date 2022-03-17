@@ -16,6 +16,7 @@ import {
 import {
   InfoCard,
   InfoCardCollapse,
+  MassageProgramCard,
   ProductSlider,
   SinglePageContentBlock,
 } from '@/components/generic'
@@ -102,6 +103,7 @@ export const SalonSinglePageContent: React.FC = () => {
                 </PriceInfoNote>
               </InfoCard>
               <InfoCardCollapse />
+              <MassageProgramCard />
             </SinglePageContentBlock>
 
             <SinglePageContentBlock title="Program additions">

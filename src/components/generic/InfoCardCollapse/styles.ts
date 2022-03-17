@@ -1,5 +1,8 @@
 import styled from '@emotion/styled'
-import { InfoCardProps } from '@/components/generic/InfoCard/InfoCard'
+import {
+  InfoCardProps,
+  StrokeColorTypes,
+} from '@/components/generic/InfoCard/InfoCard'
 
 export const Container = styled.div<InfoCardProps>`
   width: 100%;
@@ -23,13 +26,20 @@ export const Container = styled.div<InfoCardProps>`
   flex-flow: column wrap;
 `
 
-export const Description = styled.p<{ isOpen: boolean }>`
-  font-size: ${({ theme }) => theme.fontSize.xs};
+export const Description = styled.span<{
+  isOpen: boolean
+  strokeColor?: keyof typeof StrokeColorTypes
+}>`
+  font-size: ${({ theme }) => theme.fontSize.s};
   color: ${({ theme }) => theme.grayScale[3]};
   padding-left: 32px;
   height: ${({ isOpen }) => (isOpen ? 'auto' : 0)};
   transition: height 0.2s ease-in-out;
   will-change: height;
+  & span {
+    color: ${({ theme }) => theme.support[2]};
+    font-weight: bold;
+  }
 `
 
 export const Left = styled.span`
@@ -64,9 +74,11 @@ export const MainInfo = styled.div<{ isOpen: boolean }>`
   will-change: margin-bottom;
   justify-content: space-between;
   cursor: pointer;
-  ${ToggleButton} {
-    svg {
-      fill: ${({ theme }) => theme.grayScale[3]};
+  &:hover {
+    ${ToggleButton} {
+      svg {
+        fill: ${({ theme }) => theme.grayScale[3]};
+      }
     }
   }
   span {

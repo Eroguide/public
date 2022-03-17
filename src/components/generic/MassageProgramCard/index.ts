@@ -1,0 +1,1 @@
+export { MassageProgramCard } from './MassageProgramCard'
