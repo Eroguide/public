@@ -30,7 +30,33 @@ import DotIcon from 'public/img/dot.svg'
 import CheckIcon from 'public/img/check-blue.svg'
 import { Left, Right } from '@/components/generic/Card/styles'
 import { CustomButton } from '@/components/generic'
+import { useBreakpoint } from '@/hooks/useBreakpoint'
+import { breakpoints, BreakpointsEnum } from '@/src/theme'
 export const SalonCard: React.FC<SalonCardProps> = ({ id, inSwipe }) => {
+  const cardList = [
+    { id: '23123' },
+    { id: '23123' },
+    { id: '23123' },
+    { id: '23123' },
+    { id: '23123' },
+    { id: '23123' },
+    { id: '23123' },
+    { id: '23123' },
+    { id: '23123' },
+    { id: '23123' },
+    { id: '23123' },
+    { id: '23123' },
+    { id: '23123' },
+    { id: '23123' },
+  ]
+  const isSmall = useBreakpoint({
+    min: breakpoints[BreakpointsEnum.sm].min,
+    max: breakpoints[BreakpointsEnum.sm].max,
+  })
+  const isXs = useBreakpoint({
+    min: breakpoints[BreakpointsEnum.xs].min,
+    max: breakpoints[BreakpointsEnum.sm].max,
+  })
   return (
     <SalonCardMainContainer inSwipe={inSwipe}>
       <SalonCardInner>
@@ -54,24 +80,22 @@ export const SalonCard: React.FC<SalonCardProps> = ({ id, inSwipe }) => {
         </CardImageWrapper>
         <CardContent>
           <SmallGallery>
-            <Link href={`/gallery/${id}`} passHref>
-              <SmallGalleryItem>
-                <WorkingHoursTag>12-20</WorkingHoursTag>
-                <SmallGalleryItemDescription>
-                  <TitleName>Candy,24</TitleName>
-                  <CheckIcon />
-                </SmallGalleryItemDescription>
-              </SmallGalleryItem>
-            </Link>
-            <Link href={`/gallery/${id}`} passHref>
-              <SmallGalleryItem>
-                <WorkingHoursTag>12-20</WorkingHoursTag>
-                <SmallGalleryItemDescription>
-                  <TitleName>Candy,24</TitleName>
-                  <CheckIcon />
-                </SmallGalleryItemDescription>
-              </SmallGalleryItem>
-            </Link>
+            {cardList.map(
+              (x, i) =>
+                i > 0 &&
+                i < (isSmall ? 5 : 3) && (
+                  <Link key={x.id + i} href={`/gallery/${id}`} passHref>
+                    <SmallGalleryItem>
+                      <WorkingHoursTag>12-20</WorkingHoursTag>
+                      <SmallGalleryItemDescription>
+                        <TitleName>Candy,24</TitleName>
+                        <CheckIcon />
+                      </SmallGalleryItemDescription>
+                    </SmallGalleryItem>
+                  </Link>
+                )
+            )}
+
             <Link href={`/gallery/${id}`} passHref>
               <SmallGalleryItem>
                 <WorkingHoursTag>12-20</WorkingHoursTag>

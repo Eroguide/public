@@ -49,8 +49,9 @@ export const IconWrapper = styled.div`
   width: 24px;
   height: 24px;
   margin-right: 16px;
-  svg {
+  svg path {
     stroke: ${({ theme }) => theme.grayScale[2]};
+    transition: stroke 0.2s ease-in-out;
   }
 `
 
@@ -58,6 +59,7 @@ export const Title = styled.span`
   color: ${({ theme }) => theme.grayScale[3]};
   font-size: ${({ theme }) => theme.fontSize['s']};
   font-weight: 600;
+  transition: color 0.2s ease-in-out;
 `
 
 export const Counter = styled.span`
@@ -70,6 +72,7 @@ export const Counter = styled.span`
   margin-left: 8px;
   border: 1px solid ${({ theme }) => theme.grayScale[2]};
   font-size: ${({ theme }) => theme.fontSize['xxs']};
+  transition: color 0.2s ease-in-out, border 0.2s ease-in-out;
 `
 
 export const NavItem = styled.div`
@@ -77,16 +80,21 @@ export const NavItem = styled.div`
   justify-content: flex-start;
   align-items: center;
   display: flex;
+  transition: color 0.2s ease-in-out;
   &:hover {
+    transition: color 0.2s ease-in-out;
     cursor: pointer;
     ${Title} {
+      transition: color 0.2s ease-in-out;
       color: ${({ theme }) => theme.grayScale[5]};
     }
     ${Counter} {
+      transition: color 0.2s ease-in-out, border 0.2s ease-in-out;
       color: ${({ theme }) => theme.grayScale[5]};
       border: 1px solid ${({ theme }) => theme.grayScale[5]};
     }
-    svg {
+    svg path {
+      transition: stroke 0.2s ease-in-out;
       stroke: ${({ theme }) => theme.primary[0]};
     }
   }

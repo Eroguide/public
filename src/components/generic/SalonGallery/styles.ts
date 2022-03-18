@@ -1,7 +1,6 @@
 import styled from '@emotion/styled'
 
 export const Container = styled.div`
-  width: 100%;
   align-items: center;
   flex-direction: column;
   display: flex;
@@ -44,16 +43,17 @@ export const Divider = styled.div`
 `
 
 export const GalleryItem = styled.div`
-  margin: 6px 6px;
-  width: calc(100% / 3 - 12px);
+  width: calc(100% / 3);
   display: flex;
   ${({ theme }) => theme.media.md`
-    width: calc(100% / 2 - 12px);
+    width: calc(100% / 2 );
   `}
   ${({ theme }) => theme.media.sm`
-   width: calc(100% / 1 - 12px);
+    width: 100%;
+      margin: 0;
   `}
   ${({ theme }) => theme.media.mobile`
-      width: calc(100% / 1 - 12px);
+      width: 100%;
+      margin: 0;
   `}
 `

@@ -13901,11 +13901,6 @@ url-to-options@^1.0.1:
   resolved "https://registry.yarnpkg.com/url-to-options/-/url-to-options-1.0.1.tgz#1505a03a289a48cbd7a434efbaeec5055f5633a9"
   integrity sha1-FQWgOiiaSMvXpDTvuu7FBV9WM6k=
 
-use-breakpoint@^3.0.1:
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/use-breakpoint/-/use-breakpoint-3.0.1.tgz#9534ca7a93e067781b45f9ab05e88675bb5962bd"
-  integrity sha512-gQ3zg55Aa/AAicxJSsKBSs5B4pcQv8PNMaJXS+P7TzvWJ6QLY7Napa2erkA6gZDmFFdkjWsztyOax5a5nuoLGQ==
-
 use-subscription@1.5.1:
   version "1.5.1"
   resolved "https://registry.yarnpkg.com/use-subscription/-/use-subscription-1.5.1.tgz#73501107f02fad84c6dd57965beb0b75c68c42d1"

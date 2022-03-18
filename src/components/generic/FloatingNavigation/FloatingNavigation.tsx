@@ -9,6 +9,9 @@ import {
   Title,
   Counter,
 } from './styles'
+import ChangeIcon from '/public/img/onchange-nav-icon.svg'
+import NewIcon from '/public/img/new-nav-icon.svg'
+import TopIcon from '/public/img/top-nav-icon.svg'
 import ShoeIcon from '/public/img/shoe-nav-icon.svg'
 import SalonIcon from '/public/img/salon-nav-icon.svg'
 import HeartIcon from '/public/img/heart-lined.svg'
@@ -32,9 +35,30 @@ export type MobileNavList = Record<string, Array<MobileNavItemType>>
 const navItemList: MobileNavList = {
   firstNavGroup: [
     {
-      id: 'sadasdsdsdsdssdsda',
+      id: 'sadasdsdsds2dssdsda',
+      icon: <NewIcon />,
+      title: 'Nové',
+      counter: 213,
+      href: '/gallery',
+    },
+    {
+      id: 'sadasdsdssdsdssdsda',
+      icon: <TopIcon />,
+      title: 'Top',
+      counter: 213,
+      href: '/gallery',
+    },
+    {
+      id: 'sadasdsddscccdsdssdsda',
+      icon: <ChangeIcon />,
+      title: 'Na směně',
+      counter: 213,
+      href: '/gallery',
+    },
+    {
+      id: 'sssc222cz',
       icon: <ShoeIcon />,
-      title: 'Masérky',
+      title: 'Na směně',
       counter: 213,
       href: '/gallery',
     },

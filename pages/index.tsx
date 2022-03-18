@@ -112,29 +112,30 @@ const Home: NextPage<GetLaunches> = ({ launchesPast }) => {
             </SwiperSlide>
           ))}
         </ContentCardRow>
-
-        <PostList
-          title="PostList"
-          counter={23}
-          counterTitle="All posts"
-          postData={launchesPast}
-        />
+        {launchesPast && (
+          <PostList
+            title="PostList"
+            counter={23}
+            counterTitle="All posts"
+            postData={launchesPast}
+          />
+        )}
       </BaseLayout>
     </>
   )
 }
 
-export const getServerSideProps: GetServerSideProps = async () => {
-  const apolloClient = initializeApollo()
-  const { data } = await apolloClient.query({
-    query: getLaunches,
-  })
-
-  return addApolloState(apolloClient, {
-    props: {
-      launchesPast: data.launchesPast,
-    },
-  })
-}
+// export const getServerSideProps: GetServerSideProps = async () => {
+//   const apolloClient = initializeApollo()
+//   const { data } = await apolloClient.query({
+//     query: getLaunches,
+//   })
+//
+//   return addApolloState(apolloClient, {
+//     props: {
+//       launchesPast: data.launchesPast,
+//     },
+//   })
+// }
 
 export default Home

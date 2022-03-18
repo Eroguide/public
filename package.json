@@ -50,7 +50,6 @@
     "react-text-truncate": "^0.17.0",
     "storeon": "^3.1.4",
     "swiper": "^8.0.6",
-    "use-breakpoint": "^3.0.1",
     "yaml-loader": "^0.6.0",
     "yup": "^0.32.11"
   },
