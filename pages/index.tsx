@@ -20,6 +20,8 @@ import { addApolloState, initializeApollo } from '@/graphql/apollo'
 import { GetLaunches } from '@/graphql/__generated__/GetLaunches'
 import { useBreakpoint } from '@/hooks/useBreakpoint'
 import { breakpoints, BreakpointsEnum } from '@/src/theme'
+// import { useBreakpoints } from '@/hooks/useBreakpoints'
+// import { useBreakpointValue } from '@/hooks/useBreakpointValue'
 
 const fixtures = [
   { id: '222dsadas', slug: 'one-project-time', best: 1 },
@@ -37,7 +39,14 @@ const Home: NextPage<GetLaunches> = ({ launchesPast }) => {
     min: breakpoints[BreakpointsEnum.xxs].min,
     max: breakpoints[BreakpointsEnum.sm].max,
   })
+  // const isMobile = useBreakpointValue({
+  //   xxs: true,
+  //   xs: true,
+  //   sm: true,
+  //   md: false,
+  // })
 
+  // console.log('isMobile', isMobile, isSmall)
   return (
     <>
       <Head>
