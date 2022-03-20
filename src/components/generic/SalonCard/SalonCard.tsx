@@ -30,8 +30,8 @@ import DotIcon from 'public/img/dot.svg'
 import CheckIcon from 'public/img/check-blue.svg'
 import { Left, Right } from '@/components/generic/Card/styles'
 import { CustomButton } from '@/components/generic'
-import { useBreakpoint } from '@/hooks/useBreakpoint'
-import { breakpoints, BreakpointsEnum } from '@/src/theme'
+// import { useBreakpoint } from '@/hooks/useBreakpoint'
+// import { breakpoints, BreakpointsEnum } from '@/src/theme'
 export const SalonCard: React.FC<SalonCardProps> = ({ id, inSwipe }) => {
   const cardList = [
     { id: '23123' },
@@ -49,10 +49,10 @@ export const SalonCard: React.FC<SalonCardProps> = ({ id, inSwipe }) => {
     { id: '23123' },
     { id: '23123' },
   ]
-  const isSmall = useBreakpoint({
-    min: breakpoints[BreakpointsEnum.sm].min,
-    max: breakpoints[BreakpointsEnum.sm].max,
-  })
+  // const isSmall = useBreakpoint({
+  //   min: breakpoints[BreakpointsEnum.sm].min,
+  //   max: breakpoints[BreakpointsEnum.sm].max,
+  // })
 
   return (
     <SalonCardMainContainer inSwipe={inSwipe}>

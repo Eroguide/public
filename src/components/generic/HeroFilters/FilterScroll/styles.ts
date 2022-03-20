@@ -7,6 +7,13 @@ export const FilterScrollContainer = styled.div`
   align-items: center;
 `
 
+export const Line = styled.div`
+  height: 2px;
+  transition: width 0.1s ease-in;
+  background-color: ${({ theme }) => theme.primary[0]};
+  width: 0;
+`
+
 export const FilterCategory = styled.div<{ isActive: boolean }>`
   display: flex;
   margin-right: 48px;
@@ -14,14 +21,16 @@ export const FilterCategory = styled.div<{ isActive: boolean }>`
   min-width: 120px;
   justify-content: flex-start;
   flex-wrap: wrap;
-
-  &:after {
-    content: '';
-    height: 2px;
-    width: ${({ isActive }) => (isActive ? '100%' : '0')};
-    transition: width 0.1s ease-in;
-    background-color: brown;
-  }
+  ${({ isActive, theme }) =>
+    isActive &&
+    `
+       ${Line} {
+        width: ${isActive ? '100%' : 0};
+        transition: width 0.1s ease-in;
+        background-color: ${theme.primary[0]};
+          transition: width 0.1s ease-in;
+      }
+  `};
 `
 
 export const InnerContainer = styled.div`
