@@ -23,22 +23,24 @@ const currentYear = new Date().getFullYear()
 const navItems = {
   navBlock1: {
     1: [
-      { name: 'Private ladies', href: '/gallery' },
-      { name: 'Salons', href: '/salons' },
+      { name: 'Masérky', href: '/gallery' },
+      { name: 'Masážní salóny', href: '/salons' },
+      { name: 'Privátní slečny', href: '/gallery/privat' },
+      { name: 'Privátní salony', href: '/salons/privat' },
     ],
     2: [
-      { name: 'About', href: '/about' },
-      { name: 'Journal', href: '/journal' },
+      { name: 'O nás', href: '/about' },
+      { name: 'Blog', href: '/blog' },
     ],
   },
   navBlock2: {
     1: [
       { name: 'F.A.Q', href: '/faq' },
-      { name: 'Support', href: '/' },
+      { name: 'Podpora', href: '/support' },
     ],
     2: [
-      { name: 'Profile', href: '/' },
-      { name: 'Invite', href: '/' },
+      { name: 'Profil', href: '/' },
+      { name: 'Pozvání', href: '/' },
     ],
   },
 }

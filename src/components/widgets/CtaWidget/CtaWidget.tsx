@@ -5,10 +5,10 @@ export const CtaWidget: React.FC<{ isCentered?: boolean }> = ({
 }) => {
   return (
     <ContentCta isCentered={isCentered}>
-      <TitleCta>Not with us yet?</TitleCta>
-      <SubTitleCta>List your questionnaire</SubTitleCta>
+      <TitleCta>Ještě ne s námi?</TitleCta>
+      <SubTitleCta>Vytvořit svůj inzerat</SubTitleCta>
       <CustomButton styleType="primary" sizeType="medium" isLink href="/create">
-        Create now
+        Inzerovat
       </CustomButton>
     </ContentCta>
   )

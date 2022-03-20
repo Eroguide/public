@@ -14,7 +14,7 @@ import NewIcon from '/public/img/new-nav-icon.svg'
 import TopIcon from '/public/img/top-nav-icon.svg'
 import ShoeIcon from '/public/img/shoe-nav-icon.svg'
 import SalonIcon from '/public/img/salon-nav-icon.svg'
-import HeartIcon from '/public/img/heart-lined.svg'
+import HeartIcon from '/public/img/heart-circle.svg'
 import HeartsIcon from '/public/img/hearts-privat-salon-nav-icon.svg'
 import ThumbIcon from '/public/img/thumb-up-nav-icon.svg'
 import InfoIcon from '/public/img/faq-nav-icon.svg'
@@ -95,7 +95,7 @@ const navItemList: MobileNavList = {
       id: 'ds434ax',
       icon: <BlogIcon />,
       title: 'Blog',
-      href: '/journal',
+      href: '/blog',
     },
     {
       id: 'df434faaa',

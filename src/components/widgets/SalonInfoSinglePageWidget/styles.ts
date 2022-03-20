@@ -95,3 +95,10 @@ export const Left = styled.div`
 export const Right = styled.div`
   display: flex;
 `
+
+export const IconWrapperLocation = styled.div`
+  display: flex;
+  svg path {
+    stroke: ${({ theme }) => theme.grayScale[3]};
+  }
+`

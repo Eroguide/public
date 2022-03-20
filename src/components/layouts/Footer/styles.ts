@@ -17,7 +17,7 @@ export const FooterContainer = styled.div`
 export const FooterInner = styled.div`
   width: 100%;
   display: flex;
-  align-items: center;
+  align-items: stretch;
   ${({ theme }) => theme.media.sm`
    flex-direction: column;
   `}
@@ -185,7 +185,7 @@ export const EndFooterSection = styled.div`
   min-width: 110px;
   justify-content: flex-end;
   text-align: center;
-
+  padding: 50px 0;
   ${({ theme }) => theme.media.md`
     margin-right: 0;
   `}

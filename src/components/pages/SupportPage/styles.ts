@@ -1,27 +1,28 @@
 import styled from '@emotion/styled'
 
-export const Container = styled.div`
+export const FormTitleSection = styled.div`
+  max-width: 540px;
   width: 100%;
+  margin: auto;
   display: flex;
   flex-direction: column;
-`
-
-export const Wrapper = styled.div`
-  width: 100%;
-  height: 100%;
-`
-
-export const Row = styled.div`
-  display: flex;
-  width: 100%;
-  justify-content: center;
-  max-width: 848px;
-  margin: 8px auto;
-  ${({ theme }) => theme.media.sm`
-   flex-direction: column;
-  `}
+  text-align: center;
+  padding-bottom: 64px;
   ${({ theme }) => theme.media.mobile`
-    width: 100%;
-    flex-direction: column;
+      width: 100%;
+  `}
+`
+
+export const FormSection = styled.div`
+  max-width: 540px;
+  width: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding-bottom: 64px;
+  align-items: center;
+  ${({ theme }) => theme.media.mobile`
+      width: 100%;
   `}
 `

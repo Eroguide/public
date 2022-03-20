@@ -12,9 +12,9 @@ export const TopLinePageContent: React.FC = () => {
   return (
     <TopLineContainer>
       {!isSmall && (
-        <Link href={'/'} passHref>
+        <Link href={'/'} passHref shallow>
           <CustomButton iconLeft styleType="tertiary" sizeType="medium">
-            Back to home
+            Zpátky
           </CustomButton>
         </Link>
       )}

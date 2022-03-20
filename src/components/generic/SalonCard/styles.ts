@@ -160,7 +160,7 @@ export const SmallGalleryImageOverlay = styled.div`
 `
 
 export const SmallGalleryItem = styled.div`
-  width: 115px;
+  width: calc(100% / 3 - 4px);
   height: 168px;
   border-radius: 10px;
   background: url('/img/bg.jpg') no-repeat center top;
@@ -168,10 +168,10 @@ export const SmallGalleryItem = styled.div`
   overflow: hidden;
   position: relative;
   cursor: pointer;
-
-  ${({ theme }) => theme.media.mobile`
-  width: calc(100% / 3 - 8px);
-  `}
+  //
+  // ${({ theme }) => theme.media.sm`
+  //   width: calc(100% / 5 - 4px);
+  // `}
 `
 
 export const WorkingHoursTag = styled.span`

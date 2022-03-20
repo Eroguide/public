@@ -29,4 +29,5 @@ export const Search = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  box-shadow: 0 7px 10px -5px rgb(255 0 93 / 60%);
 `

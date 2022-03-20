@@ -50,10 +50,8 @@ export const GalleryItem = styled.div`
   `}
   ${({ theme }) => theme.media.sm`
     width: 100%;
-      margin: 0;
   `}
   ${({ theme }) => theme.media.mobile`
       width: 100%;
-      margin: 0;
   `}
 `

@@ -36,8 +36,10 @@ export const PersonalInfoSinglePageWidget: React.FC = () => {
       </NameWrapper>
 
       <ReviewsCounter>
-        <StartIcon />
-        256 reviews
+        <span>
+          <StartIcon />
+        </span>
+        <span> 256 reviews</span>
       </ReviewsCounter>
 
       <ParametersList>

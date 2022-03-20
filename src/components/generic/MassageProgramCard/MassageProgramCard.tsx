@@ -13,6 +13,8 @@ import {
   SingleIconWrapper,
   Price,
   Suffix,
+  HiddenContentItem,
+  IconWrapperHiddenContent,
 } from './styles'
 import TimerIcon from '/public/img/timer-icon.svg'
 import ChevronIcon from '/public/img/chevron.svg'
@@ -27,30 +29,37 @@ import Imitation from '/public/img/imitation-massage.svg'
 const massageTypes = [
   {
     id: '1sads',
+    text: 'Assumenda consectetur culpa dolorum ducimus.',
     icon: <TwoPlusTwo />,
   },
   {
     id: '2sads',
+    text: 'Assumenda consectetur culpa dolorum ducimus.',
     icon: <Kiss />,
   },
   {
     id: '3sads',
+    text: 'Assumenda consectetur culpa dolorum ducimus.',
     icon: <Imitation />,
   },
   {
     id: '4sads',
+    text: 'Assumenda consectetur culpa dolorum ducimus.',
     icon: <PeepIcon />,
   },
   {
     id: '5sads',
+    text: 'Assumenda consectetur culpa dolorum ducimus.',
     icon: <ReplaceIcon />,
   },
   {
     id: '6sads',
+    text: 'Assumenda consectetur culpa dolorum ducimus.',
     icon: <OnePlusTwo />,
   },
   {
     id: '7sads',
+    text: 'Assumenda consectetur culpa dolorum ducimus.',
     icon: <TwoPlusOne />,
   },
 ]
@@ -104,15 +113,15 @@ export const MassageProgramCard: React.FC<InfoCardProps> = ({
         </Price>
       </BottomRow>
 
-      <Description isOpen={isOpen} strokeColor={strokeColor}>
-        {isOpen && (
-          <>
-            <span>Prices confirmed</span> - Lorem ipsum dolor sit amet,
-            consectetur adipisicing elit. Adipisci blanditiis dolores dolorum
-            eum facere ipsum iusto provident, repudiandae voluptatem voluptatum.
-            Ab autem cum enim est minima optio recusandae reprehenderit sit!
-          </>
-        )}
+      <Description isOpen={isOpen}>
+        <>
+          {massageTypes.map((x, i) => (
+            <HiddenContentItem key={x.id} delay={i} isOpen={isOpen}>
+              <IconWrapperHiddenContent>{x.icon}</IconWrapperHiddenContent>
+              <span>{x.text}</span>
+            </HiddenContentItem>
+          ))}
+        </>
       </Description>
     </Container>
   )

@@ -1,7 +1,7 @@
 import { NextPage } from 'next'
 import Head from 'next/head'
 import { BaseLayout } from '@/components/layouts/BaseLayout'
-import { GalleryLanding, TopLinePageContent } from '@/components/generic'
+import { TopLinePageContent } from '@/components/generic'
 import { SupportPage as SupportPageContent } from '@/components/pages'
 
 const SupportPage: NextPage = () => {
@@ -14,11 +14,6 @@ const SupportPage: NextPage = () => {
       </Head>
       <BaseLayout>
         <TopLinePageContent />
-        <GalleryLanding
-          title="Support"
-          text="Eroguide is a professional nude photographer.
-At the invitation of massage parlors and private masseuses, I visited several thousand girls - I did photo shoots, videos and interviews. Over time, I added the ability to post profiles with my own photos, but most of them still take photos myself."
-        />
         <SupportPageContent />
       </BaseLayout>
     </>

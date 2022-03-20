@@ -10,7 +10,7 @@ export const FaqWrapper = styled.div`
   `}
 `
 
-export const TitleSection = styled.div`
+export const TitleSection = styled.section`
   max-width: 540px;
   width: 100%;
   margin: auto;
@@ -34,6 +34,12 @@ export const LargeTitle = styled.h1`
   font-size: ${({ theme }) => theme.fontSize.xxl};
   color: ${({ theme }) => theme.grayScale[5]};
   margin-bottom: 8px;
+`
+
+export const MediumTitle = styled.h3`
+  font-size: ${({ theme }) => theme.fontSize.xl};
+  color: ${({ theme }) => theme.grayScale[5]};
+  margin-bottom: 24px;
 `
 
 export const SubTitle = styled.h2`

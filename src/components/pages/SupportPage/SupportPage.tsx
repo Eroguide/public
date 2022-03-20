@@ -1,41 +1,44 @@
-import { Container, Row } from './styles'
-import { BigInfoCard, BlackInfoCard } from '@/components/generic'
+import { FormSection, FormTitleSection } from './styles'
+import {
+  LargeTitle,
+  SmallTitle,
+  SubTitle,
+  TitleSection,
+  MediumTitle,
+} from '@/components/pages/FaqPage/styles'
+import Link from 'next/link'
+import { FormInputList } from '@/components/pages/CreatePrivatSalonPage/styles'
+import { CustomInput } from '@/components/generic/CustomInput'
+import { CustomButton } from '@/components/generic'
 
 export const SupportPage: React.FC = () => {
   return (
-    <Container>
-      <Row>
-        <BigInfoCard
-          title="When the selection process beats all desire"
-          details="so where would you like to go today?"
-        />
-        <BigInfoCard
-          title="It's been five hours"
-          details="not real photos, do not answer the call, does not work there anymore"
-        />
-      </Row>
-      <Row>
-        <BlackInfoCard />
-      </Row>
-      <Row>
-        <BigInfoCard
-          title="When an aSimple rulesdmin has a specific sense of humor..."
-          details="our ladies are waiting for you"
-        />
-        <BigInfoCard
-          title="You come and there"
-          details="I was joking, she's not here today"
-        />
-      </Row>
-      <Row>
-        <BlackInfoCard />
-      </Row>
-      <Row>
-        <BigInfoCard title="Simple rules" />
-        <BigInfoCard
-          title={`I am an esthete, so I do not place everyone in a row. You do not you will find on the site frankly "terrible"`}
-        />
-      </Row>
-    </Container>
+    <>
+      <TitleSection>
+        <SmallTitle>Klidně můžete dozvědět</SmallTitle>
+        <LargeTitle>Eroguide podpora</LargeTitle>
+        <SubTitle>
+          Join Eroguide community now to get free updates and also of freebies
+          are waiting for you or <Link href="/faq">Contact Support</Link>
+        </SubTitle>
+      </TitleSection>
+
+      <FormSection>
+        <FormTitleSection>
+          <MediumTitle>Add the profile of a private masseuse</MediumTitle>
+          <p>
+            Leave a request and I will send you personal access profile where
+            you upload your photos and description.
+          </p>
+        </FormTitleSection>
+        <FormInputList>
+          <CustomInput type="text" placeholder="Your name" />
+          <CustomInput type="email" placeholder="Email" />
+          <CustomInput type="tel" placeholder="Phone" />
+        </FormInputList>
+
+        <CustomButton type={'submit'}>Send request</CustomButton>
+      </FormSection>
+    </>
   )
 }

@@ -1,0 +1,1 @@
+export { AdultPrompt } from './AdultPrompt'

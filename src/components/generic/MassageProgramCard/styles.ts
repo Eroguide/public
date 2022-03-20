@@ -1,8 +1,5 @@
 import styled from '@emotion/styled'
-import {
-  InfoCardProps,
-  StrokeColorTypes,
-} from '@/components/generic/InfoCard/InfoCard'
+import { InfoCardProps } from '@/components/generic/InfoCard/InfoCard'
 
 export const Container = styled.div<InfoCardProps>`
   width: 100%;
@@ -15,18 +12,6 @@ export const Container = styled.div<InfoCardProps>`
   justify-content: space-between;
   align-items: center;
   flex-flow: column wrap;
-`
-
-export const Description = styled.span<{
-  isOpen: boolean
-  strokeColor?: keyof typeof StrokeColorTypes
-}>`
-  font-size: ${({ theme }) => theme.fontSize.s};
-  color: ${({ theme }) => theme.grayScale[3]};
-  padding-left: 32px;
-  height: ${({ isOpen }) => (isOpen ? 'auto' : 0)};
-  transition: height 0.2s ease-in-out;
-  will-change: height;
 `
 
 export const Left = styled.div`
@@ -87,7 +72,6 @@ export const MainInfo = styled.div<{ isOpen: boolean }>`
   display: flex;
   align-items: center;
   width: 100%;
-  margin-bottom: ${({ isOpen }) => (isOpen ? '24px' : 0)};
   transition: margin-bottom 0.2s ease-in-out;
   will-change: margin-bottom;
   justify-content: space-between;
@@ -109,12 +93,13 @@ export const BottomRow = styled.div`
   display: flex;
   width: 100%;
   justify-content: space-between;
+  flex-wrap: wrap;
 `
 
 export const IconsRow = styled.div`
   display: flex;
   align-items: center;
-  width: 100%;
+  width: calc(100% - 150px);
   flex-flow: wrap row;
   margin-left: -4px;
 `
@@ -146,4 +131,43 @@ export const SingleIconWrapper = styled.div`
   border-radius: 8px;
   border: 1px solid ${({ theme }) => theme.grayScale[2]};
   margin: 4px;
+`
+
+export const IconWrapperHiddenContent = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-right: 16px;
+  height: 40px;
+  width: 40px;
+  border: 1px solid ${({ theme }) => theme.grayScale[2]};
+`
+
+export const Description = styled.span<{
+  isOpen: boolean
+}>`
+  font-size: ${({ theme }) => theme.fontSize.s};
+  color: ${({ theme }) => theme.grayScale[3]};
+  height: ${({ isOpen }) => (isOpen ? 'auto' : 0)};
+  margin-top: ${({ isOpen }) => (isOpen ? '32px' : 0)};
+  width: 100%;
+  ${({ isOpen }) =>
+    isOpen &&
+    'transition: height 0.2s ease-in-out, margin-top 0.2s ease-in-out;'};
+  will-change: height, margin-top;
+  overflow: hidden;
+`
+
+export const HiddenContentItem = styled.div<{
+  delay: number
+  isOpen: boolean
+}>`
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  opacity: ${({ isOpen }) => (isOpen ? '1' : 0)};
+  transition: opacity 0.15s ease-in-out;
+  transition-delay: ${({ delay, isOpen }) => (isOpen && `0.${delay}s`) || 0};
 `

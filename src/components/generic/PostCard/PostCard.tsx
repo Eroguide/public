@@ -11,7 +11,7 @@ import { PostCardProps } from './types'
 
 export const PostCard: React.FC<PostCardProps> = ({ id, title }) => {
   return (
-    <Link href={`/journal/${id}`} passHref>
+    <Link href={`/blog/${id}`} passHref>
       <CardMainContainer>
         <PostCardInner>
           <CardImageWrapper>

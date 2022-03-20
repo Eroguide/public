@@ -4,9 +4,9 @@ export const ContentCardRowContainer = styled.div`
   width: 100%;
   padding: 0 9px;
   margin-top: 64px;
-  .swiper {
-    overflow: visible;
-  }
+  //.swiper {
+  //  overflow: visible;
+  //}
   ${({ theme }) => theme.media.mobile`
        padding: 0;
       .swiper {

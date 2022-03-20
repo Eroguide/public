@@ -7,7 +7,7 @@ export const Container = styled.div`
 
 export const Title = styled.h3`
   margin-bottom: 32px;
-  font-size: ${({ theme }) => theme.fontSize.xl};
+  font-size: ${({ theme }) => theme.fontSize.xxl};
   color: ${({ theme }) => theme.grayScale[5]};
   font-weight: 600;
 `

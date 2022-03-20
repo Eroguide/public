@@ -14,6 +14,7 @@ import {
   Left,
   LocationText,
   Right,
+  IconWrapperLocation,
 } from './styles'
 import Heart from '/public/img/heart.svg'
 import Cloud from '/public/img/cloud-icon.svg'
@@ -47,7 +48,9 @@ export const SalonInfoSinglePageWidget: React.FC = () => {
 
       <Row>
         <Left>
-          <LocationIcon />
+          <IconWrapperLocation>
+            <LocationIcon />
+          </IconWrapperLocation>
           <LocationText>Prague 15</LocationText>
         </Left>
         <Right>

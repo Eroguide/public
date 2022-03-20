@@ -44,6 +44,13 @@ export const ReviewsCounter = styled.div`
   cursor: pointer;
   text-decoration: none;
   margin-bottom: 24px;
+  & span {
+    height: 24px;
+    padding: 0 2px;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+  }
 `
 
 export const Parameter = styled.li`

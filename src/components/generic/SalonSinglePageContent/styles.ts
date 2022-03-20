@@ -114,14 +114,21 @@ export const IconWrapper = styled.div`
 
 export const InfoCardItem = styled.div`
   font-size: ${({ theme }) => theme.fontSize['s']};
-  font-weight: 800;
-  color: ${({ theme }) => theme.grayScale[4]};
+  color: ${({ theme }) => theme.grayScale[5]};
   display: flex;
   flex-direction: row;
   align-items: center;
-
   width: 50%;
   padding: 9px;
+  ${({ theme }) => theme.media.md`
+   width: 100%;
+  `}
+  ${({ theme }) => theme.media.sm`
+   width: 50%;
+  `}
+  ${({ theme }) => theme.media.mobile`
+   width: 100%;
+  `}
 `
 
 export const CovidProtectionCardContent = styled.div`
@@ -129,6 +136,16 @@ export const CovidProtectionCardContent = styled.div`
   flex-flow: wrap row;
   align-items: center;
   justify-content: space-between;
+
+  ${({ theme }) => theme.media.md`
+    flex-direction: column;
+  `}
+  ${({ theme }) => theme.media.sm`
+  flex-direction: row;
+  `}
+  ${({ theme }) => theme.media.mobile`
+      flex-direction: column;
+  `}
 `
 
 export const MemberSince = styled.span`
@@ -182,24 +199,17 @@ export const BodyContent = styled.div`
   padding: 40px;
 
   ${({ theme }) => theme.media.md`
-   padding: 32px;
+   padding: 32px 0 32px 32px;
   `}
   ${({ theme }) => theme.media.sm`
       width: 100%;
-      padding: 16px;
+      padding: 0;
   `}
   ${({ theme }) => theme.media.mobile`
        width: 100%;
-       padding: 16px;
+      padding: 0;
   `}
 `
-
-// export const IconWrapper = styled.div`
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   margin-right: 32px;
-// `
 
 export const Description = styled.p`
   font-size: ${({ theme }) => theme.fontSize.xs};

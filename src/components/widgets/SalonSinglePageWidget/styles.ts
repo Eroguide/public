@@ -131,6 +131,9 @@ export const Row = styled.div`
 export const Left = styled.div`
   display: flex;
   align-items: center;
+  svg path {
+    stroke: ${({ theme }) => theme.grayScale[3]};
+  }
 `
 
 export const Right = styled.div`

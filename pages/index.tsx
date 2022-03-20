@@ -1,4 +1,7 @@
-import type { GetServerSideProps, NextPage } from 'next'
+import type {
+  // GetServerSideProps,
+  NextPage,
+} from 'next'
 import Head from 'next/head'
 import { BaseLayout } from '@/components/layouts/BaseLayout'
 import { HeroBanner } from '@/components/generic/HeroBanner'
@@ -15,8 +18,8 @@ import {
 } from '@/components/generic'
 import { SwiperSlide } from 'swiper/react'
 import { ShowNewItems } from '@/components/generic/ShowNewItems'
-import { getLaunches } from '@/graphql/queries.graphql'
-import { addApolloState, initializeApollo } from '@/graphql/apollo'
+// import { getLaunches } from '@/graphql/queries.graphql'
+// import { addApolloState, initializeApollo } from '@/graphql/apollo'
 import { GetLaunches } from '@/graphql/__generated__/GetLaunches'
 import { useBreakpoint } from '@/hooks/useBreakpoint'
 import { breakpoints, BreakpointsEnum } from '@/src/theme'
@@ -90,7 +93,7 @@ const Home: NextPage<GetLaunches> = ({ launchesPast }) => {
           counter={34}
           counterTitle="All posts"
           itemsToShow={[4, 3, 2]}
-          href="/journal"
+          href="/blog"
         >
           {fixtures.map((item) => (
             <SwiperSlide key={item.id}>
@@ -104,7 +107,7 @@ const Home: NextPage<GetLaunches> = ({ launchesPast }) => {
           counter={23}
           counterTitle="All posts"
           itemsToShow={[2, 2, 1]}
-          href="/journal"
+          href="/blog"
         >
           {fixtures.map((item) => (
             <SwiperSlide key={item.id}>

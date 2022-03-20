@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Pagination, SwiperOptions, FreeMode } from 'swiper'
-import Link from 'next/link'
+
 import {
   PostListRowContainer,
   TopLine,
@@ -49,7 +49,7 @@ export const PostList: React.FC<{
             sizeType="medium"
             counter={counter}
             isLink
-            href="/journal"
+            href="/blog"
           >
             {counterTitle}
           </CustomButton>

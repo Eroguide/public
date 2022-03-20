@@ -20,7 +20,7 @@ export const PostCardWide: React.FC<PostCardWideProps> = ({ id, inSwipe }) => {
       <CardMainContainer inSwipe={inSwipe}>
         <InnerContainer>
           <CardImageWrapper>
-            <Link href={id ? `/journal/${id}` : `/journal/somelink`} passHref>
+            <Link href={id ? `/blog/${id}` : `/blog/somelink`} passHref>
               <ImageProduct />
             </Link>
           </CardImageWrapper>
@@ -41,7 +41,7 @@ export const PostCardWide: React.FC<PostCardWideProps> = ({ id, inSwipe }) => {
                 styleType="tertiary"
                 sizeType="medium"
                 isLink
-                href={id ? `/journal/${id}` : `/journal/somelink`}
+                href={id ? `/blog/${id}` : `/blog/somelink`}
               >
                 Read more
               </CustomButton>

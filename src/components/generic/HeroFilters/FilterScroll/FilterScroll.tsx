@@ -10,9 +10,11 @@ import {
   FilterCounter,
   CategoryTitle,
   InnerContainer,
+  FlexBox,
 } from './styles'
 import { useState } from 'react'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 const options = [
   'All',
   'New',
@@ -20,41 +22,26 @@ const options = [
   'On shift',
   'Privat',
   'Salons',
-  'Privat',
-  'Salons',
-  'Privat',
-  'Salons',
-  'Privat',
-  'Salons',
-  'Privat',
-  'Salons',
-  'Privat',
-  'Salons',
-  'Privat',
-  'Salons',
-  'Privat',
-  'Salons',
-  'Privat',
-  'Salons',
-  'Privat',
-  'Salons',
-  'Privat',
-  'Salons',
-  'Privat',
-  'Salons',
-  'Privat',
-  'Salons',
-  'Privat',
-  'Salons',
-  'Privat',
-  'Salons',
-  'Privat',
-  'Salons',
-  'Privat',
+  'Privat1',
+  'Salons1',
+  'Privat2',
+  'Salons2',
+  'Privat3',
+  'Salons3',
+  'Privat4',
+  'Salons4',
+  'Privat5',
+  'Salons5',
+  'Privat6',
+  'Salons6',
 ]
 
 export const FilterScroll: React.FC = () => {
   const [initSlider, setInitSlider] = useState<boolean>(false)
+  const { query } = useRouter()
+
+  const { slug } = query
+
   const swiperSettings: SwiperOptions = {
     slidesPerView: 7,
     freeMode: true,
@@ -90,10 +77,13 @@ export const FilterScroll: React.FC = () => {
                   <Link
                     href={i === 0 ? '/category' : `/category/${option}`}
                     passHref
+                    shallow={!(i === 0)}
                   >
-                    <FilterCategory>
-                      <CategoryTitle>{option}</CategoryTitle>
-                      <FilterCounter>232</FilterCounter>
+                    <FilterCategory isActive={slug ? slug === option : i === 0}>
+                      <FlexBox>
+                        <CategoryTitle>{option}</CategoryTitle>
+                        <FilterCounter>232</FilterCounter>
+                      </FlexBox>
                     </FilterCategory>
                   </Link>
                 </SwiperSlide>

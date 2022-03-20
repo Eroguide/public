@@ -7,12 +7,21 @@ export const FilterScrollContainer = styled.div`
   align-items: center;
 `
 
-export const FilterCategory = styled.div`
+export const FilterCategory = styled.div<{ isActive: boolean }>`
   display: flex;
   margin-right: 48px;
   align-items: center;
   min-width: 120px;
-  justify-content: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+
+  &:after {
+    content: '';
+    height: 2px;
+    width: ${({ isActive }) => (isActive ? '100%' : '0')};
+    transition: width 0.1s ease-in;
+    background-color: brown;
+  }
 `
 
 export const InnerContainer = styled.div`
@@ -41,6 +50,14 @@ export const CategoryTitle = styled.span`
   font-weight: 600;
   color: #40404a;
   white-space: nowrap;
+`
+
+export const FlexBox = styled.div`
+  white-space: nowrap;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  width: 100%;
 `
 
 export const FilterCounter = styled.span`

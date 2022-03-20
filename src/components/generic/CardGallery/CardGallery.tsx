@@ -18,7 +18,7 @@ export const CardGallery: React.FC<CardGalleryProps> = ({ cards, title }) => {
         {cards.length > 0 && (
           <LeftFilters>
             <Counter>
-              {title} {cards.length}
+              {title}: {cards.length}
             </Counter>
           </LeftFilters>
         )}

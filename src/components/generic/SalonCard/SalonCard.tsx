@@ -53,10 +53,7 @@ export const SalonCard: React.FC<SalonCardProps> = ({ id, inSwipe }) => {
     min: breakpoints[BreakpointsEnum.sm].min,
     max: breakpoints[BreakpointsEnum.sm].max,
   })
-  const isXs = useBreakpoint({
-    min: breakpoints[BreakpointsEnum.xs].min,
-    max: breakpoints[BreakpointsEnum.sm].max,
-  })
+
   return (
     <SalonCardMainContainer inSwipe={inSwipe}>
       <SalonCardInner>
@@ -82,8 +79,8 @@ export const SalonCard: React.FC<SalonCardProps> = ({ id, inSwipe }) => {
           <SmallGallery>
             {cardList.map(
               (x, i) =>
-                i > 0 &&
-                i < (isSmall ? 5 : 3) && (
+                i < 2 && (
+                  // i < (isSmall ? 5 : 3) &&
                   <Link key={x.id + i} href={`/gallery/${id}`} passHref>
                     <SmallGalleryItem>
                       <WorkingHoursTag>12-20</WorkingHoursTag>

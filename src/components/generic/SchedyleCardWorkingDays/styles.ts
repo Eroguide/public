@@ -14,7 +14,7 @@ export const Wrapper = styled.ul<{ fadeRight?: boolean }>`
   position: relative;
   width: 100%;
 
-  ${({ theme, fadeRight }) => theme.media.md`
+  ${({ theme, fadeRight }) => theme.media.mobile`
    &:before {
     content: '';
     position: absolute;
@@ -29,12 +29,6 @@ export const Wrapper = styled.ul<{ fadeRight?: boolean }>`
     width: 80px;
     z-index: 5;
   }
-  `}
-  ${({ theme }) => theme.media.sm`
-   
-  `}
-  ${({ theme }) => theme.media.mobile`
-
   `}
 `
 

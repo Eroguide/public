@@ -35,7 +35,8 @@ export const Button = styled.button<StyledComponentProps>`
   font-weight: 600;
   border-radius: 28px;
   display: flex;
-  justify-content: space-between;
+  justify-content: ${({ iconRight, iconLeft }) =>
+    iconRight || (iconLeft && 'space-between') || 'center'};
   flex-flow: row nowrap;
   border: ${({ theme, styleType }) => theme.button.border[styleType]};
   max-width: 200px;
@@ -85,6 +86,9 @@ export const Button = styled.button<StyledComponentProps>`
     color: ${({ theme, styleType }) => theme.button.disabled.color[styleType]};
     cursor: not-allowed;
   }
+  ${({ theme }) => theme.media.mobile`
+     padding: 0 16px;
+  `}
 `
 //TODO TRY TO INHERIT FROM STYLES
 export const ButtonLink = styled.a<StyledComponentProps>`
@@ -158,4 +162,7 @@ export const ButtonLink = styled.a<StyledComponentProps>`
     color: ${({ theme, styleType }) => theme.button.disabled.color[styleType]};
     cursor: not-allowed;
   }
+  ${({ theme }) => theme.media.mobile`
+     padding: 0 16px;
+  `}
 `

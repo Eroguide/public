@@ -27,7 +27,7 @@ const CategoryAllPage: NextPage = () => {
       <BaseLayout>
         <TopLinePageContent />
         <CategoryLanding />
-        <CardGallery cards={fixtures} title={'title'} />
+        <CardGallery cards={fixtures} title={'All'} />
       </BaseLayout>
     </>
   )
