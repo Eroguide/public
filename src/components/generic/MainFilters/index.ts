@@ -1,1 +1,1 @@
-export { MainFIlters } from './MainFilters'
+export { MainFilters } from './MainFilters'

@@ -1,4 +1,5 @@
 import styled from '@emotion/styled'
+import { RadioButton } from '@/components/generic'
 
 export const Container = styled.div`
   width: 100%;
@@ -41,7 +42,8 @@ export const Row = styled.div`
     color: ${({ theme }) => theme.grayScale[3]};
     font-size: ${({ theme }) => theme.fontSize.xs};
     line-height: ${({ theme }) => theme.fontSize.m};
-    margin-right: 8px;
+    margin: 0 8px;
+    flex-shrink: 0;
   }
 `
 
@@ -51,9 +53,6 @@ export const IconWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  svg path {
-    stroke: ${({ theme }) => theme.primary[0]};
-  }
 `
 
 export const ReturnButton = styled.div`
@@ -79,6 +78,7 @@ export const ReturnButton = styled.div`
 export const TopMainFiltersPanel = styled.div`
   width: 100%;
   display: flex;
+  align-items: center;
 `
 
 export const FiltersList = styled.div`
@@ -88,5 +88,25 @@ export const FiltersList = styled.div`
 export const Line = styled.div`
   height: 2px;
   width: 100%;
-  background-color: ${({ theme }) => theme.grayScale[2]};
+  background-color: ${({ theme }) => theme.grayScale[1]};
+`
+
+export const FilterContent = styled.div`
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+`
+
+export const FilterItem = styled.div`
+  width: 100%;
+  display: flex;
+  flex-flow: column;
+  margin-bottom: 16px;
+`
+
+export const RadioButtonCustom = styled(RadioButton)`
+  span {
+    font-size: ${({ theme }) => theme.fontSize.xs};
+    font-weight: 400;
+  }
 `
