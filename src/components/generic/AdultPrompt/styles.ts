@@ -31,7 +31,6 @@ export const Title = styled.h4`
 `
 
 export const ButtonsGroup = styled.div`
-  width: 220px;
   display: flex;
   justify-content: center;
   flex-direction: column;

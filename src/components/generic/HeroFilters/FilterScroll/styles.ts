@@ -64,8 +64,13 @@ export const CategoryTitle = styled.span`
 export const FlexBox = styled.div`
   white-space: nowrap;
   display: flex;
+  flex-flow: column;
+`
+
+export const FlexRow = styled.div`
+  white-space: nowrap;
+  display: flex;
   flex-flow: row nowrap;
-  align-items: center;
   width: 100%;
 `
 

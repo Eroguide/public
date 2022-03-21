@@ -87,7 +87,7 @@ const Home: NextPage<GetLaunches> = ({ launchesPast }) => {
             </SwiperSlide>
           ))}
         </ContentCardRow>
-        <CardGallery cards={fixtures} title={'Ladies gallery:'} />
+        <CardGallery cards={fixtures} title={'Ladies gallery'} />
         <ContentCardRow
           title="PostCard"
           counter={34}

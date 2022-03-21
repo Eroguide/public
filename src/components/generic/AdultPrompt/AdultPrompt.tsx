@@ -62,9 +62,10 @@ export const AdultPrompt: React.FC = () => {
               <SubTitle>Jsem dospělý ve věku 18 let nebo starší</SubTitle>
               <ButtonsGroup>
                 <CustomButton
-                  styleType={'primary'}
+                  styleType={'neutral'}
                   sizeType="default"
                   onClick={handleAccept}
+                  width="100%"
                   margin={'16px 0'}
                 >
                   Ano
@@ -73,6 +74,7 @@ export const AdultPrompt: React.FC = () => {
                 <CustomButton
                   onClick={handleLaterButton}
                   styleType={'tertiary'}
+                  width="100%"
                   sizeType="default"
                 >
                   Odejít ze stránky

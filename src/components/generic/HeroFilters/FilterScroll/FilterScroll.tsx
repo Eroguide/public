@@ -12,6 +12,7 @@ import {
   InnerContainer,
   FlexBox,
   Line,
+  FlexRow,
 } from './styles'
 import { useState } from 'react'
 import Link from 'next/link'
@@ -82,10 +83,12 @@ export const FilterScroll: React.FC = () => {
                   >
                     <FilterCategory isActive={slug ? slug === option : i === 0}>
                       <FlexBox>
-                        <CategoryTitle>{option}</CategoryTitle>
-                        <FilterCounter>232</FilterCounter>
+                        <FlexRow>
+                          <CategoryTitle>{option}</CategoryTitle>
+                          <FilterCounter>232</FilterCounter>
+                        </FlexRow>
+                        <Line />
                       </FlexBox>
-                      <Line />
                     </FilterCategory>
                   </Link>
                 </SwiperSlide>

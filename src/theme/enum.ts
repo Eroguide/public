@@ -3,6 +3,7 @@ export enum ButtonStylesEnum {
   tertiary = 'tertiary',
   link = 'link',
   secondary = 'secondary',
+  neutral = 'neutral',
 }
 
 export enum ButtonStylesSizeEnum {
