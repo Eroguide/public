@@ -9,6 +9,15 @@ export const Container = styled.div`
   background: #ffffff;
   box-shadow: 0 24px 40px rgba(26, 26, 26, 0.16);
   z-index: 2000;
+  ${({ theme }) => theme.media.mobile`
+      width: 100%;
+      top:0;
+      right: 0;
+      left: 0;
+      height: calc(100vh - 87px);
+      border-radius: 0;
+      box-shadow: none;
+  `}
 `
 
 export const Wrapper = styled.div`

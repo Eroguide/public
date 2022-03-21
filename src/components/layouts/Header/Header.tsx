@@ -10,6 +10,7 @@ import {
   MapPinIconWrapper,
   BurgerIconWrapper,
   LocationText,
+  MobileFloatMenuWrapper,
 } from './styles'
 import { HeartCounter } from '@/components/layouts/Header/HeartCounter'
 import { useRouter } from 'next/router'
@@ -59,12 +60,25 @@ export const Header: React.FC = () => {
             </MapPinIconWrapper>
           </Link>
           <HeartCounter />
-          <BurgerButton ref={ref}>
-            <BurgerIconWrapper onClick={() => setMenuIsOpen(!menuIsOpen)}>
-              <BurgerIcon />
-            </BurgerIconWrapper>
-            {menuIsOpen && <FloatingNavigation />}
-          </BurgerButton>
+          {!isSmall ? (
+            <BurgerButton ref={ref}>
+              <BurgerIconWrapper onClick={() => setMenuIsOpen(!menuIsOpen)}>
+                <BurgerIcon />
+              </BurgerIconWrapper>
+              {menuIsOpen && <FloatingNavigation />}
+            </BurgerButton>
+          ) : (
+            <BurgerButton ref={ref}>
+              <BurgerIconWrapper onClick={() => setMenuIsOpen(!menuIsOpen)}>
+                <BurgerIcon />
+              </BurgerIconWrapper>
+              {menuIsOpen && (
+                <MobileFloatMenuWrapper>
+                  <FloatingNavigation />
+                </MobileFloatMenuWrapper>
+              )}
+            </BurgerButton>
+          )}
         </RightBlock>
       </HeaderInner>
     </HeaderContainer>

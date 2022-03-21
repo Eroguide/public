@@ -9,6 +9,7 @@ import {
   Title,
   Counter,
 } from './styles'
+import SearchIcon from '/public/img/search-nav-icon.svg'
 import ChangeIcon from '/public/img/onchange-nav-icon.svg'
 import NewIcon from '/public/img/new-nav-icon.svg'
 import TopIcon from '/public/img/top-nav-icon.svg'
@@ -33,6 +34,15 @@ export type MobileNavItemType = {
 export type MobileNavList = Record<string, Array<MobileNavItemType>>
 
 const navItemList: MobileNavList = {
+  searchNavGroup: [
+    {
+      id: 'sadasdsdsds2dssdsdssa',
+      icon: <SearchIcon />,
+      title: 'Hledat',
+      counter: 213,
+      href: '/search',
+    },
+  ],
   firstNavGroup: [
     {
       id: 'sadasdsdsds2dssdsda',
@@ -134,6 +144,15 @@ export const FloatingNavigation: React.FC = () => {
     <Container>
       <Wrapper>
         <Content>
+          <NavSection>
+            {navItemList.searchNavGroup[0] && (
+              <NavItemComponent
+                key={navItemList.searchNavGroup[0].id}
+                {...navItemList.searchNavGroup[0]}
+              />
+            )}
+          </NavSection>
+          <Divider />
           <NavSection>
             {navItemList.firstNavGroup.map((navItem) => (
               <NavItemComponent key={navItem.id} {...navItem} />

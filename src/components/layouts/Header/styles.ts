@@ -72,6 +72,12 @@ export const BurgerButton = styled.div`
   position: relative;
 `
 
+export const MobileFloatMenuWrapper = styled.div`
+  width: 100%;
+  position: fixed;
+  inset: 87px 0 0 0;
+`
+
 export const LeftBlock = styled.div`
   display: flex;
   flex-grow: 1;
