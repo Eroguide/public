@@ -79,8 +79,6 @@ export const MainFilters: React.FC = () => {
     </>
   )
 
-  const da = <>dada</>
-
   const filterList = [
     { id: 1, icon: <AktualIcon />, title: 'Aktuální', container: actualRadio },
     { id: 2, icon: <TimeIcon />, title: 'Věk', container: ageFilter },

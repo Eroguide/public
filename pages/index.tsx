@@ -1,4 +1,5 @@
 import type {
+  GetServerSideProps,
   // GetServerSideProps,
   NextPage,
 } from 'next'
@@ -18,8 +19,8 @@ import {
 } from '@/components/generic'
 import { SwiperSlide } from 'swiper/react'
 import { ShowNewItems } from '@/components/generic/ShowNewItems'
-// import { getLaunches } from '@/graphql/queries.graphql'
-// import { addApolloState, initializeApollo } from '@/graphql/apollo'
+import { getLaunches } from '@/graphql/queries.graphql'
+import { addApolloState, initializeApollo } from '@/graphql/apollo'
 import { GetLaunches } from '@/graphql/__generated__/GetLaunches'
 import { useBreakpoint } from '@/hooks/useBreakpoint'
 import { breakpoints, BreakpointsEnum } from '@/src/theme'
@@ -118,17 +119,17 @@ const Home: NextPage<GetLaunches> = ({ launchesPast }) => {
   )
 }
 
-// export const getServerSideProps: GetServerSideProps = async () => {
-//   const apolloClient = initializeApollo()
-//   const { data } = await apolloClient.query({
-//     query: getLaunches,
-//   })
-//
-//   return addApolloState(apolloClient, {
-//     props: {
-//       launchesPast: data.launchesPast,
-//     },
-//   })
-// }
+export const getServerSideProps: GetServerSideProps = async () => {
+  const apolloClient = initializeApollo()
+  const { data } = await apolloClient.query({
+    query: getLaunches,
+  })
+
+  return addApolloState(apolloClient, {
+    props: {
+      launchesPast: data.launchesPast,
+    },
+  })
+}
 
 export default Home

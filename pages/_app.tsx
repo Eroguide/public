@@ -7,7 +7,7 @@ import { theme } from '@/src/theme'
 import { ApolloProvider } from '@apollo/client'
 import { useApollo } from '@/graphql/apollo'
 import { Loader } from '@/components/widgets/LoaderWidget'
-import { AdultPrompt } from '@/components/generic'
+// import { AdultPrompt } from '@/components/generic'
 
 function MyApp({ Component, pageProps }: AppProps) {
   const apolloClient = useApollo(pageProps)
@@ -18,13 +18,11 @@ function MyApp({ Component, pageProps }: AppProps) {
     <ThemeProvider theme={theme}>
       {globalStyles}
       <ApolloProvider client={apolloClient}>
-        {/*<Provider store={store}>*/}
         <StoreonCustomContext.Provider value={store}>
           <Component {...pageProps} />
-          <AdultPrompt />
+          {/*<AdultPrompt />*/}
           <Loader />
         </StoreonCustomContext.Provider>
-        {/*</Provider>*/}
       </ApolloProvider>
     </ThemeProvider>
   )
