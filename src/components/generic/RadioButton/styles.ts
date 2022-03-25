@@ -1,8 +1,8 @@
 import styled from '@emotion/styled'
 
-export const Label = styled.span`
+export const Label = styled.span<{ forFilter?: boolean }>`
   font-size: ${({ theme }) => theme.fontSize['m']};
-  font-weight: 600;
+  font-weight: ${({ forFilter }) => (forFilter ? 400 : 600)};
   margin-left: 16px;
 `
 
@@ -11,4 +11,5 @@ export const Container = styled.label`
   text-align: center;
   display: flex;
   cursor: pointer;
+  margin-right: 16px;
 `

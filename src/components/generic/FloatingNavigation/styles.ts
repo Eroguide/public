@@ -84,12 +84,13 @@ export const Counter = styled.span`
   transition: color 0.2s ease-in-out, border 0.2s ease-in-out;
 `
 
-export const NavItem = styled.div`
+export const NavItem = styled.div<{ isActive: boolean }>`
   width: 100%;
   justify-content: flex-start;
   align-items: center;
   display: flex;
   transition: color 0.2s ease-in-out;
+
   &:hover {
     transition: color 0.2s ease-in-out;
     cursor: pointer;

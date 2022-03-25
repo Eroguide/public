@@ -19,6 +19,7 @@ export const FilterCategory = styled.div<{ isActive: boolean }>`
   margin-right: 48px;
   align-items: center;
   min-width: 120px;
+  width: 50%;
   justify-content: flex-start;
   flex-wrap: wrap;
   ${({ isActive, theme }) =>
@@ -37,7 +38,6 @@ export const InnerContainer = styled.div`
   display: flex;
   width: 100%;
   position: relative;
-  cursor: pointer;
   &::after {
     content: '';
     position: absolute;

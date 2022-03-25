@@ -34,7 +34,7 @@ export const Wrapper = styled.div`
 
 export const Details = styled.p`
   color: ${({ theme }) => theme.grayScale[4]};
-  font-size: ${({ theme }) => theme.fontSize.xs};
+  ${({ theme }) => theme.typography.ps};
 `
 
 export const Title = styled.h4`

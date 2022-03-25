@@ -3,11 +3,10 @@ import { ThemeProvider } from '@emotion/react'
 import { store, StoreonCustomContext } from '@/store/index'
 import { globalStyles } from '@/src/global-styles'
 import { theme } from '@/src/theme'
-
 import { ApolloProvider } from '@apollo/client'
 import { useApollo } from '@/graphql/apollo'
 import { Loader } from '@/components/widgets/LoaderWidget'
-// import { AdultPrompt } from '@/components/generic'
+import { AdultPrompt } from '@/components/generic'
 
 function MyApp({ Component, pageProps }: AppProps) {
   const apolloClient = useApollo(pageProps)
@@ -20,7 +19,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <ApolloProvider client={apolloClient}>
         <StoreonCustomContext.Provider value={store}>
           <Component {...pageProps} />
-          {/*<AdultPrompt />*/}
+          <AdultPrompt />
           <Loader />
         </StoreonCustomContext.Provider>
       </ApolloProvider>

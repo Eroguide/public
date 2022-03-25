@@ -71,7 +71,8 @@ export const CardContent = styled.div`
 `
 
 export const TitleLink = styled.a`
-  font-size: ${({ theme }) => theme.fontSize['xl']};
+  ${({ theme }) => theme.typography.h3};
+
   font-weight: 600;
   color: ${({ theme }) => theme.grayScale[4]};
   cursor: pointer;
@@ -112,7 +113,7 @@ export const PriceValue = styled.div`
 export const PriceSuffix = styled.div`
   margin-top: 6px;
   color: ${({ theme }) => theme.grayScale[4]};
-  font-size: ${({ theme }) => theme.fontSize['xs']};
+  ${({ theme }) => theme.typography.ps};
 `
 export const Row = styled.div`
   display: flex;
@@ -195,7 +196,7 @@ export const ContentColumn = styled.div`
 
 export const InfoItem = styled.div`
   color: ${({ theme }) => theme.grayScale[0]};
-  font-size: ${({ theme }) => theme.fontSize['xs']};
+  ${({ theme }) => theme.typography.ps};
 `
 
 export const WorkingDaysWrapper = styled.div`
@@ -212,7 +213,7 @@ export const PhotoCounter = styled.div`
   span {
     margin-left: 4px;
     color: ${({ theme }) => theme.grayScale[0]};
-    font-size: ${({ theme }) => theme.fontSize['xs']};
+    ${({ theme }) => theme.typography.ps};
     font-weight: 600;
   }
 `

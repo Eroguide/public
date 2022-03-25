@@ -11,9 +11,13 @@ import {
   Line,
   FilterContent,
   FilterItem,
-  RadioButtonCustom,
+  ProgramGrid,
 } from './styles'
-import { CustomButton, RangeSliderCustom } from '@/components/generic'
+import {
+  CustomButton,
+  RangeSliderCustom,
+  RadioButton,
+} from '@/components/generic'
 import ChevronLeft from '/public/img/chevron-left.svg'
 import AktualIcon from '/public/img/aktual-filter.svg'
 import TimeIcon from '/public/img/time-filter.svg'
@@ -23,60 +27,78 @@ import BreastIcon from '/public/img/breast-filter.svg'
 import HeightIcon from '/public/img/height-filter.svg'
 import PhotoIcon from '/public/img/photo-filter.svg'
 import ProgramIcon from '/public/img/program-filter.svg'
+import { FooterLogo } from '@/components/layouts/Footer/styles'
+import { useRouter } from 'next/router'
 
 export const MainFilters: React.FC = () => {
   const actualRadio = (
-    <>
-      <RadioButtonCustom title={'Na směně'} />
-      <RadioButtonCustom title={'Nové slečny'} />
-    </>
+    <ProgramGrid>
+      <RadioButton forFilter title={'Na směně'} />
+      <RadioButton forFilter title={'Nové slečny'} />
+    </ProgramGrid>
   )
   const ageFilter = (
     <>
       <CustomButton styleType={'tertiary'} sizeType={'small'}>
         18-22
       </CustomButton>
-      <CustomButton styleType={'tertiary'} sizeType={'small'}>
+      <CustomButton
+        margin="0 0 0 16px"
+        styleType={'tertiary'}
+        sizeType={'small'}
+      >
         23-28
       </CustomButton>
-      <CustomButton styleType={'tertiary'} sizeType={'small'}>
+      <CustomButton
+        margin="0 0 0 16px"
+        styleType={'tertiary'}
+        sizeType={'small'}
+      >
         29+
       </CustomButton>
     </>
   )
   const placeRadio = (
-    <>
-      <RadioButtonCustom title={'Masáže'} />
-      <RadioButtonCustom title={'Privat'} />
-      <RadioButtonCustom title={'Escort'} />
-    </>
+    <ProgramGrid>
+      <RadioButton forFilter title={'Masáže'} />
+      <RadioButton forFilter title={'Privat'} />
+      <RadioButton forFilter title={'Escort'} />
+    </ProgramGrid>
   )
   const bodyType = (
     <>
       <CustomButton styleType={'tertiary'} sizeType={'small'}>
         Hubená
       </CustomButton>
-      <CustomButton styleType={'tertiary'} sizeType={'small'}>
+      <CustomButton
+        margin="0 0 0 16px"
+        styleType={'tertiary'}
+        sizeType={'small'}
+      >
         Normální
       </CustomButton>
-      <CustomButton styleType={'tertiary'} sizeType={'small'}>
+      <CustomButton
+        margin="0 0 0 16px"
+        styleType={'tertiary'}
+        sizeType={'small'}
+      >
         Plnoštíhlá
       </CustomButton>
     </>
   )
   const photoRadio = (
-    <>
-      <RadioButtonCustom title={'Ověřeno Eroguide'} />
-      <RadioButtonCustom title={'Vlastní'} />
-    </>
+    <ProgramGrid>
+      <RadioButton forFilter title={'Ověřeno Eroguide'} />
+      <RadioButton forFilter title={'Vlastní'} />
+    </ProgramGrid>
   )
   const programRadio = (
-    <>
-      <RadioButtonCustom title={'peep-show'} />
-      <RadioButtonCustom title={'sakura branch'} />
-      <RadioButtonCustom title={'foot fetish'} />
-      <RadioButtonCustom title={'urological massage'} />
-    </>
+    <ProgramGrid>
+      <RadioButton forFilter title={'peep-show'} />
+      <RadioButton forFilter title={'sakura branch'} />
+      <RadioButton forFilter title={'foot fetish'} />
+      <RadioButton forFilter title={'urological massage'} />
+    </ProgramGrid>
   )
 
   const filterList = [
@@ -93,13 +115,13 @@ export const MainFilters: React.FC = () => {
       id: 5,
       icon: <BreastIcon />,
       title: 'Prsa',
-      container: <RangeSliderCustom min={1} max={4} />,
+      container: <RangeSliderCustom min={1} max={4} step={1} />,
     },
     {
       id: 6,
       icon: <HeightIcon />,
       title: 'Výška ',
-      container: <RangeSliderCustom min={1} max={4} />,
+      container: <RangeSliderCustom min={1} max={200} step={1} />,
     },
     { id: 7, icon: <PhotoIcon />, title: 'Photo ', container: photoRadio },
     {
@@ -109,13 +131,19 @@ export const MainFilters: React.FC = () => {
       container: programRadio,
     },
   ]
-
+  const { push } = useRouter()
   return (
     <Container>
       <Wrapper>
         <TopMainFiltersPanel>
           <Left>
-            <ReturnButton>
+            <ReturnButton
+              onClick={() =>
+                push('/', undefined, {
+                  shallow: true,
+                })
+              }
+            >
               <ChevronLeft />
             </ReturnButton>
           </Left>

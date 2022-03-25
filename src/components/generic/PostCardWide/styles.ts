@@ -45,14 +45,14 @@ export const ImageProduct = styled.div`
 export const Title = styled.h4`
   display: flex;
   flex-wrap: wrap;
-  font-size: ${({ theme }) => theme.fontSize['xl']};
+  ${({ theme }) => theme.typography.h3};
   font-weight: 600;
 `
 
 export const Description = styled.div`
   display: flex;
   flex-wrap: wrap;
-  font-size: ${({ theme }) => theme.fontSize['m']};
+  ${({ theme }) => theme.typography.h4};
   font-weight: 600;
 `
 
@@ -63,8 +63,9 @@ export const BottomLine = styled.div`
   margin-top: 32px;
 `
 
-export const DateText = styled.div`
+export const DateText = styled.p`
   display: flex;
+  ${({ theme }) => theme.typography.ps};
   font-size: ${({ theme }) => theme.fontSize['xs']};
   color: ${({ theme }) => theme.grayScale['2']};
 `

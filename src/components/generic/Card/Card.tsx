@@ -83,12 +83,20 @@ export const Card: React.FC<CardProps> = ({
               <AdditionalInformationContent>
                 <LeftBlock>
                   <ContentColumn>
-                    <InfoItem>Height: 170lb</InfoItem>
-                    <InfoItem>Weight: 350lb</InfoItem>
+                    <InfoItem>
+                      Height: <span>170</span>
+                    </InfoItem>
+                    <InfoItem>
+                      Weight: <span>89</span>
+                    </InfoItem>
                   </ContentColumn>
                   <ContentColumn>
-                    <InfoItem>Breast: 3</InfoItem>
-                    <InfoItem>Age: 19</InfoItem>
+                    <InfoItem>
+                      Breast: <span>3</span>
+                    </InfoItem>
+                    <InfoItem>
+                      Age: <span>19</span>
+                    </InfoItem>
                   </ContentColumn>
                 </LeftBlock>
                 <RightBlock>

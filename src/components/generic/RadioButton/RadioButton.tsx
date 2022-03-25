@@ -1,13 +1,13 @@
 import { Container, Label } from './styles'
 
-export const RadioButton: React.FC<{ title: string }> = (
-  { title },
-  ...props
-) => {
+export const RadioButton: React.FC<{ title: string; forFilter?: boolean }> = ({
+  title,
+  forFilter,
+}) => {
   return (
-    <Container {...props}>
+    <Container>
       <input type="radio" className="custom-radio" name={'radio1'} />
-      <Label>{title}</Label>
+      <Label forFilter={forFilter}>{title}</Label>
     </Container>
   )
 }

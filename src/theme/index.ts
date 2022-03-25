@@ -15,6 +15,26 @@ const fontSize = {
   extra: '96px',
 }
 
+const typography = {
+  pl: { s: 16, h: 24 },
+  pm: { s: 14, h: 24 },
+  ps: { s: 12, h: 18 },
+  h7: { s: 10, h: 16 },
+  h6: { s: 12, h: 16 },
+  h5: { s: 14, h: 24 },
+  h4: { s: 16, h: 24 },
+  h3: { s: 24, h: 32 },
+  h2: { s: 32, h: 40 },
+  extraMobile: { s: 64, h: 64 },
+  extra: { s: 96, h: 96 },
+}
+
+for (const [key, value] of Object.entries(typography)) {
+  typography[key] = `font-size: ${value.s}px; font-height:${value.s}px;`
+}
+
+console.log('typography', typography)
+
 const primary = {
   0: '#FF005D',
   1: '#D80E5D',
@@ -183,6 +203,7 @@ export const theme = {
   grayScale,
   support,
   button,
+  typography,
 }
 
 export type Theme = typeof theme

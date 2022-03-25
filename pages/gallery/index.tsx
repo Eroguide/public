@@ -24,7 +24,7 @@ const Gallery: NextPage = () => {
       </Head>
       <BaseLayout>
         <TopLinePageContent />
-        <CardGallery cards={fixtures} title={'Ladies:'} />
+        <CardGallery cards={fixtures} title={'Ladies'} />
       </BaseLayout>
     </>
   )

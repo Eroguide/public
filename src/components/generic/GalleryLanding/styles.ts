@@ -28,19 +28,17 @@ export const Wrapper = styled.div`
 `
 
 export const HeroTitle = styled.h1`
-  font-size: ${({ theme }) => theme.fontSize['extra']};
-  line-height: ${({ theme }) => theme.fontSize['extra']};
+  ${({ theme }) => theme.typography.extra};
   font-weight: 800;
   color: ${({ theme }) => theme.primary[0]};
   margin-bottom: 56px;
   ${({ theme }) => theme.media.mobile`
-    font-size: ${theme.fontSize['extraMobile']};
-     line-height: ${theme.fontSize['extraMobile']};
+    ${theme.typography.extraMobile};
   `}
 `
 
 export const DescriptionText = styled.p`
-  font-size: ${({ theme }) => theme.fontSize['xl']};
+  ${({ theme }) => theme.typography.ps};
   font-weight: 600;
   color: ${({ theme }) => theme.grayScale[4]};
   width: 100%;

@@ -62,7 +62,7 @@ export const ImageProduct = styled.div`
 `
 
 export const CardContent = styled.div`
-  padding: 32px 24px;
+  padding: 16px 24px 32px 24px;
   height: 132px;
   display: flex;
   flex-direction: column;
@@ -82,12 +82,12 @@ export const TitleLink = styled.a`
 export const Description = styled.div`
   display: flex;
   flex-wrap: wrap;
-  font-size: ${({ theme }) => theme.fontSize['s']};
   height: 24px;
-  font-weight: 600;
   a {
     margin-right: 8px;
+    font-size: ${({ theme }) => theme.fontSize['s']};
     color: ${({ theme }) => theme.grayScale[3]};
+    font-weight: 500;
     text-decoration: none;
     &:hover {
       text-decoration: underline;
@@ -127,7 +127,8 @@ export const Right = styled.div``
 export const TopImageTag = styled.span`
   position: absolute;
   background-color: ${({ theme }) => theme.primary[2]};
-  font-size: ${({ theme }) => theme.fontSize['xxs']};
+  font-size: ${({ theme }) => theme.fontSize['xs']};
+  font-weight: 500;
   border-radius: 0 0 8px 8px;
   padding: 2px 16px;
   min-width: 60px;
@@ -198,6 +199,8 @@ export const ContentColumn = styled.div`
 export const InfoItem = styled.div`
   color: ${({ theme }) => theme.grayScale[0]};
   font-size: ${({ theme }) => theme.fontSize['xs']};
+  font-weight: 500;
+  line-height: 16px;
 `
 
 export const WorkingDaysWrapper = styled.div`

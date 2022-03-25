@@ -29,6 +29,7 @@ export const globalStyles = (
       ul {
         list-style: none;
       }
+
       h1,
       h2,
       h3,
@@ -43,7 +44,7 @@ export const globalStyles = (
       }
       html,
       body {
-        line-height: ${theme.lineHeight};
+        line-height: 1.4;
         background: white;
         min-height: 100vh;
         font-family: 'Inter', Helvetica, Arial, sans-serif;

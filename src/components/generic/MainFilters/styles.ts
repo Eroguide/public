@@ -1,5 +1,4 @@
 import styled from '@emotion/styled'
-import { RadioButton } from '@/components/generic'
 
 export const Container = styled.div`
   width: 100%;
@@ -104,9 +103,17 @@ export const FilterItem = styled.div`
   margin-bottom: 16px;
 `
 
-export const RadioButtonCustom = styled(RadioButton)`
-  span {
-    font-size: ${({ theme }) => theme.fontSize.xs};
-    font-weight: 400;
+export const ProgramGrid = styled.div`
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  margin-bottom: 16px;
+  & label {
+    margin-right: 0;
+    margin-bottom: 16px;
+    width: 50%;
+    ${({ theme }) => theme.media.mobile`
+      width: 100%;
+  `}
   }
 `

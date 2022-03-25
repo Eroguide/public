@@ -56,13 +56,14 @@ export const Divider = styled.div`
 `
 
 export const NavLink = styled.a`
-  font-size: 14px;
+  ${({ theme }) => theme.typography.pm};
   color: #a0a0b0;
 `
 
 export const LocationText = styled.p`
   font-size: ${({ theme }) => theme.fontSize.s};
   color: ${({ theme }) => theme.grayScale[3]};
+  font-weight: 600;
 `
 
 export const BurgerButton = styled.div`
@@ -128,7 +129,7 @@ export const MapPinIconWrapper = styled.div`
 `
 
 export const BurgerIconWrapper = styled.div`
-  font-size: 14px;
+  ${({ theme }) => theme.typography.pm};
   color: #a0a0b0;
   cursor: pointer;
   position: relative;

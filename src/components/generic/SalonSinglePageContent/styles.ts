@@ -152,7 +152,7 @@ export const MemberSince = styled.span`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: ${({ theme }) => theme.fontSize['xs']};
+  ${({ theme }) => theme.typography.ps};
   margin-top: 32px;
 `
 
@@ -166,7 +166,7 @@ export const LastCheckDate = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: ${({ theme }) => theme.fontSize['xs']};
+  ${({ theme }) => theme.typography.ps};
   margin-bottom: 24px;
 `
 
@@ -212,12 +212,12 @@ export const BodyContent = styled.div`
 `
 
 export const Description = styled.p`
-  font-size: ${({ theme }) => theme.fontSize.xs};
+  ${({ theme }) => theme.typography.ps};
   color: ${({ theme }) => theme.grayScale[3]};
 `
 
 export const PriceInfoNote = styled.p`
-  font-size: ${({ theme }) => theme.fontSize.xs};
+  ${({ theme }) => theme.typography.ps};
   color: ${({ theme }) => theme.support[2]};
   display: flex;
   align-items: center;

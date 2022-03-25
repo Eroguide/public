@@ -84,13 +84,13 @@ export const DayCard = styled.li`
 `
 
 export const Day = styled.span<{ isFree?: boolean }>`
-  font-size: ${({ theme }) => theme.fontSize['xs']};
+  ${({ theme }) => theme.typography.ps};
   color: ${({ theme, isFree }) =>
     isFree ? theme.grayScale[2] : theme.grayScale[3]};
 `
 
 export const Time = styled.span`
-  font-size: ${({ theme }) => theme.fontSize['xs']};
+  ${({ theme }) => theme.typography.ps};
   color: ${({ theme }) => theme.grayScale[5]};
 `
 

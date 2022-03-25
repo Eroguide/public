@@ -55,7 +55,7 @@ export const TitleBeforeSlider = styled.div`
   height: 24px;
   align-items: center;
   overflow: hidden;
-  font-size: ${({ theme }) => theme.fontSize['xs']};
+  ${({ theme }) => theme.typography.ps};
   color: ${({ theme }) => theme.grayScale[3]};
   margin-bottom: 16px;
 `

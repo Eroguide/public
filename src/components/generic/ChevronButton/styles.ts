@@ -6,7 +6,7 @@ export const ChevronTitle = styled.span<{
   color: ${({ theme, bgColor }) =>
     bgColor === 'white' ? `${theme.grayScale[0]}` : `${theme.support[2]}`};
   font-size: ${({ theme }) => theme.fontSize['s']};
-  font-weight: 600;
+  font-weight: 500;
 `
 
 export const Container = styled.div`
@@ -39,12 +39,13 @@ export const ToggleInformation = styled.div<{
   svg {
     fill: ${({ bgColor, theme }) =>
       bgColor === 'white' ? `white` : `${theme.support[2]}`};
+    transform: rotate(180deg);
   }
   ${({ isOpen, bgColor }) =>
     isOpen &&
     `
       svg {
-         transform: rotate(180deg);
+         transform: rotate(0deg);
       }
         background-color: ${
           bgColor === 'green'

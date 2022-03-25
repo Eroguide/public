@@ -45,28 +45,28 @@ export const FilterScroll: React.FC = () => {
   const { slug } = query
 
   const swiperSettings: SwiperOptions = {
-    slidesPerView: 7,
+    slidesPerView: 'auto',
     freeMode: true,
     modules: [FreeMode],
     spaceBetween: 48,
-    breakpoints: {
-      0: {
-        slidesPerView: 3,
-        spaceBetween: 12,
-      },
-      700: {
-        slidesPerView: 4,
-        spaceBetween: 12,
-      },
-      991: {
-        slidesPerView: 5,
-        spaceBetween: 16,
-      },
-      1420: {
-        slidesPerView: 6,
-        spaceBetween: 16,
-      },
-    },
+    // breakpoints: {
+    //   0: {
+    //     slidesPerView: 3,
+    //     spaceBetween: 12,
+    //   },
+    //   700: {
+    //     slidesPerView: 4,
+    //     spaceBetween: 12,
+    //   },
+    //   991: {
+    //     slidesPerView: 5,
+    //     spaceBetween: 16,
+    //   },
+    //   1420: {
+    //     slidesPerView: 6,
+    //     spaceBetween: 16,
+    //   },
+    // },
   }
 
   return (

@@ -30,6 +30,7 @@ export type MobileNavItemType = {
   counter?: number
   icon: JSX.Element | React.ReactNode
   href: string
+  isActive?: boolean
 }
 export type MobileNavList = Record<string, Array<MobileNavItemType>>
 
@@ -127,10 +128,11 @@ export const NavItemComponent: React.FC<MobileNavItemType> = ({
   title,
   counter,
   href,
+  isActive,
 }) => {
   return (
     <Link href={href} passHref>
-      <NavItem>
+      <NavItem isActive={isActive}>
         <IconWrapper>{icon}</IconWrapper>
         <Title>{title}</Title>
         {counter && <Counter>{counter}</Counter>}
@@ -147,6 +149,7 @@ export const FloatingNavigation: React.FC = () => {
           <NavSection>
             {navItemList.searchNavGroup[0] && (
               <NavItemComponent
+                isActive={true}
                 key={navItemList.searchNavGroup[0].id}
                 {...navItemList.searchNavGroup[0]}
               />

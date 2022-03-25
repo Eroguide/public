@@ -13,7 +13,7 @@ export const Container = styled.div`
 
 export const Card = styled.div`
   width: 375px;
-  background: ${({ theme }) => theme.grayScale[1]};
+  background: ${({ theme }) => theme.grayScale[0]};
   padding: 32px 48px;
   display: flex;
   justify-content: center;
