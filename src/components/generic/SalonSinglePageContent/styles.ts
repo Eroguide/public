@@ -113,7 +113,7 @@ export const IconWrapper = styled.div`
 `
 
 export const InfoCardItem = styled.div`
-  font-size: ${({ theme }) => theme.fontSize['s']};
+  ${({ theme }) => theme.typography.pm};
   color: ${({ theme }) => theme.grayScale[5]};
   display: flex;
   flex-direction: row;

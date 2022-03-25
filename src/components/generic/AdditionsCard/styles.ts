@@ -14,8 +14,7 @@ export const Container = styled.div<InfoCardProps>`
 `
 
 export const Description = styled.span`
-  font-size: ${({ theme }) => theme.fontSize.m};
-  line-height: ${({ theme }) => theme.fontSize.xl};
+  ${({ theme }) => theme.typography.pl};
   color: ${({ theme }) => theme.grayScale[4]};
 `
 
@@ -26,15 +25,14 @@ export const Left = styled.div`
 `
 
 export const Title = styled.span`
-  font-size: ${({ theme }) => theme.fontSize.xl};
+  ${({ theme }) => theme.typography.h3};
   color: ${({ theme }) => theme.grayScale[5]};
   font-weight: 500;
   margin-right: 4px;
-  line-height: 24px;
 `
 
 export const Details = styled.span`
-  font-size: ${({ theme }) => theme.fontSize.xs};
+  ${({ theme }) => theme.typography.ps};
   color: ${({ theme }) => theme.grayScale[3]};
 `
 
@@ -52,9 +50,8 @@ export const Timer = styled.div`
   align-items: center;
 
   & span {
-    line-height: 24px;
     color: ${({ theme }) => theme.grayScale[3]};
-    font-size: ${({ theme }) => theme.fontSize.xs};
+    ${({ theme }) => theme.typography.pm};
   }
 `
 
@@ -98,19 +95,17 @@ export const BottomRow = styled.div`
 `
 
 export const Price = styled.span`
-  font-size: ${({ theme }) => theme.fontSize.xl};
+  ${({ theme }) => theme.typography.h3};
   color: ${({ theme }) => theme.grayScale[5]};
   font-weight: 600;
   height: 40px;
   display: flex;
-  line-height: 32px;
   align-items: flex-end;
 `
 
 export const Suffix = styled.span`
-  font-size: ${({ theme }) => theme.fontSize.s};
+  ${({ theme }) => theme.typography.pm};
   font-weight: 600;
-  line-height: 28px;
   display: flex;
   align-items: flex-end;
 `

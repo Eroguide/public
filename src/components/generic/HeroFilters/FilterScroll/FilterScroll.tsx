@@ -48,7 +48,8 @@ export const FilterScroll: React.FC = () => {
     slidesPerView: 'auto',
     freeMode: true,
     modules: [FreeMode],
-    spaceBetween: 48,
+    spaceBetween: 40,
+    grabCursor: true,
     // breakpoints: {
     //   0: {
     //     slidesPerView: 3,

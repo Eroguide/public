@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 
 export const FaqNavContainer = styled.div`
-  width: 20%;
+  width: 30%;
   justify-content: center;
   align-items: center;
   text-align: center;
@@ -59,7 +59,7 @@ export const IconWrapper = styled.div`
 `
 
 export const Label = styled.span`
-  font-size: ${({ theme }) => theme.fontSize['s']};
+  ${({ theme }) => theme.typography.pm};
   font-weight: 600;
   color: ${({ theme }) => theme.grayScale[3]};
   height: 24px;

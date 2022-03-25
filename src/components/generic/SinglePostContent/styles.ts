@@ -24,7 +24,7 @@ export const LeftTag = styled.span`
   display: flex;
   height: 16px;
   justify-content: center;
-  font-size: ${({ theme }) => theme.fontSize['xs']};
+  ${({ theme }) => theme.typography.ps};
   font-weight: 600;
   color: ${({ theme }) => theme.grayScale[0]};
   background-color: ${({ theme }) => theme.primary[2]};
@@ -35,7 +35,7 @@ export const LeftTag = styled.span`
 export const RightDate = styled.div`
   align-items: center;
   display: flex;
-  font-size: ${({ theme }) => theme.fontSize['xs']};
+  ${({ theme }) => theme.typography.h6};
   font-weight: 600;
   color: ${({ theme }) => theme.grayScale[2]};
 `
@@ -47,7 +47,7 @@ export const Wrapper = styled.div`
 `
 
 export const PostsCounter = styled.span`
-  font-size: ${({ theme }) => theme.fontSize['m']};
+  ${({ theme }) => theme.typography.h4};
   font-weight: 600;
   color: ${({ theme }) => theme.grayScale[5]};
   margin-bottom: 42px;
@@ -59,22 +59,22 @@ export const Divider = styled.div`
   background-color: ${({ theme }) => theme.grayScale[1]};
 `
 
-export const Title = styled.h1`
-  font-size: ${({ theme }) => theme.fontSize['xxl']};
+export const Title = styled.h2`
+  ${({ theme }) => theme.typography.h2};
   font-weight: 600;
   color: ${({ theme }) => theme.grayScale[5]};
   margin-bottom: 42px;
 `
 
 export const SubTitle = styled.h2`
-  font-size: ${({ theme }) => theme.fontSize['m']};
+  ${({ theme }) => theme.typography.h4};
   font-weight: 400;
   color: ${({ theme }) => theme.grayScale[2]};
   margin-bottom: 64px;
 `
 
 export const Text = styled.p`
-  font-size: ${({ theme }) => theme.fontSize['s']};
+  ${({ theme }) => theme.typography.pm};
   font-weight: 400;
   color: ${({ theme }) => theme.grayScale[4]};
   margin-bottom: 56px;

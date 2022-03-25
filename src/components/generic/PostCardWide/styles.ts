@@ -42,7 +42,7 @@ export const ImageProduct = styled.div`
   cursor: pointer;
 `
 
-export const Title = styled.h4`
+export const Title = styled.h3`
   display: flex;
   flex-wrap: wrap;
   ${({ theme }) => theme.typography.h3};
@@ -66,7 +66,6 @@ export const BottomLine = styled.div`
 export const DateText = styled.p`
   display: flex;
   ${({ theme }) => theme.typography.ps};
-  font-size: ${({ theme }) => theme.fontSize['xs']};
   color: ${({ theme }) => theme.grayScale['2']};
 `
 

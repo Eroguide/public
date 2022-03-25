@@ -30,7 +30,7 @@ export const Description = styled.span<{
   isOpen: boolean
   strokeColor?: keyof typeof StrokeColorTypes
 }>`
-  font-size: ${({ theme }) => theme.fontSize.s};
+  ${({ theme }) => theme.typography.pm};
   color: ${({ theme }) => theme.grayScale[3]};
   padding-left: 32px;
   height: ${({ isOpen }) => (isOpen ? 'auto' : 0)};
@@ -82,7 +82,7 @@ export const MainInfo = styled.div<{ isOpen: boolean }>`
     }
   }
   span {
-    font-size: ${({ theme }) => theme.fontSize.xs};
+    ${({ theme }) => theme.typography.ps};
     color: ${({ theme }) => theme.support[2]};
   }
   svg {

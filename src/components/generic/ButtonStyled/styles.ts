@@ -23,7 +23,7 @@ export const ButtonShadowLink = styled.a`
   justify-content: center;
   align-items: center;
   padding: 8px 16px;
-  font-size: ${({ theme }) => theme.fontSize['s']};
+  ${({ theme }) => theme.typography.pm};
   cursor: pointer;
   text-decoration: none;
 `
@@ -40,7 +40,7 @@ export const ButtonPrimaryLink = styled.a`
   max-width: 200px;
   cursor: pointer;
   padding: 12px 32px;
-  font-size: ${({ theme }) => theme.fontSize['s']};
+  ${({ theme }) => theme.typography.h5};
 `
 
 export const ButtonCounter = styled.a`
@@ -77,7 +77,7 @@ export const ButtonLined = styled.button`
   justify-content: center;
   align-items: center;
   padding: 8px 16px;
-  font-size: ${({ theme }) => theme.fontSize['s']};
+  ${({ theme }) => theme.typography.pm};
 `
 
 export const ButtonDarkPlay = styled.button`
@@ -90,7 +90,7 @@ export const ButtonDarkPlay = styled.button`
   justify-content: center;
   align-items: center;
   padding: 8px 16px;
-  font-size: ${({ theme }) => theme.fontSize['m']};
+  ${({ theme }) => theme.typography.pm};
   font-weight: 600;
   position: absolute;
   bottom: 48px;

@@ -21,14 +21,14 @@ export const Row = styled.div`
 `
 
 export const Title = styled.h3`
-  font-size: ${({ theme }) => theme.fontSize['xl']};
+  ${({ theme }) => theme.typography.h3};
   font-weight: 600;
   color: ${({ theme }) => theme.grayScale[5]};
   text-align: center;
 `
 
 export const FeatureItem = styled.li`
-  font-size: ${({ theme }) => theme.fontSize['s']};
+  ${({ theme }) => theme.typography.pm};
   font-weight: 800;
   color: ${({ theme }) => theme.grayScale[4]};
   display: flex;

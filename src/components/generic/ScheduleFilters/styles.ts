@@ -51,9 +51,8 @@ export const Notifier = styled.div`
   
   & span {
     color: ${({ theme }) => theme.grayScale[3]};
-    font-size: ${({ theme }) => theme.fontSize.s};
+    ${({ theme }) => theme.typography.pm};
     font-weight: 500;
-    line-height: ${({ theme }) => theme.fontSize.xl};
   }
 `
 

@@ -63,7 +63,7 @@ export const ImageProduct = styled.div`
 
 export const CardContent = styled.div`
   padding: 16px 24px 32px 24px;
-  height: 132px;
+  height: 152px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -73,7 +73,7 @@ export const CardContent = styled.div`
 `
 
 export const TitleLink = styled.a`
-  font-size: ${({ theme }) => theme.fontSize['xl']};
+  ${({ theme }) => theme.typography.h3};
   font-weight: 600;
   color: ${({ theme }) => theme.grayScale[4]};
   cursor: pointer;
@@ -83,11 +83,12 @@ export const Description = styled.div`
   display: flex;
   flex-wrap: wrap;
   height: 24px;
+  align-items: baseline;
   a {
     margin-right: 8px;
-    font-size: ${({ theme }) => theme.fontSize['s']};
+    ${({ theme }) => theme.typography.pm};
     color: ${({ theme }) => theme.grayScale[3]};
-    font-weight: 500;
+    font-weight: 400;
     text-decoration: none;
     &:hover {
       text-decoration: underline;
@@ -100,21 +101,25 @@ export const ScheduleButton = styled.div`
 `
 export const Price = styled.div`
   display: flex;
+  align-items: baseline;
 `
 
-export const BeforePrice = styled.div`
-  margin-top: 5px;
+export const BeforePrice = styled.span`
   color: ${({ theme }) => theme.grayScale[2]};
-  font-size: ${({ theme }) => theme.fontSize['s']};
+  ${({ theme }) => theme.typography.pm};
+  margin-right: 4px;
 `
-export const PriceValue = styled.div`
+export const PriceValue = styled.span`
   color: ${({ theme }) => theme.grayScale[4]};
-  font-size: ${({ theme }) => theme.fontSize['l']};
+  ${({ theme }) => theme.typography.h4};
+  margin-right: 4px;
+  font-weight: 500;
 `
-export const PriceSuffix = styled.div`
-  margin-top: 6px;
+export const PriceSuffix = styled.span`
   color: ${({ theme }) => theme.grayScale[4]};
   font-size: ${({ theme }) => theme.fontSize['xs']};
+  line-height: 24px;
+  font-weight: 500;
 `
 export const Row = styled.div`
   display: flex;
@@ -127,7 +132,7 @@ export const Right = styled.div``
 export const TopImageTag = styled.span`
   position: absolute;
   background-color: ${({ theme }) => theme.primary[2]};
-  font-size: ${({ theme }) => theme.fontSize['xs']};
+  ${({ theme }) => theme.typography.ps};
   font-weight: 500;
   border-radius: 0 0 8px 8px;
   padding: 2px 16px;
@@ -198,13 +203,14 @@ export const ContentColumn = styled.div`
 
 export const InfoItem = styled.div`
   color: ${({ theme }) => theme.grayScale[0]};
-  font-size: ${({ theme }) => theme.fontSize['xs']};
+  ${({ theme }) => theme.typography.h6};
   font-weight: 500;
-  line-height: 16px;
+  & span {
+    margin-right: 4px;
+  }
 `
 
 export const WorkingDaysWrapper = styled.div`
-  position: absolute;
   width: 100%;
   background: ${({ theme }) => theme.grayScale[0]};
   z-index: 50;
@@ -217,7 +223,7 @@ export const PhotoCounter = styled.div`
   span {
     margin-left: 4px;
     color: ${({ theme }) => theme.grayScale[0]};
-    font-size: ${({ theme }) => theme.fontSize['xs']};
+    ${({ theme }) => theme.typography.ps};
     font-weight: 600;
   }
 `

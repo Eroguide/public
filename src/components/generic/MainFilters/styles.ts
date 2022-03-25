@@ -39,8 +39,7 @@ export const Row = styled.div`
     flex-flow: nowrap row;
     flex-grow: 1;
     color: ${({ theme }) => theme.grayScale[3]};
-    font-size: ${({ theme }) => theme.fontSize.xs};
-    line-height: ${({ theme }) => theme.fontSize.m};
+    ${({ theme }) => theme.typography.h6};
     margin: 0 8px;
     flex-shrink: 0;
   }

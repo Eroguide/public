@@ -117,7 +117,7 @@ export const MemberSince = styled.span`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: ${({ theme }) => theme.fontSize['xs']};
+  ${({ theme }) => theme.typography.ps};
   margin-top: 32px;
 `
 
@@ -131,7 +131,7 @@ export const LastCheckDate = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: ${({ theme }) => theme.fontSize['xs']};
+  ${({ theme }) => theme.typography.ps};
   margin-bottom: 24px;
 `
 

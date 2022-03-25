@@ -60,7 +60,7 @@ export const ImageOverlay = styled.div`
 `
 
 export const Title = styled.h4`
-  font-size: ${({ theme }) => theme.fontSize['xl']};
+  ${({ theme }) => theme.typography.h3};
   font-weight: 600;
   color: ${({ theme }) => theme.grayScale[0]};
   margin: 0;
@@ -68,7 +68,7 @@ export const Title = styled.h4`
 `
 
 export const CounterText = styled.span`
-  font-size: ${({ theme }) => theme.fontSize['m']};
+  ${({ theme }) => theme.typography.pl};
   font-weight: 600;
   color: ${({ theme }) => theme.primary[0]};
   margin-left: 4px;
@@ -85,7 +85,7 @@ export const InformationContent = styled.div`
 export const Description = styled.h5`
   display: flex;
   flex-wrap: wrap;
-  font-size: ${({ theme }) => theme.fontSize['s']};
+  ${({ theme }) => theme.typography.h5};
   height: 24px;
   font-weight: 600;
   margin-right: 8px;
@@ -97,7 +97,7 @@ export const Description = styled.h5`
 `
 
 export const CounterAvailable = styled.div`
-  font-size: ${({ theme }) => theme.fontSize['xl']};
+  ${({ theme }) => theme.typography.h3};
   font-weight: 600;
   color: ${({ theme }) => theme.grayScale[0]};
   display: flex;
@@ -139,7 +139,7 @@ export const RatingValue = styled.span`
   display: flex;
   justify-content: center;
   color: white;
-  font-size: ${({ theme }) => theme.fontSize.xl};
+  ${({ theme }) => theme.typography.h3};
 `
 
 export const SmallGallery = styled.div`
@@ -182,7 +182,7 @@ export const WorkingHoursTag = styled.span`
   width: 42px;
   height: 16px;
   font-weight: 600;
-  font-size: ${({ theme }) => theme.fontSize.xxs};
+  ${({ theme }) => theme.typography.h7};
   border-radius: 32px;
   background-color: white;
   display: flex;
@@ -209,21 +209,21 @@ export const BottomRow = styled.div`
 
 export const TitleName = styled.h5`
   color: ${({ theme }) => theme.grayScale[0]};
-  font-size: ${({ theme }) => theme.fontSize['s']};
+  ${({ theme }) => theme.typography.h5};
   font-weight: 600;
   margin-right: 4px;
 `
 
 export const Counter = styled.span`
   color: ${({ theme }) => theme.grayScale[0]};
-  font-size: ${({ theme }) => theme.fontSize['xxl']};
+  ${({ theme }) => theme.typography.h2};
   font-weight: 600;
   margin-left: -24px;
 `
 
 export const CounterTitle = styled.span`
   color: ${({ theme }) => theme.grayScale[0]};
-  font-size: ${({ theme }) => theme.fontSize['s']};
+  ${({ theme }) => theme.typography.h5};
   font-weight: 600;
   margin-right: 4px;
 `

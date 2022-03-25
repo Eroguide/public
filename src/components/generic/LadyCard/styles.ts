@@ -32,7 +32,7 @@ export const Tag = styled.span`
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: ${({ theme }) => theme.fontSize.s};
+  ${({ theme }) => theme.typography.pm};
   color: ${({ theme }) => theme.primary[0]};
 `
 
@@ -58,7 +58,7 @@ export const Circle = styled.span`
 
 export const Title = styled.p`
   margin-top: 8px;
-  font-size: ${({ theme }) => theme.fontSize.xs};
+  ${({ theme }) => theme.typography.ps};
   font-weight: 600;
   color: ${({ theme }) => theme.grayScale[5]};
 `

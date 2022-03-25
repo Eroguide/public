@@ -73,7 +73,7 @@ export const Tag = styled.div`
   justify-content: center;
   align-items: center;
   padding: 4px 16px;
-  font-size: ${({ theme }) => theme.fontSize['m']};
+  ${({ theme }) => theme.typography.pl};
   font-weight: 600;
   cursor: pointer;
   margin: 4px;

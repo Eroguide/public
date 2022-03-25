@@ -5,7 +5,7 @@ export const ChevronTitle = styled.span<{
 }>`
   color: ${({ theme, bgColor }) =>
     bgColor === 'white' ? `${theme.grayScale[0]}` : `${theme.support[2]}`};
-  font-size: ${({ theme }) => theme.fontSize['s']};
+  ${({ theme }) => theme.typography.pm};
   font-weight: 500;
 `
 

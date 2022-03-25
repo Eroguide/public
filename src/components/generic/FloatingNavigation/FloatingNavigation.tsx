@@ -23,6 +23,7 @@ import BlogIcon from '/public/img/blog-nav-icon.svg'
 import AboutIcon from '/public/img/about-nav-icon.svg'
 import { CtaWidget } from '@/components/widgets/CtaWidget'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 
 export type MobileNavItemType = {
   id: string
@@ -31,6 +32,7 @@ export type MobileNavItemType = {
   icon: JSX.Element | React.ReactNode
   href: string
   isActive?: boolean
+  slug?: string
 }
 export type MobileNavList = Record<string, Array<MobileNavItemType>>
 
@@ -42,6 +44,7 @@ const navItemList: MobileNavList = {
       title: 'Hledat',
       counter: 213,
       href: '/search',
+      slug: 'search',
     },
   ],
   firstNavGroup: [
@@ -51,6 +54,7 @@ const navItemList: MobileNavList = {
       title: 'Nové',
       counter: 213,
       href: '/gallery',
+      slug: 'gallery',
     },
     {
       id: 'sadasdsdssdsdssdsda',
@@ -58,6 +62,7 @@ const navItemList: MobileNavList = {
       title: 'Top',
       counter: 213,
       href: '/gallery',
+      slug: 'gallery',
     },
     {
       id: 'sadasdsddscccdsdssdsda',
@@ -65,6 +70,7 @@ const navItemList: MobileNavList = {
       title: 'Na směně',
       counter: 213,
       href: '/gallery',
+      slug: 'gallery',
     },
     {
       id: 'sssc222cz',
@@ -72,6 +78,7 @@ const navItemList: MobileNavList = {
       title: 'Na směně',
       counter: 213,
       href: '/gallery',
+      slug: 'gallery',
     },
     {
       id: 'dsaxsdds',
@@ -79,6 +86,7 @@ const navItemList: MobileNavList = {
       title: 'Masážní salóny',
       counter: 213,
       href: '/salons',
+      slug: 'salons',
     },
     {
       id: 'dffaaa',
@@ -86,6 +94,7 @@ const navItemList: MobileNavList = {
       title: 'Privátní slečny',
       counter: 22,
       href: '/gallery/privat',
+      slug: 'privat',
     },
     {
       id: '421fdfd',
@@ -93,6 +102,7 @@ const navItemList: MobileNavList = {
       title: 'Privátní salony',
       counter: 44,
       href: '/salons',
+      slug: 'salons',
     },
   ],
   secondNavGroup: [
@@ -101,38 +111,43 @@ const navItemList: MobileNavList = {
       icon: <AboutIcon />,
       title: 'O nás',
       href: '/about',
+      slug: 'about',
     },
     {
       id: 'ds434ax',
       icon: <BlogIcon />,
       title: 'Blog',
       href: '/blog',
+      slug: 'blog',
     },
     {
       id: 'df434faaa',
       icon: <InfoIcon />,
       title: 'F.A.Q',
       href: '/faq',
+      slug: 'faq',
     },
     {
       id: '421f4343dfd',
       icon: <ThumbIcon />,
       title: 'Podpora',
       href: '/support',
+      slug: 'support',
     },
   ],
 }
 
 export const NavItemComponent: React.FC<MobileNavItemType> = ({
+  id,
   icon,
   title,
   counter,
   href,
-  isActive,
 }) => {
+  const { asPath } = useRouter()
   return (
     <Link href={href} passHref>
-      <NavItem isActive={isActive}>
+      <NavItem isActive={href === asPath}>
         <IconWrapper>{icon}</IconWrapper>
         <Title>{title}</Title>
         {counter && <Counter>{counter}</Counter>}
@@ -149,7 +164,6 @@ export const FloatingNavigation: React.FC = () => {
           <NavSection>
             {navItemList.searchNavGroup[0] && (
               <NavItemComponent
-                isActive={true}
                 key={navItemList.searchNavGroup[0].id}
                 {...navItemList.searchNavGroup[0]}
               />

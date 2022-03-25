@@ -21,15 +21,14 @@ export const Left = styled.div`
 `
 
 export const Title = styled.span`
-  font-size: ${({ theme }) => theme.fontSize.xl};
+  ${({ theme }) => theme.typography.h4};
   color: ${({ theme }) => theme.grayScale[5]};
   font-weight: 500;
   margin-right: 4px;
-  line-height: 24px;
 `
 
 export const Details = styled.span`
-  font-size: ${({ theme }) => theme.fontSize.xs};
+  ${({ theme }) => theme.typography.ps};
   color: ${({ theme }) => theme.grayScale[3]};
 `
 
@@ -44,7 +43,7 @@ export const IconWrapper = styled.div`
 export const Timer = styled.div`
   display: flex;
   align-items: center;
-  font-size: ${({ theme }) => theme.fontSize.xxs};
+  ${({ theme }) => theme.typography.h7};
   color: ${({ theme }) => theme.grayScale[3]};
   width: 100%;
   margin: 12px 0;
@@ -105,19 +104,17 @@ export const IconsRow = styled.div`
 `
 
 export const Price = styled.span`
-  font-size: ${({ theme }) => theme.fontSize.xl};
+  ${({ theme }) => theme.typography.h3};
   color: ${({ theme }) => theme.grayScale[5]};
   font-weight: 600;
   height: 40px;
   display: flex;
-  line-height: 32px;
   align-items: flex-end;
 `
 
 export const Suffix = styled.span`
-  font-size: ${({ theme }) => theme.fontSize.s};
+  ${({ theme }) => theme.typography.pm};
   font-weight: 600;
-  line-height: 28px;
   display: flex;
   align-items: flex-end;
 `
@@ -148,7 +145,7 @@ export const IconWrapperHiddenContent = styled.div`
 export const Description = styled.span<{
   isOpen: boolean
 }>`
-  font-size: ${({ theme }) => theme.fontSize.s};
+  ${({ theme }) => theme.typography.pm};
   color: ${({ theme }) => theme.grayScale[3]};
   height: ${({ isOpen }) => (isOpen ? 'auto' : 0)};
   margin-top: ${({ isOpen }) => (isOpen ? '32px' : 0)};

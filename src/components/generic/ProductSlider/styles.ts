@@ -40,7 +40,7 @@ export const BottomRow = styled.div`
 
 export const Left = styled.span`
   display: flex;
-  font-size: ${({ theme }) => theme.fontSize['s']};
+  ${({ theme }) => theme.typography.pm};
   color: ${({ theme }) => theme.grayScale[3]};
 `
 

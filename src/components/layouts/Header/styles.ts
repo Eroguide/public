@@ -61,7 +61,7 @@ export const NavLink = styled.a`
 `
 
 export const LocationText = styled.p`
-  font-size: ${({ theme }) => theme.fontSize.s};
+  ${({ theme }) => theme.typography.pm};
   color: ${({ theme }) => theme.grayScale[3]};
   font-weight: 600;
 `

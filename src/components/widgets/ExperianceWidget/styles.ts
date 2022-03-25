@@ -30,7 +30,7 @@ export const IconWrapper = styled.div`
 `
 
 export const Description = styled.p`
-  font-size: ${({ theme }) => theme.fontSize.xs};
+  ${({ theme }) => theme.typography.ps};
   color: ${({ theme }) => theme.grayScale[3]};
 `
 
@@ -45,7 +45,7 @@ export const ParametersAnnotation = styled.ul`
 `
 
 export const ParametersItem = styled.li`
-  font-size: ${({ theme }) => theme.fontSize.xs};
+  ${({ theme }) => theme.typography.h6};
   color: ${({ theme }) => theme.grayScale[5]};
   margin-right: 40px;
   display: flex;
@@ -68,13 +68,13 @@ export const IconWrapperParameter = styled(IconWrapper)`
 
 export const Title = styled.span<{ isCrossed: boolean }>`
   margin-right: 4px;
-  font-size: ${({ theme }) => theme.fontSize.xs};
+  ${({ theme }) => theme.typography.h6};
   color: ${({ theme }) => theme.grayScale[5]};
   ${({ isCrossed }) => isCrossed && 'text-decoration: line-through;'};
 `
 
 export const Details = styled.span`
-  font-size: ${({ theme }) => theme.fontSize.xs};
+  ${({ theme }) => theme.typography.ps};
   color: ${({ theme }) => theme.primary[1]};
 `
 

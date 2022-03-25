@@ -104,7 +104,7 @@ export const Footer: React.FC = () => {
               </Block>
             </MiddleFooterSection>
             <EndFooterSection>
-              <CtaWidget isCentered />
+              <CtaWidget />
             </EndFooterSection>
           </SectionFooterWrap>
         </FooterInner>

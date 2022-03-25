@@ -13,5 +13,5 @@ export const Input = styled.input<{
   padding: 12px 16px;
   border-radius: 4px;
   border: 1px solid ${({ theme }) => theme.grayScale[2]};
-  font-size: ${({ theme }) => theme.fontSize['m']};
+  ${({ theme }) => theme.typography.pm};
 `

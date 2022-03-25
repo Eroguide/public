@@ -4,10 +4,12 @@ export const AccordionItemContainer = styled.div`
   width: 100%;
   flex-direction: column;
   display: flex;
+  max-width: 628px;
 `
 
-export const ItemTitle = styled.h4`
+export const ItemTitle = styled.h5`
   width: 100%;
+  ${({ theme }) => theme.typography.h5};
   display: flex;
 `
 
@@ -29,7 +31,7 @@ export const ItemContent = styled.div<{ isActive: boolean }>`
 
 export const FaqText = styled.p`
   width: 100%;
-  font-size: ${({ theme }) => theme.fontSize.s};
+  ${({ theme }) => theme.typography.pm};
   color: ${({ theme }) => theme.grayScale[3]};
   text-align: left;
   transition: 0.15s ease-in-out;

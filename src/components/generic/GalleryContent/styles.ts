@@ -32,7 +32,7 @@ export const Wrapper = styled.div`
 `
 
 export const PostsCounter = styled.span`
-  font-size: ${({ theme }) => theme.fontSize['m']};
+  ${({ theme }) => theme.typography.pm};
   font-weight: 600;
   color: ${({ theme }) => theme.grayScale[5]};
   margin-bottom: 56px;

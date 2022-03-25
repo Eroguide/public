@@ -8,7 +8,7 @@ export const NameWrapper = styled.div`
 `
 
 export const Name = styled.h2`
-  font-size: ${({ theme }) => theme.fontSize['xxl']};
+  ${({ theme }) => theme.typography.h2};
   font-weight: 800;
   color: ${({ theme }) => theme.grayScale[5]};
 `
@@ -19,7 +19,7 @@ export const ParametersList = styled.ul`
   border-radius: 28px;
   display: flex;
   flex-direction: column;
-  font-size: ${({ theme }) => theme.fontSize['s']};
+  ${({ theme }) => theme.typography.pm};
   margin-bottom: 24px;
   min-width: 300px;
   ${({ theme }) => theme.media.md`
@@ -47,7 +47,7 @@ export const MemberSince = styled.span`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: ${({ theme }) => theme.fontSize['xs']};
+  ${({ theme }) => theme.typography.ps};
   margin-top: 32px;
 `
 
@@ -68,15 +68,14 @@ export const LastCheckDate = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: ${({ theme }) => theme.fontSize['xs']};
+  ${({ theme }) => theme.typography.ps};
   margin-bottom: 24px;
 `
 
 export const Prefix = styled.span`
   margin-right: 4px;
-  font-size: ${({ theme }) => theme.fontSize['m']};
+  ${({ theme }) => theme.typography.pl};
   color: ${({ theme }) => theme.grayScale[3]};
-  line-height: 24px;
 `
 
 export const ScheduleBlockWidget = styled.div`
@@ -114,8 +113,8 @@ export const SalonImage = styled.img`
   overflow: hidden;
 `
 
-export const TitleSalon = styled.h4`
-  font-size: ${({ theme }) => theme.fontSize['xl']};
+export const TitleSalon = styled.h3`
+  ${({ theme }) => theme.typography.h3};
   font-weight: 600;
   color: ${({ theme }) => theme.grayScale[5]};
   max-width: 125px;
@@ -141,22 +140,21 @@ export const Right = styled.div`
 `
 
 export const GlobusText = styled.span`
-  line-height: 24px;
   font-weight: 600;
-  font-size: ${({ theme }) => theme.fontSize['m']};
+  ${({ theme }) => theme.typography.pl};
   color: ${({ theme }) => theme.grayScale[5]};
   align-items: center;
   margin-left: 8px;
 `
 
 export const LocationText = styled.span`
-  font-size: ${({ theme }) => theme.fontSize['s']};
+  ${({ theme }) => theme.typography.pm};
   color: ${({ theme }) => theme.grayScale[3]};
   margin-left: 8px;
 `
 
 export const RatingSalon = styled.span`
-  font-size: ${({ theme }) => theme.fontSize['xl']};
+  ${({ theme }) => theme.typography.h3};
   font-weight: 600;
   color: ${({ theme }) => theme.support[2]};
 `

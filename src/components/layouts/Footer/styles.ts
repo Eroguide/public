@@ -74,10 +74,10 @@ export const UnderFooterLeft = styled.div`
   width: 30%;
   display: flex;
   color: ${({ theme }) => theme.grayScale[4]};
-  font-size: ${({ theme }) => theme.fontSize['xs']};
+  ${({ theme }) => theme.typography.ps};
   a {
     color: ${({ theme }) => theme.grayScale[3]};
-    font-size: ${({ theme }) => theme.fontSize['xs']};
+    ${({ theme }) => theme.typography.ps};
     text-decoration: none;
     margin: 0 4px;
     &:hover {
@@ -101,7 +101,7 @@ export const UnderFooterRight = styled.div`
   align-items: center;
   span {
     color: ${({ theme }) => theme.grayScale[4]};
-    font-size: ${({ theme }) => theme.fontSize['xs']};
+    ${({ theme }) => theme.typography.ps};
     text-decoration: none;
     margin-left: 32px;
     display: flex;

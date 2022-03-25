@@ -55,7 +55,7 @@ export const IconWrapper = styled.div`
   cursor: pointer;
 `
 export const Timer = styled.span<{ isActive?: boolean }>`
-  font-size: ${({ theme }) => theme.fontSize.m};
+  ${({ theme }) => theme.typography.h4};
   color: ${({ theme, isActive }) =>
     isActive ? theme.grayScale[4] : theme.grayScale[3]};
 `
@@ -87,7 +87,7 @@ export const TimeLine = styled.span<{ percentage: number }>`
 `
 
 export const Title = styled.span`
-  font-size: ${({ theme }) => theme.fontSize.xl};
+  ${({ theme }) => theme.typography.h3};
   color: ${({ theme }) => theme.grayScale[5]};
   font-weight: 600;
 `
@@ -111,16 +111,16 @@ export const Right = styled.div`
 `
 
 export const Genre = styled.span`
-  font-size: ${({ theme }) => theme.fontSize.m};
+  ${({ theme }) => theme.typography.h4};
   color: ${({ theme }) => theme.grayScale[3]};
 `
 
 export const UploadDate = styled.span`
-  font-size: ${({ theme }) => theme.fontSize.l};
+  ${({ theme }) => theme.typography.h4};
   color: ${({ theme }) => theme.grayScale[3]};
 `
 
 export const UploadTag = styled.span`
-  font-size: ${({ theme }) => theme.fontSize.m};
+  ${({ theme }) => theme.typography.h4};
   color: ${({ theme }) => theme.grayScale[3]};
 `

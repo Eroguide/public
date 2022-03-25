@@ -26,7 +26,7 @@ export const NameWrapper = styled.div`
 `
 
 export const Name = styled.h2`
-  font-size: ${({ theme }) => theme.fontSize['xl']};
+  ${({ theme }) => theme.typography.h3};
   font-weight: 800;
   color: ${({ theme }) => theme.grayScale[5]};
 `
@@ -44,7 +44,7 @@ export const MemberSince = styled.span`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: ${({ theme }) => theme.fontSize['xs']};
+  ${({ theme }) => theme.typography.ps};
   margin-top: 32px;
 `
 
@@ -75,13 +75,13 @@ export const Row = styled.div`
 `
 
 export const RatingSalon = styled.span`
-  font-size: ${({ theme }) => theme.fontSize['xl']};
+  ${({ theme }) => theme.typography.h3};
   font-weight: 600;
   color: ${({ theme }) => theme.support[2]};
 `
 
 export const LocationText = styled.span`
-  font-size: ${({ theme }) => theme.fontSize['s']};
+  ${({ theme }) => theme.typography.pm};
   color: ${({ theme }) => theme.grayScale[3]};
   margin-left: 8px;
 `

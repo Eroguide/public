@@ -28,7 +28,7 @@ export const Details = styled.span`
   padding: 16px 8px;
   background: white;
   border-radius: 8px;
-  font-size: ${({ theme }) => theme.fontSize.xs};
+  ${({ theme }) => theme.typography.ps};
   color: ${({ theme }) => theme.grayScale[5]};
   visibility: hidden;
 `
@@ -42,7 +42,7 @@ export const MapPin = styled.div<{ type: string }>`
   justify-content: center;
   align-items: center;
   border: 4px solid ${({ theme }) => theme.grayScale[0]};
-  font-size: ${({ theme }) => theme.fontSize['s']};
+  ${({ theme }) => theme.typography.h5};
   font-weight: 600;
   color: white;
   position: relative;

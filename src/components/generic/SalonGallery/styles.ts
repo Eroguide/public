@@ -25,7 +25,7 @@ export const LeftFilters = styled.div`
 `
 
 export const Counter = styled.div`
-  font-size: ${({ theme }) => theme.fontSize['xxl']};
+  ${({ theme }) => theme.typography.h2};
   font-weight: 600;
   color: ${({ theme }) => theme.grayScale[5]};
 `

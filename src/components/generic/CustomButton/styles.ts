@@ -9,7 +9,7 @@ export const IconWrapperChevron = styled.span`
   margin: 0 8px;
   justify-content: center;
   align-items: center;
-  font-size: ${({ theme }) => theme.fontSize['s']};
+  ${({ theme }) => theme.typography.pm};
   font-weight: 600;
   color: ${({ theme }) => theme.grayScale[2]};
 `
@@ -24,7 +24,7 @@ export const Button = styled.button<StyledComponentProps>`
   background-color: ${({ theme, styleType }) =>
     theme.button.background[styleType]};
   color: ${({ theme, styleType }) => theme.button.color[styleType]};
-  font-size: ${({ theme }) => theme.fontSize['s']};
+  ${({ theme }) => theme.typography.pm};
   line-height: ${({ theme, sizeType }) =>
     sizeType ? theme.button.height[sizeType] : '24px'};
   position: relative;
@@ -101,7 +101,7 @@ export const ButtonLink = styled.a<StyledComponentProps>`
   background-color: ${({ theme, styleType }) =>
     theme.button.background[styleType]};
   color: ${({ theme, styleType }) => theme.button.color[styleType]};
-  font-size: ${({ theme }) => theme.fontSize['s']};
+  ${({ theme }) => theme.typography.pm};
   line-height: ${({ theme, sizeType }) =>
     sizeType ? theme.button.height[sizeType] : '24px'};
   position: relative;

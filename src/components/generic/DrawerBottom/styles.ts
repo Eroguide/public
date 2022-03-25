@@ -71,7 +71,7 @@ export const InnerContent = styled.div`
 
 export const TextContent = styled.p`
   color: ${({ theme }) => theme.grayScale[4]};
-  font-size: ${({ theme }) => theme.fontSize['m']};
+  ${({ theme }) => theme.typography.pm};
   margin: 56px auto;
   padding: 0 124px;
 

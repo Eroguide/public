@@ -15,7 +15,7 @@ export const NameWrapper = styled.div`
 `
 
 export const Name = styled.h2`
-  font-size: ${({ theme }) => theme.fontSize['xxl']};
+  ${({ theme }) => theme.typography.h2};
   font-weight: 800;
   color: ${({ theme }) => theme.grayScale[5]};
 `
@@ -26,7 +26,7 @@ export const ParametersList = styled.ul`
   border-radius: 28px;
   display: flex;
   flex-direction: column;
-  font-size: ${({ theme }) => theme.fontSize['s']};
+  ${({ theme }) => theme.typography.pm};
   margin-bottom: 24px;
 
   ${({ theme }) => theme.media.md`
@@ -54,7 +54,7 @@ export const MemberSince = styled.span`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: ${({ theme }) => theme.fontSize['xs']};
+  ${({ theme }) => theme.typography.ps};
   margin-top: 32px;
 `
 
@@ -77,7 +77,7 @@ export const LastCheckDate = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: ${({ theme }) => theme.fontSize['xs']};
+  ${({ theme }) => theme.typography.ps};
   margin-bottom: 24px;
 `
 
@@ -89,23 +89,20 @@ export const PriceBlock = styled.div`
 `
 export const Prefix = styled.span`
   margin-right: 4px;
-  font-size: ${({ theme }) => theme.fontSize['m']};
+  ${({ theme }) => theme.typography.pl};
   color: ${({ theme }) => theme.grayScale[3]};
-  line-height: 24px;
 `
 
 export const Price = styled.span`
   margin-right: 4px;
-  font-size: ${({ theme }) => theme.fontSize['xxl']};
+  ${({ theme }) => theme.typography.h2};
   font-weight: 600;
   color: ${({ theme }) => theme.grayScale[5]};
-  line-height: 24px;
 `
 
 export const Suffix = styled.span`
-  line-height: 24px;
   font-weight: 600;
-  font-size: ${({ theme }) => theme.fontSize['m']};
+  ${({ theme }) => theme.typography.pl};
   color: ${({ theme }) => theme.grayScale[5]};
 `
 

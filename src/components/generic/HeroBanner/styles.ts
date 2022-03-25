@@ -29,23 +29,21 @@ export const HeroBannerContainer = styled.div`
 `
 
 export const HeroTitle = styled.h1`
-  font-size: ${({ theme }) => theme.fontSize.extra};
+  ${({ theme }) => theme.typography.extra};
   font-weight: 800;
   color: ${({ theme }) => theme.grayScale[4]};
   margin: 0;
   max-width: 500px;
-  line-height: 80px;
 
   ${({ theme }) => theme.media.mobile`
-     font-size: ${theme.fontSize.extraMobile};
-     line-height:${theme.fontSize.extraMobile};
+    ${theme.typography.extraMobile}
       margin: 0 auto;
   `}
 `
 
 export const HeroSubtitle = styled.h2`
   margin: 40px 0 0 0;
-  font-size: 24px;
+  ${({ theme }) => theme.typography.h2};
   font-weight: 600;
   color: ${({ theme }) => theme.primary[0]};
   max-width: 500px;

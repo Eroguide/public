@@ -25,7 +25,7 @@ export const ReactPaginateStyled = styled(ReactPaginate)`
   li.next,
   li.previous {
     color: ${({ theme }) => theme.grayScale[4]};
-    font-size: ${({ theme }) => theme.fontSize.s};
+    ${({ theme }) => theme.typography.pm};
     cursor: pointer;
     font-weight: 600;
     margin: 0 12px;
@@ -60,7 +60,7 @@ export const ReactPaginateStyled = styled(ReactPaginate)`
     background-color: ${({ theme }) => theme.grayScale[0]};
     border-radius: 4px;
     color: ${({ theme }) => theme.grayScale[3]};
-    font-size: ${({ theme }) => theme.fontSize.s};
+    ${({ theme }) => theme.typography.pm};
     margin: 0 2px;
     a {
       height: 100%;

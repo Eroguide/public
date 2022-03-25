@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 
 export const FilterScrollContainer = styled.div`
-  height: 64px;
+  height: 100%;
   width: calc(100% - 64px);
   display: flex;
   align-items: center;
@@ -16,10 +16,7 @@ export const Line = styled.div`
 
 export const FilterCategory = styled.div<{ isActive: boolean }>`
   display: flex;
-  margin-right: 48px;
   align-items: center;
-  min-width: 120px;
-  width: 50%;
   justify-content: flex-start;
   flex-wrap: wrap;
   ${({ isActive, theme }) =>
@@ -38,6 +35,15 @@ export const InnerContainer = styled.div`
   display: flex;
   width: 100%;
   position: relative;
+  align-items: center;
+  height: 100%;
+  & .swiper {
+    width: 100%;
+    display: flex;
+  }
+  & .swiper-slide {
+    width: auto;
+  }
   &::after {
     content: '';
     position: absolute;
@@ -55,7 +61,7 @@ export const InnerContainer = styled.div`
 `
 
 export const CategoryTitle = styled.span`
-  font-size: 24px;
+  ${({ theme }) => theme.typography.h3};
   font-weight: 600;
   color: #40404a;
   white-space: nowrap;
@@ -76,7 +82,7 @@ export const FlexRow = styled.div`
 
 export const FilterCounter = styled.span`
   display: flex;
-  font-size: 10px;
+  ${({ theme }) => theme.typography.h7};
   font-weight: 600;
   color: #a0a0b0;
   width: 32px;

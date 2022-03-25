@@ -39,14 +39,14 @@ export const FormSection = styled.div`
 `
 
 export const FormTitle = styled.h4`
-  font-size: ${({ theme }) => theme.fontSize['l']};
+  ${({ theme }) => theme.typography.h4};
   color: ${({ theme }) => theme.grayScale[5]};
   font-weight: 500;
   margin-bottom: 24px;
 `
 
 export const FormDescription = styled.p`
-  font-size: ${({ theme }) => theme.fontSize['xs']};
+  ${({ theme }) => theme.typography.ps};
   color: ${({ theme }) => theme.grayScale[5]};
 `
 

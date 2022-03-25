@@ -30,7 +30,7 @@ const typography = {
 }
 
 for (const [key, value] of Object.entries(typography)) {
-  typography[key] = `font-size: ${value.s}px; font-height:${value.s}px;`
+  typography[key] = `font-size: ${value.s}px; line-height:${value.h}px;`
 }
 
 console.log('typography', typography)

@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 
 export const Label = styled.span<{ forFilter?: boolean }>`
-  font-size: ${({ theme }) => theme.fontSize['m']};
+  ${({ theme }) => theme.typography.pl};
   font-weight: ${({ forFilter }) => (forFilter ? 400 : 600)};
   margin-left: 16px;
 `

@@ -23,13 +23,13 @@ export const Inner = styled.div`
 
 export const ParameterLabel = styled.span`
   font-weight: 400;
-  font-size: ${({ theme }) => theme.fontSize.m};
+  ${({ theme }) => theme.typography.h4};
   color: ${({ theme }) => theme.grayScale[5]};
 `
 
 export const ParameterValue = styled.span`
   font-weight: 600;
-  font-size: ${({ theme }) => theme.fontSize.xl};
+  ${({ theme }) => theme.typography.h3};
   color: ${({ theme }) => theme.grayScale[5]};
 `
 

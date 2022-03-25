@@ -24,7 +24,7 @@ export const Card = styled.div`
 `
 
 export const Title = styled.h4`
-  font-size: ${({ theme }) => theme.fontSize.xl};
+  ${({ theme }) => theme.typography.h3};
   color: ${({ theme }) => theme.grayScale[5]};
   font-weight: 600;
   margin-top: 64px;
@@ -37,7 +37,7 @@ export const ButtonsGroup = styled.div`
 `
 
 export const SubTitle = styled.p`
-  font-size: ${({ theme }) => theme.fontSize.s};
+  ${({ theme }) => theme.typography.pm};
   color: ${({ theme }) => theme.grayScale[3]};
 `
 

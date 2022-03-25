@@ -24,26 +24,26 @@ export const TitleSection = styled.section`
 `
 
 export const SmallTitle = styled.h5`
-  font-size: ${({ theme }) => theme.fontSize.xs};
+  ${({ theme }) => theme.typography.ps};
   color: ${({ theme }) => theme.grayScale[3]};
   font-weight: 500;
   margin-bottom: 8px;
 `
 
 export const LargeTitle = styled.h1`
-  font-size: ${({ theme }) => theme.fontSize.xxl};
+  ${({ theme }) => theme.typography.h2};
   color: ${({ theme }) => theme.grayScale[5]};
   margin-bottom: 8px;
 `
 
 export const MediumTitle = styled.h3`
-  font-size: ${({ theme }) => theme.fontSize.xl};
+  ${({ theme }) => theme.typography.h3};
   color: ${({ theme }) => theme.grayScale[5]};
   margin-bottom: 24px;
 `
 
-export const SubTitle = styled.h2`
-  font-size: ${({ theme }) => theme.fontSize.m};
+export const SubTitle = styled.h4`
+  ${({ theme }) => theme.typography.h4};
   color: ${({ theme }) => theme.grayScale[3]};
   margin-bottom: 8px;
   font-weight: 400;

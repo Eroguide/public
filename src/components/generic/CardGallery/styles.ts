@@ -24,7 +24,7 @@ export const MessageBox = styled.span`
   height: 300px;
   justify-content: center;
   align-items: center;
-  font-size: ${({ theme }) => theme.fontSize.xl};
+  ${({ theme }) => theme.typography.h3};
   color: ${({ theme }) => theme.grayScale[2]};
 `
 
@@ -64,7 +64,7 @@ export const LeftFilters = styled.div`
 `
 
 export const Counter = styled.div`
-  font-size: ${({ theme }) => theme.fontSize['xxl']};
+  ${({ theme }) => theme.typography.h2};
   font-weight: 600;
   color: ${({ theme }) => theme.grayScale[5]};
 `

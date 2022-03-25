@@ -66,7 +66,7 @@ export const IconWrapper = styled.div`
 
 export const Title = styled.span`
   color: ${({ theme }) => theme.grayScale[3]};
-  font-size: ${({ theme }) => theme.fontSize['s']};
+  ${({ theme }) => theme.typography.h6};
   font-weight: 600;
   transition: color 0.2s ease-in-out;
 `
@@ -80,7 +80,7 @@ export const Counter = styled.span`
   border-radius: 8px;
   margin-left: 8px;
   border: 1px solid ${({ theme }) => theme.grayScale[2]};
-  font-size: ${({ theme }) => theme.fontSize['xxs']};
+  ${({ theme }) => theme.typography.h7};
   transition: color 0.2s ease-in-out, border 0.2s ease-in-out;
 `
 
@@ -90,7 +90,23 @@ export const NavItem = styled.div<{ isActive: boolean }>`
   align-items: center;
   display: flex;
   transition: color 0.2s ease-in-out;
-
+  ${({ isActive, theme }) =>
+    isActive &&
+    `   transition: color 0.2s ease-in-out;
+    cursor: pointer;
+    ${Title} {
+      transition: color 0.2s ease-in-out;
+      color: ${theme.grayScale[5]};
+    }
+    ${Counter} {
+      transition: color 0.2s ease-in-out, border 0.2s ease-in-out;
+      color: ${theme.grayScale[5]};
+      border: 1px solid ${theme.grayScale[5]};
+    }
+    svg path {
+      transition: stroke 0.2s ease-in-out;
+      stroke: ${theme.primary[0]};
+    }`};
   &:hover {
     transition: color 0.2s ease-in-out;
     cursor: pointer;

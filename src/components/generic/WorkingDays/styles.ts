@@ -95,7 +95,7 @@ export const Time = styled.span`
 `
 
 export const DateTop = styled.span`
-  font-size: ${({ theme }) => theme.fontSize['xxs']};
+  ${({ theme }) => theme.typography.h7};
   color: ${({ theme }) => theme.grayScale[2]};
   margin-bottom: 8px;
 `

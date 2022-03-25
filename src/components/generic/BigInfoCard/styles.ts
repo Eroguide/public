@@ -39,7 +39,7 @@ export const Details = styled.p`
 
 export const Title = styled.h4`
   color: ${({ theme }) => theme.grayScale[4]};
-  font-size: ${({ theme }) => theme.fontSize.xl};
+  ${({ theme }) => theme.typography.h3};
 `
 
 export const Content = styled.div`

@@ -49,12 +49,12 @@ export const Left = styled.div`
 
 export const Title = styled.h4`
   color: ${({ theme }) => theme.grayScale[0]};
-  font-size: ${({ theme }) => theme.fontSize.l};
+  ${({ theme }) => theme.typography.h4};
 `
 
 export const Subtitle = styled.p`
   color: ${({ theme }) => theme.grayScale[0]};
-  font-size: ${({ theme }) => theme.fontSize.xxs};
+  ${({ theme }) => theme.typography.h7};
 `
 
 export const Right = styled.div`

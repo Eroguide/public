@@ -81,7 +81,7 @@ export const TitleLink = styled.a`
 export const Description = styled.div`
   display: flex;
   flex-wrap: wrap;
-  font-size: ${({ theme }) => theme.fontSize['s']};
+  ${({ theme }) => theme.typography.pm};
   height: 24px;
   font-weight: 600;
   a {
@@ -104,11 +104,11 @@ export const Price = styled.div`
 export const BeforePrice = styled.div`
   margin-top: 5px;
   color: ${({ theme }) => theme.grayScale[2]};
-  font-size: ${({ theme }) => theme.fontSize['s']};
+  ${({ theme }) => theme.typography.pm};
 `
 export const PriceValue = styled.div`
   color: ${({ theme }) => theme.grayScale[4]};
-  font-size: ${({ theme }) => theme.fontSize['l']};
+  ${({ theme }) => theme.typography.h4};
 `
 export const PriceSuffix = styled.div`
   margin-top: 6px;
@@ -126,7 +126,7 @@ export const Right = styled.div``
 export const TopImageTag = styled.span`
   position: absolute;
   background-color: ${({ theme }) => theme.primary[2]};
-  font-size: ${({ theme }) => theme.fontSize['xxs']};
+  ${({ theme }) => theme.typography.h7};
   border-radius: 0 0 8px 8px;
   padding: 2px 16px;
   min-width: 60px;

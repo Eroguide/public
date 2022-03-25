@@ -72,6 +72,6 @@ export const Description = styled.div`
   display: flex;
   padding: 16px 8px;
   flex-wrap: wrap;
-  font-size: ${({ theme }) => theme.fontSize['m']};
+  ${({ theme }) => theme.typography.pl};
   font-weight: 600;
 `

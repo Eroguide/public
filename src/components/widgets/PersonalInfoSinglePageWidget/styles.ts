@@ -25,7 +25,7 @@ export const NameWrapper = styled.div`
 `
 
 export const Name = styled.h2`
-  font-size: ${({ theme }) => theme.fontSize['xxl']};
+  ${({ theme }) => theme.typography.h2};
   font-weight: 800;
   color: ${({ theme }) => theme.grayScale[5]};
 `
@@ -40,14 +40,13 @@ export const ReviewsCounter = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 8px 16px;
-  font-size: ${({ theme }) => theme.fontSize['s']};
+  ${({ theme }) => theme.typography.h5};
   cursor: pointer;
   text-decoration: none;
   margin-bottom: 24px;
   & span {
     height: 24px;
     padding: 0 2px;
-    line-height: 24px;
     display: flex;
     align-items: center;
   }
@@ -58,19 +57,19 @@ export const Parameter = styled.li`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: ${({ theme }) => theme.fontSize['s']};
+  ${({ theme }) => theme.typography.h5};
   text-decoration: none;
   margin-bottom: 8px;
 `
 
 export const ParameterTitle = styled.span`
-  font-size: ${({ theme }) => theme.fontSize['s']};
+  ${({ theme }) => theme.typography.pm};
   font-weight: 800;
   color: ${({ theme }) => theme.grayScale[2]};
 `
 
 export const ParameterCounter = styled.span`
-  font-size: ${({ theme }) => theme.fontSize['s']};
+  ${({ theme }) => theme.typography.pm};
   font-weight: 800;
   color: ${({ theme }) => theme.grayScale[3]};
 `
@@ -81,7 +80,7 @@ export const ParametersList = styled.ul`
   border-radius: 28px;
   display: flex;
   flex-direction: column;
-  font-size: ${({ theme }) => theme.fontSize['s']};
+  ${({ theme }) => theme.typography.pm};
   margin-bottom: 24px;
   min-width: 200px;
 `
@@ -99,7 +98,7 @@ export const MemberSince = styled.span`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: ${({ theme }) => theme.fontSize['xs']};
+  ${({ theme }) => theme.typography.ps};
   margin-top: 32px;
 `
 

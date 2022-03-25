@@ -27,7 +27,7 @@ export const TopLine = styled.div`
 
 export const Title = styled.h3`
   display: flex;
-  font-size: ${({ theme }) => theme.fontSize.xxl};
+  ${({ theme }) => theme.typography.h2};
   color: ${({ theme }) => theme.grayScale[4]};
 `
 

@@ -113,25 +113,28 @@ export const Card: React.FC<CardProps> = ({
           </CardImageWrapper>
           <CardContent>
             <Row>
-              {isOpenSchedule && (
+              {isOpenSchedule ? (
                 <WorkingDaysWrapper>
                   <WorkingDays />
                 </WorkingDaysWrapper>
+              ) : (
+                <>
+                  <Left>
+                    <TitleLink>Alesandra,23</TitleLink>
+                  </Left>
+                  <FavoriteButton
+                    isActive={isActive}
+                    onClick={() =>
+                      dispatch(FavoritesActions.addItem, {
+                        id,
+                        slug,
+                      })
+                    }
+                  >
+                    {isActive ? <HeartIcon /> : <HeartLinedIcon />}
+                  </FavoriteButton>
+                </>
               )}
-              <Left>
-                <TitleLink>Alesandra,23</TitleLink>
-              </Left>
-              <FavoriteButton
-                isActive={isActive}
-                onClick={() =>
-                  dispatch(FavoritesActions.addItem, {
-                    id,
-                    slug,
-                  })
-                }
-              >
-                {isActive ? <HeartIcon /> : <HeartLinedIcon />}
-              </FavoriteButton>
             </Row>
 
             <Row>
@@ -142,7 +145,7 @@ export const Card: React.FC<CardProps> = ({
                 </Description>
               </Left>
             </Row>
-            <Row>
+            <Row style={{ marginTop: '16px' }}>
               <Left>
                 <Price>
                   <BeforePrice>od </BeforePrice>

@@ -1,10 +1,8 @@
 import { ContentCta, SubTitleCta, TitleCta } from './styles'
 import { CustomButton } from '@/components/generic'
-export const CtaWidget: React.FC<{ isCentered?: boolean }> = ({
-  isCentered,
-}) => {
+export const CtaWidget: React.FC = () => {
   return (
-    <ContentCta isCentered={isCentered}>
+    <ContentCta>
       <TitleCta>Ještě ne s námi?</TitleCta>
       <SubTitleCta>Vytvořit svůj inzerat</SubTitleCta>
       <CustomButton styleType="primary" sizeType="medium" isLink href="/create">

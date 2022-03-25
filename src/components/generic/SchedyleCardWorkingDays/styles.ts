@@ -74,19 +74,19 @@ export const DayCard = styled.li`
 `
 
 export const Day = styled.span<{ isFree?: boolean }>`
-  font-size: ${({ theme }) => theme.fontSize['xs']};
+  ${({ theme }) => theme.typography.ps};
   color: ${({ theme, isFree }) =>
     isFree ? theme.grayScale[2] : theme.grayScale[4]};
 `
 
 export const Time = styled.span`
-  font-size: ${({ theme }) => theme.fontSize['xs']};
+  ${({ theme }) => theme.typography.h5};
   color: ${({ theme }) => theme.grayScale[5]};
   font-weight: 600;
 `
 
 export const DateTop = styled.span`
-  font-size: ${({ theme }) => theme.fontSize['xxs']};
+  ${({ theme }) => theme.typography.h7};
   color: ${({ theme }) => theme.grayScale[2]};
   margin-bottom: 8px;
 `

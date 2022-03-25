@@ -90,7 +90,7 @@ export const HeartCounterWrapper = styled.div<{ hasItems: boolean }>`
 //     : `fill: white; stroke: ${theme.grayScale[3]};`};
 export const Counter = styled.div`
   position: absolute;
-  font-size: 10px;
+  ${({ theme }) => theme.typography.h7};
   color: #ff005d;
   background-color: white;
   width: 16px;
