@@ -1,8 +1,10 @@
 import styled from '@emotion/styled'
 
 export const CardMainContainer = styled.div<{ inSwipe?: boolean }>`
-  width: ${({ inSwipe }) => (inSwipe ? '100%' : '628px')};
+  //width: ${({ inSwipe }) => (inSwipe ? '100%' : '628px')};
   min-width: 500px;
+  max-width: 641px;
+  width: 628px;
   flex-direction: column;
   border-radius: 32px;
   margin-bottom: 32px;
@@ -21,7 +23,7 @@ export const CardImageWrapper = styled.div`
   width: 100%;
   height: 296px;
   position: relative;
-  background: #ebebf0 url('/img/bg.jpg') no-repeat center top;
+  background: #ebebf0 url('/img/fake.png') no-repeat center top;
   background-size: cover;
   overflow: hidden;
 `

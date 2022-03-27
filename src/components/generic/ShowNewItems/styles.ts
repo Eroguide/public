@@ -4,9 +4,9 @@ export const ContentCardRowContainer = styled.div`
   width: 100%;
   padding: 0 9px;
   margin-top: 64px;
-  //.swiper {
-  //  overflow: visible;
-  //}
+  .swiper {
+    overflow: visible;
+  }
   ${({ theme }) => theme.media.mobile`
        padding: 0;
       .swiper {
@@ -20,12 +20,14 @@ export const TopLine = styled.div`
   justify-content: space-between;
   display: flex;
   align-items: center;
+  margin-bottom: 40px;
 `
 
 export const Title = styled.h3`
   display: flex;
   ${({ theme }) => theme.typography.h2};
   color: ${({ theme }) => theme.grayScale[4]};
+  font-weight: 600;
 `
 
 export const RightWidget = styled.div`
@@ -38,12 +40,29 @@ export const RightWidget = styled.div`
 `
 
 export const ContentRow = styled.div`
-  min-width: 1298px;
-  margin: 40px -9px 0 -9px;
+  //min-width: 1298px;
+  margin: 0 -9px;
+  .swiper {
+    overflow: visible;
+  }
+  & .swiper {
+    width: 100%;
+    display: flex;
+  }
+  & .swiper-slide {
+    width: auto;
+  }
+  ${({ theme }) => theme.media.mobile`
+       padding: 0;
+      .swiper {
+        overflow: hidden;
+      }
+  `}
   ${({ theme }) => theme.media.mobile`
        min-width: auto;
   `}
 `
+
 export const NextButton = styled.div``
 export const PrevButton = styled.div``
 export const NextPrevWrapper = styled.div`
@@ -60,6 +79,20 @@ export const NextPrevWrapper = styled.div`
     cursor: pointer;
   }
 `
+export const DateTag = styled.span<{ date: number }>`
+  margin-left: 12px;
+  margin-top: 8px;
+  font-weight: 600;
+  ${({ theme }) => theme.typography.h5};
+  ${({ theme, date }) =>
+    date === 1
+      ? `color: ${theme.primary[0]};`
+      : date === 2
+      ? `color: ${theme.primary[1]};`
+      : date === 3
+      ? `color: ${theme.primary[2]};`
+      : `color: ${theme.grayScale[3]};`};
+`
 
 export const TimeLine = styled.div<{ date: number; isLast: boolean }>`
   ${({ theme, date }) =>
@@ -71,12 +104,9 @@ export const TimeLine = styled.div<{ date: number; isLast: boolean }>`
       ? `background: ${theme.primary[2]};`
       : `background: ${theme.grayScale[3]};`};
   height: 8px;
+
   border-radius: 8px;
   margin-top: 32px;
   margin-left: 12px;
   width: ${({ isLast }) => (isLast ? `calc(99% - 12px);` : `105%;`)};
-`
-
-export const DateTag = styled.span`
-  margin-left: 12px;
 `

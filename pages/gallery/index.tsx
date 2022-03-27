@@ -2,6 +2,7 @@ import { NextPage } from 'next'
 import Head from 'next/head'
 import { BaseLayout } from '@/components/layouts/BaseLayout'
 import { CardGallery, TopLinePageContent } from '@/components/generic'
+import { SectionBlock } from '@/components/layouts/SectionBlock'
 
 const fixtures = [
   { id: '222dsadas', slug: 'one-project-time', best: 1 },
@@ -23,8 +24,12 @@ const Gallery: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <BaseLayout>
-        <TopLinePageContent />
-        <CardGallery cards={fixtures} title={'Ladies'} />
+        <SectionBlock>
+          <TopLinePageContent />
+        </SectionBlock>
+        <SectionBlock>
+          <CardGallery cards={fixtures} title={'Ladies'} />
+        </SectionBlock>
       </BaseLayout>
     </>
   )

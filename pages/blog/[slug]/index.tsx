@@ -2,6 +2,7 @@ import { NextPage } from 'next'
 import Head from 'next/head'
 import { BaseLayout } from '@/components/layouts/BaseLayout'
 import { SinglePostContent, TopLinePageContent } from '@/components/generic'
+import { SectionBlock } from '@/components/layouts/SectionBlock'
 
 const Post: NextPage = () => {
   return (
@@ -12,8 +13,10 @@ const Post: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <BaseLayout>
-        <TopLinePageContent />
-        <SinglePostContent />
+        <SectionBlock>
+          <TopLinePageContent />
+          <SinglePostContent />
+        </SectionBlock>
       </BaseLayout>
     </>
   )

@@ -34,6 +34,7 @@ export const ButtonsGroup = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
+  width: 274px;
 `
 
 export const SubTitle = styled.p`
@@ -47,7 +48,7 @@ export const BgOverlay = styled.div`
   left: 0;
   right: 0;
   top: 0;
-  background: #1e1e297d;
+  background: rgba(0, 0, 0, 0.7);
   z-index: 1000;
 `
 

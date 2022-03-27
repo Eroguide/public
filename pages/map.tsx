@@ -3,6 +3,7 @@ import Head from 'next/head'
 import { BaseLayout } from '@/components/layouts/BaseLayout'
 import { TopLinePageContent } from '@/components/generic'
 import { MapPage } from '@/components/pages'
+import { SectionBlock } from '@/components/layouts/SectionBlock'
 
 const Map: NextPage = () => {
   return (
@@ -13,8 +14,10 @@ const Map: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <BaseLayout>
-        <TopLinePageContent />
-        <MapPage />
+        <SectionBlock>
+          <TopLinePageContent />
+          <MapPage />
+        </SectionBlock>
       </BaseLayout>
     </>
   )

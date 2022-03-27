@@ -3,7 +3,7 @@ import Head from 'next/head'
 import { BaseLayout } from '@/components/layouts/BaseLayout'
 import { TopLinePageContent } from '@/components/generic'
 import { SupportPage as SupportPageContent } from '@/components/pages'
-
+import { SectionBlock } from '@/components/layouts/SectionBlock'
 const SupportPage: NextPage = () => {
   return (
     <>
@@ -13,8 +13,12 @@ const SupportPage: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <BaseLayout>
-        <TopLinePageContent />
-        <SupportPageContent />
+        <SectionBlock>
+          <TopLinePageContent />
+        </SectionBlock>
+        <SectionBlock>
+          <SupportPageContent />
+        </SectionBlock>
       </BaseLayout>
     </>
   )

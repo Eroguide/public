@@ -4,6 +4,7 @@ import { BaseLayout } from '@/components/layouts/BaseLayout'
 import { CardGallery, TopLinePageContent } from '@/components/generic'
 import { useRouter } from 'next/router'
 import { CategoryLanding } from '@/components/pages'
+import { SectionBlock } from '@/components/layouts/SectionBlock'
 const fixtures = [
   { id: '222dsadas', slug: 'one-project-time', best: 1 },
   { id: 'asddsad222sadasd', slug: 'two-project-time', best: 0 },
@@ -25,9 +26,14 @@ const CategorySinglePage: NextPage<{ slug?: string }> = ({ slug }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <BaseLayout>
-        <TopLinePageContent />
-        <CategoryLanding />
-        <CardGallery cards={fixtures} title={String(query.slug)} />
+        <SectionBlock>
+          <TopLinePageContent />
+
+          <CategoryLanding />
+        </SectionBlock>
+        <SectionBlock>
+          <CardGallery cards={fixtures} title={String(query.slug)} />
+        </SectionBlock>
       </BaseLayout>
     </>
   )

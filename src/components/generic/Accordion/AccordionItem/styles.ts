@@ -10,6 +10,7 @@ export const AccordionItemContainer = styled.div`
 export const ItemTitle = styled.h5`
   width: 100%;
   ${({ theme }) => theme.typography.h5};
+  color: ${({ theme }) => theme.grayScale[4]};
   display: flex;
 `
 

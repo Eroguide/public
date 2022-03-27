@@ -14,7 +14,7 @@ export const CardImage = styled.div`
   height: 78px;
   overflow: hidden;
   border-radius: 16px;
-  background: gray url('/img/woman.jpg') no-repeat center center;
+  background: gray url('/img/fake.png') no-repeat center center;
   background-size: cover;
   position: relative;
 `

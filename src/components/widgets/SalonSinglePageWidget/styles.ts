@@ -135,6 +135,14 @@ export const Left = styled.div`
   }
 `
 
+export const GlobusWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  svg path {
+    stroke: ${({ theme }) => theme.grayScale[5]};
+  }
+`
+
 export const Right = styled.div`
   display: flex;
 `

@@ -4,6 +4,7 @@ import { BaseLayout } from '@/components/layouts/BaseLayout'
 import { CardGallery, TopLinePageContent } from '@/components/generic'
 
 import { CategoryLanding } from '@/components/pages'
+import { SectionBlock } from '@/components/layouts/SectionBlock'
 
 const fixtures = [
   { id: '222dsadas', slug: 'one-project-time', best: 1 },
@@ -25,9 +26,13 @@ const CategoryAllPage: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <BaseLayout>
-        <TopLinePageContent />
-        <CategoryLanding />
-        <CardGallery cards={fixtures} title={'All'} />
+        <SectionBlock>
+          <TopLinePageContent />
+          <CategoryLanding />
+        </SectionBlock>
+        <SectionBlock>
+          <CardGallery cards={fixtures} title={'All'} />
+        </SectionBlock>
       </BaseLayout>
     </>
   )

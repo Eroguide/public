@@ -25,15 +25,13 @@ const typography = {
   h4: { s: 16, h: 24 },
   h3: { s: 24, h: 32 },
   h2: { s: 32, h: 40 },
-  extraMobile: { s: 64, h: 64 },
-  extra: { s: 96, h: 96 },
+  extraMobile: { s: 64, h: 76 },
+  extra: { s: 96, h: 116 },
 }
 
 for (const [key, value] of Object.entries(typography)) {
   typography[key] = `font-size: ${value.s}px; line-height:${value.h}px;`
 }
-
-console.log('typography', typography)
 
 const primary = {
   0: '#FF005D',
@@ -61,12 +59,17 @@ const grayScale = {
   3: '#A0A0B0',
   4: '#40404A',
   5: '#1E1E29',
+  6: '#F5F5F7',
 }
 
 const support = {
   0: '#0077ED',
   1: '#FFD166',
   2: '#2FC27D',
+}
+
+const gradient = {
+  0: 'linear-gradient(243.71deg, #FF005D -12.85%, #D80E5D 51.36%, #B01B5D 114.24%);',
 }
 
 const button = {
@@ -204,6 +207,7 @@ export const theme = {
   support,
   button,
   typography,
+  gradient,
 }
 
 export type Theme = typeof theme

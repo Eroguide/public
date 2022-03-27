@@ -38,6 +38,9 @@ export const LinkGroup = styled.div`
   justify-content: flex-start;
   width: 50%;
   padding-right: 8px;
+  a {
+    justify-content: flex-start;
+  }
   ${({ theme }) => theme.media.sm`
   width: 100%;
   margin-bottom: 20px;

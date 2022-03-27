@@ -63,7 +63,7 @@ export const NavLink = styled.a`
 export const LocationText = styled.p`
   ${({ theme }) => theme.typography.pm};
   color: ${({ theme }) => theme.grayScale[3]};
-  font-weight: 600;
+  font-weight: 400;
 `
 
 export const BurgerButton = styled.div`

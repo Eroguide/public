@@ -2,8 +2,9 @@ import styled from '@emotion/styled'
 import { headerHeight } from '@/src/components/layouts/Header/constants'
 
 export const Container = styled.div`
-  max-width: 1298px;
-  margin: 0 auto;
+  //max-width: 1298px;
+  //margin: 0 auto;
+  width: 100%;
 `
 
 export const Layout = styled.div`
@@ -12,16 +13,6 @@ export const Layout = styled.div`
   left: 0;
   right: 0;
   bottom: 0;
-  padding: 0 80px;
-  ${({ theme }) => theme.media.md`
-    padding: 0 32px;
-  `}
-  ${({ theme }) => theme.media.sm`
-    padding: 0 32px;
-  `}
-  ${({ theme }) => theme.media.mobile`
-    padding: 0 16px;
-  `}
 `
 
 export const Wrapper = styled.div`

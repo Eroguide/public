@@ -2,6 +2,7 @@ import { NextPage } from 'next'
 import Head from 'next/head'
 import { BaseLayout } from '@/components/layouts/BaseLayout'
 import { SalonGallery, TopLinePageContent } from '@/components/generic'
+import { SectionBlock } from '@/components/layouts/SectionBlock'
 
 const Salons: NextPage = () => {
   return (
@@ -12,8 +13,12 @@ const Salons: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <BaseLayout>
-        <TopLinePageContent />
-        <SalonGallery />
+        <SectionBlock>
+          <TopLinePageContent />
+        </SectionBlock>
+        <SectionBlock>
+          <SalonGallery />
+        </SectionBlock>
       </BaseLayout>
     </>
   )

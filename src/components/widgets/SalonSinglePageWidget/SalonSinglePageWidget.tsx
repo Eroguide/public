@@ -10,6 +10,7 @@ import {
   GlobusText,
   LocationText,
   RatingSalon,
+  GlobusWrapper,
 } from './styles'
 import AttentionIcon from '../../../../public/img/attention-icon.svg'
 import GlobusIcon from '../../../../public/img/globus-icon.svg'
@@ -20,7 +21,7 @@ export const SalonSinglePageWidget: React.FC = () => {
   return (
     <Container>
       <Inner>
-        <SalonImage src="/img/bg.jpg" />
+        <SalonImage src="/img/fake.png" />
         <Row>
           <Left>
             <TitleSalon>Chocolate ladies club</TitleSalon>
@@ -33,7 +34,9 @@ export const SalonSinglePageWidget: React.FC = () => {
         </Row>
         <Row>
           <Left>
-            <GlobusIcon />
+            <GlobusWrapper>
+              <GlobusIcon />
+            </GlobusWrapper>
             <GlobusText> chocolate ladies club</GlobusText>
           </Left>
         </Row>
@@ -50,7 +53,7 @@ export const SalonSinglePageWidget: React.FC = () => {
                 styleType="tertiary"
                 sizeType="small"
               >
-                Show map
+                mapa
               </CustomButton>
             </Link>
           </Right>

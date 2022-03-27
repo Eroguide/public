@@ -22,24 +22,26 @@ export const ContentCardRow: React.FC<{
   title: string
   counter: number
   counterTitle: string
-  itemsToShow: Array<number>
+  itemsToShow?: Array<number>
   withControls?: boolean
   href?: string
+  spaceBetween?: number
 }> = ({
   children,
   title,
   counterTitle,
   counter,
-  itemsToShow,
   withControls = false,
   href = '/',
+  spaceBetween = 16,
 }) => {
   const navigationPrevRef = useRef<HTMLDivElement>(null)
   const navigationNextRef = useRef<HTMLDivElement>(null)
 
   const swiperSettings: SwiperOptions = {
     loop: false,
-    slidesPerView: itemsToShow[0],
+    slidesPerView: 'auto',
+    spaceBetween: spaceBetween,
     modules: [Navigation],
     watchOverflow: true,
     allowSlidePrev: true,
@@ -48,20 +50,6 @@ export const ContentCardRow: React.FC<{
     navigation: {
       prevEl: navigationPrevRef.current,
       nextEl: navigationNextRef.current,
-    },
-    breakpoints: {
-      0: {
-        slidesPerView: 1,
-      },
-      700: {
-        slidesPerView: itemsToShow[2],
-      },
-      960: {
-        slidesPerView: itemsToShow[1],
-      },
-      1280: {
-        slidesPerView: itemsToShow[0],
-      },
     },
   }
 

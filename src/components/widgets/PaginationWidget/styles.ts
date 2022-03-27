@@ -5,6 +5,9 @@ export const IconWrapper = styled.span`
   width: 16px;
   height: 16px;
   margin: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `
 
 export const Controls = styled.div`

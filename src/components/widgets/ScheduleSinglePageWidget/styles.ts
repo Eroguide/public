@@ -113,6 +113,6 @@ export const ScheduleBlockWidget = styled.div`
 `
 
 export const WorkingDaysWrapper = styled.div`
-  margin: 24px auto 32px auto;
+  margin: 0 auto 32px auto;
   max-width: 250px;
 `

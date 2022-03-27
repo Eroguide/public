@@ -2,6 +2,7 @@ import { NextPage } from 'next'
 import Head from 'next/head'
 import { BaseLayout } from '@/components/layouts/BaseLayout'
 import { MainFilters } from '@/components/generic/MainFilters/MainFilters'
+import { SectionBlock } from '@/components/layouts/SectionBlock'
 
 const FaqPageNext: NextPage = () => {
   return (
@@ -12,7 +13,9 @@ const FaqPageNext: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <BaseLayout>
-        <MainFilters />
+        <SectionBlock>
+          <MainFilters />
+        </SectionBlock>
       </BaseLayout>
     </>
   )

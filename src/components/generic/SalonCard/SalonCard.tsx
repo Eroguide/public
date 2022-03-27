@@ -102,7 +102,7 @@ export const SalonCard: React.FC<SalonCardProps> = ({ id, inSwipe }) => {
                 </SmallGalleryItemDescription>
                 <SmallGalleryImageOverlay>
                   <Counter>+13</Counter>
-                  <CounterTitle>ladies</CounterTitle>
+                  <CounterTitle>slečen</CounterTitle>
                 </SmallGalleryImageOverlay>
               </SmallGalleryItem>
             </Link>
@@ -111,7 +111,7 @@ export const SalonCard: React.FC<SalonCardProps> = ({ id, inSwipe }) => {
             <Left>
               <CounterAvailable>
                 <DotIcon />
-                <CounterText>13 ladies avaliable</CounterText>
+                <CounterText>26 slečen k dispozici</CounterText>
               </CounterAvailable>
             </Left>
             <Right>
@@ -121,7 +121,7 @@ export const SalonCard: React.FC<SalonCardProps> = ({ id, inSwipe }) => {
                 sizeType="medium"
                 href={`/salons/${id}`}
               >
-                Details
+                Více
               </CustomButton>
             </Right>
           </BottomRow>

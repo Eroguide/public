@@ -27,7 +27,7 @@ import BreastIcon from '/public/img/breast-filter.svg'
 import HeightIcon from '/public/img/height-filter.svg'
 import PhotoIcon from '/public/img/photo-filter.svg'
 import ProgramIcon from '/public/img/program-filter.svg'
-import { FooterLogo } from '@/components/layouts/Footer/styles'
+// import { FooterLogo } from '@/components/layouts/Footer/styles'
 import { useRouter } from 'next/router'
 
 export const MainFilters: React.FC = () => {

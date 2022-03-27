@@ -43,7 +43,7 @@ export const CardImageWrapper = styled.div`
   width: 100%;
   height: 368px;
   position: relative;
-  background: #ebebf0 url('/img/woman.jpg') no-repeat center top;
+  background: #ebebf0 url('/img/fake.png') no-repeat center top;
   background-size: cover;
   overflow: hidden;
   align-items: flex-end;
@@ -83,7 +83,7 @@ export const Description = styled.div`
   flex-wrap: wrap;
   ${({ theme }) => theme.typography.pm};
   height: 24px;
-  font-weight: 600;
+  font-weight: 500;
   a {
     margin-right: 8px;
     color: ${({ theme }) => theme.grayScale[3]};
@@ -99,21 +99,25 @@ export const ScheduleButton = styled.div`
 `
 export const Price = styled.div`
   display: flex;
+  align-items: baseline;
 `
 
-export const BeforePrice = styled.div`
-  margin-top: 5px;
+export const BeforePrice = styled.span`
   color: ${({ theme }) => theme.grayScale[2]};
   ${({ theme }) => theme.typography.pm};
+  margin-right: 4px;
 `
-export const PriceValue = styled.div`
+export const PriceValue = styled.span`
   color: ${({ theme }) => theme.grayScale[4]};
   ${({ theme }) => theme.typography.h4};
+  margin-right: 4px;
+  font-weight: 500;
 `
-export const PriceSuffix = styled.div`
-  margin-top: 6px;
+export const PriceSuffix = styled.span`
   color: ${({ theme }) => theme.grayScale[4]};
-  ${({ theme }) => theme.typography.ps};
+  font-size: ${({ theme }) => theme.fontSize['xs']};
+  line-height: 24px;
+  font-weight: 500;
 `
 export const Row = styled.div`
   display: flex;

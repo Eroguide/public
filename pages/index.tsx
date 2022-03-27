@@ -24,6 +24,7 @@ import { addApolloState, initializeApollo } from '@/graphql/apollo'
 import { GetLaunches } from '@/graphql/__generated__/GetLaunches'
 import { useBreakpoint } from '@/hooks/useBreakpoint'
 import { breakpoints, BreakpointsEnum } from '@/src/theme'
+import { SectionBlock } from '@/components/layouts/SectionBlock'
 
 const fixtures = [
   { id: '222dsadas', slug: 'one-project-time', best: 1 },
@@ -49,71 +50,91 @@ const Home: NextPage<GetLaunches> = ({ launchesPast }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <BaseLayout>
-        <HeroBanner />
-        {!isSmall && <HeroFilters />}
-        <ShowNewItems itemsToShow={4} title={'New'} />
-        <ContentCardRow
-          title="Salons"
-          counter={535}
-          counterTitle="All salons"
-          itemsToShow={[3, 2, 2]}
-          href="/salons"
-        >
-          {fixtures.map((item) => (
-            <SwiperSlide key={item.id}>
-              <SalonCard {...item} inSwipe />
-            </SwiperSlide>
-          ))}
-        </ContentCardRow>
-        <ContentCardRow
-          title="Private ladies"
-          counter={535}
-          counterTitle="All private ladies"
-          itemsToShow={[4, 3, 2]}
-          href="/gallery"
-        >
-          {fixtures.map((item) => (
-            <SwiperSlide key={item.id}>
-              <Card {...item} tagTitle={item.slug} inSwipe />
-            </SwiperSlide>
-          ))}
-        </ContentCardRow>
-        <CardGallery cards={fixtures} title={'Ladies gallery'} />
-        <ContentCardRow
-          title="PostCard"
-          counter={34}
-          counterTitle="All posts"
-          itemsToShow={[4, 3, 2]}
-          href="/blog"
-        >
-          {fixtures.map((item) => (
-            <SwiperSlide key={item.id}>
-              <PostCard {...item} title={item.slug} />
-            </SwiperSlide>
-          ))}
-        </ContentCardRow>
-        <MapSection />
-        <ContentCardRow
-          title="PostCardWide"
-          counter={23}
-          counterTitle="All posts"
-          itemsToShow={[2, 2, 1]}
-          href="/blog"
-        >
-          {fixtures.map((item) => (
-            <SwiperSlide key={item.id}>
-              <PostCardWide {...item} tagTitle={item.slug} inSwipe />
-            </SwiperSlide>
-          ))}
-        </ContentCardRow>
-        {launchesPast && (
-          <PostList
-            title="PostList"
+        <SectionBlock>
+          <>
+            <HeroBanner />
+            {!isSmall && <HeroFilters />}
+          </>
+        </SectionBlock>
+        <SectionBlock>
+          <ShowNewItems itemsToShow={4} title={'Nové slečny'} />
+        </SectionBlock>
+        <SectionBlock>
+          <ContentCardRow
+            title="Salons"
+            counter={535}
+            spaceBetween={8}
+            counterTitle="All salons"
+            href="/salons"
+          >
+            {fixtures.map((item) => (
+              <SwiperSlide key={item.id}>
+                <SalonCard {...item} inSwipe />
+              </SwiperSlide>
+            ))}
+          </ContentCardRow>
+        </SectionBlock>
+        <SectionBlock>
+          <ContentCardRow
+            title="Private ladies"
+            counter={535}
+            counterTitle="All private ladies"
+            itemsToShow={[4, 3, 2]}
+            href="/gallery"
+          >
+            {fixtures.map((item) => (
+              <SwiperSlide key={item.id}>
+                <Card {...item} tagTitle={item.slug} inSwipe />
+              </SwiperSlide>
+            ))}
+          </ContentCardRow>
+        </SectionBlock>
+        <SectionBlock>
+          <CardGallery cards={fixtures} title={'Ladies gallery'} />
+        </SectionBlock>
+        <SectionBlock>
+          <ContentCardRow
+            title="PostCard"
+            counter={34}
+            counterTitle="All posts"
+            itemsToShow={[4, 3, 2]}
+            href="/blog"
+          >
+            {fixtures.map((item) => (
+              <SwiperSlide key={item.id}>
+                <PostCard {...item} title={item.slug} />
+              </SwiperSlide>
+            ))}
+          </ContentCardRow>
+        </SectionBlock>
+        <SectionBlock>
+          <MapSection />
+        </SectionBlock>
+        <SectionBlock>
+          <ContentCardRow
+            title="PostCardWide"
             counter={23}
             counterTitle="All posts"
-            postData={launchesPast}
-          />
-        )}
+            itemsToShow={[2, 2, 1]}
+            href="/blog"
+          >
+            {fixtures.map((item) => (
+              <SwiperSlide key={item.id}>
+                <PostCardWide {...item} tagTitle={item.slug} inSwipe />
+              </SwiperSlide>
+            ))}
+          </ContentCardRow>
+        </SectionBlock>
+        <SectionBlock>
+          {launchesPast && (
+            <PostList
+              title="PostList"
+              counter={23}
+              counterTitle="All posts"
+              postData={launchesPast}
+            />
+          )}
+        </SectionBlock>
       </BaseLayout>
     </>
   )

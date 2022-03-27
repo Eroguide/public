@@ -9,7 +9,7 @@ export const SinglePageContentContainer = styled.div`
 export const Banner = styled.div`
   width: 100%;
   height: 320px;
-  background: #ebebf0 url('/img/banner-single-page.jpg') no-repeat center;
+  background: #ebebf0 url('/img/fake.png') no-repeat center;
   background-size: cover;
   overflow: hidden;
   border-radius: 24px;
@@ -40,6 +40,36 @@ export const SinglePageBody = styled.div`
 export const DetailsSection = styled.div`
   width: 100%;
   max-width: 508px;
+  ${({ theme }) => theme.media.sm`
+      max-width: 100%;
+  `}
+  ${({ theme }) => theme.media.mobile`
+       max-width: 100%;
+  `}
+`
+
+export const InterviewBlockWrapper = styled.div`
+  width: 100%;
+  max-width: 508px;
+
+  h3 {
+    ${({ theme }) => theme.typography.h5};
+    color: ${({ theme }) => theme.grayScale[4]};
+    margin-bottom: 8px;
+  }
+  p {
+    ${({ theme }) => theme.typography.pm};
+    color: ${({ theme }) => theme.grayScale[3]};
+  }
+  div {
+    &:last-of-type {
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+    }
+    margin-bottom: 32px;
+  }
+
   ${({ theme }) => theme.media.sm`
       max-width: 100%;
   `}

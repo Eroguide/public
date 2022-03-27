@@ -2,7 +2,7 @@ import styled from '@emotion/styled'
 
 export const CardMainContainer = styled.div`
   width: 100%;
-  min-width: 250px;
+  max-width: 312px;
   flex-direction: column;
   border-radius: 32px;
   margin-bottom: 32px;
@@ -50,7 +50,7 @@ export const CardImageWrapper = styled.div`
   width: 100%;
   height: 296px;
   position: relative;
-  background: #ebebf0 url('/img/woman.jpg') no-repeat center top;
+  background: #ebebf0 url('/img/fake.png') no-repeat center top;
   background-size: cover;
   overflow: hidden;
   z-index: 1;
@@ -69,6 +69,7 @@ export const ImageProduct = styled.div`
 `
 
 export const Description = styled.div`
+  width: 100%;
   display: flex;
   padding: 16px 8px;
   flex-wrap: wrap;

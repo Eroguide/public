@@ -47,31 +47,31 @@ export const ProductSlider: React.FC = () => {
       id: '222dsadas',
       slug: 'one-project-time',
       best: 1,
-      img: '/img/single-slider-1.jpg',
+      img: '/img/fake.png',
     },
     {
       id: 'asddsad222sadasd',
       slug: 'two-project-time',
       best: 0,
-      img: '/img/single-slider-1.jpg',
+      img: '/img/fake.png',
     },
     {
       id: 'asdsad3242asd',
       slug: 'three-project-time',
       best: 0,
-      img: '/img/single-slider-1.jpg',
+      img: '/img/fake.png',
     },
     {
       id: 'asdsdadasfffsadasd',
       slug: 'four-project-time',
       best: 0,
-      img: '/img/single-slider-1.jpg',
+      img: '/img/fake.png',
     },
     {
       id: '222dsadassssd',
       slug: 'one-project-time',
       best: 1,
-      img: '/img/single-slider-1.jpg',
+      img: '/img/fake.png',
     },
   ]
   return (

@@ -33,11 +33,10 @@ export const LeftTag = styled.span`
 `
 
 export const RightDate = styled.div`
-  align-items: center;
   display: flex;
   ${({ theme }) => theme.typography.h6};
-  font-weight: 600;
-  color: ${({ theme }) => theme.grayScale[2]};
+  font-weight: 500;
+  color: ${({ theme }) => theme.grayScale[3]};
 `
 
 export const Wrapper = styled.div`

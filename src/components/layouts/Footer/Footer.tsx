@@ -18,6 +18,7 @@ import { CustomButton, DrawerBottom } from '@/components/generic'
 import { useState } from 'react'
 import { useRouter } from 'next/router'
 import { CtaWidget } from '@/components/widgets/CtaWidget'
+import { SectionBlock } from '@/components/layouts/SectionBlock'
 
 const currentYear = new Date().getFullYear()
 const navItems = {
@@ -55,74 +56,78 @@ export const Footer: React.FC = () => {
   return (
     <FooterWrapper>
       <FooterContainer>
-        <FooterInner>
-          <FirstFooterSection>
-            <FooterLogo
-              src="/img/logo.png"
-              alt=""
-              onClick={() =>
-                push('/', undefined, {
-                  shallow: true,
-                })
-              }
-            />
-          </FirstFooterSection>
+        <SectionBlock>
+          <FooterInner>
+            <FirstFooterSection>
+              <FooterLogo
+                src="/img/logo.png"
+                alt=""
+                onClick={() =>
+                  push('/', undefined, {
+                    shallow: true,
+                  })
+                }
+              />
+            </FirstFooterSection>
 
-          <SectionFooterWrap>
-            <MiddleFooterSection>
-              <Block>
-                {Object.values(navItems.navBlock1).map((item, i) => (
-                  <LinkGroup key={`group-links-${i}`}>
-                    {item.map((linkName) => (
-                      <CustomButton
-                        styleType="link"
-                        isLink
-                        key={linkName.name}
-                        href={linkName.href}
-                      >
-                        {linkName.name}
-                      </CustomButton>
-                    ))}
-                  </LinkGroup>
-                ))}
-              </Block>
-              <Block>
-                {Object.values(navItems.navBlock2).map((item, i) => (
-                  <LinkGroup key={`group-links-${i}`}>
-                    {item.map((linkName) => (
-                      <CustomButton
-                        styleType="link"
-                        isLink
-                        key={linkName.name}
-                        href={linkName.href}
-                      >
-                        {linkName.name}
-                      </CustomButton>
-                    ))}
-                  </LinkGroup>
-                ))}
-              </Block>
-            </MiddleFooterSection>
-            <EndFooterSection>
-              <CtaWidget />
-            </EndFooterSection>
-          </SectionFooterWrap>
-        </FooterInner>
+            <SectionFooterWrap>
+              <MiddleFooterSection>
+                <Block>
+                  {Object.values(navItems.navBlock1).map((item, i) => (
+                    <LinkGroup key={`group-links-${i}`}>
+                      {item.map((linkName) => (
+                        <CustomButton
+                          styleType="link"
+                          isLink
+                          key={linkName.name}
+                          href={linkName.href}
+                        >
+                          {linkName.name}
+                        </CustomButton>
+                      ))}
+                    </LinkGroup>
+                  ))}
+                </Block>
+                <Block>
+                  {Object.values(navItems.navBlock2).map((item, i) => (
+                    <LinkGroup key={`group-links-${i}`}>
+                      {item.map((linkName) => (
+                        <CustomButton
+                          styleType="link"
+                          isLink
+                          key={linkName.name}
+                          href={linkName.href}
+                        >
+                          {linkName.name}
+                        </CustomButton>
+                      ))}
+                    </LinkGroup>
+                  ))}
+                </Block>
+              </MiddleFooterSection>
+              <EndFooterSection>
+                <CtaWidget />
+              </EndFooterSection>
+            </SectionFooterWrap>
+          </FooterInner>
+        </SectionBlock>
       </FooterContainer>
 
       <UnderFooter>
-        <UnderFooterLeft>
-          © {currentYear}
-          <Link href="/"> Eroguide.cz </Link>
-        </UnderFooterLeft>
-        <UnderFooterRight>
-          <span onClick={() => setDrawerIsOpen(!drawerIsOpen)}>
-            Terms of Service
-          </span>
-          <span onClick={() => setDrawerIsOpen(!drawerIsOpen)}>
-            Privat Policy
-          </span>
-        </UnderFooterRight>
+        <SectionBlock>
+          <UnderFooterLeft>
+            © {currentYear}
+            <Link href="/"> Eroguide.cz </Link>
+          </UnderFooterLeft>
+          <UnderFooterRight>
+            <span onClick={() => setDrawerIsOpen(!drawerIsOpen)}>
+              Terms of Service
+            </span>
+            <span onClick={() => setDrawerIsOpen(!drawerIsOpen)}>
+              Privat Policy
+            </span>
+          </UnderFooterRight>
+        </SectionBlock>
       </UnderFooter>
       <DrawerBottom isOpen={drawerIsOpen} handleClose={handleClose} />
     </FooterWrapper>

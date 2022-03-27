@@ -1,7 +1,15 @@
 import { useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Pagination, SwiperOptions } from 'swiper'
-import { Container, Wrapper, DayCard, Day, Time, DateTop } from './styles'
+import {
+  Container,
+  Wrapper,
+  DayCard,
+  Day,
+  Time,
+  DateTop,
+  DayCardWrapper,
+} from './styles'
 import PlaneIcon from '/public/img/plane-icon.svg'
 
 export const WorkingDays: React.FC<{
@@ -9,7 +17,8 @@ export const WorkingDays: React.FC<{
   withDateBottom?: boolean
   itemsToShow?: number
   fadeRight?: boolean
-}> = ({ withDateTop, itemsToShow, withDateBottom, fadeRight }) => {
+  noFade?: boolean
+}> = ({ withDateTop, itemsToShow, withDateBottom, noFade }) => {
   const days = [
     {
       name: 'Mon',
@@ -51,18 +60,19 @@ export const WorkingDays: React.FC<{
   const [initSlider, setInitSlider] = useState<boolean>(false)
   return (
     <Container>
-      <Wrapper fadeRight={fadeRight}>
+      <Wrapper noFade={noFade}>
         <Swiper {...swiperSettings} onAfterInit={() => setInitSlider(true)}>
           {initSlider && days
             ? days.map((day) => (
                 <SwiperSlide key={day.name}>
-                  {withDateTop && <DateTop>{day.name}</DateTop>}
-                  <DayCard key={day.name}>
-                    <Day isFree={day?.isFree}>{day.name}</Day>
-                    {day?.isFree ? <PlaneIcon /> : <Time>{day.time}</Time>}
-                  </DayCard>
-
-                  {withDateBottom && <DateTop>{day.name}</DateTop>}
+                  <DayCardWrapper>
+                    {withDateTop && <DateTop>{day.name}</DateTop>}
+                    <DayCard key={day.name}>
+                      <Day isFree={day?.isFree}>{day.name}</Day>
+                      {day?.isFree ? <PlaneIcon /> : <Time>{day.time}</Time>}
+                    </DayCard>
+                    {withDateBottom && <DateTop>{day.name}</DateTop>}
+                  </DayCardWrapper>
                 </SwiperSlide>
               ))
             : 'loading'}

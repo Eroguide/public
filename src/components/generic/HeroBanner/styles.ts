@@ -6,7 +6,7 @@ export const HeroBannerContainer = styled.div`
   padding: 0 80px;
   display: flex;
   flex-flow: column wrap;
-  background: #f0f0f0 url('/img/woman.jpg') no-repeat center center;
+  background: #f0f0f0 url('/img/fake.png') no-repeat center center;
   background-size: cover;
   border-radius: 24px;
   justify-content: center;
@@ -30,7 +30,7 @@ export const HeroBannerContainer = styled.div`
 
 export const HeroTitle = styled.h1`
   ${({ theme }) => theme.typography.extra};
-  font-weight: 800;
+  font-weight: 700;
   color: ${({ theme }) => theme.grayScale[4]};
   margin: 0;
   max-width: 500px;

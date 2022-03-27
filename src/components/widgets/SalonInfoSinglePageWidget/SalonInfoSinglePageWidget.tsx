@@ -41,7 +41,7 @@ export const SalonInfoSinglePageWidget: React.FC = () => {
         </NameWrapper>
 
         <ImageWrapper>
-          <AvatarImage src="/img/bg.jpg" alt="" />
+          <AvatarImage src="/img/fake.png" alt="" />
         </ImageWrapper>
       </Row>
       <Divider />

@@ -2,7 +2,7 @@ import {
   Container,
   Inner,
   AudioWrapper,
-  PlayIconWrapper,
+  PlayButtonWrapper,
   TimeLine,
   Title,
   Details,
@@ -115,10 +115,10 @@ export const AudioPlayerWidget: React.FC = () => {
               e.currentTarget.pause()
             }}
           />
-          <PlayIconWrapper onClick={play}>
+          <PlayButtonWrapper onClick={play}>
             <PlayIconOverlay />
             <IconWrapper>{isPlaying ? <StopIcon /> : <PlayIcon />}</IconWrapper>
-          </PlayIconWrapper>
+          </PlayButtonWrapper>
 
           <Details>
             <Left>

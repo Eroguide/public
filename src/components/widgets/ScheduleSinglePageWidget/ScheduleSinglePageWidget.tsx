@@ -26,7 +26,7 @@ export const ScheduleSinglePageWidget: React.FC = () => {
         </LastCheckDate>
       </ScheduleBlockWidget>
       <WorkingDaysWrapper>
-        <WorkingDays withDateTop />
+        <WorkingDays noFade />
       </WorkingDaysWrapper>
       <Divider />
       <PriceBlock>

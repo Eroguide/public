@@ -27,11 +27,11 @@ export const PlayIconOverlay = styled.div`
   background: rgba(0, 0, 0, 0.2);
   cursor: pointer;
 `
-export const PlayIconWrapper = styled.div`
+export const PlayButtonWrapper = styled.div`
   border-radius: 12px;
   height: 72px;
   width: 72px;
-  background: url('/img/bg.jpg') no-repeat center center;
+  background: url('/img/fake.png') no-repeat center center;
   background-size: cover;
   display: flex;
   justify-content: center;
@@ -53,6 +53,8 @@ export const PlayIconWrapper = styled.div`
 export const IconWrapper = styled.div`
   z-index: 100;
   cursor: pointer;
+  height: 24px;
+  width: 24px;
 `
 export const Timer = styled.span<{ isActive?: boolean }>`
   ${({ theme }) => theme.typography.h4};

@@ -30,25 +30,25 @@ export type ShowNewProps = {
 }
 export const ShowNewItems: React.FC<{
   title: string
-  itemsToShow: number
-}> = ({ title, itemsToShow }) => {
+  itemsToShow?: number
+}> = ({ title }) => {
   const navigationPrevRef = useRef<HTMLDivElement>(null)
   const navigationNextRef = useRef<HTMLDivElement>(null)
   const swiperSettings: SwiperOptions = {
-    slidesPerView: itemsToShow,
+    slidesPerView: 'auto',
     freeMode: true,
     modules: [FreeMode, Navigation],
-    breakpoints: {
-      0: {
-        slidesPerView: 1,
-      },
-      600: {
-        slidesPerView: itemsToShow,
-      },
-      1420: {
-        slidesPerView: itemsToShow,
-      },
-    },
+    // breakpoints: {
+    //   0: {
+    //     slidesPerView: 1,
+    //   },
+    //   600: {
+    //     slidesPerView: itemsToShow,
+    //   },
+    //   1420: {
+    //     slidesPerView: itemsToShow,
+    //   },
+    // },
     allowSlidePrev: true,
     allowSlideNext: true,
     navigation: {
@@ -104,9 +104,9 @@ export const ShowNewItems: React.FC<{
   const arrayFixturesWithDate = arrayGames.flat()
 
   const days = {
-    1: 'Today',
-    2: 'Yesterday',
-    3: 'Three days ago',
+    1: 'Dnes',
+    2: 'Včera',
+    3: '4 záři',
     4: 'Some date',
     5: 'Some date',
     8: 'Some date',
@@ -138,7 +138,7 @@ export const ShowNewItems: React.FC<{
                     <>
                       <TimeLine date={item.date} isLast={item.isLastInGroup} />
                       {item.writeDateTitle && (
-                        <DateTag>{days[item.date]}</DateTag>
+                        <DateTag date={item.date}>{days[item.date]}</DateTag>
                       )}
                     </>
                   )}

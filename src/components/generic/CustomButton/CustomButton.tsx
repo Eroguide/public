@@ -1,5 +1,5 @@
 // local libs
-import { Button, ButtonLink, IconWrapperChevron } from './styles'
+import { Button, IconWrapperChevron } from './styles'
 // types
 import { ButtonStylesEnum, ButtonStylesSizeEnum } from '@/src/theme'
 import { ButtonProps } from './types'
@@ -21,7 +21,8 @@ export const CustomButton: React.FC<ButtonProps> = ({
   if (isLink && href) {
     return (
       <Link href={href} passHref>
-        <ButtonLink
+        <Button
+          as={'a'}
           sizeType={sizeType}
           styleType={styleType}
           iconRight={iconRight || !!counter}
@@ -40,12 +41,13 @@ export const CustomButton: React.FC<ButtonProps> = ({
               </IconWrapperChevron>
             )}
           </>
-        </ButtonLink>
+        </Button>
       </Link>
     )
   }
   return (
     <Button
+      as={'button'}
       sizeType={sizeType}
       styleType={styleType}
       iconRight={iconRight || !!counter}

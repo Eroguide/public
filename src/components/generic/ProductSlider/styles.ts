@@ -28,6 +28,15 @@ export const ThumbsSliderImage = styled.img`
   width: 100%;
   border-radius: 32px;
   overflow: hidden;
+  height: 157px;
+  max-width: 157px;
+  border: 1px solid ${({ theme }) => theme.grayScale[0]};
+  transition: border 0.2s ease-in-out;
+  &:hover {
+    border: 1px solid ${({ theme }) => theme.primary[0]};
+    cursor: pointer;
+    transition: border 0.2s ease-in-out;
+  }
 `
 
 export const BottomRow = styled.div`

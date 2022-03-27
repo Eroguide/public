@@ -1,13 +1,21 @@
 import styled from '@emotion/styled'
 
 export const SalonCardMainContainer = styled.div<{ inSwipe?: boolean }>`
-  width: ${({ inSwipe }) => (inSwipe ? '100%' : '410px')};
+  min-width: 430px;
+  max-width: calc(100% / 3 - 16px - 18px);
+  width: 100%;
   flex-direction: column;
   border-radius: 32px;
   padding: 9px;
-  //&:first-of-type {
-  //  margin-right: 0;
-  //}
+  ${({ theme }) => theme.media.sm`
+    width: calc(100% / 2 - 16px - 18px);
+`}
+  ${({ theme }) => theme.media.xs`
+    width: calc(100% / 2 - 16px - 18px);
+`} 
+  ${({ theme }) => theme.media.xxs`
+    width:100%;
+`}
 `
 
 export const SalonCardInner = styled.div`
@@ -110,7 +118,7 @@ export const CardImageWrapper = styled.div`
   width: 100%;
   height: 240px;
   position: relative;
-  background: #ebebf0 url('/img/bg.jpg') no-repeat center top;
+  background: #ebebf0 url('/img/fake.png') no-repeat center top;
   background-size: cover;
   overflow: hidden;
   z-index: 1;
@@ -163,7 +171,7 @@ export const SmallGalleryItem = styled.div`
   width: calc(100% / 3 - 4px);
   height: 168px;
   border-radius: 10px;
-  background: url('/img/bg.jpg') no-repeat center top;
+  background: url('/img/fake.png') no-repeat center top;
   background-size: cover;
   overflow: hidden;
   position: relative;

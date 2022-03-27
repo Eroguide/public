@@ -10,14 +10,18 @@ export const Container = styled.div`
   `}
 `
 
-export const Wrapper = styled.ul<{ fadeRight?: boolean }>`
+export const Wrapper = styled.ul<{ noFade?: boolean }>`
   display: flex;
   flex-wrap: nowrap;
   flex-direction: row;
   position: relative;
   width: 100%;
+  margin-left: -9px;
+  margin-right: -9px;
 
-  &:before {
+  ${({ noFade }) =>
+    !noFade &&
+    ` &:before {
     content: '';
     position: absolute;
     inset: 0 auto 0 0;
@@ -31,6 +35,7 @@ export const Wrapper = styled.ul<{ fadeRight?: boolean }>`
     width: 80px;
     z-index: 5;
   }
+`}
 
   ${({ theme }) => theme.media.sm`
      max-width: 320px;
@@ -42,8 +47,15 @@ export const Wrapper = styled.ul<{ fadeRight?: boolean }>`
   `}
 `
 
-export const DayCard = styled.li`
-  width: 56px;
+export const DayCardWrapper = styled.li`
+  padding: 0 9px;
+  width: 74px;
+  display: flex;
+  flex-direction: column;
+  margin: 4px auto;
+`
+
+export const DayCard = styled.div`
   height: 66px;
   display: flex;
   flex-direction: column;
@@ -53,7 +65,6 @@ export const DayCard = styled.li`
   border: 1px solid ${({ theme }) => theme.grayScale[1]};
   position: relative;
   background: ${({ theme }) => theme.grayScale[0]};
-  margin: 4px auto;
   cursor: pointer;
   &:before {
     content: '';

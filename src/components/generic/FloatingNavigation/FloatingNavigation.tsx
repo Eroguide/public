@@ -138,7 +138,6 @@ const navItemList: MobileNavList = {
 }
 
 export const NavItemComponent: React.FC<MobileNavItemType> = ({
-  id,
   icon,
   title,
   counter,

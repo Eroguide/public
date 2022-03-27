@@ -2,6 +2,7 @@ import { NextPage } from 'next'
 import Head from 'next/head'
 import { BaseLayout } from '@/components/layouts/BaseLayout'
 import { TopLinePageContent, SinglePageContent } from '@/components/generic'
+import { SectionBlock } from '@/components/layouts/SectionBlock'
 
 const GalleryItem: NextPage = () => {
   return (
@@ -12,8 +13,13 @@ const GalleryItem: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <BaseLayout>
-        <TopLinePageContent />
-        <SinglePageContent />
+        <SectionBlock>
+          <TopLinePageContent />
+        </SectionBlock>
+
+        <SectionBlock>
+          <SinglePageContent />
+        </SectionBlock>
       </BaseLayout>
     </>
   )

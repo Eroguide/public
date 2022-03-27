@@ -3,6 +3,7 @@ import Head from 'next/head'
 import { BaseLayout } from '@/components/layouts/BaseLayout'
 import { CardGallery } from '@/components/generic'
 import { useStoreon } from '@/store/index'
+import { SectionBlock } from '@/components/layouts/SectionBlock'
 const Favorites: NextPage = () => {
   const {
     favorites: { items },
@@ -16,7 +17,9 @@ const Favorites: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <BaseLayout>
-        <CardGallery cards={items} title={'Favourite ladies:'} />
+        <SectionBlock>
+          <CardGallery cards={items} title={'Favourite ladies:'} />
+        </SectionBlock>
       </BaseLayout>
     </>
   )

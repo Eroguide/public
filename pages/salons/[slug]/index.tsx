@@ -4,6 +4,7 @@ import { BaseLayout } from '@/components/layouts/BaseLayout'
 
 import { TopLinePageContent } from '@/components/generic'
 import { SalonSinglePageContent } from '@/components/generic/SalonSinglePageContent'
+import { SectionBlock } from '@/components/layouts/SectionBlock'
 
 const SalonsItem: NextPage = () => {
   return (
@@ -14,8 +15,12 @@ const SalonsItem: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <BaseLayout>
-        <TopLinePageContent />
-        <SalonSinglePageContent />
+        <SectionBlock>
+          <TopLinePageContent />
+        </SectionBlock>
+        <SectionBlock>
+          <SalonSinglePageContent />
+        </SectionBlock>
       </BaseLayout>
     </>
   )

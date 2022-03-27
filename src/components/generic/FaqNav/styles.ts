@@ -34,20 +34,20 @@ export const NavItem = styled.li<{ isActive: boolean }>`
   ${({ isActive, theme }) =>
     isActive &&
     `svg path {
-      stroke: ${theme.grayScale[5]};
+      stroke: ${theme.grayScale[4]};
     }
     span {
-      color: ${theme.grayScale[5]};
+      color: ${theme.grayScale[4]};
     }`}
 
   &:hover {
     cursor: pointer;
     svg path {
-      stroke: ${({ theme }) => theme.grayScale[5]};
+      stroke: ${({ theme }) => theme.grayScale[4]};
     }
 
     span {
-      color: ${({ theme }) => theme.grayScale[5]};
+      color: ${({ theme }) => theme.grayScale[4]};
     }
   }
 `

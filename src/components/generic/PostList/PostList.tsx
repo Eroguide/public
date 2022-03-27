@@ -19,24 +19,9 @@ export const PostList: React.FC<{
   postData: Array<GetLaunches_launchesPast | null> | null
 }> = ({ title, counterTitle, counter, postData }) => {
   const swiperSettings: SwiperOptions = {
-    slidesPerView: 4,
-    loop: true,
+    slidesPerView: 'auto',
     freeMode: true,
     modules: [Pagination, FreeMode],
-    breakpoints: {
-      0: {
-        slidesPerView: 1,
-      },
-      700: {
-        slidesPerView: 2,
-      },
-      991: {
-        slidesPerView: 3,
-      },
-      1420: {
-        slidesPerView: 4,
-      },
-    },
   }
   const [initSlider, setInitSlider] = useState<boolean>(false)
   return (

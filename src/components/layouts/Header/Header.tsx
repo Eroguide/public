@@ -51,7 +51,7 @@ export const Header: React.FC = () => {
             <Logo src="/img/logo.png" alt="" onClick={() => goHome()} />
           )}
           <Divider />
-          <LocationText>Prague</LocationText>
+          <LocationText>Praha</LocationText>
         </LeftBlock>
         <RightBlock>
           <Link href="/map" passHref>

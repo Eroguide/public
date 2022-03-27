@@ -13,12 +13,15 @@ export const FilterColumn = styled.div`
 
   ${({ theme }) => theme.media.md`
      max-width: 100%;
+     margin-left: 16px;
   `}
   ${({ theme }) => theme.media.sm`
      max-width: 100%;
+     margin-left:8px;
   `}
   ${({ theme }) => theme.media.mobile`
       max-width: 100%;
+      margin-left: 0;
   `}
 `
 
@@ -63,9 +66,9 @@ export const Inner = styled.div`
   `}
 `
 
-export const Tag = styled.div`
-  color: ${({ theme }) => theme.grayScale[4]};
-  background-color: ${({ theme }) => theme.grayScale[1]};
+export const Tag = styled.div<{ isActive: boolean }>`
+  color: ${({ theme }) => theme.grayScale[3]};
+  background-color: ${({ theme }) => theme.grayScale[6]};
   border: 2px solid ${({ theme }) => theme.grayScale[1]};
   height: 40px;
   border-radius: 28px;
@@ -82,12 +85,18 @@ export const Tag = styled.div`
   }
   &:hover {
     color: ${({ theme }) => theme.grayScale[4]};
-    background-color: ${({ theme }) => theme.grayScale[1]};
+    background-color: ${({ theme }) => theme.grayScale[6]};
     border: 2px solid ${({ theme }) => theme.grayScale[4]};
   }
   &:active {
     color: ${({ theme }) => theme.grayScale[5]};
-    background-color: ${({ theme }) => theme.grayScale[2]};
+    background-color: ${({ theme }) => theme.grayScale[6]};
     border: 2px solid ${({ theme }) => theme.grayScale[2]};
   }
+
+  ${({ isActive, theme }) =>
+    isActive &&
+    `color: ${theme.grayScale[4]};
+    background-color: ${theme.grayScale[6]};
+    border: 2px solid ${theme.grayScale[4]};`}
 `

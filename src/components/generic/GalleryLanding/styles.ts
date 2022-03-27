@@ -28,9 +28,12 @@ export const Wrapper = styled.div`
 `
 
 export const HeroTitle = styled.h1`
-  ${({ theme }) => theme.typography.extra};
-  font-weight: 800;
-  color: ${({ theme }) => theme.primary[0]};
+  font-size: ${({ theme }) => theme.fontSize.extra};
+  font-weight: 700;
+  background: ${({ theme }) => theme.gradient[0]};
+  line-height: 115px;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   margin-bottom: 56px;
   ${({ theme }) => theme.media.mobile`
     ${theme.typography.extraMobile};

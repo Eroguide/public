@@ -6,9 +6,14 @@ import {
   Widget,
   BodyContent,
   DetailsSection,
+  InterviewBlockWrapper,
 } from './styles'
 
-import { ProductSlider, SinglePageContentBlock } from '@/components/generic'
+import {
+  CustomButton,
+  ProductSlider,
+  SinglePageContentBlock,
+} from '@/components/generic'
 import { ApperianceWidget } from '@/components/widgets/ApperianceWidget'
 import { ExperianceWidget } from '@/components/widgets/ExperianceWidget'
 import { VideoPlayerWidget } from '@/components/widgets/VideoPlayerWidget'
@@ -50,16 +55,41 @@ export const SinglePageContent: React.FC = () => {
               <ExperianceWidget />
             </SinglePageContentBlock>
             <SinglePageContentBlock title="Interview for Eroguide">
-              <h3 style={{ marginBottom: '8px' }}>Lorem ipsum dolor.</h3>
-              <p>
-                Mohu se u Vás před masáží nebo po masáži osprchovat? Lorem ipsum
-                dolor sit amet, consectetur adipiscing elit. Imperdiet aliquet
-                risus, libero egestas enim at. Quis maecenas at sit massa
-                suspendisse. Mohu se u Vás před masáží nebo po masáži
-                osprchovat? Lorem ipsum dolor sit amet, consectetur adipiscing
-                elit. Imperdiet aliquet risus, libero egestas enim at. Quis
-                maecenas at sit massa suspendisse.
-              </p>
+              <InterviewBlockWrapper>
+                <div>
+                  <h3>Mohu se u Vás před masáží nebo po masáži osprchovat?</h3>
+                  <p>
+                    Mohu se u Vás před masáží nebo po masáži osprchovat? Lorem
+                    ipsum dolor sit amet, consectetur adipiscing elit. Imperdiet
+                    aliquet risus, libero egestas enim at. Quis maecenas at sit
+                  </p>
+                </div>
+                <div>
+                  <h3>Mohu se u Vás před masáží nebo po masáži osprchovat?</h3>
+                  <p>
+                    Mohu se u Vás před masáží nebo po masáži osprchovat? Lorem
+                    ipsum dolor sit amet, consectetur adipiscing elit. Imperdiet
+                    aliquet risus, libero egestas enim at. Quis maecenas at sit
+                  </p>
+                </div>
+                <div>
+                  <h3>Mohu se u Vás před masáží nebo po masáži osprchovat?</h3>
+                  <p>
+                    Mohu se u Vás před masáží nebo po masáži osprchovat? Lorem
+                    ipsum dolor sit amet, consectetur adipiscing elit. Imperdiet
+                    aliquet risus, libero egestas enim at. Quis maecenas at sit
+                  </p>
+                </div>
+                <div>
+                  <CustomButton
+                    styleType={'tertiary'}
+                    sizeType={'small'}
+                    width={'105px'}
+                  >
+                    Vice
+                  </CustomButton>
+                </div>
+              </InterviewBlockWrapper>
             </SinglePageContentBlock>
             <SinglePageContentBlock title="Video">
               <VideoPlayerWidget />

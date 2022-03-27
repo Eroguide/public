@@ -13,6 +13,7 @@ import {
 } from '@/components/widgets/TagFilterWidget/styles'
 import { useBreakpoint } from '@/hooks/useBreakpoint'
 import { breakpoints, BreakpointsEnum } from '@/src/theme'
+import { SectionBlock } from '@/components/layouts/SectionBlock'
 
 const Journal: NextPage = () => {
   const isSmall = useBreakpoint({
@@ -27,24 +28,26 @@ const Journal: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <BaseLayout>
-        <TopLinePageContent />
-        <GalleryLanding
-          title="Journal"
-          text="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, aperiam assumenda distinctio eaque esse, exercitationem harum inventore iste iusto maiores numquam provident quibusdam, repudiandae. Atque cum et nulla pariatur vel?"
-        />
-        {isSmall ? (
-          <>
-            <TagFilterWidget />
-            <GalleryContent />
-          </>
-        ) : (
-          <JournalContentWrapper>
-            <GalleryContent />
-            <FilterColumn>
+        <SectionBlock isVisible>
+          <TopLinePageContent />
+          <GalleryLanding
+            title="Journal"
+            text="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, aperiam assumenda distinctio eaque esse, exercitationem harum inventore iste iusto maiores numquam provident quibusdam, repudiandae. Atque cum et nulla pariatur vel?"
+          />
+          {isSmall ? (
+            <>
               <TagFilterWidget />
-            </FilterColumn>
-          </JournalContentWrapper>
-        )}
+              <GalleryContent />
+            </>
+          ) : (
+            <JournalContentWrapper>
+              <GalleryContent />
+              <FilterColumn>
+                <TagFilterWidget />
+              </FilterColumn>
+            </JournalContentWrapper>
+          )}
+        </SectionBlock>
       </BaseLayout>
     </>
   )

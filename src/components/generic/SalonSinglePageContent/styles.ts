@@ -9,7 +9,7 @@ export const SinglePageContentContainer = styled.div`
 export const Banner = styled.div`
   width: 100%;
   height: 320px;
-  background: #ebebf0 url('/img/bg.jpg') no-repeat center;
+  background: #ebebf0 url('/img/fake.png') no-repeat center;
   background-size: cover;
   overflow: hidden;
   border-radius: 24px;

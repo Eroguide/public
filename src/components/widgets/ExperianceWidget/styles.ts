@@ -45,7 +45,7 @@ export const ParametersAnnotation = styled.ul`
 `
 
 export const ParametersItem = styled.li`
-  ${({ theme }) => theme.typography.h6};
+  ${({ theme }) => theme.typography.pm};
   color: ${({ theme }) => theme.grayScale[5]};
   margin-right: 40px;
   display: flex;
@@ -68,7 +68,7 @@ export const IconWrapperParameter = styled(IconWrapper)`
 
 export const Title = styled.span<{ isCrossed: boolean }>`
   margin-right: 4px;
-  ${({ theme }) => theme.typography.h6};
+  ${({ theme }) => theme.typography.ps};
   color: ${({ theme }) => theme.grayScale[5]};
   ${({ isCrossed }) => isCrossed && 'text-decoration: line-through;'};
 `
@@ -78,17 +78,22 @@ export const Details = styled.span`
   color: ${({ theme }) => theme.primary[1]};
 `
 
-export const ParametersList = styled.ul`
+export const ParametersList = styled.div`
   width: 100%;
   display: flex;
   flex-wrap: wrap;
 `
 
-export const ParametersListItem = styled.li`
+export const ParametersListItem = styled.div`
   display: flex;
   margin-bottom: 16px;
   align-items: center;
-  width: 50%;
+  min-width: 30%;
+  max-width: 50%;
+  width: 100%;
+  span {
+    white-space: nowrap;
+  }
   ${({ theme }) => theme.media.md`
   width: 100%;
   `}

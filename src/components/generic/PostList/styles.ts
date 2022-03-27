@@ -10,11 +10,13 @@ export const PostListRowContainer = styled.div`
 `
 
 export const TopLine = styled.div`
-  width: 100%;
   height: 40px;
   justify-content: space-between;
   display: flex;
   align-items: center;
+  width: 100%;
+  max-width: 1298px;
+  margin: 0 auto 40px auto;
 `
 
 export const Title = styled.h3`
@@ -32,10 +34,15 @@ export const RightWidget = styled.div`
 `
 
 export const ContentRow = styled.div`
-  width: auto;
-  display: flex;
-  min-width: 1298px;
-  margin: 40px -9px 0 -9px;
+  margin: 0 -9px 0 -9px;
+  & .swiper {
+    width: 100%;
+    display: flex;
+  }
+  & .swiper-slide {
+    width: auto;
+  }
+
   ${({ theme }) => theme.media.mobile`
        min-width: auto;
   `}

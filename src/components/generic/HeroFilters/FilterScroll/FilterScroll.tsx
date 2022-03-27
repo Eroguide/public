@@ -18,24 +18,12 @@ import { useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 const options = [
-  'All',
-  'New',
-  'Best',
-  'On shift',
-  'Privat',
-  'Salons',
-  'Privat1',
-  'Salons1',
-  'Privat2',
-  'Salons2',
-  'Privat3',
-  'Salons3',
-  'Privat4',
-  'Salons4',
-  'Privat5',
-  'Salons5',
-  'Privat6',
-  'Salons6',
+  { name: 'Vše', slug: 'all' },
+  { name: 'Nové', slug: 'new' },
+  { name: 'Top', slug: 'top' },
+  { name: 'Na směně', slug: 'on-shift' },
+  { name: 'Privat', slug: 'privat' },
+  { name: 'Masáže', slug: 'massage' },
 ]
 
 export const FilterScroll: React.FC = () => {
@@ -76,16 +64,18 @@ export const FilterScroll: React.FC = () => {
         <Swiper {...swiperSettings} onAfterInit={() => setInitSlider(true)}>
           {initSlider
             ? options.map((option, i) => (
-                <SwiperSlide key={`${option}-${i}`}>
+                <SwiperSlide key={`${option.name}-${i}`}>
                   <Link
-                    href={i === 0 ? '/category' : `/category/${option}`}
+                    href={i === 0 ? '/category' : `/category/${option.slug}`}
                     passHref
                     shallow={!(i === 0)}
                   >
-                    <FilterCategory isActive={slug ? slug === option : i === 0}>
+                    <FilterCategory
+                      isActive={slug ? slug === option.slug : i === 0}
+                    >
                       <FlexBox>
                         <FlexRow>
-                          <CategoryTitle>{option}</CategoryTitle>
+                          <CategoryTitle>{option.name}</CategoryTitle>
                           <FilterCounter>232</FilterCounter>
                         </FlexRow>
                         <Line />
