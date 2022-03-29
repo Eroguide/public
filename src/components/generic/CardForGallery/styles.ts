@@ -43,7 +43,7 @@ export const CardImageWrapper = styled.div`
   width: 100%;
   height: 368px;
   position: relative;
-  background: #ebebf0 url('/img/fake.png') no-repeat center top;
+  background: #ebebf0 url('/img/fake.png') no-repeat center center;
   background-size: cover;
   overflow: hidden;
   align-items: flex-end;

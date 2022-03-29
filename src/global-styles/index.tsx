@@ -15,28 +15,11 @@ export const globalStyles = (
         font-family: 'Inter';
         src: url('/fonts/Inter/Inter-Regular.ttf'),
           url('/fonts/Inter/Inter-SemiBold.ttf'),
+          url('/fonts/Inter/Inter-Black.ttf'),
+          url('/fonts/Inter/Inter-ExtraBool.ttf'),
+          url('/fonts/Inter/Inter-Medium.ttf'),
           url('/fonts/Inter/Inter-Bold.ttf');
         font-style: normal;
-      }
-      ul,
-      li,
-      p {
-        padding: 0;
-        margin: 0;
-        line-height: 1.6;
-      }
-
-      ul {
-        list-style: none;
-      }
-
-      h1,
-      h2,
-      h3,
-      h4,
-      h5 {
-        padding: 0;
-        margin: 0;
       }
 
       body {
@@ -47,7 +30,7 @@ export const globalStyles = (
         line-height: 1.4;
         background: white;
         min-height: 100vh;
-        font-family: 'Inter', Helvetica, Arial, sans-serif;
+        font-family: 'Inter', Helvetica, sans-serif;
         padding: 0;
         margin: 0;
         //  scroll-behavior: smooth;
@@ -59,6 +42,29 @@ export const globalStyles = (
         min-height: 100%;
         display: flex;
         flex-direction: column;
+      }
+
+      ul,
+      li,
+      p {
+        padding: 0;
+        margin: 0;
+        line-height: 1.6;
+        font-family: 'Inter', Helvetica, Arial, sans-serif;
+      }
+
+      ul {
+        list-style: none;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5 {
+        font-family: 'Inter', Helvetica, Arial, sans-serif;
+        padding: 0;
+        margin: 0;
       }
     `}
   />
