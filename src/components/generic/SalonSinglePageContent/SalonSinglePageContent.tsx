@@ -1,4 +1,16 @@
 import {
+  AdditionsCard,
+  ContentCardRow,
+  CustomButton,
+  InfoCard,
+  InfoCardCollapse,
+  MassageProgramCard,
+  ProductSlider,
+  SalonCard,
+  SalonScheduleCard,
+  SinglePageContentBlock,
+} from '@/components/generic'
+import {
   SinglePageContentContainer,
   Banner,
   SinglePageBody,
@@ -13,19 +25,6 @@ import {
   // PriceInfoNote,
   ButtonRow,
 } from './styles'
-
-import {
-  AdditionsCard,
-  ContentCardRow,
-  CustomButton,
-  InfoCard,
-  InfoCardCollapse,
-  MassageProgramCard,
-  ProductSlider,
-  SalonCard,
-  SalonScheduleCard,
-  SinglePageContentBlock,
-} from '@/components/generic'
 import { useBreakpoint } from '@/hooks/useBreakpoint'
 import { breakpoints, BreakpointsEnum } from '@/src/theme'
 import { SalonInfoSinglePageWidget } from '@/components/widgets/SalonInfoSinglePageWidget'
@@ -37,56 +36,59 @@ import CovidTermoIcon from '/public/img/covid-icon-termo.svg'
 import CovidAntisepIcon from '/public/img/covid-icon-antisep.svg'
 import CovidMaskIcon from '/public/img/covid-icon-mask.svg'
 import { SwiperSlide } from 'swiper/react'
+import { ScheduleFilters } from '@/components/generic/ScheduleFilters'
 // import { SectionBlock } from '@/components/layouts/SectionBlock'
-const fixtures = [
-  { id: '222dsadas', slug: 'one-project-time', best: 1 },
-  { id: 'asddsad222sadasd', slug: 'two-project-time', best: 0 },
-  { id: 'asdsad3242asd', slug: 'three-project-time', best: 0 },
-  { id: 'asdsdadasfffsadasd', slug: 'four-project-time', best: 0 },
-  { id: 'asdxfsadasd', slug: 'four-project-time', best: 0 },
-  { id: 'asdsdadvadasd', slug: 'four-project-time', best: 0 },
-  { id: 'xfffsadasd', slug: 'four-project-time', best: 0, tag: 'New' },
-  { id: 'xfffsadssasd', slug: 'four-project-time', best: 0, tag: 'New' },
-]
-const covidInfoList = [
-  {
-    id: 213213,
-    icon: <CovidStarsIcon />,
-    text: 'treat rooms with a disinfectant',
-  },
-  {
-    id: 2123213,
-    icon: <CovidTermoIcon />,
-    text: 'measure temperature of masseuses',
-  },
-  {
-    id: 2134213,
-    icon: <CovidAntisepIcon />,
-    text: 'at the entrance antiseptic',
-  },
-  { id: 215213, icon: <CovidMaskIcon />, text: 'mask massage (optional)' },
-]
-
-const additions = [
-  {
-    title:
-      '3rd level of frankness of touch. Weasels without "Uncle Ku" (you can touch the masseuse everywhere).',
-    price: 500,
-  },
-  { title: 'Imitations (each masseuse has its own)', price: 900 },
-  {
-    title:
-      '3rd level of frankness of touch. Weasels without "Uncle Ku" (you can touch the masseuse everywhere). 3rd level of frankness of touch.',
-    price: 1200,
-  },
-  { title: 'Imitations (each masseuse has its own)', price: 1500 },
-]
 
 export const SalonSinglePageContent: React.FC = () => {
   const isSmall = useBreakpoint({
     min: breakpoints[BreakpointsEnum.xxs].min,
     max: breakpoints[BreakpointsEnum.sm].max,
   })
+
+  const fixtures = [
+    { id: '222dsadas', slug: 'one-project-time', best: 1 },
+    { id: 'asddsad222sadasd', slug: 'two-project-time', best: 0 },
+    { id: 'asdsad3242asd', slug: 'three-project-time', best: 0 },
+    { id: 'asdsdadasfffsadasd', slug: 'four-project-time', best: 0 },
+    { id: 'asdxfsadasd', slug: 'four-project-time', best: 0 },
+    { id: 'asdsdadvadasd', slug: 'four-project-time', best: 0 },
+    { id: 'xfffsadasd', slug: 'four-project-time', best: 0, tag: 'New' },
+    { id: 'xfffsadssasd', slug: 'four-project-time', best: 0, tag: 'New' },
+  ]
+  const covidInfoList = [
+    {
+      id: 213213,
+      icon: <CovidStarsIcon />,
+      text: 'treat rooms with a disinfectant',
+    },
+    {
+      id: 2123213,
+      icon: <CovidTermoIcon />,
+      text: 'measure temperature of masseuses',
+    },
+    {
+      id: 2134213,
+      icon: <CovidAntisepIcon />,
+      text: 'at the entrance antiseptic',
+    },
+    { id: 215213, icon: <CovidMaskIcon />, text: 'mask massage (optional)' },
+  ]
+
+  const additions = [
+    {
+      title:
+        '3rd level of frankness of touch. Weasels without "Uncle Ku" (you can touch the masseuse everywhere).',
+      price: 500,
+    },
+    { title: 'Imitations (each masseuse has its own)', price: 900 },
+    {
+      title:
+        '3rd level of frankness of touch. Weasels without "Uncle Ku" (you can touch the masseuse everywhere). 3rd level of frankness of touch.',
+      price: 1200,
+    },
+    { title: 'Imitations (each masseuse has its own)', price: 1500 },
+  ]
+
   return (
     <SinglePageContentContainer>
       {!isSmall && <Banner />}
@@ -116,7 +118,7 @@ export const SalonSinglePageContent: React.FC = () => {
           </SinglePageContentBlock>
           <DetailsSection>
             <SinglePageContentBlock title="Schedule">
-              <SalonSinglePageContent />
+              <ScheduleFilters />
               <SalonScheduleCard />
               <SalonScheduleCard />
               <SalonScheduleCard />
