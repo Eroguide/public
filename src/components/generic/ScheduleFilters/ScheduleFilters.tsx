@@ -21,7 +21,7 @@ export const ScheduleFilters: React.FC = () => {
         <FilterOptions>
           {['by schedule', 'by name', 'by latest'].map((tag) => (
             <FilterItem key={tag}>
-              <CustomButton styleType="tertiary" sizeType="medium">
+              <CustomButton styleType="tertiary" sizeType="small">
                 {tag}
               </CustomButton>
             </FilterItem>

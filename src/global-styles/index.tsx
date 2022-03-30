@@ -11,16 +11,16 @@ export const globalStyles = (
         box-sizing: border-box;
       }
 
-      @font-face {
-        font-family: 'Inter';
-        src: url('/fonts/Inter/Inter-Regular.ttf'),
-          url('/fonts/Inter/Inter-SemiBold.ttf'),
-          url('/fonts/Inter/Inter-Black.ttf'),
-          url('/fonts/Inter/Inter-ExtraBool.ttf'),
-          url('/fonts/Inter/Inter-Medium.ttf'),
-          url('/fonts/Inter/Inter-Bold.ttf');
-        font-style: normal;
-      }
+      //@font-face {
+      //  font-family: 'Inter';
+      //  //src: url('/fonts/Inter/Inter-Regular.ttf'),
+      //  //  url('/fonts/Inter/Inter-SemiBold.ttf'),
+      //  //  url('/fonts/Inter/Inter-Black.ttf'),
+      //  //  url('/fonts/Inter/Inter-ExtraBool.ttf'),
+      //  //  url('/fonts/Inter/Inter-Medium.ttf'),
+      //  //  url('/fonts/Inter/Inter-Bold.ttf');
+      //  font-style: normal;
+      //}
 
       body {
         overflow-x: hidden;

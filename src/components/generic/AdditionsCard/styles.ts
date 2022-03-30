@@ -11,6 +11,10 @@ export const Container = styled.div<InfoCardProps>`
   justify-content: space-between;
   align-items: center;
   flex-flow: column wrap;
+  transition: box-shadow 0.2s ease-in-out;
+  &:hover {
+    box-shadow: 0 4px 8px rgba(26, 26, 26, 0.2);
+  }
 `
 
 export const Description = styled.span`
@@ -100,7 +104,7 @@ export const Price = styled.span`
   font-weight: 600;
   height: 40px;
   display: flex;
-  align-items: flex-end;
+  align-items: baseline;
 `
 
 export const Suffix = styled.span`

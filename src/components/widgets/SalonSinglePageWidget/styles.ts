@@ -9,7 +9,7 @@ export const NameWrapper = styled.div`
 
 export const Name = styled.h2`
   ${({ theme }) => theme.typography.h2};
-  font-weight: 800;
+  font-weight: 600;
   color: ${({ theme }) => theme.grayScale[5]};
 `
 
@@ -48,11 +48,13 @@ export const MemberSince = styled.span`
   justify-content: center;
   align-items: center;
   ${({ theme }) => theme.typography.ps};
+  color: ${({ theme }) => theme.grayScale[4]};
   margin-top: 32px;
 `
 
 export const Divider = styled.div`
-  border: 1px solid ${({ theme }) => theme.grayScale[1]};
+  height: 1px;
+  background-color: ${({ theme }) => theme.grayScale[1]};
   width: 200px;
   margin: 0 auto;
 `
@@ -69,6 +71,7 @@ export const LastCheckDate = styled.div`
   justify-content: center;
   align-items: center;
   ${({ theme }) => theme.typography.ps};
+  color: ${({ theme }) => theme.grayScale[4]};
   margin-bottom: 24px;
 `
 

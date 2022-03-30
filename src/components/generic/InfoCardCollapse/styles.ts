@@ -59,7 +59,7 @@ export const ToggleButton = styled.span<{ isOpen: boolean }>`
   margin-left: 8px;
 
   svg {
-    fill: ${({ theme }) => theme.grayScale[1]};
+    fill: ${({ theme }) => theme.support[2]};
   }
 
   ${({ isOpen }) => isOpen && `svg { transform: rotate(180deg); } `};

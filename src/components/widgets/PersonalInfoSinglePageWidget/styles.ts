@@ -26,7 +26,7 @@ export const NameWrapper = styled.div`
 
 export const Name = styled.h2`
   ${({ theme }) => theme.typography.h2};
-  font-weight: 800;
+  font-weight: 600;
   color: ${({ theme }) => theme.grayScale[5]};
 `
 
@@ -62,15 +62,15 @@ export const Parameter = styled.li`
   margin-bottom: 8px;
 `
 
-export const ParameterTitle = styled.span`
-  ${({ theme }) => theme.typography.pm};
-  font-weight: 800;
+export const ParameterTitle = styled.h5`
+  ${({ theme }) => theme.typography.h5};
+  font-weight: 600;
   color: ${({ theme }) => theme.grayScale[2]};
 `
 
 export const ParameterCounter = styled.span`
   ${({ theme }) => theme.typography.pm};
-  font-weight: 800;
+  font-weight: 400;
   color: ${({ theme }) => theme.grayScale[3]};
 `
 
@@ -99,11 +99,13 @@ export const MemberSince = styled.span`
   justify-content: center;
   align-items: center;
   ${({ theme }) => theme.typography.ps};
+  color: ${({ theme }) => theme.grayScale[4]};
   margin-top: 32px;
 `
 
 export const Divider = styled.div`
-  border: 1px solid ${({ theme }) => theme.grayScale[1]};
+  height: 1px;
+  background-color: ${({ theme }) => theme.grayScale[1]};
   width: 200px;
   margin: 0 auto;
 `

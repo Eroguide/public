@@ -72,7 +72,7 @@ export const Card: React.FC<CardProps> = ({
             </Link>
             <AdditionalInformation>
               <ChevronButton
-                title={'appearance'}
+                title={'míry'}
                 handleIsOpen={handleIsOpen}
                 isOpen={isOpenInfo}
                 bgColor={'white'}
@@ -157,7 +157,7 @@ export const Card: React.FC<CardProps> = ({
               <Right>
                 <ScheduleButton>
                   <ChevronButton
-                    title={'available'}
+                    title={'Na směně'}
                     handleIsOpen={handleIsOpenSchedule}
                     isOpen={isOpenSchedule}
                     bgColor={'green'}

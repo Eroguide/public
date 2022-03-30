@@ -51,6 +51,14 @@ export const ContentCardRow: React.FC<{
       prevEl: navigationPrevRef.current,
       nextEl: navigationNextRef.current,
     },
+    breakpoints: {
+      0: {
+        slidesPerView: 1,
+      },
+      700: {
+        slidesPerView: 'auto',
+      },
+    },
   }
 
   const [initSlider, setInitSlider] = useState<boolean>(false)

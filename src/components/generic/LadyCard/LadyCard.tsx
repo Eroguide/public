@@ -8,6 +8,8 @@ import {
   Title,
 } from './styles'
 import Link from 'next/link'
+
+import BadgeIcon from '/public/img/lady-card-badge.svg'
 export const LadyCard: React.FC<{ href: string }> = ({ href }) => {
   return (
     <Container>
@@ -20,7 +22,9 @@ export const LadyCard: React.FC<{ href: string }> = ({ href }) => {
             </StatusTag>
           </CardImage>
         </Link>
-        <Title>Lorem </Title>
+        <Title>
+          Lorem <BadgeIcon />
+        </Title>
       </Wrapper>
     </Container>
   )

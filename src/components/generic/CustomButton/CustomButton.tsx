@@ -37,7 +37,7 @@ export const CustomButton: React.FC<ButtonProps> = ({
             {children}
             {(iconRight || !!counter) && (
               <IconWrapperChevron>
-                {counter ? <p>{counter}</p> : <ChevronRight />}
+                {counter ? <span>{counter}</span> : <ChevronRight />}
               </IconWrapperChevron>
             )}
           </>
@@ -62,7 +62,7 @@ export const CustomButton: React.FC<ButtonProps> = ({
       {children}
       {(iconRight || !!counter) && (
         <IconWrapperChevron>
-          {counter ? <p>{counter}</p> : <ChevronRight />}
+          {counter ? <span>{counter}</span> : <ChevronRight />}
         </IconWrapperChevron>
       )}
     </Button>

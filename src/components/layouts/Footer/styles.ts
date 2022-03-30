@@ -40,6 +40,7 @@ export const LinkGroup = styled.div`
   padding-right: 8px;
   a {
     justify-content: flex-start;
+    ${({ theme }) => theme.typography.h4};
   }
   ${({ theme }) => theme.media.sm`
   width: 100%;

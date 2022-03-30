@@ -4,7 +4,7 @@ import { InfoCardProps } from '@/components/generic/InfoCard/InfoCard'
 export const Container = styled.div<InfoCardProps>`
   width: 100%;
   display: flex;
-  box-shadow: 0 4px 8px rgba(26, 26, 26, 0.2);
+
   border-radius: 32px;
   padding: ${({ padding }) => padding ?? '24px 40px'};
   margin: ${({ margin }) => margin ?? '8px 0'};
@@ -12,6 +12,10 @@ export const Container = styled.div<InfoCardProps>`
   justify-content: space-between;
   align-items: center;
   flex-flow: column wrap;
+  transition: box-shadow 0.2s ease-in-out;
+  &:hover {
+    box-shadow: 0 4px 8px rgba(26, 26, 26, 0.2);
+  }
 `
 
 export const Left = styled.div`
@@ -109,7 +113,7 @@ export const Price = styled.span`
   font-weight: 600;
   height: 40px;
   display: flex;
-  align-items: flex-end;
+  align-items: baseline;
 `
 
 export const Suffix = styled.span`

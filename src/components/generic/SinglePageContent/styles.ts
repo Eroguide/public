@@ -121,7 +121,8 @@ export const Widget = styled.div`
 `
 
 export const Divider = styled.div`
-  border: 1px solid ${({ theme }) => theme.grayScale[1]};
+  height: 1px;
+  background-color: ${({ theme }) => theme.grayScale[1]};
   width: 200px;
   margin: 0 auto;
 `
@@ -148,6 +149,7 @@ export const MemberSince = styled.span`
   justify-content: center;
   align-items: center;
   ${({ theme }) => theme.typography.ps};
+  color: ${({ theme }) => theme.grayScale[4]};
   margin-top: 32px;
 `
 
@@ -162,6 +164,7 @@ export const LastCheckDate = styled.div`
   justify-content: center;
   align-items: center;
   ${({ theme }) => theme.typography.ps};
+  color: ${({ theme }) => theme.grayScale[4]};
   margin-bottom: 24px;
 `
 

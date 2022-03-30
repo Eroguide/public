@@ -11,10 +11,12 @@ export const SalonCardMainContainer = styled.div<{ inSwipe?: boolean }>`
     width: calc(100% / 2 - 16px - 18px);
 `}
   ${({ theme }) => theme.media.xs`
-    width: calc(100% / 2 - 16px - 18px);
+    width: 100% ;
+      max-width:100%;
 `} 
   ${({ theme }) => theme.media.xxs`
     width:100%;
+    max-width:100%;
 `}
 `
 

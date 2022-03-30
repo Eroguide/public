@@ -8,16 +8,58 @@ import {
   Wrapper,
 } from './styles'
 
-import Heart from '/public/img/heart.svg'
+import DoorIcon from '/public/img/salon-feature-door.svg'
+import RoomIcon from '/public/img/salon-feature-room.svg'
+import ShowerIcon from '/public/img/salon-feature-shower.svg'
+import RoleIcon from '/public/img/salon-feature-roleplay.svg'
+import GirlsIcon from '/public/img/salon-feature-girlsshift.svg'
+import CardIcon from '/public/img/salon-feature-card.svg'
+import BarIcon from '/public/img/salon-feature-minibar.svg'
+import FoodIcon from '/public/img/salon-feature-food.svg'
 const fixtures = [
-  { id: '222dsadas', slug: 'one-project-time', best: 1 },
-  { id: 'asddsad222sadasd', slug: 'two-project-time', best: 0 },
-  { id: 'asdsad3242asd', slug: 'three-project-time', best: 0 },
-  { id: 'asdsdadasfffsadasd', slug: 'four-project-time', best: 0 },
-  { id: '222dsadassssd', slug: 'one-project-time', best: 1 },
-  { id: 'asddsad222sadasssdsdsd', slug: 'two-project-time', best: 0 },
-  { id: 'asdsad3242asdssdss', slug: 'three-project-time', best: 0 },
-  { id: 'asdsdadasfffsadadsdsdsd', slug: 'four-project-time', best: 0 },
+  { id: '222dsadas', slug: '8 massage rooms', best: 1, icon: <DoorIcon /> },
+  {
+    id: 'asddsad222sadasd',
+    slug: 'all rooms with shower',
+    best: 0,
+    icon: <ShowerIcon />,
+  },
+  {
+    id: 'asdsad3242asd',
+    slug: 'room selection',
+    best: 0,
+    icon: <RoomIcon />,
+  },
+  {
+    id: 'asdsdadasfffsadasd',
+    slug: 'selection of role-playing costumes',
+    best: 0,
+    icon: <RoleIcon />,
+  },
+  {
+    id: '222dsadassssd',
+    slug: 'at least 8 girls in the shift',
+    best: 1,
+    icon: <GirlsIcon />,
+  },
+  {
+    id: 'asddsad222sadasssdsdsd',
+    slug: 'accept card',
+    best: 0,
+    icon: <CardIcon />,
+  },
+  {
+    id: 'asdsad3242asdssdss',
+    slug: 'mini bar',
+    best: 0,
+    icon: <BarIcon />,
+  },
+  {
+    id: 'asdsdadasfffsadadsdsdsd',
+    slug: 'food delivery',
+    best: 0,
+    icon: <FoodIcon />,
+  },
 ]
 export const ServiceFeaturesSalonWidget: React.FC = () => {
   return (
@@ -29,10 +71,8 @@ export const ServiceFeaturesSalonWidget: React.FC = () => {
         <FeatureList>
           {fixtures.map((item) => (
             <FeatureItem key={item.id}>
-              <IconWrapper>
-                <Heart />
-              </IconWrapper>
-              <span>8 massage rooms</span>
+              <IconWrapper>{item.icon}</IconWrapper>
+              <span>{item.slug}</span>
             </FeatureItem>
           ))}
         </FeatureList>

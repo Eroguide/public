@@ -2,7 +2,7 @@ import styled from '@emotion/styled'
 
 export const Container = styled.div`
   width: 100%;
-  padding: 0 64px;
+  padding: 0 40px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -28,13 +28,16 @@ export const Title = styled.h3`
 `
 
 export const FeatureItem = styled.li`
-  ${({ theme }) => theme.typography.pm};
-  font-weight: 800;
-  color: ${({ theme }) => theme.grayScale[4]};
   display: flex;
   flex-direction: row;
   width: 100%;
   align-items: center;
+
+  span {
+    ${({ theme }) => theme.typography.pm};
+    font-weight: 400;
+    color: ${({ theme }) => theme.grayScale[4]};
+  }
   &:not(:last-of-type) {
     margin-bottom: 24px;
   }
@@ -51,9 +54,11 @@ export const IconWrapper = styled.div`
   justify-content: center;
   align-items: center;
   margin-right: 16px;
+  height: 40px;
+  width: 40px;
   padding: 8px;
   border-radius: 50%;
-  border: 2px solid ${({ theme }) => theme.grayScale[1]};
+  border: 1px solid ${({ theme }) => theme.grayScale[1]};
 `
 
 export const Wrapper = styled.div`

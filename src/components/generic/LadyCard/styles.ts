@@ -12,7 +12,6 @@ export const Wrapper = styled.div`
 export const CardImage = styled.div`
   width: 78px;
   height: 78px;
-  overflow: hidden;
   border-radius: 16px;
   background: gray url('/img/fake.png') no-repeat center center;
   background-size: cover;
@@ -23,7 +22,7 @@ export const Tag = styled.span`
   width: 50%;
   position: absolute;
   left: 0;
-  top: 0;
+  top: -2px;
   height: 19px;
   overflow: hidden;
   border-bottom-right-radius: 32px;
@@ -32,7 +31,8 @@ export const Tag = styled.span`
   display: flex;
   align-items: center;
   justify-content: center;
-  ${({ theme }) => theme.typography.pm};
+  font-weight: 600;
+  ${({ theme }) => theme.typography.h6};
   color: ${({ theme }) => theme.primary[0]};
 `
 
@@ -41,8 +41,8 @@ export const StatusTag = styled.div`
   height: 18px;
   border-radius: 100%;
   position: absolute;
-  right: 2px;
-  bottom: 2px;
+  right: 0;
+  bottom: 0;
   background: white;
   display: flex;
   align-items: center;

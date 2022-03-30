@@ -38,18 +38,17 @@ export const FormSection = styled.div`
   align-items: center;
 `
 
-export const FormTitle = styled.h4`
-  ${({ theme }) => theme.typography.h4};
+export const FormTitle = styled.h3`
+  ${({ theme }) => theme.typography.h3};
   color: ${({ theme }) => theme.grayScale[5]};
-  font-weight: 500;
+  font-weight: 600;
   margin-bottom: 24px;
 `
-
 export const FormDescription = styled.p`
   ${({ theme }) => theme.typography.ps};
-  color: ${({ theme }) => theme.grayScale[5]};
+  color: ${({ theme }) => theme.grayScale[4]};
 `
 
 export const FormInputList = styled.form`
-  margin: 64px auto;
+  margin: 40px auto 16px auto;
 `

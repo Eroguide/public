@@ -15,7 +15,7 @@ export const AudioWrapper = styled.div`
   border-radius: 32px;
   overflow: hidden;
   position: relative;
-  background: ${({ theme }) => theme.grayScale[1]};
+  background: ${({ theme }) => theme.grayScale[6]};
   padding: 32px;
   display: flex;
   align-items: center;

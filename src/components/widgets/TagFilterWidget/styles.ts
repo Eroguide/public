@@ -69,7 +69,7 @@ export const Inner = styled.div`
 export const Tag = styled.div<{ isActive: boolean }>`
   color: ${({ theme }) => theme.grayScale[3]};
   background-color: ${({ theme }) => theme.grayScale[6]};
-  border: 2px solid ${({ theme }) => theme.grayScale[1]};
+  border: 2px solid ${({ theme }) => theme.grayScale[6]};
   height: 40px;
   border-radius: 28px;
   display: flex;

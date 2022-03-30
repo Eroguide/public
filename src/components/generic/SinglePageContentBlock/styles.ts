@@ -2,7 +2,7 @@ import styled from '@emotion/styled'
 
 export const Container = styled.div`
   width: 100%;
-  padding: 32px 0;
+  margin: 32px 0 64px 0;
 `
 
 export const Title = styled.h3`

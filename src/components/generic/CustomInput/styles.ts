@@ -10,6 +10,7 @@ export const Input = styled.input<{
   placeholder?: string
 }>`
   height: 48px;
+  width: 304px;
   padding: 12px 16px;
   border-radius: 4px;
   border: 1px solid ${({ theme }) => theme.grayScale[2]};

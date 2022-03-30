@@ -39,7 +39,7 @@ export const SinglePageBody = styled.div`
 
 export const DetailsSection = styled.div`
   width: 100%;
-  max-width: 508px;
+  max-width: 569px;
   ${({ theme }) => theme.media.sm`
       max-width: 100%;
   `}
@@ -90,7 +90,8 @@ export const Widget = styled.div`
 `
 
 export const Divider = styled.div`
-  border: 1px solid ${({ theme }) => theme.grayScale[1]};
+  height: 1px;
+  background-color: ${({ theme }) => theme.grayScale[1]};
   width: 200px;
   margin: 0 auto;
 `
@@ -153,6 +154,7 @@ export const MemberSince = styled.span`
   justify-content: center;
   align-items: center;
   ${({ theme }) => theme.typography.ps};
+  color: ${({ theme }) => theme.grayScale[4]};
   margin-top: 32px;
 `
 
@@ -167,6 +169,7 @@ export const LastCheckDate = styled.div`
   justify-content: center;
   align-items: center;
   ${({ theme }) => theme.typography.ps};
+  color: ${({ theme }) => theme.grayScale[4]};
   margin-bottom: 24px;
 `
 
@@ -182,6 +185,12 @@ export const Row = styled.div`
   width: 100%;
   margin-bottom: 32px;
   justify-content: space-between;
+  display: flex;
+`
+export const ButtonRow = styled.div`
+  width: 100%;
+  margin-top: 40px;
+  justify-content: center;
   display: flex;
 `
 

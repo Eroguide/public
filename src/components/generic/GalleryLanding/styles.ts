@@ -41,7 +41,7 @@ export const HeroTitle = styled.h1`
 `
 
 export const DescriptionText = styled.p`
-  ${({ theme }) => theme.typography.ps};
+  ${({ theme }) => theme.typography.h3};
   font-weight: 600;
   color: ${({ theme }) => theme.grayScale[4]};
   width: 100%;

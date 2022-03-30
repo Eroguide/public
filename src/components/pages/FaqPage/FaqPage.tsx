@@ -54,11 +54,12 @@ export const FaqPage: React.FC = () => {
   return (
     <>
       <TitleSection>
-        <SmallTitle>Learn how to get started</SmallTitle>
-        <LargeTitle>Frequently asked questions</LargeTitle>
+        <SmallTitle>Přečtěte si, jak začít</SmallTitle>
+        <LargeTitle>Často kladené dotazy</LargeTitle>
         <SubTitle>
-          Join Eroguide community now to get free updates and also of freebies
-          are waiting for you or <Link href="/faq">Contact Support</Link>
+          Připojte se nyní ke komunitě Eroguide a získejte bezplatné aktualizace
+          a také bezplatné příspěvky čeká na vás nebo se{' '}
+          <Link href="/support">Obraťte na podporu</Link>.
         </SubTitle>
       </TitleSection>
       <FaqWrapper>

@@ -11,7 +11,7 @@ export const FaqWrapper = styled.div`
 `
 
 export const TitleSection = styled.section`
-  max-width: 540px;
+  max-width: 798px;
   width: 100%;
   margin: auto;
   display: flex;
@@ -31,9 +31,14 @@ export const SmallTitle = styled.h5`
 `
 
 export const LargeTitle = styled.h1`
-  ${({ theme }) => theme.typography.h2};
+  ${({ theme }) => theme.typography.extra};
   color: ${({ theme }) => theme.grayScale[5]};
   margin-bottom: 8px;
+  font-weight: 700;
+  ${({ theme }) => theme.media.mobile`
+  ${theme.typography.extraMobile};
+  `};
+  line-height: 92px;
 `
 
 export const MediumTitle = styled.h3`
@@ -45,7 +50,8 @@ export const MediumTitle = styled.h3`
 export const SubTitle = styled.h4`
   ${({ theme }) => theme.typography.h4};
   color: ${({ theme }) => theme.grayScale[3]};
-  margin-bottom: 8px;
+  max-width: 540px;
+  margin: 0 auto 8px auto;
   font-weight: 400;
   a {
     color: ${({ theme }) => theme.support[0]};

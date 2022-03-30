@@ -10,15 +10,19 @@ import {
   IconWrapper,
   InfoCardItem,
   CovidProtectionCardContent,
-  PriceInfoNote,
+  // PriceInfoNote,
+  ButtonRow,
 } from './styles'
 
 import {
   AdditionsCard,
+  ContentCardRow,
+  CustomButton,
   InfoCard,
   InfoCardCollapse,
   MassageProgramCard,
   ProductSlider,
+  SalonCard,
   SalonScheduleCard,
   SinglePageContentBlock,
 } from '@/components/generic'
@@ -27,12 +31,15 @@ import { breakpoints, BreakpointsEnum } from '@/src/theme'
 import { SalonInfoSinglePageWidget } from '@/components/widgets/SalonInfoSinglePageWidget'
 import { ServiceFeaturesSalonWidget } from '@/components/widgets/ServiceFeaturesSalonWidget'
 import GenderIcon from '/public/img/gender-icon.svg'
-import CircleCheckIcon from '/public/img/green-circle-check.svg'
+// import CircleCheckIcon from '/public/img/green-circle-check.svg'
 import CovidStarsIcon from '/public/img/covid-icon-stars.svg'
 import CovidTermoIcon from '/public/img/covid-icon-termo.svg'
 import CovidAntisepIcon from '/public/img/covid-icon-antisep.svg'
 import CovidMaskIcon from '/public/img/covid-icon-mask.svg'
 import { ScheduleFilters } from '@/components/generic/ScheduleFilters'
+import { SectionBlock } from '@/components/layouts/SectionBlock'
+import { BaseLayout } from '@/components/layouts/BaseLayout'
+import { SwiperSlide } from 'swiper/react'
 
 const covidInfoList = [
   {
@@ -100,18 +107,17 @@ export const SalonSinglePageContent: React.FC = () => {
               </CovidProtectionCardContent>
             </InfoCard>
           </SinglePageContentBlock>
-
-          <SinglePageContentBlock title="Schedule">
-            <ScheduleFilters />
-            <SalonScheduleCard />
-            <SalonScheduleCard />
-            <SalonScheduleCard />
-            <SalonScheduleCard />
-          </SinglePageContentBlock>
-
           <DetailsSection>
+            <SinglePageContentBlock title="Schedule">
+              <ScheduleFilters />
+              <SalonScheduleCard />
+              <SalonScheduleCard />
+              <SalonScheduleCard />
+              <SalonScheduleCard />
+            </SinglePageContentBlock>
+
             <SinglePageContentBlock title="Massage programs">
-              <InfoCard strokeColor="yellow">
+              <InfoCard margin={'0 0 16px 0'} strokeColor="yellow">
                 <IconWrapper>
                   <GenderIcon />
                 </IconWrapper>
@@ -122,20 +128,44 @@ export const SalonSinglePageContent: React.FC = () => {
                   quasi quibusdam vel veritatis vero.
                 </Description>
               </InfoCard>
-              <InfoCard strokeColor="green">
-                <PriceInfoNote>
-                  <CircleCheckIcon />
-                  Prices confirmed
-                </PriceInfoNote>
-              </InfoCard>
-              <InfoCardCollapse />
+              {/*<InfoCard strokeColor="green">*/}
+              {/*  <PriceInfoNote>*/}
+              {/*    <CircleCheckIcon />*/}
+              {/*    Prices confirmed*/}
+              {/*  </PriceInfoNote>*/}
+              {/*</InfoCard>*/}
+              <InfoCardCollapse margin={'0 0 32px 0'} strokeColor={'green'} />
               <MassageProgramCard />
+              <MassageProgramCard />
+              <MassageProgramCard />
+              <MassageProgramCard />
+              <MassageProgramCard />
+              <MassageProgramCard />
+
+              <ButtonRow>
+                <CustomButton
+                  styleType="tertiary"
+                  sizeType="small"
+                  counter={32}
+                >
+                  all programs
+                </CustomButton>
+              </ButtonRow>
             </SinglePageContentBlock>
 
             <SinglePageContentBlock title="Program additions">
               {additions.map((x) => (
                 <AdditionsCard key={x.title} {...x} />
               ))}
+              <ButtonRow>
+                <CustomButton
+                  styleType="tertiary"
+                  sizeType="small"
+                  counter={32}
+                >
+                  all programs
+                </CustomButton>
+              </ButtonRow>
             </SinglePageContentBlock>
           </DetailsSection>
         </BodyContent>
