@@ -16,13 +16,11 @@ import {
 
 import {
   AdditionsCard,
-  ContentCardRow,
   CustomButton,
   InfoCard,
   InfoCardCollapse,
   MassageProgramCard,
   ProductSlider,
-  SalonCard,
   SalonScheduleCard,
   SinglePageContentBlock,
 } from '@/components/generic'
@@ -37,9 +35,7 @@ import CovidTermoIcon from '/public/img/covid-icon-termo.svg'
 import CovidAntisepIcon from '/public/img/covid-icon-antisep.svg'
 import CovidMaskIcon from '/public/img/covid-icon-mask.svg'
 import { ScheduleFilters } from '@/components/generic/ScheduleFilters'
-import { SectionBlock } from '@/components/layouts/SectionBlock'
-import { BaseLayout } from '@/components/layouts/BaseLayout'
-import { SwiperSlide } from 'swiper/react'
+import { memo } from 'react'
 
 const covidInfoList = [
   {
@@ -75,7 +71,7 @@ const additions = [
   { title: 'Imitations (each masseuse has its own)', price: 1500 },
 ]
 
-export const SalonSinglePageContent: React.FC = () => {
+export const SalonSinglePageContent: React.FC = memo(() => {
   const isSmall = useBreakpoint({
     min: breakpoints[BreakpointsEnum.xxs].min,
     max: breakpoints[BreakpointsEnum.sm].max,
@@ -172,4 +168,4 @@ export const SalonSinglePageContent: React.FC = () => {
       </SinglePageBody>
     </SinglePageContentContainer>
   )
-}
+})

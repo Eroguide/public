@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { memo, useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Pagination, SwiperOptions, FreeMode } from 'swiper'
 
@@ -17,7 +17,7 @@ export const PostList: React.FC<{
   counter: number
   counterTitle: string
   postData: Array<GetLaunches_launchesPast | null> | null
-}> = ({ title, counterTitle, counter, postData }) => {
+}> = memo(({ title, counterTitle, counter, postData }) => {
   const swiperSettings: SwiperOptions = {
     slidesPerView: 'auto',
     freeMode: true,
@@ -56,4 +56,4 @@ export const PostList: React.FC<{
       </ContentRow>
     </PostListRowContainer>
   )
-}
+})

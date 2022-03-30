@@ -4,8 +4,16 @@ export const PostListRowContainer = styled.div`
   width: 100%;
   margin-top: 64px;
   padding: 0 9px;
+
+  .swiper {
+    overflow: visible;
+  }
+
   ${({ theme }) => theme.media.mobile`
        padding: 0;
+      .swiper {
+        overflow: hidden;
+      }
   `}
 `
 

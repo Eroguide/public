@@ -82,6 +82,15 @@ export const ParametersList = styled.div`
   width: 100%;
   display: flex;
   flex-wrap: wrap;
+  ${({ theme }) => theme.media.md`
+    flex-direction: column;
+  `}
+  ${({ theme }) => theme.media.sm`
+  flex-direction: row;
+  `}
+  ${({ theme }) => theme.media.mobile`
+     flex-direction: column;
+  `}
 `
 
 export const ParametersListItem = styled.div`

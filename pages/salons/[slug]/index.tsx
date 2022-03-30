@@ -9,7 +9,7 @@ import {
 } from '@/components/generic'
 import { SalonSinglePageContent } from '@/components/generic/SalonSinglePageContent'
 import { SectionBlock } from '@/components/layouts/SectionBlock'
-import { SinglePageContentContainer } from '@/components/generic/SalonSinglePageContent/styles'
+// import { SinglePageContentContainer } from '@/components/generic/SalonSinglePageContent/styles'
 import { SwiperSlide } from 'swiper/react'
 
 const SalonsItem: NextPage = () => {
@@ -44,6 +44,7 @@ const SalonsItem: NextPage = () => {
             spaceBetween={8}
             counterTitle="Recent salons"
             href="/salons"
+            withControls
           >
             {fixtures.map((item) => (
               <SwiperSlide key={item.id}>

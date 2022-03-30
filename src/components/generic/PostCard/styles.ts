@@ -8,6 +8,11 @@ export const CardMainContainer = styled.div`
   margin-bottom: 32px;
   position: relative;
   padding: 9px;
+
+  ${({ theme }) => theme.media.mobile`
+    width: 100% ;
+      max-width:100%;
+`}
 `
 
 export const PostCardInner = styled.div`

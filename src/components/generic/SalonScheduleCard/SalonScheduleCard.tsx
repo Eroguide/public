@@ -1,13 +1,14 @@
 import { SalonScheduleCardContainer, DayList } from './styles'
 import { LadyCard, SchedyleCardWorkingDays } from '@/components/generic'
+import { memo } from 'react'
 
-export const SalonScheduleCard: React.FC = () => {
+export const SalonScheduleCard: React.FC = memo(() => {
   return (
     <SalonScheduleCardContainer>
       <LadyCard href="/" />
       <DayList>
-        <SchedyleCardWorkingDays itemsToShow={7} withDateBottom fadeRight />
+        <SchedyleCardWorkingDays withDateBottom />
       </DayList>
     </SalonScheduleCardContainer>
   )
-}
+})

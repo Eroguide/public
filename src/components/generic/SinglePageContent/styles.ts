@@ -57,16 +57,19 @@ export const InterviewBlockWrapper = styled.div`
     color: ${({ theme }) => theme.grayScale[4]};
     margin-bottom: 8px;
   }
+
   p {
     ${({ theme }) => theme.typography.pm};
     color: ${({ theme }) => theme.grayScale[3]};
   }
+
   div {
     &:last-of-type {
       width: 100%;
       display: flex;
       justify-content: flex-end;
     }
+
     margin-bottom: 32px;
   }
 
@@ -93,7 +96,7 @@ export const LeftWidgets = styled.div`
     margin-top: 0;
   width: 100%;
   `}
-  
+
   ${({ theme }) => theme.media.mobile`
     margin-top: 0;
     width: 100%;
@@ -169,10 +172,10 @@ export const LastCheckDate = styled.div`
 `
 
 export const SalonImage = styled.img`
-  width: 100%;
+  width: 247px;
   height: 136px;
   border-radius: 32px;
-  margin-bottom: 24px;
+  margin: 0 auto 24px auto;
   overflow: hidden;
 `
 
@@ -198,13 +201,13 @@ export const BodyContent = styled.div`
 
   ${({ theme }) => theme.media.md`
    padding: 32px;
-  `}
+  `};
   ${({ theme }) => theme.media.sm`
       width: 100%;
       padding: 16px;
-  `}
+  `};
   ${({ theme }) => theme.media.mobile`
        width: 100%;
        padding: 16px;
-  `}
+  `};
 `

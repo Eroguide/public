@@ -1,6 +1,5 @@
 import { Swiper } from 'swiper/react'
 import { SwiperOptions, Navigation } from 'swiper'
-
 import {
   ContentCardRowContainer,
   TopLine,
@@ -39,25 +38,23 @@ export const ContentCardRow: React.FC<{
   const navigationNextRef = useRef<HTMLDivElement>(null)
 
   const swiperSettings: SwiperOptions = {
-    loop: false,
     slidesPerView: 'auto',
     spaceBetween: spaceBetween,
     modules: [Navigation],
-    watchOverflow: true,
-    allowSlidePrev: true,
-    allowSlideNext: true,
-    centeredSlidesBounds: true,
-    navigation: {
-      prevEl: navigationPrevRef.current,
-      nextEl: navigationNextRef.current,
-    },
     breakpoints: {
       0: {
         slidesPerView: 1,
       },
-      700: {
+      599: {
         slidesPerView: 'auto',
       },
+    },
+    allowSlidePrev: withControls,
+    allowSlideNext: withControls,
+    centeredSlidesBounds: true,
+    navigation: {
+      prevEl: navigationPrevRef.current,
+      nextEl: navigationNextRef.current,
     },
   }
 

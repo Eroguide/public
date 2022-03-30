@@ -1,19 +1,18 @@
-import { useState } from 'react'
+import { memo, useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { Pagination, SwiperOptions } from 'swiper'
+import { SwiperOptions } from 'swiper'
 import { Container, Wrapper, DayCard, Day, Time, DateTop } from './styles'
 import PlaneIcon from '/public/img/plane-icon.svg'
 
 export const SchedyleCardWorkingDays: React.FC<{
   withDateTop?: boolean
   withDateBottom?: boolean
-  itemsToShow?: number
-  fadeRight?: boolean
-}> = ({ withDateTop, itemsToShow, withDateBottom, fadeRight }) => {
+}> = memo(({ withDateTop, withDateBottom }) => {
   const days = [
     {
       name: 'Mon',
       time: '12-20',
+      active: true,
     },
     {
       name: 'Thu',
@@ -42,35 +41,28 @@ export const SchedyleCardWorkingDays: React.FC<{
     },
   ]
   const swiperSettings: SwiperOptions = {
-    slidesPerView: itemsToShow ?? 4,
-    modules: [Pagination],
-    loop: true,
-    spaceBetween: 8,
+    slidesPerView: 'auto',
+    loop: false,
+    spaceBetween: 0,
     breakpoints: {
       0: {
-        slidesPerView: 3,
+        slidesPerView: 4,
       },
-      700: {
-        slidesPerView: 3,
-      },
-      960: {
-        slidesPerView: 5,
-      },
-      1280: {
-        slidesPerView: 7,
+      599: {
+        slidesPerView: 'auto',
       },
     },
   }
   const [initSlider, setInitSlider] = useState<boolean>(false)
   return (
     <Container>
-      <Wrapper fadeRight={fadeRight}>
+      <Wrapper>
         <Swiper {...swiperSettings} onAfterInit={() => setInitSlider(true)}>
           {initSlider && days
             ? days.map((day) => (
                 <SwiperSlide key={day.name}>
                   {withDateTop && <DateTop>{day.name}</DateTop>}
-                  <DayCard key={day.name}>
+                  <DayCard key={day.name} isActive={day.active}>
                     <Day isFree={day?.isFree}>{day.name}</Day>
                     {day?.isFree ? <PlaneIcon /> : <Time>{day.time}</Time>}
                   </DayCard>
@@ -82,4 +74,4 @@ export const SchedyleCardWorkingDays: React.FC<{
       </Wrapper>
     </Container>
   )
-}
+})

@@ -223,7 +223,7 @@ export const Block = styled.div`
 export const SectionFooterWrap = styled.div`
   display: flex;
   width: calc(100% - 200px);
-  align-items: center;
+  align-items: flex-start;
   flex-grow: 1;
   ${({ theme }) => theme.media.sm`
   width: 100%;

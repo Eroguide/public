@@ -7,18 +7,30 @@ export const Container = styled.div`
   width: 100%;
 `
 
-export const Wrapper = styled.ul<{ fadeRight?: boolean }>`
+export const Wrapper = styled.div`
   display: flex;
   flex-wrap: nowrap;
   flex-direction: row;
   position: relative;
   width: 100%;
+  margin: 0 -9px;
+  & .swiper {
+    width: 100%;
+    display: flex;
+  }
+  & .swiper-slide {
+    padding: 0 9px;
+    width: auto;
+  }
+  ${({ theme }) => theme.media.mobile`
+       min-width: auto;
+  `};
 
-  ${({ theme, fadeRight }) => theme.media.mobile`
+  ${({ theme }) => theme.media.mobile`
    &:before {
     content: '';
     position: absolute;
-    inset: ${fadeRight ? '0  0 0 auto' : '0 auto 0 0'};
+    inset: 0 0 0 auto;
     background: rgb(255, 255, 255);
     background: linear-gradient(
       270deg,
@@ -32,7 +44,7 @@ export const Wrapper = styled.ul<{ fadeRight?: boolean }>`
   `}
 `
 
-export const DayCard = styled.li`
+export const DayCard = styled.div<{ isActive?: boolean }>`
   width: 56px;
   height: 66px;
   display: flex;
@@ -54,26 +66,33 @@ export const DayCard = styled.li`
     z-index: -1;
     border-radius: 4px;
   }
-  &:hover {
-    &:before {
+  // &:hover {
+  //   &:before {
+  //     content: '';
+  //     background-color: ${({ theme }) => theme.opacity[70][0]};
+  //     transition: filter 0.15s ease-in-out;
+  //     filter: blur(4px);
+  //   }
+  // }
+  ${({ isActive, theme }) =>
+    isActive &&
+    `  &:before {
       content: '';
-      background-color: ${({ theme }) => theme.opacity[70][0]};
+      background-color: ${theme.opacity[70][0]};
       transition: filter 0.15s ease-in-out;
       filter: blur(4px);
-    }
-  }
-
-  &:active {
-    &:before {
-      content: '';
-      background-color: ${({ theme }) => theme.opacity[70][0]};
-      transition: filter 0.2s ease-out;
-      filter: blur(2px);
-    }
-  }
+    }`};
+  // &:active {
+  //   &:before {
+  //     content: '';
+  //     background-color: ${({ theme }) => theme.opacity[70][0]};
+  //     transition: filter 0.2s ease-out;
+  //     filter: blur(2px);
+  //   }
+  // }
 `
 
-export const Day = styled.span<{ isFree?: boolean }>`
+export const Day = styled.span<{ isFree?: boolean; isActive?: boolean }>`
   ${({ theme }) => theme.typography.ps};
   color: ${({ theme, isFree }) =>
     isFree ? theme.grayScale[2] : theme.grayScale[4]};

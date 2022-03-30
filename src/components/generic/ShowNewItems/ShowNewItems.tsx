@@ -38,17 +38,14 @@ export const ShowNewItems: React.FC<{
     slidesPerView: 'auto',
     freeMode: true,
     modules: [FreeMode, Navigation],
-    // breakpoints: {
-    //   0: {
-    //     slidesPerView: 1,
-    //   },
-    //   600: {
-    //     slidesPerView: itemsToShow,
-    //   },
-    //   1420: {
-    //     slidesPerView: itemsToShow,
-    //   },
-    // },
+    breakpoints: {
+      0: {
+        slidesPerView: 1,
+      },
+      600: {
+        slidesPerView: 'auto',
+      },
+    },
     allowSlidePrev: true,
     allowSlideNext: true,
     navigation: {

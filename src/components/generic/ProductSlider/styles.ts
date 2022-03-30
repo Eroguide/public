@@ -61,7 +61,6 @@ export const Right = styled.div`
 export const TitleBeforeSlider = styled.div`
   display: flex;
   border-radius: 32px;
-  height: 24px;
   align-items: center;
   overflow: hidden;
   ${({ theme }) => theme.typography.ps};

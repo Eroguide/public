@@ -8,7 +8,8 @@ import {
 } from './styles'
 import CalendarIcon from '/public/img/icon-calendar.svg'
 import { CustomButton } from '@/components/generic'
-export const ScheduleFilters: React.FC = () => {
+import { memo } from 'react'
+export const ScheduleFilters: React.FC = memo(() => {
   return (
     <Container>
       <Wrapper>
@@ -30,4 +31,4 @@ export const ScheduleFilters: React.FC = () => {
       </Wrapper>
     </Container>
   )
-}
+})

@@ -106,14 +106,24 @@ export const Container = styled.div`
 export const Inner = styled.div`
   width: 100%;
   padding: 0 68px;
+  ${({ theme }) => theme.media.sm`
+       max-width: 247px;
+       padding: 0;
+       margin: auto;
+  `}
+  ${({ theme }) => theme.media.mobile`
+      max-width: 247px;
+      padding: 0;
+      margin: auto;
+  `}
 `
 
 export const SalonImage = styled.img`
   width: 100%;
-  height: 136px;
+  height: auto;
   border-radius: 32px;
-  margin-bottom: 24px;
   overflow: hidden;
+  margin: 0 auto 24px auto;
 `
 
 export const TitleSalon = styled.h3`

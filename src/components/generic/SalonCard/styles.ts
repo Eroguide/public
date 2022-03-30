@@ -9,15 +9,11 @@ export const SalonCardMainContainer = styled.div<{ inSwipe?: boolean }>`
   padding: 9px;
   ${({ theme }) => theme.media.sm`
     width: calc(100% / 2 - 16px - 18px);
-`}
-  ${({ theme }) => theme.media.xs`
-    width: 100% ;
+`};
+  ${({ theme }) => theme.media.mobile`
+      width: 100%;
       max-width:100%;
-`} 
-  ${({ theme }) => theme.media.xxs`
-    width:100%;
-    max-width:100%;
-`}
+`};
 `
 
 export const SalonCardInner = styled.div`
@@ -178,10 +174,6 @@ export const SmallGalleryItem = styled.div`
   overflow: hidden;
   position: relative;
   cursor: pointer;
-  //
-  // ${({ theme }) => theme.media.sm`
-  //   width: calc(100% / 5 - 4px);
-  // `}
 `
 
 export const WorkingHoursTag = styled.span`

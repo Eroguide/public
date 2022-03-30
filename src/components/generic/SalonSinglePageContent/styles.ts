@@ -60,7 +60,7 @@ export const LeftWidgets = styled.div`
   `}
   ${({ theme }) => theme.media.sm`
     margin-top: 0;
-  width: 100%;
+    width: 100%;
   `}
   
   ${({ theme }) => theme.media.mobile`
@@ -174,10 +174,10 @@ export const LastCheckDate = styled.div`
 `
 
 export const SalonImage = styled.img`
-  width: 100%;
+  width: 247px;
   height: 136px;
   border-radius: 32px;
-  margin-bottom: 24px;
+  margin: 0 auto 24px auto;
   overflow: hidden;
 `
 
@@ -225,13 +225,13 @@ export const Description = styled.p`
   color: ${({ theme }) => theme.grayScale[3]};
 `
 
-export const PriceInfoNote = styled.p`
-  ${({ theme }) => theme.typography.ps};
-  color: ${({ theme }) => theme.support[2]};
-  display: flex;
-  align-items: center;
-
-  svg {
-    margin-right: 8px;
-  }
-`
+// export const PriceInfoNote = styled.p`
+//   ${({ theme }) => theme.typography.ps};
+//   color: ${({ theme }) => theme.support[2]};
+//   display: flex;
+//   align-items: center;
+//
+//   svg {
+//     margin-right: 8px;
+//   }
+// `
