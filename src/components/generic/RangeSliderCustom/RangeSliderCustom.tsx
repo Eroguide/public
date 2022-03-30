@@ -1,4 +1,11 @@
-import { MinMaxSlider, ThumbWrapper, TrackInner, TrackWrapper } from './styles'
+import {
+  MinMaxSlider,
+  ThumbWrapper,
+  TrackInner,
+  TrackWrapper,
+  MinMaxValue,
+  MinMaxValueLeft,
+} from './styles'
 import { theme } from '@/src/theme'
 import { getTrackBackground, Range } from 'react-range'
 import { useState } from 'react'
@@ -39,11 +46,13 @@ export const RangeSliderCustom: React.FC<{
                 max: max,
               })}
             >
+              <MinMaxValue>{max}+</MinMaxValue>
+              <MinMaxValueLeft>{min}</MinMaxValueLeft>
               {children}
             </TrackInner>
           </TrackWrapper>
         )}
-        renderThumb={({ props, isDragged }) => (
+        renderThumb={({ index, props, isDragged }) => (
           <ThumbWrapper
             {...props}
             style={{
@@ -51,35 +60,29 @@ export const RangeSliderCustom: React.FC<{
             }}
             isDragged={isDragged}
           >
-            {/*<div*/}
-            {/*  style={{*/}
-            {/*    position: 'absolute',*/}
-            {/*    top: '-28px',*/}
-            {/*    color: '#fff',*/}
-            {/*    fontWeight: 'bold',*/}
-            {/*    fontSize: '14px',*/}
-            {/*    fontFamily: 'Arial,Helvetica Neue,Helvetica,sans-serif',*/}
-            {/*    padding: '4px',*/}
-            {/*    borderRadius: '4px',*/}
-            {/*    backgroundColor: '#548BF4',*/}
-            {/*  }}*/}
-            {/*>*/}
-            {/*  {value[0].toFixed(1)}*/}
-            {/*</div>*/}
-            {/*<div*/}
-            {/*  style={{*/}
-            {/*    height: '16px',*/}
-            {/*    width: '5px',*/}
-            {/*    backgroundColor: isDragged ? '#548BF4' : '#CCC',*/}
-            {/*  }}*/}
-            {/*/>*/}
-            {/*// <ThumbInner isDragged={isDragged} />*/}
+            <div
+              style={{
+                position: 'absolute',
+                display:
+                  value[index] === max || value[index] === min
+                    ? 'none'
+                    : 'block',
+                top: '17px',
+                color: '#111',
+                fontWeight: '600',
+                fontSize: '14px',
+                lineHeight: '24px',
+                fontFamily: 'Inter,Helvetica,sans-serif',
+                padding: '0 4px',
+                borderRadius: '4px',
+                backgroundColor: '#fff',
+              }}
+            >
+              {value[index].toFixed()}
+            </div>
           </ThumbWrapper>
         )}
       />
-      <output style={{ marginTop: '30px' }} id="output">
-        {value[0].toFixed(1)}
-      </output>
     </MinMaxSlider>
   )
 }

@@ -4,6 +4,7 @@ export const MinMaxSlider = styled.div`
   width: 100%;
   flex-wrap: wrap;
   justify-content: center;
+  position: relative;
   display: flex;
 `
 export const ThumbWrapper = styled.div<{ isDragged: boolean }>`
@@ -25,15 +26,23 @@ export const TrackWrapper = styled.div`
   width: 100%;
 `
 
-// export const ThumbInner = styled.div<{ isDragged: boolean }>`
-//   height: 16px;
-//   width: 16px;
-// `
-
 export const TrackInner = styled.div<{ bg: string }>`
   height: 5px;
   width: 100%;
   border-radius: 4px;
   background: ${({ bg }) => `${bg}`};
   align-self: center;
+`
+
+export const MinMaxValue = styled.div`
+  ${({ theme }) => theme.typography.h5};
+  color: black;
+  top: 28px;
+  position: absolute;
+  right: -8px;
+  font-weight: 600;
+`
+export const MinMaxValueLeft = styled(MinMaxValue)`
+  left: -2px;
+  right: auto;
 `

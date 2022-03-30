@@ -178,21 +178,21 @@ export const SalonSinglePageContent: React.FC = () => {
             </SinglePageContentBlock>
           </DetailsSection>
         </BodyContent>
-        <ContentCardRow
-          title="Recent salons"
-          counter={535}
-          spaceBetween={8}
-          counterTitle="Recent salons"
-          href="/salons"
-          withControls
-        >
-          {fixtures.map((item) => (
-            <SwiperSlide key={item.id}>
-              <SalonCard {...item} inSwipe />
-            </SwiperSlide>
-          ))}
-        </ContentCardRow>
       </SinglePageBody>
+      <ContentCardRow
+        title="Recent salons"
+        counter={535}
+        spaceBetween={8}
+        counterTitle="Recent salons"
+        href="/salons"
+        withControls
+      >
+        {fixtures.map((item) => (
+          <SwiperSlide key={item.id}>
+            <SalonCard {...item} inSwipe />
+          </SwiperSlide>
+        ))}
+      </ContentCardRow>
     </SinglePageContentContainer>
   )
 }

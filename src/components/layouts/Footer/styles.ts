@@ -234,3 +234,8 @@ export const SectionFooterWrap = styled.div`
   padding-left: 78px;
   `}
 `
+
+export const Flex = styled.div`
+  display: flex;
+  width: 100%;
+`

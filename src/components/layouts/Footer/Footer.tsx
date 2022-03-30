@@ -12,6 +12,7 @@ import {
   EndFooterSection,
   Block,
   SectionFooterWrap,
+  Flex,
 } from './styles'
 import Link from 'next/link'
 import { CustomButton, DrawerBottom } from '@/components/generic'
@@ -115,18 +116,20 @@ export const Footer: React.FC = () => {
 
       <UnderFooter>
         <SectionBlock>
-          <UnderFooterLeft>
-            © {currentYear}
-            <Link href="/"> Eroguide.cz </Link>
-          </UnderFooterLeft>
-          <UnderFooterRight>
-            <span onClick={() => setDrawerIsOpen(!drawerIsOpen)}>
-              Terms of Service
-            </span>
-            <span onClick={() => setDrawerIsOpen(!drawerIsOpen)}>
-              Privat Policy
-            </span>
-          </UnderFooterRight>
+          <Flex>
+            <UnderFooterLeft>
+              © {currentYear}
+              <Link href="/"> Eroguide.cz </Link>
+            </UnderFooterLeft>
+            <UnderFooterRight>
+              <span onClick={() => setDrawerIsOpen(!drawerIsOpen)}>
+                Terms of Service
+              </span>
+              <span onClick={() => setDrawerIsOpen(!drawerIsOpen)}>
+                Privat Policy
+              </span>
+            </UnderFooterRight>
+          </Flex>
         </SectionBlock>
       </UnderFooter>
       <DrawerBottom isOpen={drawerIsOpen} handleClose={handleClose} />

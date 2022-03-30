@@ -99,14 +99,13 @@ export const FilterItem = styled.div`
   width: 100%;
   display: flex;
   flex-flow: column;
-  margin-bottom: 16px;
+  margin-bottom: 32px;
 `
 
 export const ProgramGrid = styled.div`
   width: 100%;
   display: flex;
   flex-flow: row wrap;
-  margin-bottom: 16px;
   & label {
     margin-right: 0;
     margin-bottom: 16px;
