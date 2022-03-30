@@ -47,6 +47,12 @@ export const FeatureList = styled.ul`
   display: flex;
   flex-direction: column;
   width: 100%;
+  ${({ theme }) => theme.media.sm`
+  max-width: 279px;
+  `}
+  ${({ theme }) => theme.media.mobile`
+   max-width: 279px;
+  `}
 `
 
 export const IconWrapper = styled.div`

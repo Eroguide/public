@@ -16,6 +16,10 @@ import GirlsIcon from '/public/img/salon-feature-girlsshift.svg'
 import CardIcon from '/public/img/salon-feature-card.svg'
 import BarIcon from '/public/img/salon-feature-minibar.svg'
 import FoodIcon from '/public/img/salon-feature-food.svg'
+import { useBreakpoint } from '@/hooks/useBreakpoint'
+import { breakpoints, BreakpointsEnum } from '@/src/theme'
+import { CustomButton } from '@/components/generic'
+import { useState } from 'react'
 const fixtures = [
   { id: '222dsadas', slug: '8 massage rooms', best: 1, icon: <DoorIcon /> },
   {
@@ -62,6 +66,11 @@ const fixtures = [
   },
 ]
 export const ServiceFeaturesSalonWidget: React.FC = () => {
+  const isSmall = useBreakpoint({
+    min: breakpoints[BreakpointsEnum.xxs].min,
+    max: breakpoints[BreakpointsEnum.sm].max,
+  })
+  const [showMore, setShowMore] = useState<boolean>(false)
   return (
     <Wrapper>
       <Container>
@@ -69,12 +78,25 @@ export const ServiceFeaturesSalonWidget: React.FC = () => {
           <Title>Service features</Title>
         </Row>
         <FeatureList>
-          {fixtures.map((item) => (
-            <FeatureItem key={item.id}>
-              <IconWrapper>{item.icon}</IconWrapper>
-              <span>{item.slug}</span>
-            </FeatureItem>
-          ))}
+          {fixtures.map(
+            (item, i) =>
+              i < ((!showMore && isSmall && 3) || 10) && (
+                <FeatureItem key={item.id}>
+                  <IconWrapper>{item.icon}</IconWrapper>
+                  <span>{item.slug}</span>
+                </FeatureItem>
+              )
+          )}
+          {isSmall && (
+            <CustomButton
+              onClick={() => setShowMore(!showMore)}
+              styleType="tertiary"
+              width="100%"
+              margin="40px 0 0 0"
+            >
+              Show All
+            </CustomButton>
+          )}
         </FeatureList>
       </Container>
     </Wrapper>
