@@ -1,4 +1,4 @@
-import { memo, useState } from 'react'
+import { useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { SwiperOptions } from 'swiper'
 import { Container, Wrapper, DayCard, Day, Time, DateTop } from './styles'
@@ -7,7 +7,7 @@ import PlaneIcon from '/public/img/plane-icon.svg'
 export const SchedyleCardWorkingDays: React.FC<{
   withDateTop?: boolean
   withDateBottom?: boolean
-}> = memo(({ withDateTop, withDateBottom }) => {
+}> = ({ withDateTop, withDateBottom }) => {
   const days = [
     {
       name: 'Mon',
@@ -74,4 +74,4 @@ export const SchedyleCardWorkingDays: React.FC<{
       </Wrapper>
     </Container>
   )
-})
+}

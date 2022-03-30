@@ -16,11 +16,13 @@ import {
 
 import {
   AdditionsCard,
+  ContentCardRow,
   CustomButton,
   InfoCard,
   InfoCardCollapse,
   MassageProgramCard,
   ProductSlider,
+  SalonCard,
   SalonScheduleCard,
   SinglePageContentBlock,
 } from '@/components/generic'
@@ -34,9 +36,18 @@ import CovidStarsIcon from '/public/img/covid-icon-stars.svg'
 import CovidTermoIcon from '/public/img/covid-icon-termo.svg'
 import CovidAntisepIcon from '/public/img/covid-icon-antisep.svg'
 import CovidMaskIcon from '/public/img/covid-icon-mask.svg'
-import { ScheduleFilters } from '@/components/generic/ScheduleFilters'
-import { memo } from 'react'
-
+import { SwiperSlide } from 'swiper/react'
+// import { SectionBlock } from '@/components/layouts/SectionBlock'
+const fixtures = [
+  { id: '222dsadas', slug: 'one-project-time', best: 1 },
+  { id: 'asddsad222sadasd', slug: 'two-project-time', best: 0 },
+  { id: 'asdsad3242asd', slug: 'three-project-time', best: 0 },
+  { id: 'asdsdadasfffsadasd', slug: 'four-project-time', best: 0 },
+  { id: 'asdxfsadasd', slug: 'four-project-time', best: 0 },
+  { id: 'asdsdadvadasd', slug: 'four-project-time', best: 0 },
+  { id: 'xfffsadasd', slug: 'four-project-time', best: 0, tag: 'New' },
+  { id: 'xfffsadssasd', slug: 'four-project-time', best: 0, tag: 'New' },
+]
 const covidInfoList = [
   {
     id: 213213,
@@ -71,7 +82,7 @@ const additions = [
   { title: 'Imitations (each masseuse has its own)', price: 1500 },
 ]
 
-export const SalonSinglePageContent: React.FC = memo(() => {
+export const SalonSinglePageContent: React.FC = () => {
   const isSmall = useBreakpoint({
     min: breakpoints[BreakpointsEnum.xxs].min,
     max: breakpoints[BreakpointsEnum.sm].max,
@@ -105,7 +116,7 @@ export const SalonSinglePageContent: React.FC = memo(() => {
           </SinglePageContentBlock>
           <DetailsSection>
             <SinglePageContentBlock title="Schedule">
-              <ScheduleFilters />
+              <SalonSinglePageContent />
               <SalonScheduleCard />
               <SalonScheduleCard />
               <SalonScheduleCard />
@@ -165,7 +176,21 @@ export const SalonSinglePageContent: React.FC = memo(() => {
             </SinglePageContentBlock>
           </DetailsSection>
         </BodyContent>
+        <ContentCardRow
+          title="Recent salons"
+          counter={535}
+          spaceBetween={8}
+          counterTitle="Recent salons"
+          href="/salons"
+          withControls
+        >
+          {fixtures.map((item) => (
+            <SwiperSlide key={item.id}>
+              <SalonCard {...item} inSwipe />
+            </SwiperSlide>
+          ))}
+        </ContentCardRow>
       </SinglePageBody>
     </SinglePageContentContainer>
   )
-})
+}

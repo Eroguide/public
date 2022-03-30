@@ -14,7 +14,7 @@ export const LadyCard: React.FC<{ href: string }> = ({ href }) => {
   return (
     <Container>
       <Wrapper>
-        <Link href={(href && `/gallery/${href}`) || '/gallery'}>
+        <Link href={(href && `/gallery/${href}`) || '/gallery'} passHref>
           <CardImage>
             <Tag>new</Tag>
             <StatusTag>
