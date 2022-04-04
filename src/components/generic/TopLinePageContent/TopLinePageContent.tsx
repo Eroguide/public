@@ -14,7 +14,7 @@ export const TopLinePageContent: React.FC = () => {
       {!isSmall && (
         <Link href={'/'} passHref shallow>
           <CustomButton iconLeft styleType="tertiary" sizeType="medium">
-            Zpátky
+            Zpět
           </CustomButton>
         </Link>
       )}

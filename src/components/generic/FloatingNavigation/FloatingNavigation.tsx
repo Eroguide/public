@@ -75,7 +75,7 @@ const navItemList: MobileNavList = {
     {
       id: 'sssc222cz',
       icon: <ShoeIcon />,
-      title: 'Na směně',
+      title: 'Masérky',
       counter: 213,
       href: '/gallery',
       slug: 'gallery',

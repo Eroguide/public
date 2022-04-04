@@ -55,9 +55,9 @@ export const AdultPrompt: React.FC = () => {
           <BgOverlay onClick={() => handleClose()} />
           <Container>
             <Card>
-              <CloseButton onClick={() => handleClose()}>
-                <CloseIcon />
-              </CloseButton>
+              {/*<CloseButton onClick={() => handleClose()}>*/}
+              {/*  <CloseIcon />*/}
+              {/*</CloseButton>*/}
               <Title>Jen pro dospělé</Title>
               <SubTitle>Jsem dospělý ve věku 18 let nebo starší</SubTitle>
               <ButtonsGroup>

@@ -11,7 +11,7 @@ export const CardMainContainer = styled.div`
 
   ${({ theme }) => theme.media.mobile`
     width: 100% ;
-      max-width:100%;
+    max-width:100%;
 `}
 `
 

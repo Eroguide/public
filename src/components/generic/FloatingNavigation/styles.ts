@@ -66,7 +66,7 @@ export const IconWrapper = styled.div`
 
 export const Title = styled.span`
   color: ${({ theme }) => theme.grayScale[3]};
-  ${({ theme }) => theme.typography.h6};
+  ${({ theme }) => theme.typography.h5};
   font-weight: 600;
   transition: color 0.2s ease-in-out;
 `

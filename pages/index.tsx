@@ -57,11 +57,28 @@ const Home: NextPage<GetLaunches> = ({ launchesPast }) => {
         </SectionBlock>
         <SectionBlock>
           <ContentCardRow
-            title="Salons"
+            title="Holky z privátů"
+            counter={535}
+            counterTitle="All private ladies"
+            itemsToShow={[4, 3, 2]}
+            href="/gallery"
+            bottomControl
+          >
+            {fixtures.map((item) => (
+              <SwiperSlide key={item.id}>
+                <Card {...item} tagTitle={item.slug} inSwipe />
+              </SwiperSlide>
+            ))}
+          </ContentCardRow>
+        </SectionBlock>
+        <SectionBlock>
+          <ContentCardRow
+            title="Podniky"
             counter={535}
             spaceBetween={8}
             counterTitle="All salons"
             href="/salons"
+            bottomControl
           >
             {fixtures.map((item) => (
               <SwiperSlide key={item.id}>
@@ -71,20 +88,16 @@ const Home: NextPage<GetLaunches> = ({ launchesPast }) => {
           </ContentCardRow>
         </SectionBlock>
         <SectionBlock>
-          <ContentCardRow
-            title="Private ladies"
-            counter={535}
-            counterTitle="All private ladies"
-            itemsToShow={[4, 3, 2]}
-            href="/gallery"
-          >
-            {fixtures.map((item) => (
-              <SwiperSlide key={item.id}>
-                <Card {...item} tagTitle={item.slug} inSwipe />
-              </SwiperSlide>
-            ))}
-          </ContentCardRow>
+          {launchesPast && (
+            <PostList
+              title="Blog"
+              counter={23}
+              counterTitle="Vše články"
+              postData={launchesPast}
+            />
+          )}
         </SectionBlock>
+
         <SectionBlock>
           <CardGallery cards={fixtures} title={'Ladies gallery'} />
         </SectionBlock>
@@ -120,16 +133,6 @@ const Home: NextPage<GetLaunches> = ({ launchesPast }) => {
               </SwiperSlide>
             ))}
           </ContentCardRow>
-        </SectionBlock>
-        <SectionBlock>
-          {launchesPast && (
-            <PostList
-              title="PostList"
-              counter={23}
-              counterTitle="All posts"
-              postData={launchesPast}
-            />
-          )}
         </SectionBlock>
       </BaseLayout>
     </>

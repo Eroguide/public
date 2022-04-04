@@ -63,8 +63,44 @@ export const ContentRow = styled.div`
   `}
 `
 
-export const NextButton = styled.div``
-export const PrevButton = styled.div``
+export const ControlButton = styled.div`
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  background-color: ${({ theme }) => theme.grayScale[0]};
+  transition: background-color 0.2s ease-in-out;
+
+  svg path {
+    transition: fill 0.2s ease-in-out;
+  }
+  &:hover {
+    background-color: ${({ theme }) => theme.grayScale[6]};
+    svg path {
+      fill: ${({ theme }) => theme.grayScale[2]};
+      transition: fill 0.2s ease-in-out;
+    }
+    transition: background-color 0.2s ease-in-out;
+  }
+  &:active {
+    background-color: ${({ theme }) => theme.grayScale[1]};
+    svg path {
+      fill: ${({ theme }) => theme.grayScale[3]};
+      transition: fill 0.2s ease-in-out;
+    }
+    transition: background-color 0.2s ease-in-out;
+  }
+  &.swiper-button-disabled {
+    cursor: not-allowed;
+    svg path {
+      fill: ${({ theme }) => theme.grayScale[1]};
+      transition: fill 0.2s ease-in-out;
+    }
+    transition: background-color 0.2s ease-in-out;
+    background-color: ${({ theme }) => theme.grayScale[0]};
+  }
+`
+export const NextButton = styled(ControlButton)``
+export const PrevButton = styled(ControlButton)``
 export const NextPrevWrapper = styled.div`
   width: 80px;
   display: flex;
@@ -104,7 +140,6 @@ export const TimeLine = styled.div<{ date: number; isLast: boolean }>`
       ? `background: ${theme.primary[2]};`
       : `background: ${theme.grayScale[3]};`};
   height: 8px;
-
   border-radius: 8px;
   margin-top: 32px;
   margin-left: 12px;

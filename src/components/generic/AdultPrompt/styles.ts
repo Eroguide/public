@@ -8,6 +8,7 @@ export const Container = styled.div`
   display: flex;
   position: fixed;
   inset: 0;
+  min-height: 376px;
   z-index: 5000;
 `
 

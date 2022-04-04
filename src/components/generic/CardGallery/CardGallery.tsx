@@ -32,7 +32,9 @@ export const CardGallery: React.FC<CardGalleryProps> = ({ cards, title }) => {
               </GalleryItem>
             ))
           ) : (
-            <MessageBox>Add the masseuses you like to Favorites</MessageBox>
+            <MessageBox>
+              Přidejte si slečny, které se vám líbí, do oblíbených
+            </MessageBox>
           )}
         </ListWrapper>
       </CardGalleryContainer>

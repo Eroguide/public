@@ -21,6 +21,14 @@ export const PostList: React.FC<{
     slidesPerView: 'auto',
     freeMode: true,
     modules: [FreeMode],
+    breakpoints: {
+      0: {
+        slidesPerView: 1,
+      },
+      599: {
+        slidesPerView: 'auto',
+      },
+    },
   }
   const [initSlider, setInitSlider] = useState<boolean>(false)
   return (

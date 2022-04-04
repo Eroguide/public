@@ -30,4 +30,23 @@ export const Search = styled.div`
   justify-content: center;
   align-items: center;
   box-shadow: 0 7px 10px -5px rgb(255 0 93 / 60%);
+  border: 2px solid ${({ theme }) => theme.primary[1]};
+  transition: background-color 0.2s ease-in-out;
+
+  svg path {
+    transition: fill 0.2s ease-in-out;
+  }
+  &:hover {
+    cursor: pointer;
+    background-color: ${({ theme }) => theme.grayScale[0]};
+    svg path {
+      fill: ${({ theme }) => theme.primary[1]};
+      transition: fill 0.2s ease-in-out;
+    }
+    transition: background-color 0.2s ease-in-out;
+  }
+  &:active {
+    background-color: rgba(216, 14, 93, 0.05);
+    transition: background-color 0.2s ease-in-out;
+  }
 `

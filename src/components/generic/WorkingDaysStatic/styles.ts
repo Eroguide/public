@@ -4,27 +4,12 @@ export const Container = styled.div`
   align-items: center;
   text-align: center;
   display: flex;
-
-  ${({ theme }) => theme.media.mobile`
-      width: 100%;
-  `}
-`
-
-export const Wrapper = styled.ul<{ noFade?: boolean }>`
-  display: flex;
-  flex-wrap: nowrap;
-  flex-direction: row;
   position: relative;
-  width: 100%;
-  margin-left: -9px;
-  margin-right: -9px;
-
-  ${({ noFade }) =>
-    !noFade &&
-    ` &:before {
+  &:before {
     content: '';
     position: absolute;
-    inset: 0 auto 0 0;
+    height: 70px;
+    inset: 0 auto 0 -24px;
     background: rgb(255, 255, 255);
     background: linear-gradient(
       270deg,
@@ -32,10 +17,38 @@ export const Wrapper = styled.ul<{ noFade?: boolean }>`
       rgba(255, 255, 255, 1) 83%,
       rgba(255, 255, 255, 1) 100%
     );
-    width: 80px;
+    width: 30px;
     z-index: 5;
   }
-`};
+  &:after {
+    content: '';
+    position: absolute;
+    height: 70px;
+    inset: 0 -24px 0 auto;
+    background: rgb(255, 255, 255);
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0) 32%,
+      rgba(255, 255, 255, 1) 83%,
+      rgba(255, 255, 255, 1) 100%
+    );
+    width: 30px;
+    z-index: 5;
+  }
+  ${({ theme }) => theme.media.mobile`
+      width: 100%;
+  `}
+`
+
+export const Wrapper = styled.ul`
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  position: absolute;
+  margin-left: -9px;
+  margin-right: -9px;
+  top: 0;
+  transform: translateX(-15%);
 
   ${({ theme }) => theme.media.sm`
      max-width: 320px;
@@ -55,7 +68,7 @@ export const DayCardWrapper = styled.li`
   margin: 4px auto;
 `
 
-export const DayCard = styled.div`
+export const DayCard = styled.div<{ isActive?: boolean }>`
   height: 66px;
   display: flex;
   flex-direction: column;
@@ -65,7 +78,6 @@ export const DayCard = styled.div`
   border: 1px solid ${({ theme }) => theme.grayScale[1]};
   position: relative;
   background: ${({ theme }) => theme.grayScale[0]};
-  cursor: pointer;
   &:before {
     content: '';
     position: absolute;
@@ -75,23 +87,14 @@ export const DayCard = styled.div`
     z-index: -1;
     border-radius: 4px;
   }
-  &:hover {
-    &:before {
+  ${({ isActive, theme }) =>
+    isActive &&
+    `&:before {
       content: '';
-      background-color: ${({ theme }) => theme.opacity[70][0]};
+      background-color: ${theme.opacity[70][0]};
       transition: filter 0.15s ease-in-out;
       filter: blur(4px);
-    }
-  }
-
-  &:active {
-    &:before {
-      content: '';
-      background-color: ${({ theme }) => theme.opacity[70][0]};
-      transition: filter 0.2s ease-out;
-      filter: blur(2px);
-    }
-  }
+    }`};
 `
 
 export const Day = styled.span<{ isFree?: boolean }>`

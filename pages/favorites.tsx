@@ -1,7 +1,7 @@
 import { NextPage } from 'next'
 import Head from 'next/head'
 import { BaseLayout } from '@/components/layouts/BaseLayout'
-import { CardGallery } from '@/components/generic'
+import { CardGallery, TopLinePageContent } from '@/components/generic'
 import { useStoreon } from '@/store/index'
 import { SectionBlock } from '@/components/layouts/SectionBlock'
 const Favorites: NextPage = () => {
@@ -18,6 +18,7 @@ const Favorites: NextPage = () => {
       </Head>
       <BaseLayout>
         <SectionBlock>
+          <TopLinePageContent />
           <CardGallery cards={items} title={'Favourite ladies:'} />
         </SectionBlock>
       </BaseLayout>

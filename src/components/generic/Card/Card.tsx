@@ -37,7 +37,7 @@ import PhotoIcon from 'public/img/photo-icon.svg'
 import VideoIcon from 'public/img/video-icon.svg'
 import { CardProps } from './types'
 import { FavoritesActions } from '@/store/favoritsModule'
-import { WorkingDays } from '@/components/generic'
+import { WorkingDays, WorkingDaysStatic } from '@/components/generic'
 
 export const Card: React.FC<CardProps> = ({
   id,
@@ -115,7 +115,7 @@ export const Card: React.FC<CardProps> = ({
             <Row>
               {isOpenSchedule ? (
                 <WorkingDaysWrapper>
-                  <WorkingDays />
+                  <WorkingDaysStatic />
                 </WorkingDaysWrapper>
               ) : (
                 <>
@@ -136,15 +136,16 @@ export const Card: React.FC<CardProps> = ({
                 </>
               )}
             </Row>
-
-            <Row>
-              <Left>
-                <Description>
-                  <Link href={'/'}>Barbie SPA</Link>
-                  <Link href={'/'}>Prague 1</Link>
-                </Description>
-              </Left>
-            </Row>
+            {!isOpenSchedule && (
+              <Row>
+                <Left>
+                  <Description>
+                    <Link href={'/'}>Barbie SPA</Link>
+                    <Link href={'/'}>Prague 1</Link>
+                  </Description>
+                </Left>
+              </Row>
+            )}
             <Row style={{ marginTop: '16px' }}>
               <Left>
                 <Price>

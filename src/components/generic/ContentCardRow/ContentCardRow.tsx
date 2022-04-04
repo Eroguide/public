@@ -6,6 +6,7 @@ import {
   Title,
   RightWidget,
   ContentRow,
+  BottomLine,
 } from './styles'
 import { useRef, useState } from 'react'
 import {
@@ -23,6 +24,7 @@ export const ContentCardRow: React.FC<{
   counterTitle: string
   itemsToShow?: Array<number>
   withControls?: boolean
+  bottomControl?: boolean
   href?: string
   spaceBetween?: number
 }> = ({
@@ -33,6 +35,7 @@ export const ContentCardRow: React.FC<{
   withControls = false,
   href = '/',
   spaceBetween = 16,
+  bottomControl,
 }) => {
   const navigationPrevRef = useRef<HTMLDivElement>(null)
   const navigationNextRef = useRef<HTMLDivElement>(null)
@@ -91,6 +94,18 @@ export const ContentCardRow: React.FC<{
           {initSlider ? children : 'loading'}
         </Swiper>
       </ContentRow>
+      {bottomControl && (
+        <BottomLine>
+          <NextPrevWrapper>
+            <PrevButton ref={navigationPrevRef}>
+              <ArrowLeftIcon />
+            </PrevButton>
+            <NextButton ref={navigationNextRef}>
+              <ArrowRightIcon />
+            </NextButton>
+          </NextPrevWrapper>
+        </BottomLine>
+      )}
     </ContentCardRowContainer>
   )
 }

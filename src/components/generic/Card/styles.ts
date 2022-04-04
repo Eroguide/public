@@ -71,6 +71,7 @@ export const CardContent = styled.div`
   background-color: #fff;
   border-radius: 0 0 32px 32px;
   z-index: 10;
+  overflow-x: hidden;
 `
 
 export const TitleLink = styled.a`

@@ -1,0 +1,1 @@
+export { WorkingDaysStatic } from './WorkingDaysStatic'

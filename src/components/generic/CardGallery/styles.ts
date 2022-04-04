@@ -25,7 +25,7 @@ export const MessageBox = styled.span`
   justify-content: center;
   align-items: center;
   ${({ theme }) => theme.typography.h3};
-  color: ${({ theme }) => theme.grayScale[2]};
+  color: ${({ theme }) => theme.grayScale[1]};
 `
 
 export const GalleryItem = styled.div`

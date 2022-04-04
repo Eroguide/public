@@ -61,3 +61,10 @@ export const Counter = styled.div`
   border: 2px solid ${({ theme }) => theme.grayScale[1]};
   border-radius: 32px;
 `
+
+export const BottomLine = styled.div`
+  width: 100%;
+  margin-top: 16px;
+  display: flex;
+  justify-content: flex-end;
+`
