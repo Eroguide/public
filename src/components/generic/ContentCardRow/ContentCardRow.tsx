@@ -49,8 +49,8 @@ export const ContentCardRow: React.FC<{
         slidesPerView: 'auto',
       },
     },
-    allowSlidePrev: withControls,
-    allowSlideNext: withControls,
+    allowSlidePrev: true,
+    allowSlideNext: true,
     centeredSlidesBounds: true,
     navigation: {
       prevEl: navigationPrevRef.current,

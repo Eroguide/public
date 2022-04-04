@@ -37,6 +37,9 @@ export const ThumbsSliderImage = styled.img`
     cursor: pointer;
     transition: border 0.2s ease-in-out;
   }
+  ${({ theme }) => theme.media.mobile`
+    height: 100px;
+  `}
 `
 
 export const BottomRow = styled.div`

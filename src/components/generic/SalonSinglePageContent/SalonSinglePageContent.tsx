@@ -25,8 +25,6 @@ import {
   // PriceInfoNote,
   ButtonRow,
 } from './styles'
-import { useBreakpoint } from '@/hooks/useBreakpoint'
-import { breakpoints, BreakpointsEnum } from '@/src/theme'
 import { SalonInfoSinglePageWidget } from '@/components/widgets/SalonInfoSinglePageWidget'
 import { ServiceFeaturesSalonWidget } from '@/components/widgets/ServiceFeaturesSalonWidget'
 import GenderIcon from '/public/img/gender-icon.svg'
@@ -40,11 +38,6 @@ import { ScheduleFilters } from '@/components/generic/ScheduleFilters'
 // import { SectionBlock } from '@/components/layouts/SectionBlock'
 
 export const SalonSinglePageContent: React.FC = () => {
-  const isSmall = useBreakpoint({
-    min: breakpoints[BreakpointsEnum.xxs].min,
-    max: breakpoints[BreakpointsEnum.sm].max,
-  })
-
   const fixtures = [
     { id: '222dsadas', slug: 'one-project-time', best: 1 },
     { id: 'asddsad222sadasd', slug: 'two-project-time', best: 0 },
@@ -91,7 +84,7 @@ export const SalonSinglePageContent: React.FC = () => {
 
   return (
     <SinglePageContentContainer>
-      {!isSmall && <Banner />}
+      <Banner />
       <SinglePageBody>
         <LeftWidgets>
           <Widget>

@@ -33,7 +33,7 @@ export const SmallTitle = styled.h5`
 export const LargeTitle = styled.h1`
   ${({ theme }) => theme.typography.extra};
   color: ${({ theme }) => theme.grayScale[5]};
-  margin-bottom: 8px;
+  margin-bottom: 40px;
   font-weight: 700;
   ${({ theme }) => theme.media.mobile`
   ${theme.typography.extraMobile};

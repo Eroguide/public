@@ -13,6 +13,12 @@ export const Banner = styled.div`
   background-size: cover;
   overflow: hidden;
   border-radius: 24px;
+  ${({ theme }) => theme.media.sm`
+    margin-bottom: 24px;  
+  `}
+  ${({ theme }) => theme.media.mobile`
+   margin-bottom: 24px;
+  `}
 `
 
 export const SinglePageBody = styled.div`

@@ -111,19 +111,25 @@ export const UnderFooterRight = styled.div`
     display: flex;
     align-items: center;
     cursor: pointer;
+    ${({ theme }) => theme.media.sm`
+     margin-left: 0;
+      margin-right: 32px;
+  `} ${({ theme }) => theme.media.mobile`
+         margin-left: 0;
+         margin-right: 32px;
+         margin-top: 16px;
+  `}
   }
 
   ${({ theme }) => theme.media.md`
-    margin-right: 0;
-     width: 100%;
-     align-items: flex-start;
-     margin-top: 16px;
+     margin-right: 0;
   `}
 
   ${({ theme }) => theme.media.sm`  
-       margin-right: 0;
-    width: 100%; margin-top: 16px;
-      align-items: flex-start;
+      margin-right: 0;
+      width: 100%;
+      margin-top: 16px;
+      justify-content: flex-start;
   `} 
   
   ${({ theme }) => theme.media.mobile`
@@ -131,13 +137,10 @@ export const UnderFooterRight = styled.div`
       padding-left: 78px;
       width: 100%;
        margin-top: 16px;
+   
       flex-direction: column;
        align-items: flex-start;
-      span{
-         margin-left: 0;
-         align-items: left;
-         margin-top: 16px;
-      }
+    
   `}
 `
 
@@ -238,4 +241,10 @@ export const SectionFooterWrap = styled.div`
 export const Flex = styled.div`
   display: flex;
   width: 100%;
+  ${({ theme }) => theme.media.sm`
+   flex-direction: column;
+  `}
+  ${({ theme }) => theme.media.mobile`
+   flex-direction: column;
+  `}
 `

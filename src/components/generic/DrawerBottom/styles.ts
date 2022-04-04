@@ -33,7 +33,7 @@ export const BgOverlay = styled.div`
   left: 0;
   right: 0;
   top: 0;
-  background: #1e1e297d;
+  background: rgba(0, 0, 0, 0.7);
   z-index: 1000;
 `
 
@@ -49,6 +49,7 @@ export const CloseButton = styled.div`
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  z-index: 10;
 `
 export const InnerContent = styled.div`
   position: relative;

@@ -19,20 +19,14 @@ import { ExperianceWidget } from '@/components/widgets/ExperianceWidget'
 import { VideoPlayerWidget } from '@/components/widgets/VideoPlayerWidget'
 import { AudioPlayerWidget } from '@/components/widgets/AudioPlayerWidget'
 import { LadiesGalleryWidget } from '@/components/widgets/LadiesGalleryWidget'
-import { useBreakpoint } from '@/hooks/useBreakpoint'
-import { breakpoints, BreakpointsEnum } from '@/src/theme'
 import { PersonalInfoSinglePageWidget } from '@/components/widgets/PersonalInfoSinglePageWidget'
 import { ScheduleSinglePageWidget } from '@/components/widgets/ScheduleSinglePageWidget'
 import { SalonSinglePageWidget } from '@/components/widgets/SalonSinglePageWidget'
 
 export const SinglePageContent: React.FC = () => {
-  const isSmall = useBreakpoint({
-    min: breakpoints[BreakpointsEnum.xxs].min,
-    max: breakpoints[BreakpointsEnum.sm].max,
-  })
   return (
     <SinglePageContentContainer>
-      {!isSmall && <Banner />}
+      <Banner />
       <SinglePageBody>
         <LeftWidgets>
           <Widget>
