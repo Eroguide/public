@@ -11,7 +11,6 @@ export const FaqWrapper = styled.div`
 `
 
 export const TitleSection = styled.section`
-  max-width: 798px;
   width: 100%;
   margin: auto;
   display: flex;

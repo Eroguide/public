@@ -37,7 +37,7 @@ import PhotoIcon from 'public/img/photo-icon.svg'
 import VideoIcon from 'public/img/video-icon.svg'
 import { CardProps } from './types'
 import { FavoritesActions } from '@/store/favoritsModule'
-import { WorkingDays } from '@/components/generic'
+import { WorkingDays, WorkingDaysStatic } from '@/components/generic'
 
 export const CardForGallery: React.FC<CardProps> = ({
   id,
@@ -104,35 +104,39 @@ export const CardForGallery: React.FC<CardProps> = ({
           </CardImageWrapper>
           <CardContent>
             <Row>
-              {isOpenSchedule && (
+              {isOpenSchedule ? (
                 <WorkingDaysWrapper>
-                  <WorkingDays />
+                  <WorkingDaysStatic />
                 </WorkingDaysWrapper>
+              ) : (
+                <>
+                  <Left>
+                    <TitleLink>Alesandra,23</TitleLink>
+                  </Left>
+                  <FavoriteButton
+                    isActive={isActive}
+                    onClick={() =>
+                      dispatch(FavoritesActions.addItem, {
+                        id,
+                        slug,
+                      })
+                    }
+                  >
+                    {isActive ? <HeartIcon /> : <HeartLinedIcon />}
+                  </FavoriteButton>
+                </>
               )}
-              <Left>
-                <TitleLink>Alesandra,23</TitleLink>
-              </Left>
-              <FavoriteButton
-                isActive={isActive}
-                onClick={() =>
-                  dispatch(FavoritesActions.addItem, {
-                    id,
-                    slug,
-                  })
-                }
-              >
-                {isActive ? <HeartIcon /> : <HeartLinedIcon />}
-              </FavoriteButton>
             </Row>
-
-            <Row>
-              <Left>
-                <Description>
-                  <Link href={'/'}>Barbie SPA</Link>
-                  <Link href={'/'}>Prague 1</Link>
-                </Description>
-              </Left>
-            </Row>
+            {!isOpenSchedule && (
+              <Row>
+                <Left>
+                  <Description>
+                    <Link href={'/'}>Barbie SPA</Link>
+                    <Link href={'/'}>Prague 1</Link>
+                  </Description>
+                </Left>
+              </Row>
+            )}
             <Row>
               <Left>
                 <Price>

@@ -60,14 +60,15 @@ export const ImageProduct = styled.div`
 `
 
 export const CardContent = styled.div`
-  padding: 32px 24px;
-  height: 132px;
+  padding: 16px 24px 32px 24px;
+  height: 152px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   background-color: #fff;
   border-radius: 0 0 32px 32px;
   z-index: 10;
+  overflow-x: hidden;
 `
 
 export const TitleLink = styled.a`
@@ -204,7 +205,6 @@ export const InfoItem = styled.div`
 `
 
 export const WorkingDaysWrapper = styled.div`
-  position: absolute;
   width: 100%;
   background: ${({ theme }) => theme.grayScale[0]};
   z-index: 50;

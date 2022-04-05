@@ -74,8 +74,7 @@ export const TextContent = styled.p`
   color: ${({ theme }) => theme.grayScale[4]};
   ${({ theme }) => theme.typography.pm};
   margin: 56px auto;
-  padding: 0 124px;
-
+  max-width: 700px;
   ${({ theme }) => theme.media.md`
     padding: 0 104px;
   `}
