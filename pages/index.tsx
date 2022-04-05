@@ -21,6 +21,7 @@ import { GetLaunches } from '@/graphql/__generated__/GetLaunches'
 import { useBreakpoint } from '@/hooks/useBreakpoint'
 import { breakpoints, BreakpointsEnum } from '@/src/theme'
 import { SectionBlock } from '@/components/layouts/SectionBlock'
+import { Responsive } from '@/components/generic'
 
 const fixtures = [
   { id: '222dsadas', slug: 'one-project-time', best: 1 },
@@ -34,10 +35,6 @@ const fixtures = [
 ]
 
 const Home: NextPage<GetLaunches> = ({ launchesPast }) => {
-  const isSmall = useBreakpoint({
-    min: breakpoints[BreakpointsEnum.xxs].min,
-    max: breakpoints[BreakpointsEnum.sm].max,
-  })
   return (
     <>
       <Head>
@@ -49,7 +46,9 @@ const Home: NextPage<GetLaunches> = ({ launchesPast }) => {
         <SectionBlock>
           <>
             <HeroBanner />
-            {!isSmall && <HeroFilters />}
+            <Responsive desktop>
+              <HeroFilters />
+            </Responsive>
           </>
         </SectionBlock>
         <SectionBlock>

@@ -14,7 +14,6 @@ export const Container = styled.div`
       top:0;
       right: 0;
       left: 0;
-      height: calc(100vh - 87px);
       border-radius: 0;
       box-shadow: none;
   `}
@@ -23,11 +22,8 @@ export const Container = styled.div`
 export const Wrapper = styled.div`
   width: 100%;
   height: auto;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  display: flex;
   padding: 40px;
+  overflow-y: scroll;
 `
 
 export const Content = styled.div`
@@ -90,6 +86,7 @@ export const NavItem = styled.div<{ isActive: boolean }>`
   align-items: center;
   display: flex;
   transition: color 0.2s ease-in-out;
+  padding: 16px 0;
   ${({ isActive, theme }) =>
     isActive &&
     `   transition: color 0.2s ease-in-out;
@@ -124,7 +121,7 @@ export const NavItem = styled.div<{ isActive: boolean }>`
       stroke: ${({ theme }) => theme.primary[0]};
     }
   }
-  &:not(:last-of-type) {
-    margin-bottom: 16px;
-  }
+  //&:not(:last-of-type) {
+  //  margin-bottom: 16px;
+  //}
 `

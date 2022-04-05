@@ -25,6 +25,7 @@ export const globalStyles = (
       body {
         overflow-x: hidden;
       }
+
       html,
       body {
         line-height: 1.4;
@@ -35,7 +36,17 @@ export const globalStyles = (
         margin: 0;
         //  scroll-behavior: smooth;
       }
-
+      button,
+      input[type='submit'],
+      input[type='reset'] {
+        background: none;
+        color: inherit;
+        border: none;
+        padding: 0;
+        font: inherit;
+        cursor: pointer;
+        outline: inherit;
+      }
       body {
         overflow-y: scroll; // this is necessary to block without displacement of the main content when the modal is opened
         margin: 0;

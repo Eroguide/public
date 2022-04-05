@@ -13,21 +13,8 @@ export const CheckboxContainer = styled.div<StyledComponentProps>`
   width: 16px;
   margin-right: 12px;
   border-radius: 4px;
-
-  ${({ theme, disabled, isError }) =>
-    disabled
-      ? `
-        background: ${theme.grayScale[0]};
-        border: 2px solid ${theme.grayScale[1]};
-      `
-      : isError
-      ? `
-        background: ${theme.primary[1]};
-      `
-      : `
-        background: ${theme.grayScale[0]};
-        border: 2px solid ${theme.grayScale[1]};
-  `};
+  background: ${({ theme }) => theme.grayScale[0]};
+  border: 2px solid ${({ theme }) => theme.grayScale[1]};
 
   svg {
     display: ${({ isError }) => (isError ? null : 'none')};
@@ -46,9 +33,8 @@ export const Label = styled.label<StyledComponentProps>`
   &:hover {
     ${CheckboxContainer} {
       ${({ theme, disabled, isError }) =>
-        disabled || isError
-          ? null
-          : `
+        (disabled || isError) &&
+        `
             background: rgba(216, 14, 93, 0.05);
             border: 2px solid ${theme.primary[1]};
       `}
@@ -58,7 +44,7 @@ export const Label = styled.label<StyledComponentProps>`
   input:checked + ${CheckboxContainer} {
     box-shadow: none;
     background: ${({ theme, isError }) => (isError ? null : theme.primary[1])};
-
+    border: 2px solid ${({ theme }) => theme.primary[1]};
     svg {
       display: block;
     }

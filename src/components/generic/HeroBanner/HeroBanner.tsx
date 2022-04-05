@@ -6,6 +6,7 @@ import {
 } from './styles'
 import { breakpoints, BreakpointsEnum } from '@/src/theme'
 import { useBreakpoint } from '@/hooks/useBreakpoint'
+import { Responsive } from '@/components/generic'
 
 export const HeroBanner: React.FC = () => {
   const isSmall = useBreakpoint({
@@ -16,23 +17,22 @@ export const HeroBanner: React.FC = () => {
   return (
     <>
       <HeroBannerContainer>
-        {!isSmall && (
-          <>
-            <HeroTitle>Show, tell, prove</HeroTitle>
-            <HeroSubtitle>
-              Já Eroguide - fotograf, romantik a milovník něžného pohlaví.
-            </HeroSubtitle>
-          </>
-        )}
+        <Responsive desktop>
+          <HeroTitle>Show, tell, prove</HeroTitle>
+          <HeroSubtitle>
+            Já Eroguide - fotograf, romantik a milovník něžného pohlaví.
+          </HeroSubtitle>
+        </Responsive>
       </HeroBannerContainer>
-      {isSmall && (
+
+      <Responsive mobile>
         <MobileTitleContainer>
           <HeroTitle>Show, tell, prove</HeroTitle>
           <HeroSubtitle>
             Já Eroguide - fotograf, romantik a milovník něžného pohlaví.
           </HeroSubtitle>
         </MobileTitleContainer>
-      )}
+      </Responsive>
     </>
   )
 }

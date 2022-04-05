@@ -57,12 +57,12 @@ import { theme } from '@/src/theme'
 // `
 
 export const HeartCounterWrapper = styled.div<{ hasItems: boolean }>`
-  margin-left: 40px;
-  width: 24px;
-  height: 24px;
   position: relative;
+  display: flex;
+  align-items: center;
   cursor: pointer;
-
+  height: 100%;
+  padding: 0 20px;
   svg {
     width: 24px;
     stroke: ${theme.primary[0]};

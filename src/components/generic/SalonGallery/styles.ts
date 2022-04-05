@@ -12,7 +12,6 @@ export const TitlePanel = styled.div`
   flex-direction: row;
   justify-content: space-between;
   display: flex;
-  height: 32px;
   margin-bottom: 40px;
 `
 
@@ -45,6 +44,7 @@ export const Divider = styled.div`
 export const GalleryItem = styled.div`
   width: calc(100% / 3);
   display: flex;
+
   ${({ theme }) => theme.media.md`
     width: calc(100% / 2 );
   `}

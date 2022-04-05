@@ -27,18 +27,18 @@ export const HeaderInner = styled.div`
   margin: 0 auto;
   width: 100%;
   max-width: 1280px;
-  padding: 0 32px;
+  //padding: 0 32px;
 
   ${({ theme }) => theme.media.md`
-    padding: 0;
+    // padding: 0;
     width: calc(100% - 32px * 2);
   `}
   ${({ theme }) => theme.media.sm`
-    padding: 0;
+ 
     width: calc(100% - 32px * 2);
   `}
   ${({ theme }) => theme.media.mobile`
-  padding: 0 16px;
+  // padding: 0;
   `}
 `
 
@@ -52,7 +52,13 @@ export const Divider = styled.div`
   width: 1px;
   height: 40px;
   background-color: #ebebf0;
-  margin: 0 40px;
+  margin: 0 16px;
+  ${({ theme }) => theme.media.sm`
+   margin: 0;
+  `}
+  ${({ theme }) => theme.media.mobile`
+   margin: 0;
+  `}
 `
 
 export const NavLink = styled.a`
@@ -60,59 +66,37 @@ export const NavLink = styled.a`
   color: #a0a0b0;
 `
 
-export const LocationText = styled.p`
+export const LocationText = styled.h4`
   ${({ theme }) => theme.typography.pm};
   color: ${({ theme }) => theme.grayScale[3]};
   font-weight: 400;
+  padding: 0 24px;
+  height: 100%;
+  align-items: center;
+  display: flex;
 `
 
 export const BurgerButton = styled.div`
-  margin-left: 40px;
-  width: 24px;
-  height: 24px;
   position: relative;
-`
-
-export const MobileFloatMenuWrapper = styled.div`
-  width: 100%;
-  position: fixed;
-  inset: 87px 0 0 0;
-`
-
-export const LeftBlock = styled.div`
+  height: 100%;
   display: flex;
-  flex-grow: 1;
-  max-width: 50%;
-  justify-content: flex-start;
   align-items: center;
-  ${NavLink} {
-    margin-right: 40px;
-  }
 `
 
-export const RightBlock = styled.div`
-  display: flex;
-  flex-grow: 1;
-  max-width: 50%;
-  justify-content: flex-end;
-  align-items: center;
-  ${NavLink} {
-    margin-left: 40px;
-  }
-`
-
-export const LogoWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-left: 8px;
-`
-
-export const MapPinIconWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
+export const BurgerIconWrapper = styled.div`
+  color: #a0a0b0;
   cursor: pointer;
+  position: relative;
+  padding: 0 20px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  ${({ theme }) => theme.media.sm`
+  padding: 0 16px;
+  `}
+  ${({ theme }) => theme.media.mobile`
+   padding: 0 16px;
+  `}
   svg path {
     stroke: ${({ theme }) => theme.grayScale[3]};
   }
@@ -127,12 +111,50 @@ export const MapPinIconWrapper = styled.div`
     }
   }
 `
+export const MobileFloatMenuWrapper = styled.div`
+  width: 100%;
+  position: fixed;
+  inset: 87px 0 0 0;
+  overflow-y: scroll;
+`
 
-export const BurgerIconWrapper = styled.div`
-  ${({ theme }) => theme.typography.pm};
-  color: #a0a0b0;
+export const LeftBlock = styled.div`
+  display: flex;
+  flex-grow: 1;
+  max-width: 50%;
+  justify-content: flex-start;
+  align-items: center;
+  ${NavLink} {
+    //margin-right: 40px;
+  }
+`
+
+export const RightBlock = styled.div`
+  display: flex;
+  flex-grow: 1;
+  max-width: 50%;
+  justify-content: flex-end;
+  align-items: center;
+  ${NavLink} {
+    //margin-left: 40px;
+  }
+`
+
+export const LogoWrapper = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 24px;
+  height: 100%;
+`
+
+export const MapPinIconWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
-  position: relative;
+  height: 100%;
+  padding: 0 20px;
   svg path {
     stroke: ${({ theme }) => theme.grayScale[3]};
   }

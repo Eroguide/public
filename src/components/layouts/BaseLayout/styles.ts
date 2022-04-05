@@ -37,6 +37,6 @@ export const Wrapper = styled.div`
 export const Inner = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: ${headerHeight}px;
+  margin-top: ${headerHeight + 2}px;
   min-height: calc(100vh - ${headerHeight}px);
 `

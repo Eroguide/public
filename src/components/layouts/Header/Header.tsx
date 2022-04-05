@@ -48,7 +48,9 @@ export const Header: React.FC = () => {
               <LogoIconMobile />
             </LogoWrapper>
           ) : (
-            <Logo src="/img/logo.png" alt="" onClick={() => goHome()} />
+            <LogoWrapper onClick={() => goHome()}>
+              <Logo src="/img/logo.png" alt="" />
+            </LogoWrapper>
           )}
           <Divider />
           <LocationText>Praha</LocationText>

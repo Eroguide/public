@@ -1,18 +1,19 @@
 import styled from '@emotion/styled'
 
 export const SalonCardMainContainer = styled.div<{ inSwipe?: boolean }>`
-  min-width: 430px;
-  max-width: calc(100% / 3 - 16px - 18px);
+  max-width: calc(100% - 18px);
   width: 100%;
   flex-direction: column;
   border-radius: 32px;
   padding: 9px;
+
   ${({ theme }) => theme.media.sm`
-    width: calc(100% / 2 - 16px - 18px);
+    width: calc(100%  - 18px);
 `};
   ${({ theme }) => theme.media.mobile`
       width: 100%;
       max-width:100%;
+      min-width: 340px;
 `};
 `
 

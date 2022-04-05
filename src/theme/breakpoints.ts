@@ -24,12 +24,12 @@ export const breakpoints = {
     max: 5120,
   },
   [BreakpointsEnum.lg]: {
-    min: 1280,
+    min: 1420,
     max: 1920 - 1,
   },
   [BreakpointsEnum.md]: {
     min: 960,
-    max: 1280 - 1,
+    max: 1420 - 1,
   },
   [BreakpointsEnum.sm]: {
     min: 600,
@@ -74,7 +74,7 @@ const getApproximateBreakpoint = (): Exclude<BreakpointsUnion, 'mobile'> => {
 
 type CurrentWidth = number | null
 const getCurrentBreakpoint = (
-  x: CurrentWidth = null,
+  x: CurrentWidth = null
 ): Exclude<BreakpointsUnion, 'mobile'> =>
   x === null
     ? getApproximateBreakpoint() // by default (for SSR also), you're free to change it
