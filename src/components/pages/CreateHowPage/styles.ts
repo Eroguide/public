@@ -59,13 +59,17 @@ export const ImageWrapper = styled.div`
 `
 
 export const Title = styled.h2`
-  margin-bottom: 32px;
+  margin-bottom: 24px;
+  ${({ theme }) => theme.typography.h2};
+  font-weight: 600;
+  color: ${({ theme }) => theme.grayScale[4]};
 `
 
 export const OptionsList = styled.ul`
   display: flex;
   list-style: none;
   flex-direction: column;
+  margin-bottom: 16px;
 `
 
 export const OptionItem = styled.li`

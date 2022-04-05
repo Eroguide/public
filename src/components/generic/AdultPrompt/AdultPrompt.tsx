@@ -6,10 +6,10 @@ import {
   Title,
   ButtonsGroup,
   BgOverlay,
-  CloseButton,
+  // CloseButton,
 } from './styles'
 import { CustomButton } from '@/components/generic'
-import CloseIcon from '/public/img/cross-icon.svg'
+// import CloseIcon from '/public/img/cross-icon.svg'
 
 export const AdultPrompt: React.FC = () => {
   let isAdult = false

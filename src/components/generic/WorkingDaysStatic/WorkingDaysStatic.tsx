@@ -1,6 +1,3 @@
-import { useState } from 'react'
-import { Swiper, SwiperSlide } from 'swiper/react'
-import { Pagination, SwiperOptions } from 'swiper'
 import {
   Container,
   Wrapper,
@@ -45,7 +42,7 @@ export const WorkingDaysStatic: React.FC<{
     <Container>
       <Wrapper>
         {days.map((day) => (
-          <DayCardWrapper>
+          <DayCardWrapper key={day.name}>
             {withDateTop && <DateTop>{day.name}</DateTop>}
             <DayCard isActive={day.isActive} key={day.name}>
               <Day isFree={day?.isFree}>{day.name}</Day>

@@ -24,7 +24,7 @@ export const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   text-align: center;
-  max-width: 720px;
+  max-width: 800px;
 `
 
 export const HeroTitle = styled.h1`

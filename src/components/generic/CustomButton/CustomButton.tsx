@@ -27,6 +27,7 @@ export const CustomButton: React.FC<ButtonProps> = ({
           styleType={styleType}
           iconRight={iconRight || !!counter}
           iconLeft={iconLeft}
+          {...buttonProps}
         >
           <>
             {iconLeft && (

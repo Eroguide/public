@@ -64,6 +64,8 @@ const massageTypes = [
   },
 ]
 import { useState } from 'react'
+import { FreeMode, SwiperOptions } from 'swiper'
+import { SwiperSlide, Swiper } from 'swiper/react'
 export enum StrokeColorTypes {
   gray = 'gray',
   yellow = 'yellow',
@@ -82,6 +84,13 @@ export const MassageProgramCard: React.FC<InfoCardProps> = ({
   strokeColor,
 }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false)
+  const swiperSettings: SwiperOptions = {
+    slidesPerView: 'auto',
+    modules: [FreeMode],
+    spaceBetween: 0,
+  }
+  const [initSlider, setInitSlider] = useState<boolean>(false)
+
   return (
     <Container padding={padding} margin={margin} strokeColor={strokeColor}>
       <MainInfo onClick={() => setIsOpen(!isOpen)} isOpen={isOpen}>
@@ -103,9 +112,15 @@ export const MassageProgramCard: React.FC<InfoCardProps> = ({
 
       <BottomRow>
         <IconsRow>
-          {massageTypes.map((x) => (
-            <SingleIconWrapper key={x.id}>{x.icon}</SingleIconWrapper>
-          ))}
+          <Swiper {...swiperSettings} onAfterInit={() => setInitSlider(true)}>
+            {initSlider
+              ? massageTypes.map((x) => (
+                  <SwiperSlide key={x.id}>
+                    <SingleIconWrapper key={x.id}>{x.icon}</SingleIconWrapper>
+                  </SwiperSlide>
+                ))
+              : 'loading'}
+          </Swiper>
         </IconsRow>
 
         <Price>

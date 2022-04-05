@@ -57,7 +57,7 @@ export const Left = styled.span`
 `
 
 export const Right = styled.div`
-  border-radius: 32px;
+  //border-radius: 32px;
   overflow: hidden;
 `
 

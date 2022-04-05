@@ -37,7 +37,7 @@ import PhotoIcon from 'public/img/photo-icon.svg'
 import VideoIcon from 'public/img/video-icon.svg'
 import { CardProps } from './types'
 import { FavoritesActions } from '@/store/favoritsModule'
-import { WorkingDays, WorkingDaysStatic } from '@/components/generic'
+import { WorkingDaysStatic } from '@/components/generic'
 
 export const Card: React.FC<CardProps> = ({
   id,

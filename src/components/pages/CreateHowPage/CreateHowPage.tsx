@@ -9,7 +9,7 @@ import {
   OptionsList,
   OptionItem,
 } from './styles'
-import { CustomButton, RadioButton } from '@/components/generic'
+import { CheckBox, CustomButton } from '@/components/generic'
 import { useState } from 'react'
 import { useRouter } from 'next/router'
 
@@ -58,14 +58,14 @@ export const CreateHowPage: React.FC = () => {
                   key={item.id}
                   onClick={() => setRoutingVariation(item.slug)}
                 >
-                  <RadioButton title={item.name} />
+                  <CheckBox label={item.name} name={'routing-how'} />
                 </OptionItem>
               ))}
             </OptionsList>
             <CustomButton
               disabled={!routingVariation}
               onClick={() => handleClick()}
-              styleType={routingVariation ? 'primary' : 'tertiary'}
+              styleType="primary"
             >
               Continue
             </CustomButton>

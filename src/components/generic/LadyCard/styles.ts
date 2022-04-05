@@ -32,8 +32,8 @@ export const Tag = styled.span`
   align-items: center;
   justify-content: center;
   font-weight: 600;
-  ${({ theme }) => theme.typography.h6};
-  color: ${({ theme }) => theme.primary[0]};
+  ${({ theme }) => theme.typography.h7};
+  color: ${({ theme }) => theme.primary[2]};
 `
 
 export const StatusTag = styled.div`

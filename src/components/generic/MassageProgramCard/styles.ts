@@ -105,6 +105,13 @@ export const IconsRow = styled.div`
   width: calc(100% - 150px);
   flex-flow: wrap row;
   margin-left: -4px;
+  & .swiper {
+    width: 100%;
+    display: flex;
+  }
+  & .swiper-slide {
+    width: auto;
+  }
 `
 
 export const Price = styled.span`

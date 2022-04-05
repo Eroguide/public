@@ -42,6 +42,7 @@ export const Button = styled.button<StyledComponentProps>`
   //max-width: 200px;
   cursor: pointer;
 
+  ${({ disabled }) => disabled && 'border: none;  pointer-events: none;'};
   ${({ iconRight }) => iconRight && 'padding-right: 0;padding-left: 16px;'};
   ${({ iconLeft }) => iconLeft && 'padding-left: 0;padding-right: 16px;'};
   ${({ styleType }) => styleType === 'link' && 'padding: 0;'};
