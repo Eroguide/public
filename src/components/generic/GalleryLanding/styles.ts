@@ -2,20 +2,19 @@ import styled from '@emotion/styled'
 
 export const Container = styled.div`
   width: 100%;
-  padding: 104px;
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  ${({ theme }) => theme.media.md`
-     padding: 64px;
-  `}
-  ${({ theme }) => theme.media.sm`
-      padding: 0;
-  `}
-  ${({ theme }) => theme.media.mobile`
-       padding: 0;
-  `}
+  // ${({ theme }) => theme.media.md`
+  //    padding: 64px;
+  // `}
+  // ${({ theme }) => theme.media.sm`
+  //     padding: 0;
+  // `}
+  // ${({ theme }) => theme.media.mobile`
+  //      padding: 0;
+  // `}
 `
 
 export const Wrapper = styled.div`
