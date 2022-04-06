@@ -1,4 +1,4 @@
-import { HeartCounterWrapper, Counter } from './styles'
+import { HeartCounterWrapper, Counter, HeartInner } from './styles'
 import { useStoreon } from '@/store/index'
 import HeartAnimated from '/public/img/heart-counter-icon.svg'
 import { useRouter } from 'next/router'
@@ -29,8 +29,10 @@ export const HeartCounter: React.FC = () => {
       }
       hasItems={isActive}
     >
-      <HeartAnimated />
-      {isActive && <Counter>{items.length}</Counter>}
+      <HeartInner>
+        <HeartAnimated />
+        {isActive && <Counter>{items.length}</Counter>}
+      </HeartInner>
     </HeartCounterWrapper>
   )
 }

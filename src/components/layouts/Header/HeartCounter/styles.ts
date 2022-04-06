@@ -88,6 +88,7 @@ export const HeartCounterWrapper = styled.div<{ hasItems: boolean }>`
 // hasItems
 //     ? `fill:${theme.primary[0]}; stroke:${theme.primary[0]}`
 //     : `fill: white; stroke: ${theme.grayScale[3]};`};
+
 export const Counter = styled.div`
   position: absolute;
   ${({ theme }) => theme.typography.h7};
@@ -101,4 +102,13 @@ export const Counter = styled.div`
   justify-content: center;
   align-items: center;
   border-radius: 50%;
+`
+
+export const HeartInner = styled.div`
+  width: 24px;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
 `

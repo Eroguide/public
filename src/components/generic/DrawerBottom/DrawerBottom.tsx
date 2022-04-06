@@ -8,6 +8,7 @@ import {
 import { DrawerBottomProps } from './types'
 import CloseIcon from '/public/img/cross-icon.svg'
 import { GalleryLanding } from '@/components/generic'
+import { useCallback, useEffect } from 'react'
 export const DrawerBottom: React.FC<DrawerBottomProps> = ({
   isOpen,
   handleClose,
@@ -21,6 +22,23 @@ export const DrawerBottom: React.FC<DrawerBottomProps> = ({
       document.body.style.overflowY = 'auto'
     }
   }
+
+  const escFunction = useCallback(
+    (event) => {
+      if (event.keyCode === 27) {
+        handleClose()
+      }
+    },
+    [handleClose]
+  )
+
+  useEffect(() => {
+    document.addEventListener('keydown', escFunction)
+
+    return () => {
+      document.removeEventListener('keydown', escFunction)
+    }
+  }, [escFunction])
 
   return (
     <>

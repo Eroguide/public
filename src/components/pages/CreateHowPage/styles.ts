@@ -3,7 +3,6 @@ import styled from '@emotion/styled'
 export const Container = styled.div`
   width: 100%;
   display: flex;
-  height: 60vh;
 `
 
 export const Wrapper = styled.div`

@@ -37,7 +37,6 @@ export const LinkGroup = styled.div`
   flex-flow: column;
   justify-content: flex-start;
   width: 50%;
-  padding-right: 8px;
   a {
     justify-content: flex-start;
     ${({ theme }) => theme.typography.h4};
@@ -47,7 +46,8 @@ export const LinkGroup = styled.div`
   margin-bottom: 20px;
   `}
   ${({ theme }) => theme.media.mobile`
-   width: 100%;  margin-bottom: 20px;
+   width: 100%; 
+   margin-bottom: 20px;
   `}
 `
 
@@ -93,7 +93,7 @@ export const UnderFooterLeft = styled.div`
   `}
   ${({ theme }) => theme.media.mobile`
   width: 100%;
-  padding-left: 78px;
+  padding-left: 56px;
   `}
 `
 
@@ -134,13 +134,11 @@ export const UnderFooterRight = styled.div`
   
   ${({ theme }) => theme.media.mobile`
     margin-right: 0;
-      padding-left: 78px;
+      padding-left: 56px;
       width: 100%;
-       margin-top: 16px;
-   
+      margin-top: 16px;
       flex-direction: column;
-       align-items: flex-start;
-    
+      align-items: flex-start;
   `}
 `
 
@@ -148,17 +146,15 @@ export const FirstFooterSection = styled.div`
   width: 200px;
   display: flex;
   flex-grow: 1;
-  height: 100%;
-  padding: 56px 0;
-
+  height: 136px;
+  align-items: center;
   ${({ theme }) => theme.media.sm`
-  padding: 56px 0 45px 0; 
-    margin-right: 0;
+  margin-right: 0;
   width: 100%;
   `}
   ${({ theme }) => theme.media.mobile`
-   padding: 56px 0 45px 45px; 
    width: 100%;
+   margin-left: 62px;
   `}
 `
 
@@ -180,6 +176,7 @@ export const MiddleFooterSection = styled.div`
     margin-left: 0;  
     padding: 0; 
     width: 100%;
+    margin-left: 48px;
   `}
 `
 
@@ -208,6 +205,7 @@ export const EndFooterSection = styled.div`
     padding: 32px 0 64px 0;
     width: 100%;
     justify-content: flex-start;
+    margin-left: 56px;
   `}
 `
 
@@ -234,7 +232,6 @@ export const SectionFooterWrap = styled.div`
   ${({ theme }) => theme.media.mobile`
   width: 100%;
   flex-direction:column;
-  padding-left: 78px;
   `}
 `
 

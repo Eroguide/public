@@ -51,6 +51,7 @@ export const CloseButton = styled.div`
   cursor: pointer;
   z-index: 10;
 `
+
 export const InnerContent = styled.div`
   position: relative;
   width: 80%;

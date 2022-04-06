@@ -11,6 +11,7 @@ import {
   BurgerIconWrapper,
   LocationText,
   MobileFloatMenuWrapper,
+  CloseButton,
 } from './styles'
 import { HeartCounter } from '@/components/layouts/Header/HeartCounter'
 import { useRouter } from 'next/router'
@@ -23,7 +24,7 @@ import BurgerIcon from '/public/img/burger-icon.svg'
 import { FloatingNavigation } from '@/components/generic'
 import { useRef, useState } from 'react'
 import { useClickOutside } from '@/hooks/useClickOutside'
-
+import CloseIcon from '/public/img/cross-icon.svg'
 export const Header: React.FC = () => {
   const { push } = useRouter()
   const [menuIsOpen, setMenuIsOpen] = useState<boolean>(false)
@@ -72,7 +73,13 @@ export const Header: React.FC = () => {
           ) : (
             <BurgerButton ref={ref}>
               <BurgerIconWrapper onClick={() => setMenuIsOpen(!menuIsOpen)}>
-                <BurgerIcon />
+                {!menuIsOpen ? (
+                  <BurgerIcon />
+                ) : (
+                  <CloseButton>
+                    <CloseIcon />
+                  </CloseButton>
+                )}
               </BurgerIconWrapper>
               {menuIsOpen && (
                 <MobileFloatMenuWrapper>

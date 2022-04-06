@@ -169,3 +169,15 @@ export const MapPinIconWrapper = styled.div`
     }
   }
 `
+
+export const CloseButton = styled.div`
+  height: 24px;
+  width: 24px;
+  border-radius: 8px;
+  border: 2px solid ${({ theme }) => theme.grayScale[1]};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 10;
+`

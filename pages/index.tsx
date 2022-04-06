@@ -18,8 +18,6 @@ import { ShowNewItems } from '@/components/generic/ShowNewItems'
 import { getLaunches } from '@/graphql/queries.graphql'
 import { addApolloState, initializeApollo } from '@/graphql/apollo'
 import { GetLaunches } from '@/graphql/__generated__/GetLaunches'
-import { useBreakpoint } from '@/hooks/useBreakpoint'
-import { breakpoints, BreakpointsEnum } from '@/src/theme'
 import { SectionBlock } from '@/components/layouts/SectionBlock'
 import { Responsive } from '@/components/generic'
 
@@ -44,12 +42,10 @@ const Home: NextPage<GetLaunches> = ({ launchesPast }) => {
       </Head>
       <BaseLayout>
         <SectionBlock>
-          <>
-            <HeroBanner />
-            <Responsive desktop>
-              <HeroFilters />
-            </Responsive>
-          </>
+          <HeroBanner />
+          <Responsive desktop>
+            <HeroFilters />
+          </Responsive>
         </SectionBlock>
         <SectionBlock>
           <ShowNewItems itemsToShow={4} title={'Nové slečny'} />
@@ -58,7 +54,7 @@ const Home: NextPage<GetLaunches> = ({ launchesPast }) => {
           <ContentCardRow
             title="Holky z privátů"
             counter={535}
-            counterTitle="All private ladies"
+            counterTitle="All"
             itemsToShow={[4, 3, 2]}
             href="/gallery"
             bottomControl
@@ -102,9 +98,9 @@ const Home: NextPage<GetLaunches> = ({ launchesPast }) => {
         </SectionBlock>
         <SectionBlock>
           <ContentCardRow
-            title="PostCard"
+            title="Blog"
             counter={34}
-            counterTitle="All posts"
+            counterTitle="All"
             itemsToShow={[4, 3, 2]}
             href="/blog"
           >
@@ -120,9 +116,9 @@ const Home: NextPage<GetLaunches> = ({ launchesPast }) => {
         </SectionBlock>
         <SectionBlock>
           <ContentCardRow
-            title="PostCardWide"
+            title="Stories"
             counter={23}
-            counterTitle="All posts"
+            counterTitle="All"
             itemsToShow={[2, 2, 1]}
             href="/blog"
           >
