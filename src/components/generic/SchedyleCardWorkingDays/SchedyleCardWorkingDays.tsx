@@ -44,14 +44,14 @@ export const SchedyleCardWorkingDays: React.FC<{
     slidesPerView: 'auto',
     loop: false,
     spaceBetween: 0,
-    breakpoints: {
-      0: {
-        slidesPerView: 4,
-      },
-      599: {
-        slidesPerView: 'auto',
-      },
-    },
+    // breakpoints: {
+    //   0: {
+    //     slidesPerView: 4,
+    //   },
+    //   599: {
+    //     slidesPerView: 'auto',
+    //   },
+    // },
   }
   const [initSlider, setInitSlider] = useState<boolean>(false)
   return (

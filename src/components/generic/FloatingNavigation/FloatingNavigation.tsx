@@ -39,7 +39,7 @@ export type MobileNavList = Record<string, Array<MobileNavItemType>>
 const navItemList: MobileNavList = {
   searchNavGroup: [
     {
-      id: 'sadasdsdsds2dssdsdssa',
+      id: '1',
       icon: <SearchIcon />,
       title: 'Hledat',
       counter: 213,
@@ -49,31 +49,31 @@ const navItemList: MobileNavList = {
   ],
   firstNavGroup: [
     {
-      id: 'sadasdsdsds2dssdsda',
+      id: '2',
       icon: <NewIcon />,
       title: 'Nové',
       counter: 213,
-      href: '/gallery',
+      href: '/gallery/new',
       slug: 'gallery',
     },
     {
-      id: 'sadasdsdssdsdssdsda',
+      id: '3',
       icon: <TopIcon />,
       title: 'Top',
       counter: 213,
-      href: '/gallery',
-      slug: 'gallery',
+      href: '/gallery/top',
+      slug: 'top',
     },
     {
-      id: 'sadasdsddscccdsdssdsda',
+      id: '4',
       icon: <ChangeIcon />,
       title: 'Na směně',
       counter: 213,
-      href: '/gallery',
-      slug: 'gallery',
+      href: '/gallery/on-shift',
+      slug: 'on-shift',
     },
     {
-      id: 'sssc222cz',
+      id: '5',
       icon: <ShoeIcon />,
       title: 'Masérky',
       counter: 213,
@@ -81,15 +81,15 @@ const navItemList: MobileNavList = {
       slug: 'gallery',
     },
     {
-      id: 'dsaxsdds',
+      id: '6',
       icon: <SalonIcon />,
       title: 'Masážní salóny',
       counter: 213,
-      href: '/salons',
-      slug: 'salons',
+      href: '/salons/massage',
+      slug: 'salons-massage',
     },
     {
-      id: 'dffaaa',
+      id: '7',
       icon: <HeartIcon />,
       title: 'Privátní slečny',
       counter: 22,
@@ -97,7 +97,7 @@ const navItemList: MobileNavList = {
       slug: 'privat',
     },
     {
-      id: '421fdfd',
+      id: '8',
       icon: <HeartsIcon />,
       title: 'Privátní salony',
       counter: 44,
@@ -107,28 +107,28 @@ const navItemList: MobileNavList = {
   ],
   secondNavGroup: [
     {
-      id: 'sadas434d',
+      id: '9',
       icon: <AboutIcon />,
       title: 'O nás',
       href: '/about',
       slug: 'about',
     },
     {
-      id: 'ds434ax',
+      id: '10',
       icon: <BlogIcon />,
       title: 'Blog',
       href: '/blog',
       slug: 'blog',
     },
     {
-      id: 'df434faaa',
+      id: '11',
       icon: <InfoIcon />,
       title: 'F.A.Q',
       href: '/faq',
       slug: 'faq',
     },
     {
-      id: '421f4343dfd',
+      id: '12',
       icon: <ThumbIcon />,
       title: 'Podpora',
       href: '/support',
@@ -156,6 +156,7 @@ export const NavItemComponent: React.FC<MobileNavItemType> = ({
 }
 
 export const FloatingNavigation: React.FC = () => {
+  // const [isShowMore, setIsShowMore] = useState<boolean>(false)
   return (
     <Container>
       <Wrapper>
@@ -170,9 +171,19 @@ export const FloatingNavigation: React.FC = () => {
           </NavSection>
           <Divider />
           <NavSection>
+            {/*<ShowMore height={isShowMore ? 'auto' : 120}>*/}
             {navItemList.firstNavGroup.map((navItem) => (
               <NavItemComponent key={navItem.id} {...navItem} />
             ))}
+            {/*</ShowMore>*/}
+            {/*<CustomButton*/}
+            {/*  sizeType="small"*/}
+            {/*  onClick={() => setIsShowMore(!isShowMore)}*/}
+            {/*  styleType="link"*/}
+            {/*  textAlign={'flex-start'}*/}
+            {/*>*/}
+            {/*  {isShowMore ? 'Less' : 'More'}*/}
+            {/*</CustomButton>*/}
           </NavSection>
           <Divider />
           <NavSection>

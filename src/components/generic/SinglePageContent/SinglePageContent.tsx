@@ -7,6 +7,7 @@ import {
   BodyContent,
   DetailsSection,
   InterviewBlockWrapper,
+  RowRight,
 } from './styles'
 
 import {
@@ -22,8 +23,11 @@ import { LadiesGalleryWidget } from '@/components/widgets/LadiesGalleryWidget'
 import { PersonalInfoSinglePageWidget } from '@/components/widgets/PersonalInfoSinglePageWidget'
 import { ScheduleSinglePageWidget } from '@/components/widgets/ScheduleSinglePageWidget'
 import { SalonSinglePageWidget } from '@/components/widgets/SalonSinglePageWidget'
+import { useState } from 'react'
+import AnimateHeight from 'react-animate-height'
 
 export const SinglePageContent: React.FC = () => {
+  const [isShowMore, setIsShowMore] = useState<boolean>(false)
   return (
     <SinglePageContentContainer>
       <Banner />
@@ -49,41 +53,91 @@ export const SinglePageContent: React.FC = () => {
               <ExperianceWidget />
             </SinglePageContentBlock>
             <SinglePageContentBlock title="Interview for Eroguide">
-              <InterviewBlockWrapper>
-                <div>
-                  <h3>Mohu se u Vás před masáží nebo po masáži osprchovat?</h3>
-                  <p>
-                    Mohu se u Vás před masáží nebo po masáži osprchovat? Lorem
-                    ipsum dolor sit amet, consectetur adipiscing elit. Imperdiet
-                    aliquet risus, libero egestas enim at. Quis maecenas at sit
-                  </p>
-                </div>
-                <div>
-                  <h3>Mohu se u Vás před masáží nebo po masáži osprchovat?</h3>
-                  <p>
-                    Mohu se u Vás před masáží nebo po masáži osprchovat? Lorem
-                    ipsum dolor sit amet, consectetur adipiscing elit. Imperdiet
-                    aliquet risus, libero egestas enim at. Quis maecenas at sit
-                  </p>
-                </div>
-                <div>
-                  <h3>Mohu se u Vás před masáží nebo po masáži osprchovat?</h3>
-                  <p>
-                    Mohu se u Vás před masáží nebo po masáži osprchovat? Lorem
-                    ipsum dolor sit amet, consectetur adipiscing elit. Imperdiet
-                    aliquet risus, libero egestas enim at. Quis maecenas at sit
-                  </p>
-                </div>
-                <div>
+              <>
+                <AnimateHeight
+                  duration={500}
+                  height={isShowMore ? 'auto' : 400}
+                >
+                  <InterviewBlockWrapper>
+                    <div>
+                      <h3>
+                        Mohu se u Vás před masáží nebo po masáži osprchovat?
+                      </h3>
+                      <p>
+                        Mohu se u Vás před masáží nebo po masáži osprchovat?
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Imperdiet aliquet risus, libero egestas enim at. Quis
+                        maecenas at sit
+                      </p>
+                    </div>
+                    <div>
+                      <h3>
+                        Mohu se u Vás před masáží nebo po masáži osprchovat?
+                      </h3>
+                      <p>
+                        Mohu se u Vás před masáží nebo po masáži osprchovat?
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Imperdiet aliquet risus, libero egestas enim at. Quis
+                        maecenas at sit
+                      </p>
+                    </div>
+                    <div>
+                      <h3>
+                        Mohu se u Vás před masáží nebo po masáži osprchovat?
+                      </h3>
+                      <p>
+                        Mohu se u Vás před masáží nebo po masáži osprchovat?
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Imperdiet aliquet risus, libero egestas enim at. Quis
+                        maecenas at sit
+                      </p>
+                    </div>
+                    <div>
+                      <h3>
+                        Mohu se u Vás před masáží nebo po masáži osprchovat?
+                      </h3>
+                      <p>
+                        Mohu se u Vás před masáží nebo po masáži osprchovat?
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Imperdiet aliquet risus, libero egestas enim at. Quis
+                        maecenas at sit
+                      </p>
+                    </div>
+                    <div>
+                      <h3>
+                        Mohu se u Vás před masáží nebo po masáži osprchovat?
+                      </h3>
+                      <p>
+                        Mohu se u Vás před masáží nebo po masáži osprchovat?
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Imperdiet aliquet risus, libero egestas enim at. Quis
+                        maecenas at sit
+                      </p>
+                    </div>
+                    <div>
+                      <h3>
+                        Mohu se u Vás před masáží nebo po masáži osprchovat?
+                      </h3>
+                      <p>
+                        Mohu se u Vás před masáží nebo po masáži osprchovat?
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Imperdiet aliquet risus, libero egestas enim at. Quis
+                        maecenas at sit
+                      </p>
+                    </div>
+                  </InterviewBlockWrapper>
+                </AnimateHeight>
+                <RowRight>
                   <CustomButton
                     styleType={'tertiary'}
                     sizeType={'small'}
+                    onClick={() => setIsShowMore(!isShowMore)}
                     width={'105px'}
                   >
                     Vice
                   </CustomButton>
-                </div>
-              </InterviewBlockWrapper>
+                </RowRight>
+              </>
             </SinglePageContentBlock>
             <SinglePageContentBlock title="Video">
               <VideoPlayerWidget />

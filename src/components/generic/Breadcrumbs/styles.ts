@@ -13,7 +13,7 @@ export const CrumbWrapper = styled.div``
 
 export const CrumbLink = styled.a`
   ${({ theme }) => theme.typography.pm};
-  font-weight: 600;
+  font-weight: 400;
   color: ${({ theme }) => theme.grayScale[2]};
   text-decoration: none;
   text-transform: lowercase;
@@ -24,7 +24,7 @@ export const CrumbLink = styled.a`
 
 export const CrumbTitle = styled.span`
   ${({ theme }) => theme.typography.pm};
-  font-weight: 600;
+  font-weight: 400;
   color: ${({ theme }) => theme.grayScale[3]};
   text-transform: lowercase;
 `

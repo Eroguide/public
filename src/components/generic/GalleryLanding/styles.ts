@@ -6,15 +6,11 @@ export const Container = styled.div`
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  // ${({ theme }) => theme.media.md`
-  //    padding: 64px;
-  // `}
-  // ${({ theme }) => theme.media.sm`
-  //     padding: 0;
-  // `}
-  // ${({ theme }) => theme.media.mobile`
-  //      padding: 0;
-  // `}
+  margin-top: 104px;
+  margin-bottom: 200px;
+  ${({ theme }) => theme.media.mobile`
+      margin-bottom: 48px;
+`}
 `
 
 export const Wrapper = styled.div`

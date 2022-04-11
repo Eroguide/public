@@ -70,12 +70,6 @@ export const InterviewBlockWrapper = styled.div`
   }
 
   div {
-    &:last-of-type {
-      width: 100%;
-      display: flex;
-      justify-content: flex-end;
-    }
-
     margin-bottom: 32px;
   }
 
@@ -192,6 +186,9 @@ export const Row = styled.div`
   display: flex;
 `
 
+export const RowRight = styled(Row)`
+  justify-content: flex-end;
+`
 export const Left = styled.div`
   display: flex;
   align-items: center;

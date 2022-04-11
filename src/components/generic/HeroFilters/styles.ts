@@ -18,9 +18,15 @@ export const HeroFiltersInner = styled.div`
   justify-content: center;
   background-color: white;
   border: 1px solid ${({ theme }) => theme.grayScale[1]};
+  ${({ theme }) => theme.media.md`
+   margin: -35px auto 0 auto;
+  `}
+  ${({ theme }) => theme.media.sm`
+  margin: -35px auto 0 auto;
+  `}
 `
 
-export const Search = styled.div`
+export const Search = styled.span`
   height: 64px;
   width: 64px;
   position: relative;

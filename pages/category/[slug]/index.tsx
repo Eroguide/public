@@ -15,8 +15,7 @@ const fixtures = [
   { id: 'asdsad3242asdssdss', slug: 'three-project-time', best: 0 },
   { id: 'asdsdadasfffsadadsdsdsd', slug: 'four-project-time', best: 0 },
 ]
-const CategorySinglePage: NextPage<{ slug?: string }> = ({ slug }) => {
-  console.log('params', slug)
+const CategorySinglePage: NextPage<{ slug?: string }> = () => {
   const { query } = useRouter()
   return (
     <>

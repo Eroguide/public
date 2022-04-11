@@ -1,13 +1,16 @@
 import styled from '@emotion/styled'
 
-export const Label = styled.span<{ forFilter?: boolean }>`
+export const Title = styled.span<{ forFilter?: boolean }>`
   ${({ theme }) => theme.typography.pl};
   font-weight: 400;
   margin-left: 16px;
   color: ${({ theme }) => theme.grayScale[5]};
 `
+export const Input = styled.input`
+  display: none;
+`
 
-export const Container = styled.label`
+export const Container = styled.div`
   align-items: center;
   text-align: center;
   display: flex;

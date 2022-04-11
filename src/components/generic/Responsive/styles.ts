@@ -3,6 +3,7 @@ import styled from '@emotion/styled'
 export const Desktop = styled.div<{ displayType?: 'flex' | 'block' | string }>`
   display: ${({ displayType }) => (displayType ? displayType : 'flex')};
   flex-direction: inherit;
+  width: inherit;
   ${({ theme }) => theme.media.mobile`
      display: none;
   `}

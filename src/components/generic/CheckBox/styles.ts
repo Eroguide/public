@@ -40,7 +40,9 @@ export const Label = styled.label<StyledComponentProps>`
       `}
     }
   }
-
+  input {
+    display: none;
+  }
   input:checked + ${CheckboxContainer} {
     box-shadow: none;
     background: ${({ theme, isError }) => (isError ? null : theme.primary[1])};
@@ -53,4 +55,10 @@ export const Label = styled.label<StyledComponentProps>`
       fill: ${({ theme }) => theme.primary[1]};
     }
   }
+`
+export const Title = styled.span<{ forFilter?: boolean }>`
+  ${({ theme }) => theme.typography.pl};
+  font-weight: 400;
+  margin-left: 16px;
+  color: ${({ theme }) => theme.grayScale[5]};
 `

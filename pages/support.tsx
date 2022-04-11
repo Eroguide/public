@@ -15,8 +15,6 @@ const SupportPage: NextPage = () => {
       <BaseLayout>
         <SectionBlock>
           <TopLinePageContent />
-        </SectionBlock>
-        <SectionBlock>
           <SupportPageContent />
         </SectionBlock>
       </BaseLayout>

@@ -47,14 +47,32 @@ const Home: NextPage<GetLaunches> = ({ launchesPast }) => {
             <HeroFilters />
           </Responsive>
         </SectionBlock>
+
         <SectionBlock>
           <ShowNewItems itemsToShow={4} title={'Nové slečny'} />
         </SectionBlock>
+
         <SectionBlock>
           <ContentCardRow
-            title="Holky z privátů"
-            counter={535}
-            counterTitle="All"
+            title="Top z privátů"
+            counter={52}
+            counterTitle="Vše"
+            href="/gallery"
+            bottomControl
+          >
+            {fixtures.map((item) => (
+              <SwiperSlide key={item.id}>
+                <Card {...item} tagTitle={item.slug} inSwipe />
+              </SwiperSlide>
+            ))}
+          </ContentCardRow>
+        </SectionBlock>
+
+        <SectionBlock>
+          <ContentCardRow
+            title="Všechny slečny"
+            counter={73}
+            counterTitle="Vše"
             itemsToShow={[4, 3, 2]}
             href="/gallery"
             bottomControl
@@ -66,12 +84,30 @@ const Home: NextPage<GetLaunches> = ({ launchesPast }) => {
             ))}
           </ContentCardRow>
         </SectionBlock>
+
+        <SectionBlock>
+          <ContentCardRow
+            title="Holky z privátů"
+            counter={73}
+            counterTitle="Vše"
+            itemsToShow={[4, 3, 2]}
+            href="/gallery"
+            bottomControl
+          >
+            {fixtures.map((item) => (
+              <SwiperSlide key={item.id}>
+                <Card {...item} tagTitle={item.slug} inSwipe />
+              </SwiperSlide>
+            ))}
+          </ContentCardRow>
+        </SectionBlock>
+
         <SectionBlock>
           <ContentCardRow
             title="Podniky"
             counter={535}
             spaceBetween={8}
-            counterTitle="All salons"
+            counterTitle="Vše"
             href="/salons"
             bottomControl
           >
@@ -82,25 +118,12 @@ const Home: NextPage<GetLaunches> = ({ launchesPast }) => {
             ))}
           </ContentCardRow>
         </SectionBlock>
-        <SectionBlock>
-          {launchesPast && (
-            <PostList
-              title="Blog"
-              counter={23}
-              counterTitle="Vše články"
-              postData={launchesPast}
-            />
-          )}
-        </SectionBlock>
 
-        <SectionBlock>
-          <CardGallery cards={fixtures} title={'Ladies gallery'} />
-        </SectionBlock>
         <SectionBlock>
           <ContentCardRow
             title="Blog"
             counter={34}
-            counterTitle="All"
+            counterTitle="Vše"
             itemsToShow={[4, 3, 2]}
             href="/blog"
           >
@@ -111,14 +134,31 @@ const Home: NextPage<GetLaunches> = ({ launchesPast }) => {
             ))}
           </ContentCardRow>
         </SectionBlock>
+
         <SectionBlock>
           <MapSection />
         </SectionBlock>
+
+        <SectionBlock>
+          {launchesPast && (
+            <PostList
+              title="články"
+              counter={23}
+              counterTitle="Vše"
+              postData={launchesPast}
+            />
+          )}
+        </SectionBlock>
+
+        <SectionBlock>
+          <CardGallery cards={fixtures} title={'Ladies gallery'} />
+        </SectionBlock>
+
         <SectionBlock>
           <ContentCardRow
             title="Stories"
             counter={23}
-            counterTitle="All"
+            counterTitle="Vše"
             itemsToShow={[2, 2, 1]}
             href="/blog"
           >

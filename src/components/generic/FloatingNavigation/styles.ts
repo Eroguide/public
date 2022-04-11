@@ -5,10 +5,13 @@ export const Container = styled.div`
   border-radius: 24px;
   position: absolute;
   right: 0;
-  top: 32px;
+  top: 72px;
   background: #ffffff;
   box-shadow: 0 24px 40px rgba(26, 26, 26, 0.16);
   z-index: 2000;
+  ${({ theme }) => theme.media.sm`
+      top:0;
+  `}
   ${({ theme }) => theme.media.mobile`
       width: 100%;
       top:0;
@@ -22,8 +25,9 @@ export const Container = styled.div`
 export const Wrapper = styled.div`
   width: 100%;
   height: auto;
-  padding: 40px;
-  overflow-y: scroll;
+  padding: 30px 40px;
+  /* Hide scrollbar for IE, Edge and Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
 `
 
 export const Content = styled.div`
@@ -86,7 +90,7 @@ export const NavItem = styled.div<{ isActive: boolean }>`
   align-items: center;
   display: flex;
   transition: color 0.2s ease-in-out;
-  padding: 16px 0;
+  padding: 8px 0;
   ${({ isActive, theme }) =>
     isActive &&
     `   transition: color 0.2s ease-in-out;

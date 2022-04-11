@@ -8,6 +8,7 @@ import {
   HeaderInner,
   LogoWrapper,
   MapPinIconWrapper,
+  SearchIconWrapper,
   BurgerIconWrapper,
   LocationText,
   MobileFloatMenuWrapper,
@@ -25,9 +26,12 @@ import { FloatingNavigation } from '@/components/generic'
 import { useRef, useState } from 'react'
 import { useClickOutside } from '@/hooks/useClickOutside'
 import CloseIcon from '/public/img/cross-icon.svg'
+import SearchIcon from '/public/img/search-nav-icon.svg'
+
 export const Header: React.FC = () => {
-  const { push } = useRouter()
+  const { push, asPath, back } = useRouter()
   const [menuIsOpen, setMenuIsOpen] = useState<boolean>(false)
+
   const isSmall = useBreakpoint({
     min: breakpoints[BreakpointsEnum.xxs].min,
     max: breakpoints[BreakpointsEnum.sm].max,
@@ -37,19 +41,30 @@ export const Header: React.FC = () => {
       shallow: false,
     })
   }
+  const handleMenuOpen = (): void => {
+    setMenuIsOpen(!menuIsOpen)
+  }
+
   const ref = useRef<HTMLDivElement>(null)
   useClickOutside(ref, () => setMenuIsOpen(false))
-
+  const pageName = asPath.replace('/', '')
+  const handleSearch = () => {
+    pageName === 'search'
+      ? back()
+      : push('/search', undefined, {
+          shallow: false,
+        })
+  }
   return (
     <HeaderContainer>
       <HeaderInner>
         <LeftBlock>
           {isSmall ? (
-            <LogoWrapper onClick={() => goHome()}>
+            <LogoWrapper onClick={goHome}>
               <LogoIconMobile />
             </LogoWrapper>
           ) : (
-            <LogoWrapper onClick={() => goHome()}>
+            <LogoWrapper onClick={goHome}>
               <Logo src="/img/logo.png" alt="" />
             </LogoWrapper>
           )}
@@ -57,6 +72,13 @@ export const Header: React.FC = () => {
           <LocationText>Praha</LocationText>
         </LeftBlock>
         <RightBlock>
+          <SearchIconWrapper
+            isActive={pageName === 'search'}
+            onClick={handleSearch}
+          >
+            <SearchIcon />
+          </SearchIconWrapper>
+
           <Link href="/map" passHref>
             <MapPinIconWrapper>
               <PinIcon />
@@ -65,14 +87,20 @@ export const Header: React.FC = () => {
           <HeartCounter />
           {!isSmall ? (
             <BurgerButton ref={ref}>
-              <BurgerIconWrapper onClick={() => setMenuIsOpen(!menuIsOpen)}>
-                <BurgerIcon />
+              <BurgerIconWrapper onClick={handleMenuOpen}>
+                {!menuIsOpen ? (
+                  <BurgerIcon />
+                ) : (
+                  <CloseButton>
+                    <CloseIcon />
+                  </CloseButton>
+                )}
               </BurgerIconWrapper>
               {menuIsOpen && <FloatingNavigation />}
             </BurgerButton>
           ) : (
             <BurgerButton ref={ref}>
-              <BurgerIconWrapper onClick={() => setMenuIsOpen(!menuIsOpen)}>
+              <BurgerIconWrapper onClick={handleMenuOpen}>
                 {!menuIsOpen ? (
                   <BurgerIcon />
                 ) : (

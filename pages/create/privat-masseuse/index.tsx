@@ -15,15 +15,13 @@ const CreateRequestSalonPage: NextPage = () => {
       <BaseLayout>
         <SectionBlock>
           <TopLinePageContent />
-        </SectionBlock>
-        <SectionBlock>
+
           <GalleryLanding
-            title="List your salon quastionare"
+            title="List your private masseuse questionnaire"
             text="Eroguide is a professional nude photographer.
 At the invitation of massage parlors and private masseuses, I visited several thousand girls - I did photo shoots, videos and interviews. Over time, I added the ability to post profiles with my own photos, but most of them still take photos myself."
           />
-        </SectionBlock>
-        <SectionBlock>
+
           <CreatePrivatMasseusePage />
         </SectionBlock>
       </BaseLayout>

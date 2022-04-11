@@ -170,6 +170,30 @@ export const MapPinIconWrapper = styled.div`
   }
 `
 
+export const SearchIconWrapper = styled.button<{ isActive: boolean }>`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  height: 100%;
+  padding: 0 20px;
+  svg path {
+    stroke: ${({ theme, isActive }) =>
+      isActive ? theme.primary[0] : theme.grayScale[3]};
+    transition: stroke 0.2s ease-in-out;
+  }
+  transition: 0.2s ease-in-out;
+  &:hover {
+    svg path {
+      stroke: ${({ theme }) => theme.primary[2]};
+    }
+  }
+  &:active {
+    svg path {
+      stroke: ${({ theme }) => theme.primary[1]};
+    }
+  }
+`
 export const CloseButton = styled.div`
   height: 24px;
   width: 24px;

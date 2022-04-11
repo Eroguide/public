@@ -10,18 +10,6 @@ export const globalStyles = (
       * {
         box-sizing: border-box;
       }
-
-      //@font-face {
-      //  font-family: 'Inter';
-      //  //src: url('/fonts/Inter/Inter-Regular.ttf'),
-      //  //  url('/fonts/Inter/Inter-SemiBold.ttf'),
-      //  //  url('/fonts/Inter/Inter-Black.ttf'),
-      //  //  url('/fonts/Inter/Inter-ExtraBool.ttf'),
-      //  //  url('/fonts/Inter/Inter-Medium.ttf'),
-      //  //  url('/fonts/Inter/Inter-Bold.ttf');
-      //  font-style: normal;
-      //}
-
       body {
         overflow-x: hidden;
       }
@@ -48,7 +36,6 @@ export const globalStyles = (
         outline: inherit;
       }
       body {
-        overflow-y: scroll; // this is necessary to block without displacement of the main content when the modal is opened
         margin: 0;
         min-height: 100%;
         display: flex;

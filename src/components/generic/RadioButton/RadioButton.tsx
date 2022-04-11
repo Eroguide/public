@@ -1,4 +1,4 @@
-import { Container, Label } from './styles'
+import { Container, Title } from './styles'
 import { CheckBox } from '@/components/generic'
 
 export const RadioButton: React.FC<{ title: string; forFilter?: boolean }> = ({
@@ -9,7 +9,7 @@ export const RadioButton: React.FC<{ title: string; forFilter?: boolean }> = ({
     <Container>
       <CheckBox />
       <input type="radio" className="custom-radio" name={'radio1'} />
-      <Label forFilter={forFilter}>{title}</Label>
+      <Title forFilter={forFilter}>{title}</Title>
     </Container>
   )
 }

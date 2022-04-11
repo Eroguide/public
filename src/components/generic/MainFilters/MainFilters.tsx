@@ -13,11 +13,7 @@ import {
   FilterItem,
   ProgramGrid,
 } from './styles'
-import {
-  CustomButton,
-  RangeSliderCustom,
-  RadioButton,
-} from '@/components/generic'
+import { CustomButton, RangeSliderCustom, CheckBox } from '@/components/generic'
 import ChevronLeft from '/public/img/chevron-left.svg'
 import AktualIcon from '/public/img/aktual-filter.svg'
 import TimeIcon from '/public/img/time-filter.svg'
@@ -31,10 +27,11 @@ import ProgramIcon from '/public/img/program-filter.svg'
 import { useRouter } from 'next/router'
 
 export const MainFilters: React.FC = () => {
+  const { back } = useRouter()
   const actualRadio = (
     <ProgramGrid>
-      <RadioButton forFilter title={'Na směně'} />
-      <RadioButton forFilter title={'Nové slečny'} />
+      <CheckBox label={'Na směně'} />
+      <CheckBox label={'Nové slečny'} />
     </ProgramGrid>
   )
   const ageFilter = (
@@ -60,9 +57,9 @@ export const MainFilters: React.FC = () => {
   )
   const placeRadio = (
     <ProgramGrid>
-      <RadioButton forFilter title={'Masáže'} />
-      <RadioButton forFilter title={'Privat'} />
-      <RadioButton forFilter title={'Escort'} />
+      <CheckBox label={'Masáže'} />
+      <CheckBox label={'Privat'} />
+      <CheckBox label={'Escort'} />
     </ProgramGrid>
   )
   const bodyType = (
@@ -88,16 +85,16 @@ export const MainFilters: React.FC = () => {
   )
   const photoRadio = (
     <ProgramGrid>
-      <RadioButton forFilter title={'Ověřeno Eroguide'} />
-      <RadioButton forFilter title={'Vlastní'} />
+      <CheckBox label={'Ověřeno Eroguide'} />
+      <CheckBox label={'Vlastní'} />
     </ProgramGrid>
   )
   const programRadio = (
     <ProgramGrid>
-      <RadioButton forFilter title={'peep-show'} />
-      <RadioButton forFilter title={'sakura branch'} />
-      <RadioButton forFilter title={'foot fetish'} />
-      <RadioButton forFilter title={'urological massage'} />
+      <CheckBox label={'peep-show'} />
+      <CheckBox label={'sakura branch'} />
+      <CheckBox label={'foot fetish'} />
+      <CheckBox label={'urological massage'} />
     </ProgramGrid>
   )
 
@@ -131,19 +128,12 @@ export const MainFilters: React.FC = () => {
       container: programRadio,
     },
   ]
-  const { push } = useRouter()
   return (
     <Container>
       <Wrapper>
         <TopMainFiltersPanel>
           <Left>
-            <ReturnButton
-              onClick={() =>
-                push('/', undefined, {
-                  shallow: true,
-                })
-              }
-            >
+            <ReturnButton onClick={() => back()}>
               <ChevronLeft />
             </ReturnButton>
           </Left>

@@ -28,7 +28,8 @@ export const Button = styled.button<StyledComponentProps>`
   line-height: ${({ theme, sizeType }) =>
     sizeType ? theme.button.height[sizeType] : '24px'};
   position: relative;
-  align-items: center;
+  align-items: ${({ textAlign }) => textAlign ?? 'center'};
+
   z-index: 1;
   user-select: none;
   text-decoration: none;

@@ -19,4 +19,5 @@ export type StyledComponentProps = {
   padding?: string
   iconRight?: boolean
   iconLeft?: boolean
+  textAlign?: string
 }

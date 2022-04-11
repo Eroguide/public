@@ -3,16 +3,12 @@ import styled from '@emotion/styled'
 export const HeroBannerContainer = styled.div`
   height: 776px;
   width: 100%;
-  padding: 0 80px;
+  //padding: 0 80px;
   display: flex;
-  flex-flow: column wrap;
-  background: #f0f0f0 url('/img/fake.png') no-repeat center center;
-  background-size: cover;
-  border-radius: 24px;
-  justify-content: center;
+
+  justify-content: space-between;
   align-items: flex-start;
-  border: 1px solid #808080;
-  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  //border: 1px solid #808080;
 
   ${({ theme }) => theme.media.md`
       height: 520px;
@@ -33,7 +29,7 @@ export const HeroTitle = styled.h1`
   font-weight: 700;
   color: ${({ theme }) => theme.grayScale[4]};
   margin: 0;
-  max-width: 500px;
+  max-width: 368px;
 
   ${({ theme }) => theme.media.mobile`
     ${theme.typography.extraMobile}
@@ -46,7 +42,7 @@ export const HeroSubtitle = styled.h2`
   ${({ theme }) => theme.typography.h2};
   font-weight: 600;
   color: ${({ theme }) => theme.primary[0]};
-  max-width: 500px;
+  max-width: 368px;
 
   ${({ theme }) => theme.media.mobile`
       margin: 24px auto;
@@ -55,5 +51,30 @@ export const HeroSubtitle = styled.h2`
 
 export const MobileTitleContainer = styled.div`
   margin-top: 40px;
-  margin-bottom: 146px;
+`
+
+export const HeroContentDesktop = styled.div`
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  ${({ theme }) => theme.media.mobile`
+     display: none;
+  `}
+`
+
+export const HeroImage = styled.div`
+  background: #f0f0f0 url('/photos/img_13.png') no-repeat center center;
+  background-size: cover;
+  border-radius: 24px;
+  height: 100%;
+  width: 50%;
+  filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.25));
+
+  ${({ theme }) => theme.media.mobile`
+   width: 100%;  
+   height: 320px;
+  `}
 `

@@ -1,4 +1,4 @@
-import { Label, Input, CheckboxContainer } from './styles'
+import { Label, Input, CheckboxContainer, Title } from './styles'
 
 import Checkmark from '/public/img/check-box-icon.svg'
 
@@ -40,7 +40,7 @@ export const CheckBox: React.FC<CheckboxProps> = ({
       <CheckboxContainer disabled={disabled} isError={isError}>
         {!disabled && <Checkmark />}
       </CheckboxContainer>
-      {label}
+      <Title>{label}</Title>
     </Label>
   )
 }

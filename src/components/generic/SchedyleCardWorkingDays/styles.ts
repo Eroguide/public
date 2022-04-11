@@ -25,24 +25,24 @@ export const Wrapper = styled.div`
   ${({ theme }) => theme.media.mobile`
        min-width: auto;
   `};
-
-  ${({ theme }) => theme.media.mobile`
-   &:before {
-    content: '';
-    position: absolute;
-    inset: 0 0 0 auto;
-    background: rgb(255, 255, 255);
-    background: linear-gradient(
-      270deg,
-      rgba(255, 255, 255, 0) 32%,
-      rgba(255, 255, 255, 1) 83%,
-      rgba(255, 255, 255, 1) 100%
-    );
-    width: 80px;
-    z-index: 5;
-  }
-  `}
 `
+
+// ${({ theme }) => theme.media.mobile`
+//    &:before {
+//     content: '';
+//     position: absolute;
+//     inset: 0 0 0 auto;
+//     background: rgb(255, 255, 255);
+//     background: linear-gradient(
+//       270deg,
+//       rgba(255, 255, 255, 0) 32%,
+//       rgba(255, 255, 255, 1) 83%,
+//       rgba(255, 255, 255, 1) 100%
+//     );
+//     width: 30px;
+//     z-index: 5;
+//   }
+//   `}
 
 export const DayCard = styled.div<{ isActive?: boolean }>`
   width: 56px;

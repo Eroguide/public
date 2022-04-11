@@ -25,8 +25,8 @@ const typography = {
   h4: { s: 16, h: 24 },
   h3: { s: 24, h: 32 },
   h2: { s: 32, h: 40 },
-  extraMobile: { s: 64, h: 76 },
-  extra: { s: 96, h: 116 },
+  extraMobile: { s: 64, h: 64 },
+  extra: { s: 96, h: 96 },
 }
 
 for (const [key, value] of Object.entries(typography)) {

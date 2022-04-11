@@ -35,8 +35,8 @@ export const PaginationWidget: React.FC<{
 
   useEffect(() => {
     // Fetch items from another resources.
-    const endOffset = itemOffset + itemsPerPage
-    console.log(`Loading items from ${itemOffset} to ${endOffset}`)
+    // const endOffset = itemOffset + itemsPerPage
+    // console.log(`Loading items from ${itemOffset} to ${endOffset}`)
     // setCurrentItems(items.slice(itemOffset, endOffset))
     setPageCount(Math.ceil(items.length / itemsPerPage))
   }, [itemOffset, itemsPerPage])
