@@ -3,7 +3,7 @@ import { InfoCardProps } from '@/components/generic/InfoCard/InfoCard'
 
 export const Container = styled.div<InfoCardProps>`
   width: 100%;
-  border-radius: 24px;
+  border-radius: ${({ borderRad }) => (borderRad ? `${borderRad}px` : '24px')};
   border: 1px solid
     ${({ theme, strokeColor }) =>
       strokeColor === 'gray'

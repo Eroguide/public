@@ -8,6 +8,7 @@ import {
   Right,
   TitleBeforeSlider,
   IconWrapper,
+  ThumbNavigationWrapper,
 } from './styles'
 import { useRef, useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
@@ -30,14 +31,32 @@ export const ProductSlider: React.FC = () => {
   const swiperSettings: SwiperOptions = {
     slidesPerView: 1,
     loop: true,
-    freeMode: true,
     modules: [Thumbs, Navigation],
     thumbs: { swiper: thumbsSwiper },
     allowSlidePrev: true,
     allowSlideNext: true,
+
     navigation: {
       prevEl: navigationPrevRef.current,
       nextEl: navigationNextRef.current,
+    },
+  }
+  const swiperSettings2: SwiperOptions = {
+    slidesPerView: 4,
+    loop: true,
+    breakpoints: {
+      0: {
+        slidesPerView: 3,
+      },
+      599: {
+        slidesPerView: 4,
+      },
+      960: {
+        slidesPerView: 3,
+      },
+      1279: {
+        slidesPerView: 4,
+      },
     },
   }
   const [initSlider, setInitSlider] = useState(false)
@@ -99,26 +118,28 @@ export const ProductSlider: React.FC = () => {
                 )
               : 'loading'}
           </Swiper>
-          <Swiper
-            onSwiper={(e) => setThumbsSwiper(e)}
-            loop={true}
-            spaceBetween={8}
-            slidesPerView={4}
-            freeMode={true}
-            watchSlidesProgress={true}
-            modules={[FreeMode, Thumbs, Navigation]}
-          >
-            {initSlider && fixtures
-              ? fixtures.map(
-                  (post) =>
-                    post && (
-                      <SwiperSlide key={post.id}>
-                        <ThumbsSliderImage src={post.img} />
-                      </SwiperSlide>
-                    )
-                )
-              : 'loading'}
-          </Swiper>
+          <ThumbNavigationWrapper>
+            <Swiper
+              onSwiper={(e) => setThumbsSwiper(e)}
+              loop={true}
+              spaceBetween={8}
+              freeMode={true}
+              watchSlidesProgress={true}
+              modules={[FreeMode, Thumbs, Navigation]}
+              {...swiperSettings2}
+            >
+              {initSlider && fixtures
+                ? fixtures.map(
+                    (post) =>
+                      post && (
+                        <SwiperSlide key={post.id}>
+                          <ThumbsSliderImage src={post.img} />
+                        </SwiperSlide>
+                      )
+                  )
+                : 'loading'}
+            </Swiper>
+          </ThumbNavigationWrapper>
           <BottomRow>
             <Left>Photo update: Nov 18. 2021</Left>
             <Right>

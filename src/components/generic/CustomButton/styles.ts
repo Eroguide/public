@@ -5,8 +5,7 @@ import { StyledComponentProps } from './types'
 export const IconWrapperChevron = styled.span`
   display: flex;
   height: 24px;
-  width: 24px;
-  margin: 0 8px;
+  margin-left: 8px;
   justify-content: center;
   align-items: center;
   ${({ theme }) => theme.typography.pm};
@@ -40,12 +39,11 @@ export const Button = styled.button<StyledComponentProps>`
     iconRight || (iconLeft && 'space-between') || 'center'};
   flex-flow: row nowrap;
   border: ${({ theme, styleType }) => theme.button.border[styleType]};
-  //max-width: 200px;
   cursor: pointer;
 
   ${({ disabled }) => disabled && 'border: none;  pointer-events: none;'};
-  ${({ iconRight }) => iconRight && 'padding-right: 0;padding-left: 16px;'};
-  ${({ iconLeft }) => iconLeft && 'padding-left: 0;padding-right: 16px;'};
+  ${({ iconRight }) => iconRight && 'padding-right: 16px;padding-left: 16px;'};
+  ${({ iconLeft }) => iconLeft && 'padding-left: 0; padding-right: 16px;'};
   ${({ styleType }) => styleType === 'link' && 'padding: 0;'};
   svg path {
     stroke: ${({ theme, styleType }) => theme.button.icon[styleType]};
@@ -66,6 +64,21 @@ export const Button = styled.button<StyledComponentProps>`
     }
     border: ${({ theme, styleType }) => theme.button.hover.border[styleType]};
   }
+
+  ${({ theme, isActive, styleType }) =>
+    isActive &&
+    ` transition: background-color 0.1s ease-in-out, border 0.1s ease-in-out,
+      color 0.1s ease-in-out;
+    background-color: ${theme.button.active.background[styleType]};
+    color: ${theme.button.active.color[styleType]};
+
+    ${IconWrapperChevron} {
+      svg path {
+        stroke: ${theme.button.active.icon[styleType]};
+      }
+    }
+    border: ${theme.button.active.border[styleType]};`};
+
   &:active {
     transition: background-color 0.1s ease-in-out, border 0.1s ease-in-out,
       color 0.1s ease-in-out;
@@ -81,7 +94,6 @@ export const Button = styled.button<StyledComponentProps>`
     }
     border: ${({ theme, styleType }) => theme.button.active.border[styleType]};
   }
-
   &:disabled {
     background: ${({ theme, styleType }) =>
       theme.button.disabled.background[styleType]};

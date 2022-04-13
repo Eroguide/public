@@ -63,7 +63,7 @@ export const ImageProduct = styled.div`
 `
 
 export const CardContent = styled.div`
-  padding: 16px 24px 32px 24px;
+  padding: 16px 16px 24px 16px;
   height: 152px;
   display: flex;
   flex-direction: column;
@@ -115,9 +115,10 @@ export const BeforePrice = styled.span`
 `
 export const PriceValue = styled.span`
   color: ${({ theme }) => theme.grayScale[4]};
-  ${({ theme }) => theme.typography.h4};
-  margin-right: 4px;
   font-weight: 600;
+  font-size: 18px;
+  line-height: 24px;
+  margin-right: 4px;
 `
 export const PriceSuffix = styled.span`
   color: ${({ theme }) => theme.grayScale[4]};
@@ -163,7 +164,7 @@ export const FavoriteButton = styled.div<{ isActive: boolean }>`
 
 export const AdditionalInformation = styled.div`
   position: absolute;
-  bottom: 8px;
+  bottom: 16px;
   right: 16px;
   display: flex;
   z-index: 11;

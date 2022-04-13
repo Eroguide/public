@@ -31,6 +31,7 @@ export const Title = styled.h3`
   display: flex;
   ${({ theme }) => theme.typography.h2};
   color: ${({ theme }) => theme.grayScale[4]};
+  font-weight: 600;
 `
 
 export const RightWidget = styled.div`

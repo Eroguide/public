@@ -17,7 +17,7 @@ import {
   IconWrapperHiddenContent,
 } from './styles'
 import TimerIcon from '/public/img/timer-icon.svg'
-import ChevronIcon from '/public/img/chevron.svg'
+import ChevronIcon from '/public/img/chevron-lg.svg'
 import TwoPlusOne from '/public/img/twoplusone-massage.svg'
 import OnePlusTwo from '/public/img/oneplustwo-massage.svg'
 import TwoPlusTwo from '/public/img/twoplustwo-massage.svg'

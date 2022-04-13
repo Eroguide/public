@@ -13,13 +13,13 @@ export const Wrapper = styled.div`
   flex-direction: row;
   position: relative;
   width: 100%;
-  margin: 0 -9px;
+  //margin: 0 -9px;
   & .swiper {
     width: 100%;
     display: flex;
   }
   & .swiper-slide {
-    padding: 0 9px;
+    padding: 0 4px;
     width: auto;
   }
   ${({ theme }) => theme.media.mobile`

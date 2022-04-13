@@ -5,7 +5,7 @@ import { Layout, Inner, Container } from './styles'
 
 // types
 import { BaseLayoutProps } from './types'
-import { ScrollButtonTop } from '@/components/generic'
+// import { ScrollButtonTop } from '@/components/generic'
 
 export const BaseLayout: React.FC<BaseLayoutProps> = ({
   children,
@@ -16,7 +16,7 @@ export const BaseLayout: React.FC<BaseLayoutProps> = ({
     <Container>
       <Inner>
         <PageContent>{children}</PageContent>
-        <ScrollButtonTop />
+        {/*<ScrollButtonTop />*/}
         {!noFooter && <Footer />}
       </Inner>
     </Container>

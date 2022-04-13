@@ -9,8 +9,8 @@ import {
   Card,
   CardGallery,
   MapSection,
-  PostCard,
-  PostCardWide,
+  // PostCard,
+  // PostCardWide,
   PostList,
 } from '@/components/generic'
 import { SwiperSlide } from 'swiper/react'
@@ -67,30 +67,11 @@ const Home: NextPage<GetLaunches> = ({ launchesPast }) => {
             ))}
           </ContentCardRow>
         </SectionBlock>
-
-        <SectionBlock>
-          <ContentCardRow
-            title="Všechny slečny"
-            counter={73}
-            counterTitle="Vše"
-            itemsToShow={[4, 3, 2]}
-            href="/gallery"
-            bottomControl
-          >
-            {fixtures.map((item) => (
-              <SwiperSlide key={item.id}>
-                <Card {...item} tagTitle={item.slug} inSwipe />
-              </SwiperSlide>
-            ))}
-          </ContentCardRow>
-        </SectionBlock>
-
         <SectionBlock>
           <ContentCardRow
             title="Holky z privátů"
             counter={73}
             counterTitle="Vše"
-            itemsToShow={[4, 3, 2]}
             href="/gallery"
             bottomControl
           >
@@ -101,6 +82,22 @@ const Home: NextPage<GetLaunches> = ({ launchesPast }) => {
             ))}
           </ContentCardRow>
         </SectionBlock>
+
+        {/*<SectionBlock>*/}
+        {/*  <ContentCardRow*/}
+        {/*    title="Všechny slečny"*/}
+        {/*    counter={73}*/}
+        {/*    counterTitle="Vše"*/}
+        {/*    href="/gallery"*/}
+        {/*    bottomControl*/}
+        {/*  >*/}
+        {/*    {fixtures.map((item) => (*/}
+        {/*      <SwiperSlide key={item.id}>*/}
+        {/*        <Card {...item} tagTitle={item.slug} inSwipe />*/}
+        {/*      </SwiperSlide>*/}
+        {/*    ))}*/}
+        {/*  </ContentCardRow>*/}
+        {/*</SectionBlock>*/}
 
         <SectionBlock>
           <ContentCardRow
@@ -120,55 +117,53 @@ const Home: NextPage<GetLaunches> = ({ launchesPast }) => {
         </SectionBlock>
 
         <SectionBlock>
-          <ContentCardRow
-            title="Blog"
-            counter={34}
-            counterTitle="Vše"
-            itemsToShow={[4, 3, 2]}
-            href="/blog"
-          >
-            {fixtures.map((item) => (
-              <SwiperSlide key={item.id}>
-                <PostCard {...item} title={item.slug} />
-              </SwiperSlide>
-            ))}
-          </ContentCardRow>
-        </SectionBlock>
-
-        <SectionBlock>
-          <MapSection />
-        </SectionBlock>
-
-        <SectionBlock>
           {launchesPast && (
             <PostList
-              title="články"
-              counter={23}
+              title="Články"
+              counter={2233}
               counterTitle="Vše"
               postData={launchesPast}
             />
           )}
         </SectionBlock>
 
+        {/*<SectionBlock>*/}
+        {/*  <ContentCardRow*/}
+        {/*    title="Články"*/}
+        {/*    counter={4356}*/}
+        {/*    counterTitle="Vše"*/}
+        {/*    href="/blog"*/}
+        {/*  >*/}
+        {/*    {fixtures.map((item) => (*/}
+        {/*      <SwiperSlide key={item.id}>*/}
+        {/*        <PostCard {...item} title={item.slug} />*/}
+        {/*      </SwiperSlide>*/}
+        {/*    ))}*/}
+        {/*  </ContentCardRow>*/}
+        {/*</SectionBlock>*/}
+
         <SectionBlock>
-          <CardGallery cards={fixtures} title={'Ladies gallery'} />
+          <MapSection />
         </SectionBlock>
 
         <SectionBlock>
-          <ContentCardRow
-            title="Stories"
-            counter={23}
-            counterTitle="Vše"
-            itemsToShow={[2, 2, 1]}
-            href="/blog"
-          >
-            {fixtures.map((item) => (
-              <SwiperSlide key={item.id}>
-                <PostCardWide {...item} tagTitle={item.slug} inSwipe />
-              </SwiperSlide>
-            ))}
-          </ContentCardRow>
+          <CardGallery cards={fixtures} title={'Všechny slečny'} />
         </SectionBlock>
+
+        {/*<SectionBlock>*/}
+        {/*  <ContentCardRow*/}
+        {/*    title="Stories"*/}
+        {/*    counter={23}*/}
+        {/*    counterTitle="Vše"*/}
+        {/*    href="/blog"*/}
+        {/*  >*/}
+        {/*    {fixtures.map((item) => (*/}
+        {/*      <SwiperSlide key={item.id}>*/}
+        {/*        <PostCardWide {...item} tagTitle={item.slug} inSwipe />*/}
+        {/*      </SwiperSlide>*/}
+        {/*    ))}*/}
+        {/*  </ContentCardRow>*/}
+        {/*</SectionBlock>*/}
       </BaseLayout>
     </>
   )

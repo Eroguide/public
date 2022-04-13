@@ -6,7 +6,7 @@ export const Container = styled.div`
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  margin-top: 104px;
+  margin-top: 96px;
   margin-bottom: 200px;
   ${({ theme }) => theme.media.mobile`
       margin-bottom: 48px;
@@ -23,10 +23,9 @@ export const Wrapper = styled.div`
 `
 
 export const HeroTitle = styled.h1`
-  font-size: ${({ theme }) => theme.fontSize.extra};
+  ${({ theme }) => theme.typography.extra};
   font-weight: 700;
   background: ${({ theme }) => theme.gradient[0]};
-  line-height: 115px;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin-bottom: 56px;

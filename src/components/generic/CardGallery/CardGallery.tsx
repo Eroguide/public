@@ -7,18 +7,23 @@ import {
   LeftFilters,
   TitlePanel,
   ListWrapper,
+  ButtonRow,
 } from './styles'
 import { CardGalleryProps } from './types'
-import { CardForGallery } from '@/components/generic'
+import { CardForGallery, CustomButton } from '@/components/generic'
 
-export const CardGallery: React.FC<CardGalleryProps> = ({ cards, title }) => {
+export const CardGallery: React.FC<CardGalleryProps> = ({
+  cards,
+  title,
+  counter,
+}) => {
   return (
     <Container>
       <TitlePanel>
         {cards.length > 0 && (
           <LeftFilters>
             <Counter>
-              {title}: {cards.length}
+              {title} {counter && `: ${cards.length}`}
             </Counter>
           </LeftFilters>
         )}
@@ -38,6 +43,18 @@ export const CardGallery: React.FC<CardGalleryProps> = ({ cards, title }) => {
           )}
         </ListWrapper>
       </CardGalleryContainer>
+      <ButtonRow>
+        <CustomButton
+          // TODO show more
+          onClick={() => null}
+          styleType="tertiary"
+          sizeType="medium"
+          counter={321}
+        >
+          Načíst více
+        </CustomButton>
+        <CustomButton>Načíst více</CustomButton>
+      </ButtonRow>
     </Container>
   )
 }

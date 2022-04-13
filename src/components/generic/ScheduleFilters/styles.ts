@@ -14,7 +14,6 @@ export const Wrapper = styled.div`
   align-items: center;
   flex-wrap: wrap;
   ${({ theme }) => theme.media.md`
-
         align-items: flex-start;
   `}
   ${({ theme }) => theme.media.sm`
@@ -38,7 +37,6 @@ export const Notifier = styled.div`
   flex-flow: nowrap row;
   flex-grow: 1;
   width: 35%;
-  margin-top: 16px;
   ${({ theme }) => theme.media.md`
     width: 100%;
   `}

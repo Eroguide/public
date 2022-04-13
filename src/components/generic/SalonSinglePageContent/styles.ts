@@ -1,6 +1,7 @@
 import styled from '@emotion/styled'
 
 export const SinglePageContentContainer = styled.div`
+  margin-top: 32px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -211,18 +212,19 @@ export const Right = styled.div`
 
 export const BodyContent = styled.div`
   width: calc(100% - 375px);
-  padding: 40px;
+  max-width: 652px;
+  margin: 40px;
 
   ${({ theme }) => theme.media.md`
-   padding: 32px 0 32px 32px;
+   margin: 40px 0 32px 32px;
   `}
   ${({ theme }) => theme.media.sm`
       width: 100%;
-      padding: 0;
+      margin: 0;
   `}
   ${({ theme }) => theme.media.mobile`
        width: 100%;
-      padding: 0;
+      margin: 0;
   `}
 `
 

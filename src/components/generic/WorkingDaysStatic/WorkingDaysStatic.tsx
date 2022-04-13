@@ -36,6 +36,18 @@ export const WorkingDaysStatic: React.FC<{
       name: 'Tho',
       time: '12-20',
     },
+    {
+      name: 'Fri',
+      time: '12-20',
+    },
+    {
+      name: 'Sat',
+      time: '12-20',
+    },
+    {
+      name: 'Sun',
+      isFree: true,
+    },
   ]
 
   return (

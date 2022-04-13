@@ -9,7 +9,9 @@ export enum StrokeColorTypes {
 export type InfoCardProps = {
   padding?: string
   margin?: string
+  borderRad?: number
   strokeColor?: keyof typeof StrokeColorTypes
+  isOpen?: boolean
 }
 
 export const InfoCard: React.FC<InfoCardProps> = ({
@@ -17,9 +19,15 @@ export const InfoCard: React.FC<InfoCardProps> = ({
   padding,
   margin,
   strokeColor,
+  borderRad,
 }) => {
   return (
-    <Container padding={padding} margin={margin} strokeColor={strokeColor}>
+    <Container
+      borderRad={borderRad}
+      padding={padding}
+      margin={margin}
+      strokeColor={strokeColor}
+    >
       {children}
     </Container>
   )

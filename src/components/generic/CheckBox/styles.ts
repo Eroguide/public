@@ -11,7 +11,6 @@ export const CheckboxContainer = styled.div<StyledComponentProps>`
   justify-content: center;
   height: 16px;
   width: 16px;
-  margin-right: 12px;
   border-radius: 4px;
   background: ${({ theme }) => theme.grayScale[0]};
   border: 2px solid ${({ theme }) => theme.grayScale[1]};
@@ -59,6 +58,6 @@ export const Label = styled.label<StyledComponentProps>`
 export const Title = styled.span<{ forFilter?: boolean }>`
   ${({ theme }) => theme.typography.pl};
   font-weight: 400;
-  margin-left: 16px;
+  margin-left: 8px;
   color: ${({ theme }) => theme.grayScale[5]};
 `

@@ -16,6 +16,7 @@ export const CustomButton: React.FC<ButtonProps> = ({
   iconLeft = false,
   counter,
   href,
+  isActive,
   ...buttonProps
 }) => {
   if (isLink && href) {
@@ -27,6 +28,7 @@ export const CustomButton: React.FC<ButtonProps> = ({
           styleType={styleType}
           iconRight={iconRight || !!counter}
           iconLeft={iconLeft}
+          isActive={isActive}
           {...buttonProps}
         >
           <>
@@ -53,6 +55,7 @@ export const CustomButton: React.FC<ButtonProps> = ({
       styleType={styleType}
       iconRight={iconRight || !!counter}
       iconLeft={iconLeft}
+      isActive={isActive}
       {...buttonProps}
     >
       {iconLeft && (
@@ -63,7 +66,7 @@ export const CustomButton: React.FC<ButtonProps> = ({
       {children}
       {(iconRight || !!counter) && (
         <IconWrapperChevron>
-          {counter ? <span>{counter}</span> : <ChevronRight />}
+          {counter ? counter : <ChevronRight />}
         </IconWrapperChevron>
       )}
     </Button>

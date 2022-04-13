@@ -4,28 +4,6 @@ import {
   StrokeColorTypes,
 } from '@/components/generic/InfoCard/InfoCard'
 
-export const Container = styled.div<InfoCardProps>`
-  width: 100%;
-  border-radius: 24px;
-  border: 1px solid
-    ${({ theme, strokeColor }) =>
-      strokeColor === 'gray'
-        ? theme.grayScale[2]
-        : strokeColor === 'yellow'
-        ? theme.support[1]
-        : strokeColor === 'green'
-        ? theme.support[2]
-        : theme.grayScale[2]};
-  display: flex;
-  ${({ theme, strokeColor }) =>
-    strokeColor === 'green' && `color: ${theme.support[2]}`};
-  padding: ${({ padding }) => padding ?? '24px 40px'};
-  margin: ${({ margin }) => margin ?? '8px 0'};
-  justify-content: space-between;
-  align-items: center;
-  flex-flow: column wrap;
-`
-
 export const Description = styled.span<{
   isOpen: boolean
   strokeColor?: keyof typeof StrokeColorTypes
@@ -58,8 +36,8 @@ export const ToggleButton = styled.span<{ isOpen: boolean }>`
   cursor: pointer;
   margin-left: 8px;
 
-  svg {
-    fill: ${({ theme }) => theme.support[2]};
+  svg path {
+    stroke: ${({ theme }) => theme.support[2]};
   }
 
   ${({ isOpen }) => isOpen && `svg { transform: rotate(180deg); } `};
@@ -74,18 +52,41 @@ export const MainInfo = styled.div<{ isOpen: boolean }>`
   will-change: margin-bottom;
   justify-content: space-between;
   cursor: pointer;
-  &:hover {
-    ${ToggleButton} {
-      svg {
-        fill: ${({ theme }) => theme.grayScale[3]};
-      }
-    }
-  }
+
   span {
     ${({ theme }) => theme.typography.ps};
     color: ${({ theme }) => theme.support[2]};
   }
   svg {
     margin-right: 8px;
+  }
+`
+
+export const Container = styled.div<InfoCardProps>`
+  width: 100%;
+  border-radius: ${({ borderRad }) => (borderRad ? `${borderRad}px` : '24px')};
+  border: 1px solid
+    ${({ theme, strokeColor }) =>
+      strokeColor === 'gray'
+        ? theme.grayScale[2]
+        : strokeColor === 'yellow'
+        ? theme.support[1]
+        : strokeColor === 'green'
+        ? theme.support[2]
+        : theme.grayScale[2]};
+  display: flex;
+  ${({ theme, strokeColor }) =>
+    strokeColor === 'green' && `color: ${theme.support[2]}`};
+  padding: ${({ padding }) => padding ?? '16px 32px 16px 40px'};
+  margin: ${({ margin }) => margin ?? '8px 0'};
+  justify-content: space-between;
+  align-items: center;
+  flex-flow: column wrap;
+  &:hover {
+    ${ToggleButton} {
+      svg path {
+        stroke: ${({ theme }) => theme.grayScale[3]};
+      }
+    }
   }
 `

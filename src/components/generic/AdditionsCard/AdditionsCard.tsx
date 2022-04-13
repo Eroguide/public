@@ -45,7 +45,8 @@ export const AdditionsCard: React.FC<InfoCardProps> = ({ title, price }) => {
           <span>1 hour</span>
         </Timer>
         <Price>
-          {price} <Suffix>Kč/h</Suffix>
+          {price}
+          <Suffix>Kč/h</Suffix>
         </Price>
       </BottomRow>
     </Container>

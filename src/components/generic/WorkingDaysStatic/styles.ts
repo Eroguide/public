@@ -9,22 +9,21 @@ export const Container = styled.div`
     content: '';
     position: absolute;
     height: 70px;
-    inset: 0 auto 0 -24px;
+    inset: 0 auto 0 -16px;
     background: rgb(255, 255, 255);
     background: linear-gradient(
-      270deg,
-      rgba(255, 255, 255, 0) 32%,
-      rgba(255, 255, 255, 1) 83%,
-      rgba(255, 255, 255, 1) 100%
+      90deg,
+      #ffffff 36.62%,
+      rgba(255, 255, 255, 0) 98.93%
     );
-    width: 30px;
+    width: 48px; //TODO FADE
     z-index: 5;
   }
   &:after {
     content: '';
     position: absolute;
     height: 70px;
-    inset: 0 -24px 0 auto;
+    inset: 0 -16px 0 auto;
     background: rgb(255, 255, 255);
     background: linear-gradient(
       90deg,
@@ -32,7 +31,7 @@ export const Container = styled.div`
       rgba(255, 255, 255, 1) 83%,
       rgba(255, 255, 255, 1) 100%
     );
-    width: 30px;
+    width: 48px;
     z-index: 5;
   }
   ${({ theme }) => theme.media.mobile`
@@ -51,21 +50,19 @@ export const Wrapper = styled.ul`
   transform: translateX(-15%);
 
   ${({ theme }) => theme.media.sm`
-     max-width: 320px;
-     margin: auto;
+   margin: auto;
   `}
   ${({ theme }) => theme.media.mobile`
-  max-width: 320px;
   margin: auto;
   `}
 `
 
 export const DayCardWrapper = styled.li`
-  padding: 0 9px;
-  width: 74px;
+  width: 56px;
+  height: 64px;
   display: flex;
   flex-direction: column;
-  margin: 4px auto;
+  margin: 4px 4px;
 `
 
 export const DayCard = styled.div<{ isActive?: boolean }>`

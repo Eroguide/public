@@ -35,6 +35,7 @@ import CovidAntisepIcon from '/public/img/covid-icon-antisep.svg'
 import CovidMaskIcon from '/public/img/covid-icon-mask.svg'
 import { SwiperSlide } from 'swiper/react'
 import { ScheduleFilters } from '@/components/generic/ScheduleFilters'
+import { Container } from '@/components/generic/InfoCard/styles'
 // import { SectionBlock } from '@/components/layouts/SectionBlock'
 
 export const SalonSinglePageContent: React.FC = () => {
@@ -98,7 +99,7 @@ export const SalonSinglePageContent: React.FC = () => {
             <ProductSlider />
           </SinglePageContentBlock>
           <SinglePageContentBlock title="Covid protection">
-            <InfoCard strokeColor="gray" padding={'32px 40px'}>
+            <InfoCard borderRad={32} strokeColor="gray" padding={'32px 40px'}>
               <CovidProtectionCardContent>
                 {covidInfoList.map((covid) => (
                   <InfoCardItem key={covid.id}>
@@ -110,7 +111,7 @@ export const SalonSinglePageContent: React.FC = () => {
             </InfoCard>
           </SinglePageContentBlock>
           <DetailsSection>
-            <SinglePageContentBlock title="Schedule">
+            <SinglePageContentBlock withIcon title="Schedule">
               <ScheduleFilters />
               <SalonScheduleCard />
               <SalonScheduleCard />
@@ -119,24 +120,26 @@ export const SalonSinglePageContent: React.FC = () => {
             </SinglePageContentBlock>
 
             <SinglePageContentBlock title="Massage programs">
-              <InfoCard margin={'0 0 16px 0'} strokeColor="yellow">
+              <InfoCard
+                borderRad={24}
+                margin={'0 0 16px 0'}
+                strokeColor="yellow"
+              >
                 <IconWrapper>
                   <GenderIcon />
                 </IconWrapper>
                 <Description>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab
-                  ipsam modi quasi qui quo? Assumenda consectetur culpa dolorum
-                  ducimus, in, ipsa laboriosam magni maiores necessitatibus
-                  quasi quibusdam vel veritatis vero.
+                  Any programs and additions exclude sex. In the presence of the
+                  services of the show "Mistress", Role-playing games ", Foot
+                  fetish, Lesbian show, they are held in the form of a staged
+                  show.
                 </Description>
               </InfoCard>
-              {/*<InfoCard strokeColor="green">*/}
-              {/*  <PriceInfoNote>*/}
-              {/*    <CircleCheckIcon />*/}
-              {/*    Prices confirmed*/}
-              {/*  </PriceInfoNote>*/}
-              {/*</InfoCard>*/}
-              <InfoCardCollapse margin={'0 0 32px 0'} strokeColor={'green'} />
+              <InfoCardCollapse
+                borderRad={16}
+                margin={'0 0 32px 0'}
+                strokeColor={'green'}
+              />
               <MassageProgramCard />
               <MassageProgramCard />
               <MassageProgramCard />
@@ -145,12 +148,8 @@ export const SalonSinglePageContent: React.FC = () => {
               <MassageProgramCard />
 
               <ButtonRow>
-                <CustomButton
-                  styleType="tertiary"
-                  sizeType="small"
-                  counter={32}
-                >
-                  all programs
+                <CustomButton styleType="tertiary" counter={32}>
+                  all additions
                 </CustomButton>
               </ButtonRow>
             </SinglePageContentBlock>
@@ -160,11 +159,7 @@ export const SalonSinglePageContent: React.FC = () => {
                 <AdditionsCard key={x.title} {...x} />
               ))}
               <ButtonRow>
-                <CustomButton
-                  styleType="tertiary"
-                  sizeType="small"
-                  counter={32}
-                >
+                <CustomButton styleType="tertiary" counter={43}>
                   all programs
                 </CustomButton>
               </ButtonRow>

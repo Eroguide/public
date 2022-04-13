@@ -54,7 +54,10 @@ export const globalStyles = (
       ul {
         list-style: none;
       }
-
+      .swiper-slide {
+        -webkit-transform: translateZ(0);
+        -webkit-backface-visibility: hidden;
+      }
       h1,
       h2,
       h3,
@@ -63,6 +66,9 @@ export const globalStyles = (
         font-family: 'Inter', Helvetica, Arial, sans-serif;
         padding: 0;
         margin: 0;
+      }
+      h1 {
+        letter-spacing: -0.04em;
       }
     `}
   />

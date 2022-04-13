@@ -1,6 +1,6 @@
 import { Container, MainInfo, Description, ToggleButton, Left } from './styles'
 import CircleCheckIcon from '/public/img/green-circle-check.svg'
-import ChevronIcon from '/public/img/chevron.svg'
+import ChevronIcon from '/public/img/chevron-lg.svg'
 import { useState } from 'react'
 export enum StrokeColorTypes {
   gray = 'gray',
@@ -11,6 +11,7 @@ export enum StrokeColorTypes {
 export type InfoCardProps = {
   padding?: string
   margin?: string
+  borderRad?: number
   strokeColor?: keyof typeof StrokeColorTypes
 }
 
@@ -18,10 +19,17 @@ export const InfoCardCollapse: React.FC<InfoCardProps> = ({
   padding,
   margin,
   strokeColor,
+  borderRad,
 }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false)
   return (
-    <Container padding={padding} margin={margin} strokeColor={strokeColor}>
+    <Container
+      borderRad={borderRad}
+      padding={padding}
+      margin={margin}
+      strokeColor={strokeColor}
+      isOpen={isOpen}
+    >
       <MainInfo onClick={() => setIsOpen(!isOpen)} isOpen={isOpen}>
         <Left>
           <CircleCheckIcon />

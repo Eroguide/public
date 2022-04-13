@@ -16,7 +16,6 @@ export const ContentCardRowContainer = styled.div`
   `}
 `
 
-// margin-left: -9px;
 export const TopLine = styled.div`
   height: 40px;
   justify-content: space-between;
@@ -31,6 +30,7 @@ export const Title = styled.h3`
   display: flex;
   ${({ theme }) => theme.typography.h2};
   color: ${({ theme }) => theme.grayScale[4]};
+  font-weight: 600;
 `
 
 export const RightWidget = styled.div`

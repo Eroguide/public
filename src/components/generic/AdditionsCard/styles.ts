@@ -7,6 +7,9 @@ export const Container = styled.div<InfoCardProps>`
   border-radius: 32px;
   padding: 32px 32px 24px 32px;
   margin: 8px 0;
+  &:first-of-type {
+    margin-top: 0;
+  }
   border: 1px solid ${({ theme }) => theme.grayScale[2]};
   justify-content: space-between;
   align-items: center;
@@ -102,7 +105,6 @@ export const Price = styled.span`
   ${({ theme }) => theme.typography.h3};
   color: ${({ theme }) => theme.grayScale[5]};
   font-weight: 600;
-  height: 40px;
   display: flex;
   align-items: baseline;
 `
@@ -111,5 +113,6 @@ export const Suffix = styled.span`
   ${({ theme }) => theme.typography.pm};
   font-weight: 600;
   display: flex;
+  margin-left: 4px;
   align-items: flex-end;
 `

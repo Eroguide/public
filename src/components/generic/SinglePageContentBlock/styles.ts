@@ -2,12 +2,25 @@ import styled from '@emotion/styled'
 
 export const Container = styled.div`
   width: 100%;
-  margin: 32px 0 64px 0;
+  margin-bottom: 32px;
 `
 
 export const Title = styled.h3`
-  margin-bottom: 32px;
-  ${({ theme }) => theme.typography.h3};
+  ${({ theme }) => theme.typography.h2};
   color: ${({ theme }) => theme.grayScale[5]};
   font-weight: 600;
+  margin-right: 8px;
+`
+
+export const TopLine = styled.div`
+  width: 100%;
+  margin-bottom: 32px;
+  display: flex;
+  align-items: baseline;
+`
+
+export const IconWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `

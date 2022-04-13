@@ -7,7 +7,10 @@ export const Container = styled.div`
   right: 0;
   top: 72px;
   background: #ffffff;
-  box-shadow: 0 24px 40px rgba(26, 26, 26, 0.16);
+  box-shadow: 0 1.05px 5.2px rgba(0, 0, 0, 0.0253),
+    0 4px 4px rgba(0, 0, 0, 0.0364), 0 4.76px 23.54px rgba(0, 0, 0, 0.045),
+    0 8.49px 41.99px rgba(0, 0, 0, 0.0536),
+    0 15.88px 78.54px rgba(0, 0, 0, 0.0647), 0 38px 188px rgba(0, 0, 0, 0.09);
   z-index: 2000;
   ${({ theme }) => theme.media.sm`
       top:0;

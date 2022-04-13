@@ -25,11 +25,10 @@ export const GallerySliderImage = styled.img`
 `
 
 export const ThumbsSliderImage = styled.img`
-  width: 100%;
   border-radius: 32px;
   overflow: hidden;
   height: 157px;
-  max-width: 157px;
+  width: 157px;
   border: 1px solid ${({ theme }) => theme.grayScale[0]};
   transition: border 0.2s ease-in-out;
   &:hover {
@@ -57,7 +56,6 @@ export const Left = styled.span`
 `
 
 export const Right = styled.div`
-  //border-radius: 32px;
   overflow: hidden;
 `
 
@@ -78,4 +76,16 @@ export const IconWrapper = styled.div`
   align-items: center;
   display: flex;
   margin-right: 8px;
+`
+
+export const ThumbNavigationWrapper = styled.div`
+  width: 100%;
+  height: 100%;
+  //& .swiper {
+  //  width: 100%;
+  //  display: flex;
+  //}
+  //& .swiper-slide {
+  //  width: auto;
+  //}
 `

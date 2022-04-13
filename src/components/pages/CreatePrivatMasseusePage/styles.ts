@@ -32,22 +32,20 @@ export const FormSection = styled.div`
   display: flex;
   width: 100%;
   justify-content: center;
-  max-width: 330px;
+  max-width: 438px;
   margin: 200px auto;
   flex-direction: column;
   text-align: center;
   align-items: center;
 `
-
 export const FormTitle = styled.h3`
   ${({ theme }) => theme.typography.h3};
   color: ${({ theme }) => theme.grayScale[5]};
   font-weight: 600;
-  margin-bottom: 24px;
+  margin-bottom: 16px;
 `
-
 export const FormDescription = styled.p`
-  ${({ theme }) => theme.typography.ps};
+  ${({ theme }) => theme.typography.pl};
   color: ${({ theme }) => theme.grayScale[4]};
 `
 

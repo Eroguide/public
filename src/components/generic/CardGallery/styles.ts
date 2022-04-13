@@ -64,14 +64,19 @@ export const LeftFilters = styled.div`
   display: flex;
 `
 
-export const Counter = styled.div`
+export const Counter = styled.h3`
   ${({ theme }) => theme.typography.h2};
   font-weight: 600;
-  color: ${({ theme }) => theme.grayScale[5]};
+  color: ${({ theme }) => theme.grayScale[4]};
 `
 
 export const ListWrapper = styled.div`
   display: flex;
   width: 100%;
   flex-flow: row wrap;
+`
+
+export const ButtonRow = styled.div`
+  display: flex;
+  width: 100%;
 `

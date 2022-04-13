@@ -1,12 +1,17 @@
-import { Container, Title } from './styles'
+import { Container, Title, TopLine } from './styles'
+import ToolTipIcon from '/public/img/tooltip-icon.svg'
 
-export const SinglePageContentBlock: React.FC<{ title: string }> = ({
-  children,
-  title,
-}) => {
+export const SinglePageContentBlock: React.FC<{
+  title: string
+  withIcon?: boolean
+}> = ({ children, title, withIcon }) => {
   return (
     <Container>
-      <Title>{title}</Title>
+      <TopLine>
+        <Title>{title}</Title>
+        {withIcon && <ToolTipIcon />}
+      </TopLine>
+
       {children}
     </Container>
   )

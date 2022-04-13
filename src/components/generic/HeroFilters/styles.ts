@@ -18,6 +18,11 @@ export const HeroFiltersInner = styled.div`
   justify-content: center;
   background-color: white;
   border: 1px solid ${({ theme }) => theme.grayScale[1]};
+  box-shadow: 0 2.77px 2.21px rgba(199, 217, 244, 0.0141),
+    0 6.65px 5.32px rgba(0, 0, 0, 0.0202),
+    0 12.52px 10.02px rgba(0, 0, 0, 0.025),
+    0 22.24px 17.87px rgba(0, 0, 0, 0.0298),
+    0 41.78px 33.42px rgba(0, 0, 0, 0.0359), 0 100px 80px rgba(26, 26, 26, 0.05);
   ${({ theme }) => theme.media.md`
    margin: -35px auto 0 auto;
   `}

@@ -1,33 +1,15 @@
 import styled from '@emotion/styled'
 import { InfoCardProps } from '@/components/generic/InfoCard/InfoCard'
 
-export const Container = styled.div<InfoCardProps>`
-  width: 100%;
-  display: flex;
-
-  border-radius: 32px;
-  padding: ${({ padding }) => padding ?? '24px 40px'};
-  margin: ${({ margin }) => margin ?? '8px 0'};
-  border: 1px solid ${({ theme }) => theme.grayScale[2]};
-  justify-content: space-between;
-  align-items: center;
-  flex-flow: column wrap;
-  transition: box-shadow 0.2s ease-in-out;
-  &:hover {
-    box-shadow: 0 4px 8px rgba(26, 26, 26, 0.2);
-  }
-`
-
 export const Left = styled.div`
   display: flex;
-  align-items: flex-end;
-  height: 24px;
+  align-items: baseline;
 `
 
 export const Title = styled.span`
-  ${({ theme }) => theme.typography.h4};
+  ${({ theme }) => theme.typography.h3};
   color: ${({ theme }) => theme.grayScale[5]};
-  font-weight: 500;
+  font-weight: 600;
   margin-right: 4px;
 `
 
@@ -42,6 +24,7 @@ export const IconWrapper = styled.div`
   align-items: center;
   height: 24px;
   width: 24px;
+  margin-right: 8px;
 `
 
 export const Timer = styled.div`
@@ -64,8 +47,8 @@ export const ToggleButton = styled.span<{ isOpen: boolean }>`
   cursor: pointer;
   margin-left: 8px;
 
-  svg {
-    fill: ${({ theme }) => theme.grayScale[1]};
+  svg path {
+    stroke: ${({ theme }) => theme.grayScale[1]};
   }
 
   ${({ isOpen }) => isOpen && `svg { transform: rotate(180deg); } `};
@@ -79,13 +62,6 @@ export const MainInfo = styled.div<{ isOpen: boolean }>`
   will-change: margin-bottom;
   justify-content: space-between;
   cursor: pointer;
-  &:hover {
-    ${ToggleButton} {
-      svg {
-        fill: ${({ theme }) => theme.grayScale[3]};
-      }
-    }
-  }
 
   svg {
     margin-right: 8px;
@@ -118,9 +94,8 @@ export const Price = styled.span`
   ${({ theme }) => theme.typography.h3};
   color: ${({ theme }) => theme.grayScale[5]};
   font-weight: 600;
-  height: 40px;
   display: flex;
-  align-items: baseline;
+  align-items: flex-end;
 `
 
 export const Suffix = styled.span`
@@ -128,6 +103,8 @@ export const Suffix = styled.span`
   font-weight: 600;
   display: flex;
   align-items: flex-end;
+  margin-left: 4px;
+  margin-bottom: 1px;
 `
 
 export const SingleIconWrapper = styled.div`
@@ -138,7 +115,7 @@ export const SingleIconWrapper = styled.div`
   justify-content: center;
   border-radius: 8px;
   border: 1px solid ${({ theme }) => theme.grayScale[2]};
-  margin: 4px;
+  margin: 0 4px;
 `
 
 export const IconWrapperHiddenContent = styled.div`
@@ -178,4 +155,32 @@ export const HiddenContentItem = styled.div<{
   opacity: ${({ isOpen }) => (isOpen ? '1' : 0)};
   transition: opacity 0.15s ease-in-out;
   transition-delay: ${({ delay, isOpen }) => (isOpen && `0.${delay}s`) || 0};
+`
+
+export const Container = styled.div<InfoCardProps>`
+  width: 100%;
+  display: flex;
+  border-radius: 32px;
+  padding: ${({ padding }) => padding ?? '24px 32px'};
+  margin: ${({ margin }) => margin ?? '8px 0'};
+  border: 1px solid ${({ theme }) => theme.grayScale[2]};
+  justify-content: space-between;
+  align-items: center;
+  flex-flow: column wrap;
+  transition: box-shadow 0.2s ease-in-out;
+  &:hover {
+    ${ToggleButton} {
+      svg path {
+        stroke: ${({ theme }) => theme.grayScale[3]};
+      }
+    }
+
+    //box-shadow: 0 4px 8px rgba(26, 26, 26, 0.2);
+    /* small shadow */
+    box-shadow: 0 0.91px 2.21px rgba(0, 0, 0, 0.0197),
+      0 2.19px 5.32px rgba(0, 0, 0, 0.0283),
+      0 4.13px 10.02px rgba(0, 0, 0, 0.035),
+      0 7.37px 17.87px rgba(0, 0, 0, 0.0417),
+      0 13.79px 33.42px rgba(0, 0, 0, 0.0503), 0 33px 80px rgba(0, 0, 0, 0.07);
+  }
 `

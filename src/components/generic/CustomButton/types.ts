@@ -20,4 +20,5 @@ export type StyledComponentProps = {
   iconRight?: boolean
   iconLeft?: boolean
   textAlign?: string
+  isActive?: boolean
 }

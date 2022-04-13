@@ -148,11 +148,13 @@ export const Card: React.FC<CardProps> = ({
             )}
             <Row style={{ marginTop: '16px' }}>
               <Left>
-                <Price>
-                  <BeforePrice>od </BeforePrice>
-                  <PriceValue>2000</PriceValue>
-                  <PriceSuffix>Kč/h</PriceSuffix>
-                </Price>
+                {!isOpenSchedule && (
+                  <Price>
+                    <BeforePrice>od </BeforePrice>
+                    <PriceValue>2 000</PriceValue>
+                    <PriceSuffix>Kč/h</PriceSuffix>
+                  </Price>
+                )}
               </Left>
 
               <Right>
