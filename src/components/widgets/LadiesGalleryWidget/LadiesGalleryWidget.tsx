@@ -1,4 +1,4 @@
-import { Container, Inner } from './styles'
+import { Container, Inner, ItemWrapper } from './styles'
 import { LadyCard } from '@/components/generic'
 
 export const LadiesGalleryWidget: React.FC = () => {
@@ -16,7 +16,9 @@ export const LadiesGalleryWidget: React.FC = () => {
     <Container>
       <Inner>
         {fixtures.map((item) => (
-          <LadyCard key={item.id} href={item.id} />
+          <ItemWrapper>
+            <LadyCard key={item.id} href={item.id} />
+          </ItemWrapper>
         ))}
       </Inner>
     </Container>

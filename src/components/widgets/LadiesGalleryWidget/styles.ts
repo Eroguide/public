@@ -11,3 +11,7 @@ export const Inner = styled.div`
   flex-wrap: wrap;
   margin: auto -5px;
 `
+
+export const ItemWrapper = styled.div`
+  margin: 0 4px;
+`

@@ -35,7 +35,6 @@ import CovidAntisepIcon from '/public/img/covid-icon-antisep.svg'
 import CovidMaskIcon from '/public/img/covid-icon-mask.svg'
 import { SwiperSlide } from 'swiper/react'
 import { ScheduleFilters } from '@/components/generic/ScheduleFilters'
-import { Container } from '@/components/generic/InfoCard/styles'
 // import { SectionBlock } from '@/components/layouts/SectionBlock'
 
 export const SalonSinglePageContent: React.FC = () => {
