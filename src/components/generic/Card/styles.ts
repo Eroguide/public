@@ -15,8 +15,7 @@ export const CardMainContainer = styled.div<{
 
 export const CardInner = styled.div`
   border-radius: 32px;
-  border: 1px solid ${({ theme }) => theme.grayScale[1]};
-  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+
   background-color: #fff;
   position: relative;
   z-index: 1;
@@ -63,6 +62,9 @@ export const ImageProduct = styled.div`
 `
 
 export const CardContent = styled.div`
+  border-left: 1px solid ${({ theme }) => theme.grayScale[1]};
+  border-right: 1px solid ${({ theme }) => theme.grayScale[1]};
+  border-bottom: 1px solid ${({ theme }) => theme.grayScale[1]};
   padding: 16px 16px 24px 16px;
   height: 152px;
   display: flex;
@@ -136,11 +138,14 @@ export const Left = styled.div``
 export const Right = styled.div``
 export const TopImageTag = styled.span`
   position: absolute;
-  background-color: ${({ theme }) => theme.primary[2]};
-  ${({ theme }) => theme.typography.ps};
+  background-color: ${({ theme }) => theme.primary[0]};
+  ${({ theme }) => theme.typography.h6};
   font-weight: 500;
   border-radius: 0 0 8px 8px;
   padding: 2px 16px;
+  height: 24px;
+  display: flex;
+  align-items: center;
   min-width: 60px;
   text-align: center;
   color: ${({ theme }) => theme.grayScale[0]};

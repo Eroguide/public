@@ -1,4 +1,4 @@
-import { NextPage } from 'next'
+import { GetServerSideProps, NextPage } from 'next'
 import Head from 'next/head'
 import { BaseLayout } from '@/components/layouts/BaseLayout'
 import {
@@ -14,12 +14,17 @@ import {
 import { useBreakpoint } from '@/hooks/useBreakpoint'
 import { breakpoints, BreakpointsEnum } from '@/src/theme'
 import { SectionBlock } from '@/components/layouts/SectionBlock'
+import { addApolloState, initializeApollo } from '@/graphql/apollo'
+import { listPosts } from '@/graphql/queries.graphql'
+import { GetBlog } from '@/graphql/__generated__/GetLaunches'
+import { ListPosts_listPosts_edges } from '@/graphql/types/ListPosts'
 
-const Journal: NextPage = () => {
+const Journal: NextPage<GetBlog> = ({ posts }) => {
   const isSmall = useBreakpoint({
     min: breakpoints[BreakpointsEnum.xxs].min,
     max: breakpoints[BreakpointsEnum.sm].max,
   })
+
   return (
     <>
       <Head>
@@ -37,11 +42,11 @@ const Journal: NextPage = () => {
           {isSmall ? (
             <>
               <TagFilterWidget />
-              <GalleryContent />
+              <GalleryContent content={posts} />
             </>
           ) : (
             <JournalContentWrapper>
-              <GalleryContent />
+              <GalleryContent content={posts} />
               <FilterColumn>
                 <TagFilterWidget />
               </FilterColumn>
@@ -51,6 +56,22 @@ const Journal: NextPage = () => {
       </BaseLayout>
     </>
   )
+}
+
+export const getServerSideProps: GetServerSideProps = async () => {
+  const apolloClient = initializeApollo()
+  const { data } = await apolloClient.query({
+    query: listPosts,
+    variables: { first: 10 },
+  })
+  const postListArray =
+    data.listPosts.edges.map((edge: ListPosts_listPosts_edges) => edge.node) ||
+    []
+  return addApolloState(apolloClient, {
+    props: {
+      posts: postListArray,
+    },
+  })
 }
 
 export default Journal

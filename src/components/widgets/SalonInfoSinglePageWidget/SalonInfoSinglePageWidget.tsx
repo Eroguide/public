@@ -23,8 +23,12 @@ import AttentionIcon from '/public/img/attention-icon.svg'
 import LocationIcon from '/public/img/location-pin-icon.svg'
 import { CustomButton } from '@/components/generic'
 import { useState } from 'react'
+import { GetSalon_getSalon } from '@/graphql/types/GetSalon'
 
-export const SalonInfoSinglePageWidget: React.FC = () => {
+export const SalonInfoSinglePageWidget: React.FC<{
+  getSalon: GetSalon_getSalon
+}> = ({ getSalon }) => {
+  const { title, headPhoto, phone } = getSalon
   const [isOpen, setIsOpen] = useState<boolean>(false)
 
   const handleOnClick = () => {
@@ -34,14 +38,14 @@ export const SalonInfoSinglePageWidget: React.FC = () => {
     <Container>
       <Row>
         <NameWrapper>
-          <Name>Chocolate ladies club</Name>
+          <Name>{title}</Name>
           <RatingSalon>
             5.0 <AttentionIcon />
           </RatingSalon>
         </NameWrapper>
 
         <ImageWrapper>
-          <AvatarImage src="/img/fake.png" alt="" />
+          <AvatarImage src={headPhoto ?? '/img/fake.png'} alt={title} />
         </ImageWrapper>
       </Row>
       <Divider />
@@ -83,7 +87,7 @@ export const SalonInfoSinglePageWidget: React.FC = () => {
           sizeType="medium"
           onClick={handleOnClick}
         >
-          {isOpen ? '+420 254256444' : 'Contact'}
+          {isOpen ? phone : 'Contact'}
         </CustomButton>
       </ButtonsRow>
       <Divider />

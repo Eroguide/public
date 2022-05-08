@@ -11,27 +11,35 @@ import {
 } from './styles'
 import { CardGalleryProps } from './types'
 import { CardForGallery, CustomButton } from '@/components/generic'
+import { useState } from 'react'
 
 export const CardGallery: React.FC<CardGalleryProps> = ({
-  cards,
   title,
   counter,
+  galleryList,
 }) => {
+  const [isShowMore, setIsShowMode] = useState<boolean>(false)
+
+  if (!galleryList) return <p>...loading...</p>
+
+  const contentToShow =
+    galleryList && (isShowMore ? galleryList : galleryList.slice(0, 8))
+
   return (
     <Container>
       <TitlePanel>
-        {cards.length > 0 && (
+        {galleryList.length > 0 && (
           <LeftFilters>
             <Counter>
-              {title} {counter && `: ${cards.length}`}
+              {title} {counter && `: ${galleryList.length}`}
             </Counter>
           </LeftFilters>
         )}
       </TitlePanel>
       <CardGalleryContainer>
         <ListWrapper>
-          {cards.length ? (
-            cards.map((card) => (
+          {galleryList.length ? (
+            contentToShow.map((card) => (
               <GalleryItem key={card.id}>
                 <CardForGallery {...card} />
               </GalleryItem>
@@ -45,15 +53,13 @@ export const CardGallery: React.FC<CardGalleryProps> = ({
       </CardGalleryContainer>
       <ButtonRow>
         <CustomButton
-          // TODO show more
-          onClick={() => null}
+          onClick={() => setIsShowMode(!isShowMore)}
           styleType="tertiary"
           sizeType="medium"
           counter={321}
         >
           Načíst více
         </CustomButton>
-        <CustomButton>Načíst více</CustomButton>
       </ButtonRow>
     </Container>
   )

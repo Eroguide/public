@@ -31,7 +31,7 @@ import CheckIcon from 'public/img/check-blue.svg'
 import { Left, Right } from '@/components/generic/Card/styles'
 import { CustomButton } from '@/components/generic'
 
-export const SalonCard: React.FC<SalonCardProps> = ({ id, inSwipe }) => {
+export const SalonCard: React.FC<SalonCardProps> = ({ id, inSwipe, title }) => {
   const cardList = [
     { id: '23123' },
     { id: '23123' },
@@ -58,7 +58,7 @@ export const SalonCard: React.FC<SalonCardProps> = ({ id, inSwipe }) => {
               <ImageOverlay>
                 <InformationContent>
                   <LeftBlock>
-                    <Title>Nasty ladies room</Title>
+                    <Title>{title}</Title>
                     <Description>Prague 2</Description>
                   </LeftBlock>
                   <RightBlock>
@@ -76,7 +76,7 @@ export const SalonCard: React.FC<SalonCardProps> = ({ id, inSwipe }) => {
               (x, i) =>
                 i < 2 && (
                   // i < (isSmall ? 5 : 3) &&
-                  <Link key={x.id + i} href={`/gallery/${id}`} passHref>
+                  <Link key={x.id + i} href={`/employee/${id}`} passHref>
                     <SmallGalleryItem>
                       <WorkingHoursTag>12-20</WorkingHoursTag>
                       <SmallGalleryItemDescription>
@@ -88,7 +88,7 @@ export const SalonCard: React.FC<SalonCardProps> = ({ id, inSwipe }) => {
                 )
             )}
 
-            <Link href={`/gallery/${id}`} passHref>
+            <Link href={`/employee/${id}`} passHref>
               <SmallGalleryItem>
                 <WorkingHoursTag>12-20</WorkingHoursTag>
                 <SmallGalleryItemDescription>

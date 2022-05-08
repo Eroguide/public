@@ -1,10 +1,16 @@
 import { GetServerSideProps, NextPage } from 'next'
 import Head from 'next/head'
 import { BaseLayout } from '@/components/layouts/BaseLayout'
-import { CardGallery, TopLinePageContent } from '@/components/generic'
+import {
+  CardGallery,
+  HeroFilters,
+  TopLinePageContent,
+} from '@/components/generic'
 import { useRouter } from 'next/router'
 import { CategoryLanding } from '@/components/pages'
 import { SectionBlock } from '@/components/layouts/SectionBlock'
+import { useBreakpoint } from '@/hooks/useBreakpoint'
+import { breakpoints, BreakpointsEnum } from '@/src/theme'
 const fixtures = [
   { id: '222dsadas', slug: 'one-project-time', best: 1 },
   { id: 'asddsad222sadasd', slug: 'two-project-time', best: 0 },
@@ -27,10 +33,7 @@ const CategorySinglePage: NextPage<{ slug?: string }> = () => {
       <BaseLayout>
         <SectionBlock>
           <TopLinePageContent />
-
           <CategoryLanding />
-        </SectionBlock>
-        <SectionBlock>
           <CardGallery cards={fixtures} title={String(query.slug)} />
         </SectionBlock>
       </BaseLayout>

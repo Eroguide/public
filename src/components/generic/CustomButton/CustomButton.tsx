@@ -1,5 +1,5 @@
 // local libs
-import { Button, IconWrapperChevron } from './styles'
+import { Button, IconWrapperLeft, IconWrapperRight } from './styles'
 // types
 import { ButtonStylesEnum, ButtonStylesSizeEnum } from '@/src/theme'
 import { ButtonProps } from './types'
@@ -33,15 +33,15 @@ export const CustomButton: React.FC<ButtonProps> = ({
         >
           <>
             {iconLeft && (
-              <IconWrapperChevron>
+              <IconWrapperLeft>
                 <ChevronLeft />
-              </IconWrapperChevron>
+              </IconWrapperLeft>
             )}
             {children}
             {(iconRight || !!counter) && (
-              <IconWrapperChevron>
+              <IconWrapperRight>
                 {counter ? <span>{counter}</span> : <ChevronRight />}
-              </IconWrapperChevron>
+              </IconWrapperRight>
             )}
           </>
         </Button>
@@ -59,15 +59,15 @@ export const CustomButton: React.FC<ButtonProps> = ({
       {...buttonProps}
     >
       {iconLeft && (
-        <IconWrapperChevron>
+        <IconWrapperLeft>
           <ChevronLeft />
-        </IconWrapperChevron>
+        </IconWrapperLeft>
       )}
       {children}
       {(iconRight || !!counter) && (
-        <IconWrapperChevron>
+        <IconWrapperRight>
           {counter ? counter : <ChevronRight />}
-        </IconWrapperChevron>
+        </IconWrapperRight>
       )}
     </Button>
   )

@@ -1,18 +1,8 @@
-/* tslint:disable */
-/* eslint-disable */
-// @generated
-// This file was automatically generated and should not be edited.
-
-// ====================================================
-// GraphQL query operation: GetLaunches
-// ====================================================
-
-export interface GetLaunches_launchesPast {
-  __typename: 'Launch'
-  mission_name: string
-  id: string
+import { ListPosts_listPosts_edges_node } from '@/graphql/types/ListPosts'
+export interface GetPost {
+  post: ListPosts_listPosts_edges_node
+  posts: Array<ListPosts_listPosts_edges_node>
 }
-
-export interface GetLaunches {
-  launchesPast: Array<GetLaunches_launchesPast> | null
+export interface GetBlog {
+  posts: Array<ListPosts_listPosts_edges_node>
 }

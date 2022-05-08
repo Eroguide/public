@@ -8,6 +8,7 @@ import {
 } from './styles'
 import GoogleMapReact, { Coords, MapOptions } from 'google-map-react'
 import { useState } from 'react'
+import { FloatingGallery } from '@/components/widgets/FloatingGallery'
 
 const AnyReactComponent: React.FC<Coords & { type: string }> = (props) => (
   <MapPinWrapper>
@@ -98,6 +99,7 @@ export const MapPage: React.FC = () => {
               <AnyReactComponent key={pin.lat * pin.lng * i} {...pin} />
             ))}
         </GoogleMapReact>
+        <FloatingGallery />
       </Wrapper>
     </Container>
   )

@@ -9,29 +9,26 @@ import {
 } from './styles'
 import { PostCardProps } from './types'
 
-export const PostCard: React.FC<PostCardProps> = ({ id }) => {
+export const PostCard: React.FC<PostCardProps> = ({ id, title, image }) => {
   return (
     <Link href={`/blog/${id}`} passHref>
       <CardMainContainer>
         <PostCardInner>
-          <CardImageWrapper>
+          <CardImageWrapper image={image}>
             <ImageProduct />
           </CardImageWrapper>
         </PostCardInner>
 
         {TextTruncate && (
           <Description>
-            {/*{title && (*/}
-            <TextTruncate
-              line={2}
-              element="span"
-              truncateText="…"
-              // text={title}
-              text={
-                'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum iusto optio quidem sint. Adipisci, aliquid animi consequuntur doloremque illo natus quaerat qui saepe similique. Consectetur deleniti fugit minima quo recusandae.'
-              }
-            />
-            {/*)}*/}
+            {title && (
+              <TextTruncate
+                line={2}
+                element="span"
+                truncateText="…"
+                text={title}
+              />
+            )}
           </Description>
         )}
       </CardMainContainer>

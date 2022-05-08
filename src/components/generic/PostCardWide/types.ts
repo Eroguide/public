@@ -1,7 +1,5 @@
+import { Post } from '@/graphql/__generated__/GetLaunches'
+
 export type PostCardWideProps = {
-  tagTitle?: string
-  description?: string
-  imageUrl?: string
-  id?: string
   inSwipe?: boolean
-}
+} & Post

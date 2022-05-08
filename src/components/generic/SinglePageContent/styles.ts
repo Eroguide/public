@@ -1,7 +1,6 @@
 import styled from '@emotion/styled'
 
 export const SinglePageContentContainer = styled.div`
-  margin-top: 32px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -47,6 +46,7 @@ export const SinglePageBody = styled.div`
 export const DetailsSection = styled.div`
   width: 100%;
   max-width: 508px;
+
   ${({ theme }) => theme.media.sm`
       max-width: 100%;
   `}

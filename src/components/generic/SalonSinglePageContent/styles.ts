@@ -1,16 +1,16 @@
 import styled from '@emotion/styled'
 
 export const SinglePageContentContainer = styled.div`
-  margin-top: 32px;
   width: 100%;
   display: flex;
   flex-direction: column;
 `
 
-export const Banner = styled.div`
+export const Banner = styled.div<{ image: string }>`
   width: 100%;
   height: 320px;
-  background: #ebebf0 url('/img/fake.png') no-repeat center;
+  background: #ebebf0 url(${({ image }) => image ?? '/img/fake.png'}) no-repeat
+    center;
   background-size: cover;
   overflow: hidden;
   border-radius: 24px;

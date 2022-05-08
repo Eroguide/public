@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 
-export const HeaderContainer = styled.div`
+export const HeaderContainer = styled.div<{ menuIsSticky: boolean }>`
   width: 100%;
   padding: 0 80px;
   position: fixed;
@@ -8,7 +8,8 @@ export const HeaderContainer = styled.div`
   top: 0;
   right: 0;
   z-index: 500;
-  background-color: #fff;
+  background-color: ${({ menuIsSticky }) =>
+    menuIsSticky ? '#fff' : 'transparent'};
   align-items: center;
   ${({ theme }) => theme.media.md`
   padding: 0 32px;

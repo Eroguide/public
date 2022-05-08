@@ -14,28 +14,35 @@ import { PostCardWideProps } from './types'
 import Link from 'next/link'
 import { CustomButton } from '@/components/generic'
 
-export const PostCardWide: React.FC<PostCardWideProps> = ({ id, inSwipe }) => {
+export const PostCardWide: React.FC<PostCardWideProps> = ({
+  id,
+  inSwipe,
+  title,
+  createdAt,
+  text,
+  image,
+}) => {
   return (
     <>
       <CardMainContainer inSwipe={inSwipe}>
         <InnerContainer>
-          <CardImageWrapper>
-            <Link href={id ? `/blog/${id}` : `/blog/somelink`} passHref>
+          <CardImageWrapper image={image}>
+            <Link href={id ? `/blog/${id}` : `/blog/1`} passHref>
               <ImageProduct />
             </Link>
           </CardImageWrapper>
           <CardContent>
             <Description>
-              <Title>Lorem Ipsum is simply dummy text of the printing</Title>
+              <Title>{title}</Title>
               <TextTruncate
                 line={2}
                 element="span"
                 truncateText="…"
-                text="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+                text={text}
               />
             </Description>
             <BottomLine>
-              <DateText>today 19:00</DateText>
+              <DateText>{createdAt}</DateText>
 
               <CustomButton
                 styleType="tertiary"

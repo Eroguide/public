@@ -7,4 +7,5 @@ export const TopLineContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   margin-top: 16px;
+  margin-bottom: 32px;
 `

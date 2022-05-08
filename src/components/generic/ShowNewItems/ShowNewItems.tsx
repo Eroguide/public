@@ -20,6 +20,7 @@ import { Card } from '@/components/generic'
 
 import ArrowLeftIcon from '/public/img/arrow-left.svg'
 import ArrowRightIcon from '/public/img/arrow-right.svg'
+import { ListEmployee_listEmployee_edges_node } from '@/graphql/types/ListEmployee'
 export type ShowNewProps = {
   date: number
   id: string
@@ -30,8 +31,8 @@ export type ShowNewProps = {
 }
 export const ShowNewItems: React.FC<{
   title: string
-  itemsToShow?: number
-}> = ({ title }) => {
+  listEmployee: Array<ListEmployee_listEmployee_edges_node>
+}> = ({ title, listEmployee }) => {
   const navigationPrevRef = useRef<HTMLDivElement>(null)
   const navigationNextRef = useRef<HTMLDivElement>(null)
   const swiperSettings: SwiperOptions = {
@@ -71,44 +72,54 @@ export const ShowNewItems: React.FC<{
     { id: 'xfffsadasd', slug: 'four-project-time', date: 5 },
     { id: 'xfffsadasssd', slug: 'four-project-time', date: 8 },
   ]
+
   const [initSlider, setInitSlider] = useState<boolean>(false)
-  const groupsGen: Array<Array<ShowNewProps>> = fixtures.reduce(
-    (groups, game) => {
-      const date = String(game.date)
+  const groupsGen: Array<Array<ShowNewProps>> = listEmployee.reduce(
+    (groups, employee) => {
+      const date = String(employee.createdAt)
       if (!groups[date]) {
         groups[date] = []
       }
-      groups[date].push(game)
+      groups[date].push(employee)
       return groups
     },
     []
   )
-
   // Edit: to add it in the array format instead
   const groupArrays = Object.keys(groupsGen).map((date) => {
     return {
-      date,
-      games: groupsGen[date],
+      createdAt: date,
+      employee: groupsGen[date],
     }
   })
 
-  const arrayGames = groupArrays.map((group) => {
-    const dateGroupLength = group.games.length
-    group.games[dateGroupLength - 1].isLastInGroup = true
-    group.games[0].writeDateTitle = true
-    return group.games
+  //group
+  const arrayEmployee = groupArrays.map((group) => {
+    const employees = group.employee
+
+    console.log('employees', employees)
+    // const dateGroupLength = employees?.length
+
+    //
+    // employees[dateGroupLength - 1].isLastInGroup = true
+    // employees[0].writeDateTitle = true
+    //
+    // console.log('employees AFTER', newObject)
+    return employees
   })
-  const arrayFixturesWithDate = arrayGames.flat()
+  console.log('group', arrayEmployee)
+  const arrayFixturesWithDate = true
+  // const arrayFixturesWithDate = arrayEmployee.flat()
 
-  const days = {
-    1: 'Dnes',
-    2: 'Včera',
-    3: '4 záři',
-    4: 'Some date',
-    5: 'Some date',
-    8: 'Some date',
-  }
-
+  // const days = {
+  //   1: 'Dnes',
+  //   2: 'Včera',
+  //   3: '4 záři',
+  //   4: 'Some date',
+  //   5: 'Some date',
+  //   8: 'Some date',
+  // }
+  console.log('arrayEmployee', arrayEmployee)
   return (
     <ContentCardRowContainer>
       <TopLine>
@@ -127,21 +138,26 @@ export const ShowNewItems: React.FC<{
       <ContentRow>
         <Swiper {...swiperSettings} onAfterInit={() => setInitSlider(true)}>
           {initSlider &&
-            arrayFixturesWithDate.map((item) => (
-              <SwiperSlide key={item.id}>
-                <>
-                  <Card {...item} tagTitle={item.tag} inSwipe />
-                  {item.date && (
-                    <>
-                      <TimeLine date={item.date} isLast={item.isLastInGroup} />
-                      {item.writeDateTitle && (
-                        <DateTag date={item.date}>{days[item.date]}</DateTag>
-                      )}
-                    </>
-                  )}
-                </>
-              </SwiperSlide>
-            ))}
+            arrayEmployee.map((item) => {
+              console.log(item)
+              return (
+                <SwiperSlide key={item.id}>
+                  <>
+                    <Card {...item} tagTitle={item.tag} inSwipe />
+                    {item.createdAt && (
+                      <>
+                        <TimeLine
+                          date={item.date}
+                          isLast={item.isLastInGroup}
+                        />
+                        {<DateTag date={item.date}>{item.createdAt}</DateTag>}
+                        dsadasddsa
+                      </>
+                    )}
+                  </>
+                </SwiperSlide>
+              )
+            })}
         </Swiper>
       </ContentRow>
     </ContentCardRowContainer>

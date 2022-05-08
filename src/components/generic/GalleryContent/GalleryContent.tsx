@@ -1,6 +1,7 @@
 import { Container, Wrapper } from './styles'
 import { PostCardWide } from '@/components/generic'
 import { PaginationWidget } from '@/components/widgets/PaginationWidget'
+import { Post } from '@/graphql/__generated__/GetLaunches'
 const fixtures = [
   { id: '222dsadas', slug: 'one-project-time', best: 1 },
   { id: 'asddsad222sadasd', slug: 'two-project-time', best: 0 },
@@ -11,13 +12,15 @@ const fixtures = [
   { id: 'xfffsadasd', slug: 'four-project-time', best: 0, tag: 'dsd' },
 ]
 
-export const GalleryContent: React.FC = () => {
+export const GalleryContent: React.FC<{ content: Array<Post> }> = ({
+  content,
+}) => {
+  console.log('content', content)
   return (
     <Container>
       <Wrapper>
-        {fixtures.map((item) => (
-          <PostCardWide key={item.id} {...item} />
-        ))}
+        {content &&
+          content.map((item) => <PostCardWide key={item.id} {...item} />)}
         <PaginationWidget itemsPerPage={4} />
       </Wrapper>
     </Container>

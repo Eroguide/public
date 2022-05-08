@@ -38,12 +38,22 @@ import VideoIcon from 'public/img/video-icon.svg'
 import { CardProps } from './types'
 import { FavoritesActions } from '@/store/favoritsModule'
 import { WorkingDaysStatic } from '@/components/generic'
+import { height } from 'dom7'
 
 export const CardForGallery: React.FC<CardProps> = ({
   id,
   slug,
   tagTitle,
   inSwipe,
+  weight,
+  name,
+  age,
+  price,
+  height,
+  breastSize,
+  address,
+  mainPhoto,
+  ...props
 }) => {
   const {
     dispatch,
@@ -58,13 +68,14 @@ export const CardForGallery: React.FC<CardProps> = ({
   const handleIsOpenSchedule = () => {
     setIsOpenSchedule(!isOpenSchedule)
   }
+  console.log('props', props)
   return (
     <>
       <CardMainContainer inSwipe={inSwipe}>
         <CardInner>
-          <CardImageWrapper>
+          <CardImageWrapper image={mainPhoto}>
             <ImageOverlay />
-            <Link href={`/gallery/${id}`} passHref>
+            <Link href={`/employee/${id}`} passHref>
               <ImageProduct>
                 {tagTitle && <TopImageTag>{tagTitle}</TopImageTag>}
               </ImageProduct>
@@ -82,18 +93,18 @@ export const CardForGallery: React.FC<CardProps> = ({
               <AdditionalInformationContent>
                 <LeftBlock>
                   <ContentColumn>
-                    <InfoItem>Height: 170lb</InfoItem>
-                    <InfoItem>Weight: 350lb</InfoItem>
+                    <InfoItem>Height: {height}cm</InfoItem>
+                    <InfoItem>Weight: {weight}kg</InfoItem>
                   </ContentColumn>
                   <ContentColumn>
-                    <InfoItem>Breast: 3</InfoItem>
-                    <InfoItem>Age: 19</InfoItem>
+                    <InfoItem>Breast: {breastSize}</InfoItem>
+                    <InfoItem>Age: {age}</InfoItem>
                   </ContentColumn>
                 </LeftBlock>
                 <RightBlock>
                   <PhotoCounter>
                     <PhotoIcon />
-                    <span>27</span>
+                    <span>{age}</span>
                     <VideoIconWrapper>
                       <VideoIcon />
                     </VideoIconWrapper>
@@ -111,7 +122,9 @@ export const CardForGallery: React.FC<CardProps> = ({
               ) : (
                 <>
                   <Left>
-                    <TitleLink>Alesandra,23</TitleLink>
+                    <TitleLink>
+                      {name},{age}
+                    </TitleLink>
                   </Left>
                   <FavoriteButton
                     isActive={isActive}
@@ -141,7 +154,7 @@ export const CardForGallery: React.FC<CardProps> = ({
               <Left>
                 <Price>
                   <BeforePrice>od </BeforePrice>
-                  <PriceValue>2000</PriceValue>
+                  <PriceValue>{price}</PriceValue>
                   <PriceSuffix>Kč/h</PriceSuffix>
                 </Price>
               </Left>

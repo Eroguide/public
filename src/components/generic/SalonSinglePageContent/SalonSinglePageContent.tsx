@@ -28,16 +28,20 @@ import {
 import { SalonInfoSinglePageWidget } from '@/components/widgets/SalonInfoSinglePageWidget'
 import { ServiceFeaturesSalonWidget } from '@/components/widgets/ServiceFeaturesSalonWidget'
 import GenderIcon from '/public/img/gender-icon.svg'
-// import CircleCheckIcon from '/public/img/green-circle-check.svg'
 import CovidStarsIcon from '/public/img/covid-icon-stars.svg'
 import CovidTermoIcon from '/public/img/covid-icon-termo.svg'
 import CovidAntisepIcon from '/public/img/covid-icon-antisep.svg'
 import CovidMaskIcon from '/public/img/covid-icon-mask.svg'
 import { SwiperSlide } from 'swiper/react'
 import { ScheduleFilters } from '@/components/generic/ScheduleFilters'
-// import { SectionBlock } from '@/components/layouts/SectionBlock'
+import { GetSalon_getSalon } from '@/graphql/types/GetSalon'
+import { ListSalons_listSalons_edges_node } from '@/graphql/types/ListSalons'
 
-export const SalonSinglePageContent: React.FC = () => {
+export const SalonSinglePageContent: React.FC<{
+  getSalon: GetSalon_getSalon
+  listSalons: Array<ListSalons_listSalons_edges_node>
+}> = ({ getSalon, listSalons }) => {
+  console.log('SalonSinglePageContent getSalon', getSalon)
   const fixtures = [
     { id: '222dsadas', slug: 'one-project-time', best: 1 },
     { id: 'asddsad222sadasd', slug: 'two-project-time', best: 0 },
@@ -81,21 +85,32 @@ export const SalonSinglePageContent: React.FC = () => {
     },
     { title: 'Imitations (each masseuse has its own)', price: 1500 },
   ]
+  const {
+    headPhoto,
+    mainPhoto,
+    email,
+    phone,
+    address,
+    description,
+    title,
+    status,
+  } = getSalon
 
+  console.log('listSalons', listSalons)
   return (
     <SinglePageContentContainer>
-      <Banner />
+      <Banner image={mainPhoto} />
       <SinglePageBody>
         <LeftWidgets>
           <Widget>
-            <SalonInfoSinglePageWidget />
+            <SalonInfoSinglePageWidget getSalon={getSalon} />
           </Widget>
           <ServiceFeaturesSalonWidget />
         </LeftWidgets>
 
         <BodyContent>
           <SinglePageContentBlock title="Photo">
-            <ProductSlider />
+            <ProductSlider status={!!status} />
           </SinglePageContentBlock>
           <SinglePageContentBlock title="Covid protection">
             <InfoCard borderRad={32} strokeColor="gray" padding={'32px 40px'}>
@@ -174,7 +189,7 @@ export const SalonSinglePageContent: React.FC = () => {
         href="/salons"
         withControls
       >
-        {fixtures.map((item) => (
+        {listSalons?.map((item) => (
           <SwiperSlide key={item.id}>
             <SalonCard {...item} inSwipe />
           </SwiperSlide>

@@ -1,10 +1,16 @@
 import { NextPage } from 'next'
 import Head from 'next/head'
 import { BaseLayout } from '@/components/layouts/BaseLayout'
-import { CardGallery, TopLinePageContent } from '@/components/generic'
+import {
+  CardGallery,
+  HeroFilters,
+  TopLinePageContent,
+} from '@/components/generic'
 
 import { CategoryLanding } from '@/components/pages'
 import { SectionBlock } from '@/components/layouts/SectionBlock'
+import { useBreakpoint } from '@/hooks/useBreakpoint'
+import { breakpoints, BreakpointsEnum } from '@/src/theme'
 
 const fixtures = [
   { id: '222dsadas', slug: 'one-project-time', best: 1 },
@@ -29,8 +35,6 @@ const CategoryAllPage: NextPage = () => {
         <SectionBlock>
           <TopLinePageContent />
           <CategoryLanding />
-        </SectionBlock>
-        <SectionBlock>
           <CardGallery cards={fixtures} title={'All'} />
         </SectionBlock>
       </BaseLayout>

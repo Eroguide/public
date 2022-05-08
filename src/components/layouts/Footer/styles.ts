@@ -39,7 +39,8 @@ export const LinkGroup = styled.div`
   width: 50%;
   a {
     justify-content: flex-start;
-    ${({ theme }) => theme.typography.h4};
+    ${({ theme }) => theme.typography.pl};
+    font-weight: 400;
   }
   ${({ theme }) => theme.media.sm`
   width: 100%;

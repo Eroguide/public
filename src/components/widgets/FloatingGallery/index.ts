@@ -1,0 +1,1 @@
+export { FloatingGallery } from './FloatingGallery'

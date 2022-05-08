@@ -2,15 +2,22 @@ import styled from '@emotion/styled'
 // types
 import { StyledComponentProps } from './types'
 
-export const IconWrapperChevron = styled.span`
+export const IconWrapper = styled.span`
   display: flex;
   height: 24px;
-  margin-left: 8px;
   justify-content: center;
   align-items: center;
   ${({ theme }) => theme.typography.pm};
   font-weight: 600;
   color: ${({ theme }) => theme.grayScale[2]};
+`
+
+export const IconWrapperRight = styled(IconWrapper)`
+  margin-left: 8px;
+`
+
+export const IconWrapperLeft = styled(IconWrapper)`
+  margin-right: 8px;
 `
 
 export const Button = styled.button<StyledComponentProps>`
@@ -28,7 +35,6 @@ export const Button = styled.button<StyledComponentProps>`
     sizeType ? theme.button.height[sizeType] : '24px'};
   position: relative;
   align-items: ${({ textAlign }) => textAlign ?? 'center'};
-
   z-index: 1;
   user-select: none;
   text-decoration: none;
@@ -42,8 +48,8 @@ export const Button = styled.button<StyledComponentProps>`
   cursor: pointer;
 
   ${({ disabled }) => disabled && 'border: none;  pointer-events: none;'};
-  ${({ iconRight }) => iconRight && 'padding-right: 16px;padding-left: 16px;'};
-  ${({ iconLeft }) => iconLeft && 'padding-left: 0; padding-right: 16px;'};
+  ${({ iconRight, iconLeft }) =>
+    (iconRight || iconLeft) && 'padding-right: 16px;padding-left: 16px;'};
   ${({ styleType }) => styleType === 'link' && 'padding: 0;'};
   svg path {
     stroke: ${({ theme, styleType }) => theme.button.icon[styleType]};
@@ -57,7 +63,7 @@ export const Button = styled.button<StyledComponentProps>`
     background-color: ${({ theme, styleType }) =>
       theme.button.hover.background[styleType]};
     color: ${({ theme, styleType }) => theme.button.hover.color[styleType]};
-    ${IconWrapperChevron} {
+    ${IconWrapper} {
       svg path {
         stroke: ${({ theme, styleType }) => theme.button.hover.icon[styleType]};
       }
@@ -72,12 +78,12 @@ export const Button = styled.button<StyledComponentProps>`
     background-color: ${theme.button.active.background[styleType]};
     color: ${theme.button.active.color[styleType]};
 
-    ${IconWrapperChevron} {
+    ${IconWrapper} {
       svg path {
         stroke: ${theme.button.active.icon[styleType]};
       }
     }
-    border: ${theme.button.active.border[styleType]};`};
+    border: ${theme.button.active.border[styleType]}`};
 
   &:active {
     transition: background-color 0.1s ease-in-out, border 0.1s ease-in-out,
@@ -86,7 +92,7 @@ export const Button = styled.button<StyledComponentProps>`
       theme.button.active.background[styleType]};
     color: ${({ theme, styleType }) => theme.button.active.color[styleType]};
 
-    ${IconWrapperChevron} {
+    ${IconWrapper} {
       svg path {
         stroke: ${({ theme, styleType }) =>
           theme.button.active.icon[styleType]};

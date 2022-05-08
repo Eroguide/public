@@ -31,11 +31,28 @@ import SearchIcon from '/public/img/search-nav-icon.svg'
 export const Header: React.FC = () => {
   const { push, asPath, back } = useRouter()
   const [menuIsOpen, setMenuIsOpen] = useState<boolean>(false)
+  const [menuIsSticky, setMenuIsSticky] = useState<boolean>(false)
 
   const isSmall = useBreakpoint({
     min: breakpoints[BreakpointsEnum.xxs].min,
     max: breakpoints[BreakpointsEnum.sm].max,
   })
+
+  const toggleVisible = (): void => {
+    if (!process.browser) {
+      return
+    }
+    const scrolled = document.documentElement.scrollTop
+    if (scrolled > 88) {
+      setMenuIsSticky(true)
+    } else if (scrolled <= 88) {
+      setMenuIsSticky(false)
+    }
+  }
+  if (process.browser) {
+    window.addEventListener('scroll', toggleVisible)
+  }
+
   const goHome = (): void => {
     push('/', undefined, {
       shallow: false,
@@ -56,7 +73,7 @@ export const Header: React.FC = () => {
         })
   }
   return (
-    <HeaderContainer>
+    <HeaderContainer menuIsSticky={menuIsSticky}>
       <HeaderInner>
         <LeftBlock>
           {isSmall ? (

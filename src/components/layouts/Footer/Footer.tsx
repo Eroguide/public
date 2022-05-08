@@ -25,9 +25,9 @@ const currentYear = new Date().getFullYear()
 const navItems = {
   navBlock1: {
     1: [
-      { name: 'Masérky', href: '/gallery' },
+      { name: 'Masérky', href: '/employee' },
       { name: 'Masážní salóny', href: '/salons' },
-      { name: 'Privátní slečny', href: '/gallery/privat' },
+      { name: 'Privátní slečny', href: '/employee/privat' },
       { name: 'Privátní salony', href: '/salons/privat' },
     ],
     2: [

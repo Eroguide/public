@@ -17,13 +17,14 @@ export const CardMainContainer = styled.div<{ inSwipe?: boolean }>`
   `}
 `
 
-export const CardImageWrapper = styled.div`
+export const CardImageWrapper = styled.div<{ image: string }>`
   border-radius: 32px 32px 0 0;
   display: flex;
   width: 100%;
   height: 296px;
   position: relative;
-  background: #ebebf0 url('/img/fake.png') no-repeat center center;
+  background: #ebebf0 url(${({ image }) => image ?? '/img/fake.png'}) no-repeat
+    center center;
   background-size: cover;
   overflow: hidden;
 `

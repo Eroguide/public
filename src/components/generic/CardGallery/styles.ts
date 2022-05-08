@@ -79,4 +79,6 @@ export const ListWrapper = styled.div`
 export const ButtonRow = styled.div`
   display: flex;
   width: 100%;
+  justify-content: center;
+  margin-top: 80px;
 `

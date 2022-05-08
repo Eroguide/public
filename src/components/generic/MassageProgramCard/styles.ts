@@ -73,6 +73,9 @@ export const BottomRow = styled.div`
   width: 100%;
   justify-content: space-between;
   flex-wrap: wrap;
+  ${({ theme }) => theme.media.mobile`
+    justify-content: flex-end;
+  `}
 `
 
 export const IconsRow = styled.div`
@@ -88,6 +91,10 @@ export const IconsRow = styled.div`
   & .swiper-slide {
     width: auto;
   }
+
+  ${({ theme }) => theme.media.mobile`
+    width:100%;
+  `}
 `
 
 export const Price = styled.span`
@@ -96,6 +103,9 @@ export const Price = styled.span`
   font-weight: 600;
   display: flex;
   align-items: flex-end;
+  ${({ theme }) => theme.media.mobile`
+   margin-top: 16px;
+  `}
 `
 
 export const Suffix = styled.span`

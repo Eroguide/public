@@ -3,6 +3,7 @@ import styled from '@emotion/styled'
 export const CardMainContainer = styled.div`
   width: 100%;
   max-width: 312px;
+  min-width: 312px;
   flex-direction: column;
   border-radius: 32px;
   margin-bottom: 32px;
@@ -49,13 +50,14 @@ export const PostCardInner = styled.div`
   }
 `
 
-export const CardImageWrapper = styled.div`
+export const CardImageWrapper = styled.div<{ image: string }>`
   border-radius: 32px;
   display: flex;
   width: 100%;
   height: 296px;
   position: relative;
-  background: #ebebf0 url('/img/fake.png') no-repeat center center;
+  background: #ebebf0 url(${({ image }) => image ?? '/img/fake.png'}) no-repeat
+    center center;
   background-size: cover;
   overflow: hidden;
   z-index: 1;

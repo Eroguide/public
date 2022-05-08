@@ -178,4 +178,7 @@ export const RatingSalon = styled.span`
   ${({ theme }) => theme.typography.h3};
   font-weight: 600;
   color: ${({ theme }) => theme.support[2]};
+  height: 32px;
+  display: flex;
+  align-items: center;
 `

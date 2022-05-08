@@ -11,15 +11,26 @@ import {
   MapSection,
   // PostCard,
   // PostCardWide,
-  PostList,
+  // PostList,
 } from '@/components/generic'
 import { SwiperSlide } from 'swiper/react'
 import { ShowNewItems } from '@/components/generic/ShowNewItems'
-import { getLaunches } from '@/graphql/queries.graphql'
+import { listEmployee, listPosts, listSalons } from '@/graphql/queries.graphql'
 import { addApolloState, initializeApollo } from '@/graphql/apollo'
-import { GetLaunches } from '@/graphql/__generated__/GetLaunches'
 import { SectionBlock } from '@/components/layouts/SectionBlock'
 import { Responsive } from '@/components/generic'
+import {
+  ListSalons_listSalons_edges,
+  ListSalons_listSalons_edges_node,
+} from '@/graphql/types/ListSalons'
+import {
+  ListPosts_listPosts_edges,
+  ListPosts_listPosts_edges_node,
+} from '@/graphql/types/ListPosts'
+import {
+  ListEmployee_listEmployee_edges,
+  ListEmployee_listEmployee_edges_node,
+} from '@/graphql/types/ListEmployee'
 
 const fixtures = [
   { id: '222dsadas', slug: 'one-project-time', best: 1 },
@@ -29,10 +40,27 @@ const fixtures = [
   { id: 'asdxfsadasd', slug: 'four-project-time', best: 0 },
   { id: 'asdsdadvadasd', slug: 'four-project-time', best: 0 },
   { id: 'xfffsadasd', slug: 'four-project-time', best: 0, tag: 'New' },
-  { id: 'xfffsadssasd', slug: 'four-project-time', best: 0, tag: 'New' },
+  { id: 'xfffsadssa22sd', slug: 'four-project-time', best: 0, tag: 'New' },
+  { id: 'xfffsads44sasd', slug: 'four-project-time', best: 0, tag: 'New' },
+  { id: 'xfffsads1122sasd', slug: 'four-project-time', best: 0, tag: 'New' },
+  { id: 'xfffsad222ssasd', slug: 'four-project-time', best: 0, tag: 'New' },
+  { id: '1231d', slug: 'four-project-time', best: 0, tag: 'New' },
+  { id: '123dsf', slug: 'four-project-time', best: 0, tag: 'New' },
+  { id: '123', slug: 'four-project-time', best: 0, tag: 'New' },
+  { id: '12421', slug: 'four-project-time', best: 0, tag: 'New' },
+  { id: '123dsagxc3e21', slug: 'four-project-time', best: 0, tag: 'New' },
 ]
 
-const Home: NextPage<GetLaunches> = ({ launchesPast }) => {
+export type MainPageSsrProps = {
+  listEmployee: Array<ListEmployee_listEmployee_edges_node>
+  listPosts: Array<ListPosts_listPosts_edges_node>
+  listSalons: Array<ListSalons_listSalons_edges_node>
+}
+const Home: NextPage<MainPageSsrProps> = ({
+  listEmployee,
+  listPosts,
+  listSalons,
+}) => {
   return (
     <>
       <Head>
@@ -41,18 +69,13 @@ const Home: NextPage<GetLaunches> = ({ launchesPast }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <BaseLayout>
-        <SectionBlock>
+        <SectionBlock isVisible>
           <HeroBanner />
           <Responsive desktop>
             <HeroFilters />
           </Responsive>
-        </SectionBlock>
+          <ShowNewItems title={'Nové slečny'} listEmployee={listEmployee} />
 
-        <SectionBlock>
-          <ShowNewItems itemsToShow={4} title={'Nové slečny'} />
-        </SectionBlock>
-
-        <SectionBlock>
           <ContentCardRow
             title="Top z privátů"
             counter={52}
@@ -60,9 +83,9 @@ const Home: NextPage<GetLaunches> = ({ launchesPast }) => {
             href="/gallery"
             bottomControl
           >
-            {fixtures.map((item) => (
+            {listEmployee.map((item) => (
               <SwiperSlide key={item.id}>
-                <Card {...item} tagTitle={item.slug} inSwipe />
+                <Card {...item} tagTitle={item.__typename} inSwipe />
               </SwiperSlide>
             ))}
           </ContentCardRow>
@@ -88,7 +111,7 @@ const Home: NextPage<GetLaunches> = ({ launchesPast }) => {
         {/*    title="Všechny slečny"*/}
         {/*    counter={73}*/}
         {/*    counterTitle="Vše"*/}
-        {/*    href="/gallery"*/}
+        {/*    href="/employee"*/}
         {/*    bottomControl*/}
         {/*  >*/}
         {/*    {fixtures.map((item) => (*/}
@@ -108,7 +131,7 @@ const Home: NextPage<GetLaunches> = ({ launchesPast }) => {
             href="/salons"
             bottomControl
           >
-            {fixtures.map((item) => (
+            {listSalons.map((item) => (
               <SwiperSlide key={item.id}>
                 <SalonCard {...item} inSwipe />
               </SwiperSlide>
@@ -116,16 +139,16 @@ const Home: NextPage<GetLaunches> = ({ launchesPast }) => {
           </ContentCardRow>
         </SectionBlock>
 
-        <SectionBlock>
-          {launchesPast && (
-            <PostList
-              title="Články"
-              counter={2233}
-              counterTitle="Vše"
-              postData={launchesPast}
-            />
-          )}
-        </SectionBlock>
+        {/*<SectionBlock>*/}
+        {/*Ex, necessitatibus.*/}
+        {/*  // <PostList*/}
+        {/*  //   title="Články"*/}
+        {/*  //   counter={2233}*/}
+        {/*  //   counterTitle="Vše"*/}
+        {/*  //   postData={launchesPast}*/}
+        {/*  // />*/}
+        {/*)}*/}
+        {/*</SectionBlock>*/}
 
         {/*<SectionBlock>*/}
         {/*  <ContentCardRow*/}
@@ -147,7 +170,11 @@ const Home: NextPage<GetLaunches> = ({ launchesPast }) => {
         </SectionBlock>
 
         <SectionBlock>
-          <CardGallery cards={fixtures} title={'Všechny slečny'} />
+          <CardGallery
+            galleryList={listEmployee}
+            cards={fixtures}
+            title={'Všechny slečny'}
+          />
         </SectionBlock>
 
         {/*<SectionBlock>*/}
@@ -168,16 +195,42 @@ const Home: NextPage<GetLaunches> = ({ launchesPast }) => {
     </>
   )
 }
-
 export const getServerSideProps: GetServerSideProps = async () => {
   const apolloClient = initializeApollo()
-  const { data } = await apolloClient.query({
-    query: getLaunches,
+
+  const { data: salons } = await apolloClient.query({
+    query: listSalons,
+    variables: { first: 10 },
   })
+
+  const { data: posts } = await apolloClient.query({
+    query: listPosts,
+    variables: { first: 10 },
+  })
+
+  const { data: employee } = await apolloClient.query({
+    query: listEmployee,
+    variables: { first: 10 },
+  })
+
+  const salonsListArray =
+    salons.listSalons.edges.map(
+      (edge: ListSalons_listSalons_edges) => edge.node
+    ) || []
+
+  const postsListArray =
+    posts.listPosts.edges.map((edge: ListPosts_listPosts_edges) => edge.node) ||
+    []
+  const employeeListArray =
+    employee.listEmployee.edges.map(
+      (edge: ListEmployee_listEmployee_edges) => edge.node
+    ) || []
 
   return addApolloState(apolloClient, {
     props: {
-      launchesPast: data.launchesPast,
+      listSalons: salonsListArray,
+      listPosts: postsListArray,
+      listEmployee: employeeListArray,
     },
   })
 }

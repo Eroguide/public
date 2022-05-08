@@ -33,7 +33,7 @@ export const Name = styled.h2`
 export const ReviewsCounter = styled.div`
   color: ${({ theme }) => theme.grayScale[5]};
   font-weight: 400;
-  background-color: ${({ theme }) => theme.grayScale[1]};
+  background-color: ${({ theme }) => theme.grayScale[6]};
   height: 40px;
   border-radius: 28px;
   display: flex;

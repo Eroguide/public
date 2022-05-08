@@ -82,6 +82,8 @@ export const RatingSalon = styled.span`
   color: ${({ theme }) => theme.support[2]};
   display: flex;
   align-items: center;
+  height: 32px;
+
   svg {
     transform: rotate(180deg);
     margin-left: 8px;

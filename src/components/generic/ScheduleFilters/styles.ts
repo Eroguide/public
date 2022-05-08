@@ -35,6 +35,7 @@ export const IconWrapper = styled.div`
 export const Notifier = styled.div`
   display: flex;
   flex-flow: nowrap row;
+  align-items: center;
   flex-grow: 1;
   width: 35%;
   ${({ theme }) => theme.media.md`
@@ -57,7 +58,9 @@ export const Notifier = styled.div`
 export const FilterOptions = styled.ul`
   display: flex;
   justify-content: flex-end;
-  margin-top: 16px;
+  ${({ theme }) => theme.media.mobile`
+   margin-top: 16px;
+  `}
 `
 
 export const FilterItem = styled.li`
