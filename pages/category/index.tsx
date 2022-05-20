@@ -2,26 +2,26 @@ import { NextPage } from 'next'
 import Head from 'next/head'
 import { BaseLayout } from '@/components/layouts/BaseLayout'
 import {
-  CardGallery,
-  HeroFilters,
+  // CardGallery,
+  // HeroFilters,
   TopLinePageContent,
 } from '@/components/generic'
 
 import { CategoryLanding } from '@/components/pages'
 import { SectionBlock } from '@/components/layouts/SectionBlock'
-import { useBreakpoint } from '@/hooks/useBreakpoint'
-import { breakpoints, BreakpointsEnum } from '@/src/theme'
+// import { useBreakpoint } from '@/hooks/useBreakpoint'
+// import { breakpoints, BreakpointsEnum } from '@/src/theme'
 
-const fixtures = [
-  { id: '222dsadas', slug: 'one-project-time', best: 1 },
-  { id: 'asddsad222sadasd', slug: 'two-project-time', best: 0 },
-  { id: 'asdsad3242asd', slug: 'three-project-time', best: 0 },
-  { id: 'asdsdadasfffsadasd', slug: 'four-project-time', best: 0 },
-  { id: '222dsadassssd', slug: 'one-project-time', best: 1 },
-  { id: 'asddsad222sadasssdsdsd', slug: 'two-project-time', best: 0 },
-  { id: 'asdsad3242asdssdss', slug: 'three-project-time', best: 0 },
-  { id: 'asdsdadasfffsadadsdsdsd', slug: 'four-project-time', best: 0 },
-]
+// const fixtures = [
+//   { id: '222dsadas', slug: 'one-project-time', best: 1 },
+//   { id: 'asddsad222sadasd', slug: 'two-project-time', best: 0 },
+//   { id: 'asdsad3242asd', slug: 'three-project-time', best: 0 },
+//   { id: 'asdsdadasfffsadasd', slug: 'four-project-time', best: 0 },
+//   { id: '222dsadassssd', slug: 'one-project-time', best: 1 },
+//   { id: 'asddsad222sadasssdsdsd', slug: 'two-project-time', best: 0 },
+//   { id: 'asdsad3242asdssdss', slug: 'three-project-time', best: 0 },
+//   { id: 'asdsdadasfffsadadsdsdsd', slug: 'four-project-time', best: 0 },
+// ]
 
 const CategoryAllPage: NextPage = () => {
   return (
@@ -35,7 +35,7 @@ const CategoryAllPage: NextPage = () => {
         <SectionBlock>
           <TopLinePageContent />
           <CategoryLanding />
-          <CardGallery cards={fixtures} title={'All'} />
+          {/*<CardGallery cards={fixtures} title={'All'} />*/}
         </SectionBlock>
       </BaseLayout>
     </>

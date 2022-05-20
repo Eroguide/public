@@ -28,16 +28,31 @@ export const SalonCardInner = styled.div`
     position: absolute;
     inset: 0 0 0 0;
     filter: blur(0);
-    transition: filter 0.15s ease-in-out;
+    transition: box-shadow 0.15s ease-in-out;
     z-index: -1;
     border-radius: 32px;
   }
+
   &:hover {
     &:before {
       content: '';
-      background-color: ${({ theme }) => theme.opacity[70][0]};
-      transition: filter 0.15s ease-in-out;
-      filter: blur(4px);
+      transition: box-shadow 0.15s ease-in-out;
+      box-shadow: 0 0.91px 2.21px rgba(255, 0, 93, 0.0197),
+        0 2.19px 5.32px rgba(255, 0, 93, 0.0283),
+        0 4.13px 5px rgba(255, 0, 93, 0.035),
+        0 7.37px 10px rgba(255, 0, 93, 0.0417),
+        0 6px 15px rgba(255, 0, 93, 0.0503), 0 17px 40px rgba(255, 0, 93, 0.07);
+    }
+  }
+  &:active {
+    &:before {
+      content: '';
+      transition: box-shadow 0.15s ease-in-out;
+      box-shadow: 0 0.91px 2.21px rgba(255, 0, 93, 0.0197),
+        0 2.19px 5.32px rgba(255, 0, 93, 0.0283),
+        0 4.13px 5px rgba(255, 0, 93, 0.035),
+        0 7.37px 10px rgba(255, 0, 93, 0.0417),
+        0 6px 15px rgba(255, 0, 93, 0.0503), 0 17px 40px rgba(255, 0, 93, 0.07);
     }
   }
 `
@@ -112,7 +127,7 @@ export const CounterAvailable = styled.div`
 `
 
 export const CardImageWrapper = styled.div`
-  border-radius: 32px 32px 0 0;
+  border-radius: 30.8px 30.8px 0 0;
   display: flex;
   width: 100%;
   height: 240px;
@@ -207,7 +222,7 @@ export const BottomRow = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 32px;
+  margin-top: 24px;
 `
 
 export const TitleName = styled.h5`

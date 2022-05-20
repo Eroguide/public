@@ -2,27 +2,27 @@ import { GetServerSideProps, NextPage } from 'next'
 import Head from 'next/head'
 import { BaseLayout } from '@/components/layouts/BaseLayout'
 import {
-  CardGallery,
-  HeroFilters,
+  // CardGallery,
+  // HeroFilters,
   TopLinePageContent,
 } from '@/components/generic'
-import { useRouter } from 'next/router'
+// import { useRouter } from 'next/router'
 import { CategoryLanding } from '@/components/pages'
 import { SectionBlock } from '@/components/layouts/SectionBlock'
-import { useBreakpoint } from '@/hooks/useBreakpoint'
-import { breakpoints, BreakpointsEnum } from '@/src/theme'
-const fixtures = [
-  { id: '222dsadas', slug: 'one-project-time', best: 1 },
-  { id: 'asddsad222sadasd', slug: 'two-project-time', best: 0 },
-  { id: 'asdsad3242asd', slug: 'three-project-time', best: 0 },
-  { id: 'asdsdadasfffsadasd', slug: 'four-project-time', best: 0 },
-  { id: '222dsadassssd', slug: 'one-project-time', best: 1 },
-  { id: 'asddsad222sadasssdsdsd', slug: 'two-project-time', best: 0 },
-  { id: 'asdsad3242asdssdss', slug: 'three-project-time', best: 0 },
-  { id: 'asdsdadasfffsadadsdsdsd', slug: 'four-project-time', best: 0 },
-]
+// import { useBreakpoint } from '@/hooks/useBreakpoint'
+// import { breakpoints, BreakpointsEnum } from '@/src/theme'
+// const fixtures = [
+//   { id: '222dsadas', slug: 'one-project-time', best: 1 },
+//   { id: 'asddsad222sadasd', slug: 'two-project-time', best: 0 },
+//   { id: 'asdsad3242asd', slug: 'three-project-time', best: 0 },
+//   { id: 'asdsdadasfffsadasd', slug: 'four-project-time', best: 0 },
+//   { id: '222dsadassssd', slug: 'one-project-time', best: 1 },
+//   { id: 'asddsad222sadasssdsdsd', slug: 'two-project-time', best: 0 },
+//   { id: 'asdsad3242asdssdss', slug: 'three-project-time', best: 0 },
+//   { id: 'asdsdadasfffsadadsdsdsd', slug: 'four-project-time', best: 0 },
+// ]
 const CategorySinglePage: NextPage<{ slug?: string }> = () => {
-  const { query } = useRouter()
+  // const { query } = useRouter()
   return (
     <>
       <Head>
@@ -34,7 +34,7 @@ const CategorySinglePage: NextPage<{ slug?: string }> = () => {
         <SectionBlock>
           <TopLinePageContent />
           <CategoryLanding />
-          <CardGallery cards={fixtures} title={String(query.slug)} />
+          {/*<CardGallery cards={fixtures} title={String(query.slug)} />*/}
         </SectionBlock>
       </BaseLayout>
     </>

@@ -63,7 +63,7 @@ export const HeartCounterWrapper = styled.div<{ hasItems: boolean }>`
   cursor: pointer;
   height: 100%;
   padding: 0 20px;
-  svg {
+  svg path {
     width: 24px;
     stroke: ${theme.primary[0]};
     fill: ${theme.grayScale[1]};
@@ -73,21 +73,26 @@ export const HeartCounterWrapper = styled.div<{ hasItems: boolean }>`
       hasItems
         ? `fill:${theme.primary[0]}; stroke:${theme.primary[0]}`
         : `fill: white; stroke: ${theme.grayScale[3]};`};
+    transition: fill, stroke 0.06s ease-in-out;
   }
 
   &:hover {
-    svg {
+    svg path {
+      ${({ hasItems }) =>
+        hasItems
+          ? `fill:${theme.primary[0]}; stroke:${theme.primary[0]}`
+          : `fill: white; stroke: ${theme.primary[1]};`};
+    }
+  }
+  &:active {
+    svg path {
       ${({ hasItems }) =>
         hasItems
           ? `fill:${theme.primary[1]}; stroke:${theme.primary[1]}`
-          : `fill: white; stroke: ${theme.primary[0]};`};
+          : `fill: white; stroke: ${theme.primary[1]};`};
     }
   }
 `
-// ${({ hasItems }) =>
-// hasItems
-//     ? `fill:${theme.primary[0]}; stroke:${theme.primary[0]}`
-//     : `fill: white; stroke: ${theme.grayScale[3]};`};
 
 export const Counter = styled.div`
   position: absolute;

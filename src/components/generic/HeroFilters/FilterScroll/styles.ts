@@ -79,6 +79,8 @@ export const FlexRow = styled.div`
   display: flex;
   flex-flow: row nowrap;
   width: 100%;
+  height: 32px;
+  align-items: center;
 `
 
 export const FilterCounter = styled.span`
@@ -92,4 +94,5 @@ export const FilterCounter = styled.span`
   border-radius: 8px;
   margin-left: 4px;
   justify-content: center;
+  align-items: center;
 `

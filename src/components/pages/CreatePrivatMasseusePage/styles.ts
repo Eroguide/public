@@ -47,8 +47,9 @@ export const FormTitle = styled.h3`
 export const FormDescription = styled.p`
   ${({ theme }) => theme.typography.pl};
   color: ${({ theme }) => theme.grayScale[4]};
+  max-width: 400px;
 `
 
 export const FormInputList = styled.form`
-  margin: 40px auto 16px auto;
+  margin: 80px auto 16px auto;
 `

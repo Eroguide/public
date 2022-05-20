@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 
-export const HeaderContainer = styled.div<{ menuIsSticky: boolean }>`
+export const HeaderContainer = styled.div`
   width: 100%;
   padding: 0 80px;
   position: fixed;
@@ -8,8 +8,7 @@ export const HeaderContainer = styled.div<{ menuIsSticky: boolean }>`
   top: 0;
   right: 0;
   z-index: 500;
-  background-color: ${({ menuIsSticky }) =>
-    menuIsSticky ? '#fff' : 'transparent'};
+  background-color: #fff;
   align-items: center;
   ${({ theme }) => theme.media.md`
   padding: 0 32px;
@@ -47,6 +46,17 @@ export const Logo = styled.img`
   width: 130px;
   height: 24px;
   cursor: pointer;
+`
+export const CloseButton = styled.div`
+  height: 24px;
+  width: 24px;
+  border-radius: 8px;
+  border: 2px solid ${({ theme }) => theme.grayScale[1]};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 10;
 `
 
 export const Divider = styled.div`
@@ -99,16 +109,24 @@ export const BurgerIconWrapper = styled.div`
    padding: 0 16px;
   `}
   svg path {
-    stroke: ${({ theme }) => theme.grayScale[3]};
+    stroke: ${({ theme }) => theme.grayScale[1]};
   }
   &:hover {
+    ${CloseButton} {
+      border: 2px solid ${({ theme }) => theme.grayScale[2]};
+    }
+
     svg path {
-      stroke: ${({ theme }) => theme.grayScale[4]};
+      stroke: ${({ theme }) => theme.grayScale[2]};
+      fill: ${({ theme }) => theme.grayScale[0]};
     }
   }
   &:active {
+    ${CloseButton} {
+      border: 2px solid ${({ theme }) => theme.grayScale[3]};
+    }
     svg path {
-      stroke: ${({ theme }) => theme.grayScale[5]};
+      stroke: ${({ theme }) => theme.grayScale[3]};
     }
   }
 `
@@ -125,9 +143,6 @@ export const LeftBlock = styled.div`
   max-width: 50%;
   justify-content: flex-start;
   align-items: center;
-  ${NavLink} {
-    //margin-right: 40px;
-  }
 `
 
 export const RightBlock = styled.div`
@@ -136,9 +151,6 @@ export const RightBlock = styled.div`
   max-width: 50%;
   justify-content: flex-end;
   align-items: center;
-  ${NavLink} {
-    //margin-left: 40px;
-  }
 `
 
 export const LogoWrapper = styled.button`
@@ -194,15 +206,4 @@ export const SearchIconWrapper = styled.button<{ isActive: boolean }>`
       stroke: ${({ theme }) => theme.primary[1]};
     }
   }
-`
-export const CloseButton = styled.div`
-  height: 24px;
-  width: 24px;
-  border-radius: 8px;
-  border: 2px solid ${({ theme }) => theme.grayScale[1]};
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  z-index: 10;
 `

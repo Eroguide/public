@@ -1,7 +1,6 @@
-import { FavoritesItems } from '@/store/favoritsModule'
 import { ListEmployee_listEmployee_edges_node } from '@/graphql/types/ListEmployee'
 
-export type CardProps = FavoritesItems & {
+export type CardProps = {
   tagTitle?: string
   withTimeLine?: boolean
   margin?: string

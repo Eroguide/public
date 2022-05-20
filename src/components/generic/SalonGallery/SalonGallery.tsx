@@ -8,7 +8,7 @@ import {
 } from './styles'
 import { SalonCard } from '@/components/generic'
 import { PaginationWidget } from '@/components/widgets/PaginationWidget'
-import { NextPage } from 'next'
+// import { NextPage } from 'next'
 import { ListSalons_listSalons_edges_node } from '@/graphql/types/ListSalons'
 export const SalonGallery: React.FC<{
   listSalons: Array<ListSalons_listSalons_edges_node>

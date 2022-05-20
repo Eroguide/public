@@ -42,16 +42,16 @@ export const SalonSinglePageContent: React.FC<{
   listSalons: Array<ListSalons_listSalons_edges_node>
 }> = ({ getSalon, listSalons }) => {
   console.log('SalonSinglePageContent getSalon', getSalon)
-  const fixtures = [
-    { id: '222dsadas', slug: 'one-project-time', best: 1 },
-    { id: 'asddsad222sadasd', slug: 'two-project-time', best: 0 },
-    { id: 'asdsad3242asd', slug: 'three-project-time', best: 0 },
-    { id: 'asdsdadasfffsadasd', slug: 'four-project-time', best: 0 },
-    { id: 'asdxfsadasd', slug: 'four-project-time', best: 0 },
-    { id: 'asdsdadvadasd', slug: 'four-project-time', best: 0 },
-    { id: 'xfffsadasd', slug: 'four-project-time', best: 0, tag: 'New' },
-    { id: 'xfffsadssasd', slug: 'four-project-time', best: 0, tag: 'New' },
-  ]
+  // const fixtures = [
+  //   { id: '222dsadas', slug: 'one-project-time', best: 1 },
+  //   { id: 'asddsad222sadasd', slug: 'two-project-time', best: 0 },
+  //   { id: 'asdsad3242asd', slug: 'three-project-time', best: 0 },
+  //   { id: 'asdsdadasfffsadasd', slug: 'four-project-time', best: 0 },
+  //   { id: 'asdxfsadasd', slug: 'four-project-time', best: 0 },
+  //   { id: 'asdsdadvadasd', slug: 'four-project-time', best: 0 },
+  //   { id: 'xfffsadasd', slug: 'four-project-time', best: 0, tag: 'New' },
+  //   { id: 'xfffsadssasd', slug: 'four-project-time', best: 0, tag: 'New' },
+  // ]
   const covidInfoList = [
     {
       id: 213213,
@@ -86,17 +86,17 @@ export const SalonSinglePageContent: React.FC<{
     { title: 'Imitations (each masseuse has its own)', price: 1500 },
   ]
   const {
-    headPhoto,
+    // headPhoto,
     mainPhoto,
-    email,
-    phone,
-    address,
-    description,
-    title,
+    // email,
+    // phone,
+    // address,
+    // description,
+    // title,
     status,
   } = getSalon
 
-  console.log('listSalons', listSalons)
+  // console.log('listSalons', listSalons)
   return (
     <SinglePageContentContainer>
       <Banner image={mainPhoto} />

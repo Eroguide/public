@@ -58,7 +58,7 @@ export const CardGallery: React.FC<CardGalleryProps> = ({
           sizeType="medium"
           counter={321}
         >
-          Načíst více
+          Zobrazit více
         </CustomButton>
       </ButtonRow>
     </Container>

@@ -1,7 +1,6 @@
 import { StoreonModule } from 'storeon'
 import {
   FavoritesActions,
-  FavoritesItems,
   FavoritesModuleEvents,
   FavoritesModuleState,
   FavoritesState,

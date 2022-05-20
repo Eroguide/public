@@ -38,13 +38,22 @@ import VideoIcon from 'public/img/video-icon.svg'
 import { CardProps } from './types'
 import { FavoritesActions } from '@/store/favoritsModule'
 import { WorkingDaysStatic } from '@/components/generic'
+import { numberWithSpaces } from '@/utils/helpers'
 
 export const Card: React.FC<CardProps> = ({
   id,
-  slug,
   tagTitle,
-  margin,
   inSwipe,
+  weight,
+  name,
+  age,
+  price,
+  height,
+  breastSize,
+  address,
+  mainPhoto,
+  margin,
+  ...props
 }) => {
   const {
     dispatch,
@@ -63,7 +72,7 @@ export const Card: React.FC<CardProps> = ({
     <>
       <CardMainContainer margin={margin} inSwipe={inSwipe}>
         <CardInner>
-          <CardImageWrapper>
+          <CardImageWrapper image={mainPhoto}>
             <ImageOverlay />
             <Link href={`/employee/${id}`} passHref>
               <ImageProduct>
@@ -83,26 +92,18 @@ export const Card: React.FC<CardProps> = ({
               <AdditionalInformationContent>
                 <LeftBlock>
                   <ContentColumn>
-                    <InfoItem>
-                      Height: <span>170</span>
-                    </InfoItem>
-                    <InfoItem>
-                      Weight: <span>89</span>
-                    </InfoItem>
+                    <InfoItem>Height: {height}cm</InfoItem>
+                    <InfoItem>Weight: {weight}kg</InfoItem>
                   </ContentColumn>
                   <ContentColumn>
-                    <InfoItem>
-                      Breast: <span>3</span>
-                    </InfoItem>
-                    <InfoItem>
-                      Age: <span>19</span>
-                    </InfoItem>
+                    <InfoItem>Breast: {breastSize}</InfoItem>
+                    <InfoItem>Age: {age}</InfoItem>
                   </ContentColumn>
                 </LeftBlock>
                 <RightBlock>
                   <PhotoCounter>
                     <PhotoIcon />
-                    <span>27</span>
+                    <span>{age}</span>
                     <VideoIconWrapper>
                       <VideoIcon />
                     </VideoIconWrapper>
@@ -127,7 +128,15 @@ export const Card: React.FC<CardProps> = ({
                     onClick={() =>
                       dispatch(FavoritesActions.addItem, {
                         id,
-                        slug,
+                        weight,
+                        name,
+                        age,
+                        price,
+                        height,
+                        breastSize,
+                        address,
+                        mainPhoto,
+                        ...props,
                       })
                     }
                   >
@@ -148,10 +157,10 @@ export const Card: React.FC<CardProps> = ({
             )}
             <Row style={{ marginTop: '16px' }}>
               <Left>
-                {!isOpenSchedule && (
+                {!isOpenSchedule && price && (
                   <Price>
                     <BeforePrice>od </BeforePrice>
-                    <PriceValue>2 000</PriceValue>
+                    <PriceValue>{numberWithSpaces(price)}</PriceValue>
                     <PriceSuffix>Kč/h</PriceSuffix>
                   </Price>
                 )}

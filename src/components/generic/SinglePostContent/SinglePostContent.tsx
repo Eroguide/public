@@ -11,6 +11,7 @@ import {
 import { ContentCardRow, PostCard } from '@/components/generic'
 import { GetPost } from '@/graphql/__generated__/GetLaunches'
 import { format } from 'date-fns'
+import Image from 'next/image'
 import { SwiperSlide } from 'swiper/react'
 export const SinglePostContent: React.FC<GetPost> = ({ post, posts }) => {
   const { title, text, image, createdAt } = post
@@ -27,7 +28,7 @@ export const SinglePostContent: React.FC<GetPost> = ({ post, posts }) => {
             The story about Patagonia. We hiked through Mountains and Canyons.
           </SubTitle>
           <Text>{text}</Text>
-          <img src={image} width="100%" height="100%" alt="" />
+          <Image src={image} width="100%" height="100%" alt="" />
         </Wrapper>
       </Container>
       {/*{//TODO make it in a separate component}*/}

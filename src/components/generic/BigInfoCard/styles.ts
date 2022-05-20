@@ -34,12 +34,15 @@ export const Wrapper = styled.div`
 
 export const Details = styled.p`
   color: ${({ theme }) => theme.grayScale[4]};
-  ${({ theme }) => theme.typography.ps};
+  ${({ theme }) => theme.typography.pl};
+  max-width: 300px;
 `
 
-export const Title = styled.h4`
+export const Title = styled.h3`
   color: ${({ theme }) => theme.grayScale[4]};
   ${({ theme }) => theme.typography.h3};
+  margin-bottom: 24px;
+  max-width: 150px;
 `
 
 export const Content = styled.div`

@@ -50,6 +50,25 @@ export const CloseButton = styled.div`
   align-items: center;
   cursor: pointer;
   z-index: 10;
+
+  svg path {
+    stroke: ${({ theme }) => theme.grayScale[1]};
+  }
+  &:hover {
+    border: 2px solid ${({ theme }) => theme.grayScale[2]};
+
+    svg path {
+      stroke: ${({ theme }) => theme.grayScale[2]};
+      fill: ${({ theme }) => theme.grayScale[0]};
+    }
+  }
+  &:active {
+    border: 2px solid ${({ theme }) => theme.grayScale[3]};
+
+    svg path {
+      stroke: ${({ theme }) => theme.grayScale[3]};
+    }
+  }
 `
 
 export const InnerContent = styled.div`

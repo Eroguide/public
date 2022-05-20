@@ -38,11 +38,10 @@ import VideoIcon from 'public/img/video-icon.svg'
 import { CardProps } from './types'
 import { FavoritesActions } from '@/store/favoritsModule'
 import { WorkingDaysStatic } from '@/components/generic'
-import { height } from 'dom7'
+import { numberWithSpaces } from '@/utils/helpers'
 
 export const CardForGallery: React.FC<CardProps> = ({
   id,
-  slug,
   tagTitle,
   inSwipe,
   weight,
@@ -68,7 +67,6 @@ export const CardForGallery: React.FC<CardProps> = ({
   const handleIsOpenSchedule = () => {
     setIsOpenSchedule(!isOpenSchedule)
   }
-  console.log('props', props)
   return (
     <>
       <CardMainContainer inSwipe={inSwipe}>
@@ -122,16 +120,26 @@ export const CardForGallery: React.FC<CardProps> = ({
               ) : (
                 <>
                   <Left>
-                    <TitleLink>
-                      {name},{age}
-                    </TitleLink>
+                    <Link href={`/employee/${id}`} passHref>
+                      <TitleLink>
+                        {name},{age}
+                      </TitleLink>
+                    </Link>
                   </Left>
                   <FavoriteButton
                     isActive={isActive}
                     onClick={() =>
                       dispatch(FavoritesActions.addItem, {
                         id,
-                        slug,
+                        weight,
+                        name,
+                        age,
+                        price,
+                        height,
+                        breastSize,
+                        address,
+                        mainPhoto,
+                        ...props,
                       })
                     }
                   >
@@ -154,7 +162,7 @@ export const CardForGallery: React.FC<CardProps> = ({
               <Left>
                 <Price>
                   <BeforePrice>od </BeforePrice>
-                  <PriceValue>{price}</PriceValue>
+                  <PriceValue>{numberWithSpaces(price)}</PriceValue>
                   <PriceSuffix>Kč/h</PriceSuffix>
                 </Price>
               </Left>

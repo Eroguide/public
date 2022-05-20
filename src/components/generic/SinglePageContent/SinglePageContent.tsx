@@ -12,7 +12,7 @@ import {
 
 import {
   CustomButton,
-  ProductSlider,
+  // ProductSlider,
   SinglePageContentBlock,
 } from '@/components/generic'
 import { ApperianceWidget } from '@/components/widgets/ApperianceWidget'
@@ -43,7 +43,7 @@ export const SinglePageContent: React.FC = () => {
         </LeftWidgets>
         <BodyContent>
           <SinglePageContentBlock title="Photo">
-            <ProductSlider />
+            {/*<ProductSlider />*/}
           </SinglePageContentBlock>
           <DetailsSection>
             <SinglePageContentBlock title="Appearance">

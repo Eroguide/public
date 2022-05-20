@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react'
 import 'swiper/css'
-
+import { format } from 'date-fns'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { SwiperOptions, FreeMode, Navigation } from 'swiper'
 
@@ -21,6 +21,7 @@ import { Card } from '@/components/generic'
 import ArrowLeftIcon from '/public/img/arrow-left.svg'
 import ArrowRightIcon from '/public/img/arrow-right.svg'
 import { ListEmployee_listEmployee_edges_node } from '@/graphql/types/ListEmployee'
+
 export type ShowNewProps = {
   date: number
   id: string
@@ -31,7 +32,7 @@ export type ShowNewProps = {
 }
 export const ShowNewItems: React.FC<{
   title: string
-  listEmployee: Array<ListEmployee_listEmployee_edges_node>
+  listEmployee: Array<ListEmployee_listEmployee_edges_node & { tag: string }>
 }> = ({ title, listEmployee }) => {
   const navigationPrevRef = useRef<HTMLDivElement>(null)
   const navigationNextRef = useRef<HTMLDivElement>(null)
@@ -55,28 +56,10 @@ export const ShowNewItems: React.FC<{
     },
   }
 
-  const fixtures: Array<ShowNewProps> = [
-    { id: '222dsadas', slug: 'one-project-time', tag: 'bewst', date: 1 },
-    { id: 'asddsad222sadasd', slug: 'two-project-time', tag: 'bewst', date: 2 },
-    { id: 'asdsad3242asd', slug: 'three-project-time', tag: 'bewst', date: 2 },
-    {
-      id: 'asdsdadasfffsadasd',
-      slug: 'four-project-time',
-      tag: 'bewst',
-      date: 3,
-    },
-    { id: 'asdxfsadasd', slug: 'four-project-time', date: 3 },
-    { id: 'asdsdadvadasd', slug: 'four-project-time', date: 4 },
-    { id: 'asdsdadsdasdvadasd', slug: 'x-project-time', date: 4 },
-    { id: 'asdsdadsdasdsssvadasd', slug: 'x-project-time', date: 4 },
-    { id: 'xfffsadasd', slug: 'four-project-time', date: 5 },
-    { id: 'xfffsadasssd', slug: 'four-project-time', date: 8 },
-  ]
-
   const [initSlider, setInitSlider] = useState<boolean>(false)
   const groupsGen: Array<Array<ShowNewProps>> = listEmployee.reduce(
     (groups, employee) => {
-      const date = String(employee.createdAt)
+      const date = String(new Date(String(employee.createdAt)).getDay() || 1)
       if (!groups[date]) {
         groups[date] = []
       }
@@ -88,38 +71,29 @@ export const ShowNewItems: React.FC<{
   // Edit: to add it in the array format instead
   const groupArrays = Object.keys(groupsGen).map((date) => {
     return {
-      createdAt: date,
+      createdAt: new Date(date).getDay(),
       employee: groupsGen[date],
     }
   })
 
-  //group
-  const arrayEmployee = groupArrays.map((group) => {
+  const arrayEmployee: Array<
+    Array<
+      ListEmployee_listEmployee_edges_node & {
+        isLastInGroup?: boolean
+        writeDateTitle?: boolean
+      }
+    >
+  > = groupArrays.map((group) => {
     const employees = group.employee
+    const dateGroupLength = employees?.length
 
-    console.log('employees', employees)
-    // const dateGroupLength = employees?.length
-
-    //
-    // employees[dateGroupLength - 1].isLastInGroup = true
-    // employees[0].writeDateTitle = true
-    //
-    // console.log('employees AFTER', newObject)
-    return employees
+    return employees.map((employee: any, index: number) => ({
+      ...employee,
+      isLastInGroup: index === dateGroupLength - 1,
+      writeDateTitle: index === 0,
+    }))
   })
-  console.log('group', arrayEmployee)
-  const arrayFixturesWithDate = true
-  // const arrayFixturesWithDate = arrayEmployee.flat()
 
-  // const days = {
-  //   1: 'Dnes',
-  //   2: 'Včera',
-  //   3: '4 záři',
-  //   4: 'Some date',
-  //   5: 'Some date',
-  //   8: 'Some date',
-  // }
-  console.log('arrayEmployee', arrayEmployee)
   return (
     <ContentCardRowContainer>
       <TopLine>
@@ -138,25 +112,24 @@ export const ShowNewItems: React.FC<{
       <ContentRow>
         <Swiper {...swiperSettings} onAfterInit={() => setInitSlider(true)}>
           {initSlider &&
-            arrayEmployee.map((item) => {
-              console.log(item)
-              return (
-                <SwiperSlide key={item.id}>
+            arrayEmployee.map((items) => {
+              return items.map((x) => (
+                <SwiperSlide key={x.id}>
                   <>
-                    <Card {...item} tagTitle={item.tag} inSwipe />
-                    {item.createdAt && (
+                    <Card {...x} tagTitle={'Best'} inSwipe />
+                    {x.createdAt && (
                       <>
-                        <TimeLine
-                          date={item.date}
-                          isLast={item.isLastInGroup}
-                        />
-                        {<DateTag date={item.date}>{item.createdAt}</DateTag>}
-                        dsadasddsa
+                        <TimeLine date={'2'} isLast={!!x.isLastInGroup} />
+                        {x.writeDateTitle && (
+                          <DateTag date={2}>
+                            {format(new Date(x.createdAt), 'MM/dd/yyyy')}
+                          </DateTag>
+                        )}
                       </>
                     )}
                   </>
                 </SwiperSlide>
-              )
+              ))
             })}
         </Swiper>
       </ContentRow>

@@ -1,3 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" id="heart" viewBox="0 0 24 24">
-    <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" stroke="" stroke-width="2" />
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g opacity="0.3" filter="url(#filter0_f_706_6507)">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M12 21.9998L3.847 14.2408C2.656 13.1078 2 11.5988 2 9.99183C2 8.38483 2.656 6.87583 3.847 5.74183C6.067 3.62883 9.552 3.43883 12 5.16883C14.448 3.43883 17.933 3.62883 20.153 5.74183C21.344 6.87583 22 8.38483 22 9.99183C22 11.5988 21.344 13.1078 20.153 14.2408L12 21.9998Z" fill="#FF005D"/>
+    </g>
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M12 20.9998L3.847 13.2408C2.656 12.1078 2 10.5988 2 8.99183C2 7.38483 2.656 5.87583 3.847 4.74183C6.067 2.62883 9.552 2.43883 12 4.16883C14.448 2.43883 17.933 2.62883 20.153 4.74183C21.344 5.87583 22 7.38483 22 8.99183C22 10.5988 21.344 12.1078 20.153 13.2408L12 20.9998Z" fill="#FF005D"/>
+    <defs>
+        <filter id="filter0_f_706_6507" x="0" y="2" width="24" height="21.9998" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+            <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+            <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+            <feGaussianBlur stdDeviation="1" result="effect1_foregroundBlur_706_6507"/>
+        </filter>
+    </defs>
 </svg>

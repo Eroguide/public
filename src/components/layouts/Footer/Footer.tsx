@@ -123,10 +123,10 @@ export const Footer: React.FC = () => {
             </UnderFooterLeft>
             <UnderFooterRight>
               <span onClick={() => setDrawerIsOpen(!drawerIsOpen)}>
-                Terms of Service
+                Všeobecné obchodní podmínky
               </span>
               <span onClick={() => setDrawerIsOpen(!drawerIsOpen)}>
-                Privat Policy
+                Ochrana osobních údajů
               </span>
             </UnderFooterRight>
           </Flex>

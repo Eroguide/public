@@ -3,7 +3,7 @@ import styled from '@emotion/styled'
 export const ContentCardRowContainer = styled.div`
   width: 100%;
   padding: 0 9px;
-  margin: 64px 0;
+  margin: 72px 0;
   .swiper {
     overflow: visible;
   }
@@ -23,7 +23,7 @@ export const TopLine = styled.div`
   align-items: center;
   width: 100%;
   max-width: 1298px;
-  margin: 0 auto 40px auto;
+  margin: 0 auto 31px auto;
 `
 
 export const Title = styled.h3`

@@ -14,8 +14,10 @@ export const CreatePrivatMasseusePage: React.FC = () => {
     <Container>
       <Row>
         <BigInfoCard
-          title="When the selection process beats all desire"
-          details="so where would you like to go today?"
+          title="All under
+your controll"
+          details="You can manage your profile yourself in your personal account. Turn it on and off every day, as well as change the basic information in it!
+Submit your questionnaire for just a few days to be sure of its effectiveness!"
         />
         <BigInfoCard
           title="It's been five hours"
@@ -27,16 +29,14 @@ export const CreatePrivatMasseusePage: React.FC = () => {
       </Row>
 
       <FormSection>
-        <FormTitle>Aplication from salon representative</FormTitle>
+        <FormTitle>Add the profile of a private masseuse</FormTitle>
         <FormDescription>
-          I will be happy to answer all your questions. or we will discuss the
-          date of the photo session convenient for you.
+          Leave a request and I will send you personal access profile where you
+          upload your photos and description.
         </FormDescription>
 
         <FormInputList>
-          <CustomInput type="text" placeholder="Salon name" />
-          <CustomInput type="text" placeholder="Website (if have)" />
-          <CustomInput type="text" placeholder="Your name" />
+          <CustomInput type="text" placeholder="Name" />
           <CustomInput type="email" placeholder="Email" />
           <CustomInput type="tel" placeholder="Phone" />
         </FormInputList>

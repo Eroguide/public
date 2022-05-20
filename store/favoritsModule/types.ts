@@ -1,16 +1,7 @@
-export type FavoritesItems = {
-  id: string
-  slug?: string
-  // name: string
-  // height: number
-  // weight: number
-  // breast: 1 | 2 | 3 | 4 | 5
-  // age: number
-  // price: number
-}
+import { ListEmployee_listEmployee_edges_node } from '@/graphql/types/ListEmployee'
 
 export interface FavoritesState {
-  items: Array<FavoritesItems>
+  items: Array<ListEmployee_listEmployee_edges_node>
   quantity: number
 }
 
@@ -24,7 +15,7 @@ export enum FavoritesActions {
 }
 
 export type FavoritesModuleEvents = {
-  [FavoritesActions.setItems]: Array<FavoritesItems>
-  [FavoritesActions.addItem]: FavoritesItems
+  [FavoritesActions.setItems]: Array<ListEmployee_listEmployee_edges_node>
+  [FavoritesActions.addItem]: ListEmployee_listEmployee_edges_node
   [FavoritesActions.removeItem]: undefined
 }

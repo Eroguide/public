@@ -4,6 +4,7 @@ export const ContentCardRowContainer = styled.div`
   width: 100%;
   padding: 0 9px;
   margin-top: 64px;
+  overflow: hidden;
   .swiper {
     overflow: visible;
   }
@@ -20,7 +21,7 @@ export const TopLine = styled.div`
   justify-content: space-between;
   display: flex;
   align-items: center;
-  margin-bottom: 40px;
+  margin-bottom: 31px;
 `
 
 export const Title = styled.h3`
@@ -130,13 +131,15 @@ export const DateTag = styled.span<{ date: number }>`
       : `color: ${theme.grayScale[3]};`};
 `
 
-export const TimeLine = styled.div<{ date: number; isLast: boolean }>`
+export const TimeLine = styled.div<{ date: string; isLast: boolean }>`
   ${({ theme, date }) =>
-    date === 1
+    date === '1'
       ? `background: ${theme.primary[0]};`
-      : date === 2
+      : date === '2'
       ? `background: ${theme.primary[1]};`
-      : date === 3
+      : date === '3'
+      ? `background: ${theme.primary[2]};`
+      : date === '4'
       ? `background: ${theme.primary[2]};`
       : `background: ${theme.grayScale[3]};`};
   height: 8px;

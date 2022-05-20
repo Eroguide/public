@@ -80,5 +80,6 @@ export const ButtonRow = styled.div`
   display: flex;
   width: 100%;
   justify-content: center;
-  margin-top: 80px;
+  margin-top: 88px;
+  margin-bottom: 100px;
 `

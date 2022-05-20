@@ -32,24 +32,26 @@ import {
   ListEmployee_listEmployee_edges_node,
 } from '@/graphql/types/ListEmployee'
 
-const fixtures = [
-  { id: '222dsadas', slug: 'one-project-time', best: 1 },
-  { id: 'asddsad222sadasd', slug: 'two-project-time', best: 0 },
-  { id: 'asdsad3242asd', slug: 'three-project-time', best: 0 },
-  { id: 'asdsdadasfffsadasd', slug: 'four-project-time', best: 0 },
-  { id: 'asdxfsadasd', slug: 'four-project-time', best: 0 },
-  { id: 'asdsdadvadasd', slug: 'four-project-time', best: 0 },
-  { id: 'xfffsadasd', slug: 'four-project-time', best: 0, tag: 'New' },
-  { id: 'xfffsadssa22sd', slug: 'four-project-time', best: 0, tag: 'New' },
-  { id: 'xfffsads44sasd', slug: 'four-project-time', best: 0, tag: 'New' },
-  { id: 'xfffsads1122sasd', slug: 'four-project-time', best: 0, tag: 'New' },
-  { id: 'xfffsad222ssasd', slug: 'four-project-time', best: 0, tag: 'New' },
-  { id: '1231d', slug: 'four-project-time', best: 0, tag: 'New' },
-  { id: '123dsf', slug: 'four-project-time', best: 0, tag: 'New' },
-  { id: '123', slug: 'four-project-time', best: 0, tag: 'New' },
-  { id: '12421', slug: 'four-project-time', best: 0, tag: 'New' },
-  { id: '123dsagxc3e21', slug: 'four-project-time', best: 0, tag: 'New' },
-]
+// const fixtures = [
+//   { id: '222dsadas', slug: 'one-project-time', best: 1 },
+//   { id: 'asddsad222sadasd', slug: 'two-project-time', best: 0 },
+//   { id: 'asdsad3242asd', slug: 'three-project-time', best: 0 },
+//   { id: 'asdsdadasfffsadasd', slug: 'four-project-time', best: 0 },
+//   { id: 'asdxfsadasd', slug: 'four-project-time', best: 0 },
+//   { id: 'asdsdadvadasd', slug: 'four-project-time', best: 0 },
+//   { id: 'xfffsadasd', slug: 'four-project-time', best: 0, tag: 'New' },
+//   { id: 'xfffsadssa22sd', slug: 'four-project-time', best: 0, tag: 'New' },
+//   { id: 'xfffsads44sasd', slug: 'four-project-time', best: 0, tag: 'New' },
+//   { id: 'xfffsads1122sasd', slug: 'four-project-time', best: 0, tag: 'New' },
+//   { id: 'xfffsad222ssasd', slug: 'four-project-time', best: 0, tag: 'New' },
+//   { id: '1231d', slug: 'four-project-time', best: 0, tag: 'New' },
+//   { id: '123dsf', slug: 'four-project-time', best: 0, tag: 'New' },
+//   { id: '123', slug: 'four-project-time', best: 0, tag: 'New' },
+//   { id: '12421', slug: 'four-project-time', best: 0, tag: 'New' },
+//   { id: '123dsagxc3e21', slug: 'four-project-time', best: 0, tag: 'New' },
+// ]
+
+console.log('listSalons', listSalons)
 
 export type MainPageSsrProps = {
   listEmployee: Array<ListEmployee_listEmployee_edges_node>
@@ -58,9 +60,10 @@ export type MainPageSsrProps = {
 }
 const Home: NextPage<MainPageSsrProps> = ({
   listEmployee,
-  listPosts,
+  // listPosts,
   listSalons,
 }) => {
+  console.log('listEmployee', listEmployee)
   return (
     <>
       <Head>
@@ -98,9 +101,9 @@ const Home: NextPage<MainPageSsrProps> = ({
             href="/gallery"
             bottomControl
           >
-            {fixtures.map((item) => (
+            {listEmployee.map((item) => (
               <SwiperSlide key={item.id}>
-                <Card {...item} tagTitle={item.slug} inSwipe />
+                <Card {...item} tagTitle={item.__typename} inSwipe />
               </SwiperSlide>
             ))}
           </ContentCardRow>
@@ -170,11 +173,7 @@ const Home: NextPage<MainPageSsrProps> = ({
         </SectionBlock>
 
         <SectionBlock>
-          <CardGallery
-            galleryList={listEmployee}
-            cards={fixtures}
-            title={'Všechny slečny'}
-          />
+          <CardGallery galleryList={listEmployee} title={'Všechny slečny'} />
         </SectionBlock>
 
         {/*<SectionBlock>*/}

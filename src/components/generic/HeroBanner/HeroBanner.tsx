@@ -7,6 +7,7 @@ import {
   HeroImage,
 } from './styles'
 import { Responsive } from '@/components/generic'
+import MainMascotImg from '/public/img/main-banner-image.svg'
 
 export const HeroBanner: React.FC = () => {
   return (
@@ -18,12 +19,14 @@ export const HeroBanner: React.FC = () => {
             Já Eroguide - fotograf, romantik a milovník něžného pohlaví.
           </HeroSubtitle>
         </HeroContentDesktop>
-        <HeroImage />
+        <HeroImage>
+          <MainMascotImg />
+        </HeroImage>
       </HeroBannerContainer>
 
       <Responsive mobile>
         <MobileTitleContainer>
-          <HeroTitle>Show, tell, prove</HeroTitle>
+          <HeroTitle>Ukážu, povím, dokážu</HeroTitle>
           <HeroSubtitle>
             Já Eroguide - fotograf, romantik a milovník něžného pohlaví.
           </HeroSubtitle>

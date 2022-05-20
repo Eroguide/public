@@ -9,8 +9,8 @@ import { ListEmployee_listEmployee_edges_node } from '@/graphql/types/ListEmploy
 
 const GalleryItem: NextPage<{
   employee: ListEmployee_listEmployee_edges_node
-}> = ({ employee }) => {
-  console.log('employee', employee)
+}> = () => {
+  // console.log('employee', employee)
   return (
     <>
       <Head>

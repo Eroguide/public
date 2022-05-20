@@ -11,23 +11,23 @@ import {
   ListEmployee_listEmployee_edges_node,
 } from '@/graphql/types/ListEmployee'
 
-const fixtures = [
-  { id: '222dsadas', slug: 'one-project-time', best: 1 },
-  { id: 'asddsad222sadasd', slug: 'two-project-time', best: 0 },
-  { id: 'asdsad3242asd', slug: 'three-project-time', best: 0 },
-  { id: 'asdsdadasfffsadasd', slug: 'four-project-time', best: 0 },
-  { id: '222dsadassssd', slug: 'one-project-time', best: 1 },
-  { id: 'asddsad222sadasssdsdsd', slug: 'two-project-time', best: 0 },
-  { id: 'asdsad3242asdssdss', slug: 'three-project-time', best: 0 },
-  { id: 'asdsdadasfffsadadsdsdsd', slug: 'four-project-time', best: 0 },
-]
+// const fixtures = [
+//   { id: '222dsadas', slug: 'one-project-time', best: 1 },
+//   { id: 'asddsad222sadasd', slug: 'two-project-time', best: 0 },
+//   { id: 'asdsad3242asd', slug: 'three-project-time', best: 0 },
+//   { id: 'asdsdadasfffsadasd', slug: 'four-project-time', best: 0 },
+//   { id: '222dsadassssd', slug: 'one-project-time', best: 1 },
+//   { id: 'asddsad222sadasssdsdsd', slug: 'two-project-time', best: 0 },
+//   { id: 'asdsad3242asdssdss', slug: 'three-project-time', best: 0 },
+//   { id: 'asdsdadasfffsadadsdsdsd', slug: 'four-project-time', best: 0 },
+// ]
 
 const Employee: NextPage<{
   listEmployee: ListEmployee_listEmployee
   galleryList: Array<ListEmployee_listEmployee_edges_node>
 }> = ({ listEmployee, galleryList }) => {
-  console.log('data', listEmployee)
-  console.log('galleryList', galleryList)
+  // console.log('data', listEmployee)
+  // console.log('galleryList', galleryList)
   return (
     <>
       <Head>
@@ -43,7 +43,6 @@ const Employee: NextPage<{
           <CardGallery
             counter={listEmployee.totalCount}
             galleryList={galleryList}
-            cards={galleryList}
             title={'Ladies'}
           />
         </SectionBlock>
@@ -51,7 +50,7 @@ const Employee: NextPage<{
     </>
   )
 }
-export const getServerSideProps: GetServerSideProps = async (context) => {
+export const getServerSideProps: GetServerSideProps = async () => {
   const apolloClient = initializeApollo()
   const { data } = await apolloClient.query({
     query: listEmployee,

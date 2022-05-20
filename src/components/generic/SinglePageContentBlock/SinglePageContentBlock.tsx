@@ -11,7 +11,6 @@ export const SinglePageContentBlock: React.FC<{
         <Title>{title}</Title>
         {withIcon && <ToolTipIcon />}
       </TopLine>
-
       {children}
     </Container>
   )

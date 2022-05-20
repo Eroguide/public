@@ -75,7 +75,6 @@ export const CardContent = styled.div`
 
 export const TitleLink = styled.a`
   ${({ theme }) => theme.typography.h3};
-
   font-weight: 600;
   color: ${({ theme }) => theme.grayScale[4]};
   cursor: pointer;
@@ -130,7 +129,11 @@ export const Row = styled.div`
   align-items: center;
   position: relative;
 `
-export const Left = styled.div``
+export const Left = styled.div`
+  & a {
+    text-decoration: none;
+  }
+`
 export const Right = styled.div``
 export const TopImageTag = styled.span`
   position: absolute;
@@ -209,6 +212,7 @@ export const ContentColumn = styled.div`
 export const InfoItem = styled.div`
   color: ${({ theme }) => theme.grayScale[0]};
   ${({ theme }) => theme.typography.ps};
+  margin-bottom: 8px;
 `
 
 export const WorkingDaysWrapper = styled.div`

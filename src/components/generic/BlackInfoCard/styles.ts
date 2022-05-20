@@ -47,14 +47,18 @@ export const Left = styled.div`
   justify-content: flex-end;
 `
 
-export const Title = styled.h4`
+export const Title = styled.h3`
   color: ${({ theme }) => theme.grayScale[0]};
-  ${({ theme }) => theme.typography.h4};
+  ${({ theme }) => theme.typography.h3};
+  margin-bottom: 24px;
+  max-width: 150px;
+  font-weight: 600;
 `
 
 export const Subtitle = styled.p`
   color: ${({ theme }) => theme.grayScale[0]};
-  ${({ theme }) => theme.typography.h7};
+  ${({ theme }) => theme.typography.pl};
+  max-width: 300px;
 `
 
 export const Right = styled.div`
@@ -68,6 +72,24 @@ export const Right = styled.div`
 `
 
 export const IconWrapper = styled.div`
+  display: flex;
+  width: 64px;
+  height: 24px;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+
+  svg path {
+    stroke: ${({ theme }) => theme.grayScale[3]};
+  }
+  &:hover {
+    svg path {
+      stroke: ${({ theme }) => theme.grayScale[0]};
+    }
+  }
+`
+
+export const IconCloseWrapper = styled.div`
   display: flex;
   width: 64px;
   height: 24px;

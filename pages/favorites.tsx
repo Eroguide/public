@@ -19,7 +19,7 @@ const Favorites: NextPage = () => {
       <BaseLayout>
         <SectionBlock>
           <TopLinePageContent />
-          <CardGallery cards={items} title={'Favourite ladies:'} />
+          <CardGallery galleryList={items} title={'Favourite ladies:'} />
         </SectionBlock>
       </BaseLayout>
     </>

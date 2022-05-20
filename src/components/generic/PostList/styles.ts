@@ -24,7 +24,7 @@ export const TopLine = styled.div`
   align-items: center;
   width: 100%;
   max-width: 1298px;
-  margin: 0 auto 40px auto;
+  margin: 0 auto 31px auto;
 `
 
 export const Title = styled.h3`

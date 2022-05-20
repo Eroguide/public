@@ -25,7 +25,6 @@ import GreenCheckIcon from '/public/img/green-circle-check.svg'
 import { Swiper as SwiperClass } from 'swiper/types'
 
 export const ProductSlider: React.FC<{ status: boolean }> = ({ status }) => {
-  console.log('status', status)
   const [thumbsSwiper, setThumbsSwiper] = useState<SwiperClass>()
   const navigationPrevRef = useRef<HTMLDivElement>(null)
   const navigationNextRef = useRef<HTMLDivElement>(null)
@@ -153,6 +152,7 @@ export const ProductSlider: React.FC<{ status: boolean }> = ({ status }) => {
                 </NextButton>
               </NextPrevWrapper>
             </Right>
+            {!status && null}
           </BottomRow>
         </Wrapper>
       </Container>
