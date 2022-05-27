@@ -1,6 +1,4 @@
-import { Label, Input, CheckboxContainer, Title } from './styles'
-
-import Checkmark from '/public/img/check-box-icon.svg'
+import { Label, Input, CheckboxContainer, Title, Circle } from './styles'
 
 export type CheckboxProps = {
   name?: string
@@ -16,7 +14,7 @@ export type StyledComponentProps = Pick<
   'disabled' | 'isError' | 'fontSize' | 'width'
 >
 
-export const CheckBox: React.FC<CheckboxProps> = ({
+export const RadioButtonInput: React.FC<CheckboxProps> = ({
   name,
   label,
   defaultChecked,
@@ -39,7 +37,8 @@ export const CheckBox: React.FC<CheckboxProps> = ({
         defaultChecked={defaultChecked}
       />
       <CheckboxContainer disabled={disabled} isError={isError}>
-        {!disabled && <Checkmark />}
+        {!disabled && <Circle />}
+        {/*{!disabled && <Checkmark />}*/}
       </CheckboxContainer>
       <Title>{label}</Title>
     </Label>

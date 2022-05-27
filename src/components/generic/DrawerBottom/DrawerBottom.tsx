@@ -1,12 +1,11 @@
 import {
   DrawerBottomContainer,
   BgOverlay,
-  CloseButton,
   InnerContent,
   TextContent,
 } from './styles'
+import { CloseButton } from '@/components/generic'
 import { DrawerBottomProps } from './types'
-import CloseIcon from '/public/img/cross-icon.svg'
 import { GalleryLanding } from '@/components/generic'
 import { useCallback, useEffect } from 'react'
 export const DrawerBottom: React.FC<DrawerBottomProps> = ({
@@ -44,9 +43,7 @@ export const DrawerBottom: React.FC<DrawerBottomProps> = ({
     <>
       {isOpen && <BgOverlay onClick={() => handleClose()} />}
       <DrawerBottomContainer isOpen={isOpen}>
-        <CloseButton onClick={() => handleClose()}>
-          <CloseIcon />
-        </CloseButton>
+        <CloseButton handleClose={() => handleClose()} />
         <InnerContent>
           <GalleryLanding
             title="Legal information and legal notices"

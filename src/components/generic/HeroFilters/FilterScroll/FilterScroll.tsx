@@ -1,8 +1,9 @@
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { SwiperOptions, FreeMode } from 'swiper'
-import 'swiper/css'
-import 'swiper/css/effect-fade'
-import 'swiper/css/pagination'
+
+// import 'swiper/css'
+// import 'swiper/css/effect-fade'
+// import 'swiper/css/pagination'
 
 import {
   FilterScrollContainer,
@@ -47,14 +48,8 @@ export const FilterScroll: React.FC = () => {
           {initSlider
             ? options.map((option, i) => (
                 <SwiperSlide key={`${option.name}-${i}`}>
-                  <Link
-                    href={i === 0 ? '/category' : `/category/${option.slug}`}
-                    passHref
-                    shallow={!(i === 0)}
-                  >
-                    <FilterCategory
-                      isActive={slug ? slug === option.slug : i === 0}
-                    >
+                  <Link href={`/category/${option.slug}`} passHref>
+                    <FilterCategory isActive={slug === option.slug}>
                       <FlexBox>
                         <FlexRow>
                           <CategoryTitle>{option.name}</CategoryTitle>

@@ -6,7 +6,7 @@ export const CardMainContainer = styled.div<{
   width: 100%;
   flex-direction: column;
   border-radius: 32px;
-  padding: 9px;
+  padding: 9px 9px 30px 9px;
   position: relative;
 `
 
@@ -63,7 +63,6 @@ export const CardContent = styled.div`
   border-right: 1px solid ${({ theme }) => theme.grayScale[1]};
   border-bottom: 1px solid ${({ theme }) => theme.grayScale[1]};
   padding: 16px 16px 24px 16px;
-  height: 152px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -85,7 +84,7 @@ export const Description = styled.div`
   flex-wrap: wrap;
   ${({ theme }) => theme.typography.pm};
   height: 24px;
-  font-weight: 500;
+  font-weight: 400;
   a {
     margin-right: 8px;
     color: ${({ theme }) => theme.grayScale[3]};
@@ -123,11 +122,12 @@ export const PriceSuffix = styled.span`
   line-height: 24px;
   font-weight: 500;
 `
-export const Row = styled.div`
+export const Row = styled.div<{ mb?: number }>`
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: relative;
+  ${({ mb }) => mb && `margin-bottom: ${mb}px;`};
 `
 export const Left = styled.div`
   & a {
@@ -163,6 +163,12 @@ export const FavoriteButton = styled.div<{ isActive: boolean }>`
         fill: ${theme.primary[0]};
         }`};
   }
+`
+export const RowGroup = styled.div`
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin-bottom: 16px;
 `
 
 export const AdditionalInformation = styled.div`

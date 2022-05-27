@@ -2,6 +2,7 @@ import styled from '@emotion/styled'
 
 export const Container = styled.div`
   cursor: pointer;
+  margin-bottom: 16px;
 `
 
 export const Wrapper = styled.div`

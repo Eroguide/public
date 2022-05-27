@@ -10,7 +10,7 @@ export const CardMainContainer = styled.div<{
   border-radius: 32px;
   ${({ margin }) => margin && `margin:${margin};`}
   position: relative;
-  padding: 9px;
+  padding: 9px 9px 30px 9px;
 `
 
 export const CardInner = styled.div`
@@ -81,10 +81,8 @@ export const CardContent = styled.div`
   border-right: 1px solid ${({ theme }) => theme.grayScale[1]};
   border-bottom: 1px solid ${({ theme }) => theme.grayScale[1]};
   padding: 16px 16px 24px 16px;
-  height: 152px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   background-color: #fff;
   border-radius: 0 0 32px 32px;
   z-index: 10;
@@ -103,7 +101,7 @@ export const Description = styled.div`
   flex-wrap: wrap;
   height: 24px;
   align-items: baseline;
-  font-weight: 500;
+  font-weight: 400;
   a {
     margin-right: 8px;
     ${({ theme }) => theme.typography.pm};
@@ -143,13 +141,24 @@ export const PriceSuffix = styled.span`
   line-height: 24px;
   font-weight: 600;
 `
-export const Row = styled.div`
+export const Row = styled.div<{ mb?: number }>`
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: relative;
+  ${({ mb }) => mb && `margin-bottom: ${mb}px;`};
 `
-export const Left = styled.div``
+export const RowGroup = styled.div`
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin-bottom: 16px;
+`
+export const Left = styled.div`
+  a {
+    text-decoration: none;
+  }
+`
 export const Right = styled.div``
 export const TopImageTag = styled.span`
   position: absolute;

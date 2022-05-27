@@ -20,6 +20,7 @@ export const ReactPaginateStyled = styled(ReactPaginate)`
   max-width: 500px;
   width: 100%;
   height: 48px;
+  margin-top: 24px;
   display: flex;
   align-items: center;
   flex-flow: row nowrap;

@@ -9,7 +9,7 @@ export const Inner = styled.div`
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  margin: auto -5px;
+  margin: auto;
 `
 
 export const ItemWrapper = styled.div`

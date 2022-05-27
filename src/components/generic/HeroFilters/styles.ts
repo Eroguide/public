@@ -51,3 +51,25 @@ export const Search = styled.span`
     transition: background-color 0.2s ease-in-out;
   }
 `
+
+export const HomeButton = styled.span<{ isActive: boolean }>`
+  width: 64px;
+  display: flex;
+  height: auto;
+  svg path {
+    transition: fill 0.2s ease-in-out;
+    stroke: ${({ isActive, theme }) =>
+      isActive ? theme.primary[0] : theme.grayScale[1]};
+  }
+  &:hover {
+    cursor: pointer;
+    svg path {
+      stroke: ${({ theme }) => theme.primary[0]};
+    }
+  }
+  &:active {
+    svg path {
+      stroke: ${({ theme }) => theme.primary[2]};
+    }
+  }
+`

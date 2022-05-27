@@ -58,7 +58,7 @@ export const SalonCardInner = styled.div`
 `
 
 export const CardContent = styled.div`
-  padding: 32px 24px;
+  padding: 24px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -126,13 +126,14 @@ export const CounterAvailable = styled.div`
   align-items: center;
 `
 
-export const CardImageWrapper = styled.div`
+export const CardImageWrapper = styled.div<{ photoUrl: string }>`
   border-radius: 30.8px 30.8px 0 0;
   display: flex;
   width: 100%;
   height: 240px;
   position: relative;
-  background: #ebebf0 url('/img/fake.png') no-repeat center center;
+  background: #ebebf0 url(${({ photoUrl }) => photoUrl ?? '/img/fake.png'})
+    no-repeat center center;
   background-size: cover;
   overflow: hidden;
   z-index: 1;

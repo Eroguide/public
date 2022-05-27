@@ -30,6 +30,7 @@ import {
   WorkingDaysWrapper,
   PhotoCounter,
   VideoIconWrapper,
+  RowGroup,
 } from './styles'
 import HeartIcon from 'public/img/heart.svg'
 import HeartLinedIcon from 'public/img/heart-lined.svg'
@@ -112,59 +113,63 @@ export const CardForGallery: React.FC<CardProps> = ({
             )}
           </CardImageWrapper>
           <CardContent>
-            <Row>
-              {isOpenSchedule ? (
-                <WorkingDaysWrapper>
-                  <WorkingDaysStatic />
-                </WorkingDaysWrapper>
-              ) : (
-                <>
-                  <Left>
-                    <Link href={`/employee/${id}`} passHref>
-                      <TitleLink>
-                        {name},{age}
-                      </TitleLink>
-                    </Link>
-                  </Left>
-                  <FavoriteButton
-                    isActive={isActive}
-                    onClick={() =>
-                      dispatch(FavoritesActions.addItem, {
-                        id,
-                        weight,
-                        name,
-                        age,
-                        price,
-                        height,
-                        breastSize,
-                        address,
-                        mainPhoto,
-                        ...props,
-                      })
-                    }
-                  >
-                    {isActive ? <HeartIcon /> : <HeartLinedIcon />}
-                  </FavoriteButton>
-                </>
-              )}
-            </Row>
-            {!isOpenSchedule && (
-              <Row>
-                <Left>
-                  <Description>
-                    <Link href={'/'}>Barbie SPA</Link>
-                    <Link href={'/'}>Prague 1</Link>
-                  </Description>
-                </Left>
+            <RowGroup>
+              <Row mb={4}>
+                {isOpenSchedule ? (
+                  <WorkingDaysWrapper>
+                    <WorkingDaysStatic />
+                  </WorkingDaysWrapper>
+                ) : (
+                  <>
+                    <Left>
+                      <Link href={`/employee/${id}`} passHref>
+                        <TitleLink>
+                          {name},{age}
+                        </TitleLink>
+                      </Link>
+                    </Left>
+                    <FavoriteButton
+                      isActive={isActive}
+                      onClick={() =>
+                        dispatch(FavoritesActions.addItem, {
+                          id,
+                          weight,
+                          name,
+                          age,
+                          price,
+                          height,
+                          breastSize,
+                          address,
+                          mainPhoto,
+                          ...props,
+                        })
+                      }
+                    >
+                      {isActive ? <HeartIcon /> : <HeartLinedIcon />}
+                    </FavoriteButton>
+                  </>
+                )}
               </Row>
-            )}
+              {!isOpenSchedule && (
+                <Row>
+                  <Left>
+                    <Description>
+                      <Link href={'/'}>Barbie SPA</Link>
+                      <Link href={'/'}>Prague 1</Link>
+                    </Description>
+                  </Left>
+                </Row>
+              )}
+            </RowGroup>
             <Row>
               <Left>
-                <Price>
-                  <BeforePrice>od </BeforePrice>
-                  <PriceValue>{numberWithSpaces(price)}</PriceValue>
-                  <PriceSuffix>Kč/h</PriceSuffix>
-                </Price>
+                {!isOpenSchedule && (
+                  <Price>
+                    <BeforePrice>od </BeforePrice>
+                    <PriceValue>{numberWithSpaces(price)}</PriceValue>
+                    <PriceSuffix>Kč/h</PriceSuffix>
+                  </Price>
+                )}
               </Left>
 
               <Right>

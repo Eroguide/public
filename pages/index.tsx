@@ -9,6 +9,7 @@ import {
   Card,
   CardGallery,
   MapSection,
+  PostList,
   // PostCard,
   // PostCardWide,
   // PostList,
@@ -32,27 +33,6 @@ import {
   ListEmployee_listEmployee_edges_node,
 } from '@/graphql/types/ListEmployee'
 
-// const fixtures = [
-//   { id: '222dsadas', slug: 'one-project-time', best: 1 },
-//   { id: 'asddsad222sadasd', slug: 'two-project-time', best: 0 },
-//   { id: 'asdsad3242asd', slug: 'three-project-time', best: 0 },
-//   { id: 'asdsdadasfffsadasd', slug: 'four-project-time', best: 0 },
-//   { id: 'asdxfsadasd', slug: 'four-project-time', best: 0 },
-//   { id: 'asdsdadvadasd', slug: 'four-project-time', best: 0 },
-//   { id: 'xfffsadasd', slug: 'four-project-time', best: 0, tag: 'New' },
-//   { id: 'xfffsadssa22sd', slug: 'four-project-time', best: 0, tag: 'New' },
-//   { id: 'xfffsads44sasd', slug: 'four-project-time', best: 0, tag: 'New' },
-//   { id: 'xfffsads1122sasd', slug: 'four-project-time', best: 0, tag: 'New' },
-//   { id: 'xfffsad222ssasd', slug: 'four-project-time', best: 0, tag: 'New' },
-//   { id: '1231d', slug: 'four-project-time', best: 0, tag: 'New' },
-//   { id: '123dsf', slug: 'four-project-time', best: 0, tag: 'New' },
-//   { id: '123', slug: 'four-project-time', best: 0, tag: 'New' },
-//   { id: '12421', slug: 'four-project-time', best: 0, tag: 'New' },
-//   { id: '123dsagxc3e21', slug: 'four-project-time', best: 0, tag: 'New' },
-// ]
-
-console.log('listSalons', listSalons)
-
 export type MainPageSsrProps = {
   listEmployee: Array<ListEmployee_listEmployee_edges_node>
   listPosts: Array<ListPosts_listPosts_edges_node>
@@ -60,10 +40,9 @@ export type MainPageSsrProps = {
 }
 const Home: NextPage<MainPageSsrProps> = ({
   listEmployee,
-  // listPosts,
+  listPosts,
   listSalons,
 }) => {
-  console.log('listEmployee', listEmployee)
   return (
     <>
       <Head>
@@ -142,16 +121,16 @@ const Home: NextPage<MainPageSsrProps> = ({
           </ContentCardRow>
         </SectionBlock>
 
-        {/*<SectionBlock>*/}
-        {/*Ex, necessitatibus.*/}
-        {/*  // <PostList*/}
-        {/*  //   title="Články"*/}
-        {/*  //   counter={2233}*/}
-        {/*  //   counterTitle="Vše"*/}
-        {/*  //   postData={launchesPast}*/}
-        {/*  // />*/}
-        {/*)}*/}
-        {/*</SectionBlock>*/}
+        <SectionBlock>
+          {listPosts && (
+            <PostList
+              title="Články"
+              counter={2233}
+              counterTitle="Vše"
+              postData={listPosts}
+            />
+          )}
+        </SectionBlock>
 
         {/*<SectionBlock>*/}
         {/*  <ContentCardRow*/}

@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { useStoreon } from '@/store/index'
 import { ChevronButton } from '@/components/generic/ChevronButton'
 import {
+  RowGroup,
   CardMainContainer,
   CardInner,
   CardImageWrapper,
@@ -113,49 +114,56 @@ export const Card: React.FC<CardProps> = ({
             )}
           </CardImageWrapper>
           <CardContent>
-            <Row>
-              {isOpenSchedule ? (
-                <WorkingDaysWrapper>
-                  <WorkingDaysStatic />
-                </WorkingDaysWrapper>
-              ) : (
-                <>
-                  <Left>
-                    <TitleLink>Alesandra,23</TitleLink>
-                  </Left>
-                  <FavoriteButton
-                    isActive={isActive}
-                    onClick={() =>
-                      dispatch(FavoritesActions.addItem, {
-                        id,
-                        weight,
-                        name,
-                        age,
-                        price,
-                        height,
-                        breastSize,
-                        address,
-                        mainPhoto,
-                        ...props,
-                      })
-                    }
-                  >
-                    {isActive ? <HeartIcon /> : <HeartLinedIcon />}
-                  </FavoriteButton>
-                </>
-              )}
-            </Row>
-            {!isOpenSchedule && (
-              <Row>
-                <Left>
-                  <Description>
-                    <Link href={'/'}>Barbie SPA</Link>
-                    <Link href={'/'}>Prague 1</Link>
-                  </Description>
-                </Left>
+            <RowGroup>
+              <Row mb={4}>
+                {isOpenSchedule ? (
+                  <WorkingDaysWrapper>
+                    <WorkingDaysStatic />
+                  </WorkingDaysWrapper>
+                ) : (
+                  <>
+                    <Left>
+                      <Link href={`/employee/${id}`} passHref>
+                        <TitleLink>
+                          {name},{age}
+                        </TitleLink>
+                      </Link>
+                    </Left>
+                    <FavoriteButton
+                      isActive={isActive}
+                      onClick={() =>
+                        dispatch(FavoritesActions.addItem, {
+                          id,
+                          weight,
+                          name,
+                          age,
+                          price,
+                          height,
+                          breastSize,
+                          address,
+                          mainPhoto,
+                          ...props,
+                        })
+                      }
+                    >
+                      {isActive ? <HeartIcon /> : <HeartLinedIcon />}
+                    </FavoriteButton>
+                  </>
+                )}
               </Row>
-            )}
-            <Row style={{ marginTop: '16px' }}>
+              {!isOpenSchedule && (
+                <Row>
+                  <Left>
+                    <Description>
+                      <Link href={'/'}>Barbie SPA</Link>
+                      <Link href={'/'}>Prague 1</Link>
+                    </Description>
+                  </Left>
+                </Row>
+              )}
+            </RowGroup>
+
+            <Row>
               <Left>
                 {!isOpenSchedule && price && (
                   <Price>

@@ -31,7 +31,12 @@ import CheckIcon from 'public/img/check-blue.svg'
 import { Left, Right } from '@/components/generic/Card/styles'
 import { CustomButton } from '@/components/generic'
 
-export const SalonCard: React.FC<SalonCardProps> = ({ id, inSwipe, title }) => {
+export const SalonCard: React.FC<SalonCardProps> = ({
+  id,
+  inSwipe,
+  title,
+  mainPhoto,
+}) => {
   const cardList = [
     { id: '23123' },
     { id: '23123' },
@@ -52,7 +57,7 @@ export const SalonCard: React.FC<SalonCardProps> = ({ id, inSwipe, title }) => {
   return (
     <SalonCardMainContainer inSwipe={inSwipe}>
       <SalonCardInner>
-        <CardImageWrapper>
+        <CardImageWrapper photoUrl={mainPhoto}>
           <Link href={`/salons/${id}`} passHref>
             <ImageProduct>
               <ImageOverlay>

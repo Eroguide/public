@@ -25,9 +25,12 @@ import { ScheduleSinglePageWidget } from '@/components/widgets/ScheduleSinglePag
 import { SalonSinglePageWidget } from '@/components/widgets/SalonSinglePageWidget'
 import { useState } from 'react'
 import AnimateHeight from 'react-animate-height'
+import { useRouter } from 'next/router'
 
 export const SinglePageContent: React.FC = () => {
   const [isShowMore, setIsShowMore] = useState<boolean>(false)
+  const router = useRouter()
+
   return (
     <SinglePageContentContainer>
       <Banner />
@@ -145,7 +148,10 @@ export const SinglePageContent: React.FC = () => {
             <SinglePageContentBlock title="Audio">
               <AudioPlayerWidget />
             </SinglePageContentBlock>
-            <SinglePageContentBlock title="Salon ladies">
+            <SinglePageContentBlock
+              title="Salon ladies"
+              topButtonHandler={() => router.push('/salons')}
+            >
               <LadiesGalleryWidget />
             </SinglePageContentBlock>
           </DetailsSection>

@@ -14,16 +14,26 @@ export const CreatePrivatSalonPage: React.FC = () => {
     <Container>
       <Row>
         <BigInfoCard
-          title="When the selection process beats all desire"
-          details="so where would you like to go today?"
+          title="Reduction
+in advertising costs"
+          details="Over time, many salons turned off or significantly reduced the expense in Yandex and Google ... as unnecessary;) The main audience is already at Eroguide."
         />
         <BigInfoCard
-          title="It's been five hours"
-          details="not real photos, do not answer the call, does not work there anymore"
+          title="I’am not an auditor"
+          details="I will create an effective profile, highlighting the beauty and dignity of the masseuse in the photo."
         />
       </Row>
       <Row>
-        <BlackInfoCard />
+        <BlackInfoCard
+          title1="I’am not an auditor"
+          title2="I’am not an auditor"
+          details1={
+            'I will create an effective profile, highlighting the beauty and dignity of the masseuse in the photo.'
+          }
+          details2={
+            'I will create an effective profile, highlighting the beauty and dignity of the masseuse in the photo.'
+          }
+        />
       </Row>
 
       <FormSection>

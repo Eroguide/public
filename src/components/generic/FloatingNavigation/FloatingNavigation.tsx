@@ -156,7 +156,6 @@ export const NavItemComponent: React.FC<MobileNavItemType> = ({
 }
 
 export const FloatingNavigation: React.FC = () => {
-  // const [isShowMore, setIsShowMore] = useState<boolean>(false)
   return (
     <Container>
       <Wrapper>
@@ -171,19 +170,9 @@ export const FloatingNavigation: React.FC = () => {
           </NavSection>
           <Divider />
           <NavSection>
-            {/*<ShowMore height={isShowMore ? 'auto' : 120}>*/}
             {navItemList.firstNavGroup.map((navItem) => (
               <NavItemComponent key={navItem.id} {...navItem} />
             ))}
-            {/*</ShowMore>*/}
-            {/*<CustomButton*/}
-            {/*  sizeType="small"*/}
-            {/*  onClick={() => setIsShowMore(!isShowMore)}*/}
-            {/*  styleType="link"*/}
-            {/*  textAlign={'flex-start'}*/}
-            {/*>*/}
-            {/*  {isShowMore ? 'Less' : 'More'}*/}
-            {/*</CustomButton>*/}
           </NavSection>
           <Divider />
           <NavSection>

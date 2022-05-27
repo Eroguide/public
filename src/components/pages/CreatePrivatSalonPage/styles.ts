@@ -50,5 +50,5 @@ export const FormDescription = styled.p`
 `
 
 export const FormInputList = styled.form`
-  margin: 40px auto 16px auto;
+  margin: 80px auto 64px auto;
 `

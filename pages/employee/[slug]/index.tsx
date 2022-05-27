@@ -10,7 +10,6 @@ import { ListEmployee_listEmployee_edges_node } from '@/graphql/types/ListEmploy
 const GalleryItem: NextPage<{
   employee: ListEmployee_listEmployee_edges_node
 }> = () => {
-  // console.log('employee', employee)
   return (
     <>
       <Head>
@@ -44,9 +43,8 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
   //   query: listPosts,
   //   variables: { first: 10 },
   // })
-
-  // const postListArray =
-  //   posts.listPosts.edges.map((edge: NodePost<PostEdge>) => edge.node) || []
+  //
+  // const postListArray = posts.listPosts.edges.map((edge) => edge.node) || []
 
   return addApolloState(apolloClient, {
     props: {

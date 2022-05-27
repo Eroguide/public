@@ -1,15 +1,30 @@
-import { Container, Title, TopLine } from './styles'
+import { Container, Title, TopLine, Block } from './styles'
 import ToolTipIcon from '/public/img/tooltip-icon.svg'
+import { CustomButton } from '@/components/generic'
 
 export const SinglePageContentBlock: React.FC<{
   title: string
   withIcon?: boolean
-}> = ({ children, title, withIcon }) => {
+  topButtonHandler?: () => void
+}> = ({ children, title, withIcon, topButtonHandler }) => {
   return (
     <Container>
       <TopLine>
-        <Title>{title}</Title>
-        {withIcon && <ToolTipIcon />}
+        <Block>
+          <Title>{title}</Title>
+          {withIcon && <ToolTipIcon />}
+        </Block>
+        <Block>
+          {topButtonHandler && (
+            <CustomButton
+              styleType="tertiary"
+              onClick={topButtonHandler}
+              counter={13}
+            >
+              All ladies
+            </CustomButton>
+          )}
+        </Block>
       </TopLine>
       {children}
     </Container>

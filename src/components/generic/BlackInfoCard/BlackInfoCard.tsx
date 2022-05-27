@@ -14,7 +14,12 @@ import {
 import RightArrowIcon from '/public/img/arrow-right.svg'
 import CloseIcon from '/public/img/exit-icon.svg'
 
-export const BlackInfoCard: React.FC = () => {
+export const BlackInfoCard: React.FC<{
+  title1?: string
+  title2?: string
+  details1?: string
+  details2?: string
+}> = ({ title1, title2, details1, details2 }) => {
   const [isFlipped, setIsFlipped] = useState<boolean>(false)
 
   return (
@@ -25,10 +30,8 @@ export const BlackInfoCard: React.FC = () => {
           {!isFlipped ? (
             <FrontSide>
               <Left>
-                <Title>
-                  When not all topics are covered in the questionnaire
-                </Title>
-                <Subtitle>looks good, I&apos;ll take a chance</Subtitle>
+                <Title>{title1}</Title>
+                <Subtitle>{details1}</Subtitle>
               </Left>
               <Right>
                 <IconWrapper onClick={() => setIsFlipped(true)}>
@@ -39,13 +42,8 @@ export const BlackInfoCard: React.FC = () => {
           ) : (
             <BackSide>
               <Left>
-                <Title>Lorem ipsum dolor sit amet.</Title>
-                <Subtitle>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Asperiores enim quo ullam. Architecto at dolore ducimus nobis
-                  odio pariatur quibusdam repellendus totam? Deleniti deserunt
-                  eaque ipsam iure non nulla officia?
-                </Subtitle>
+                <Title>{title2}</Title>
+                <Subtitle>{details2}</Subtitle>
               </Left>
               <Right>
                 <IconWrapper onClick={() => setIsFlipped(false)}>

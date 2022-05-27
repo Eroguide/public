@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react'
-import 'swiper/css'
+// import 'swiper/css'
 import { format } from 'date-fns'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { SwiperOptions, FreeMode, Navigation } from 'swiper'
@@ -32,7 +32,7 @@ export type ShowNewProps = {
 }
 export const ShowNewItems: React.FC<{
   title: string
-  listEmployee: Array<ListEmployee_listEmployee_edges_node & { tag: string }>
+  listEmployee: Array<ListEmployee_listEmployee_edges_node>
 }> = ({ title, listEmployee }) => {
   const navigationPrevRef = useRef<HTMLDivElement>(null)
   const navigationNextRef = useRef<HTMLDivElement>(null)
@@ -87,11 +87,13 @@ export const ShowNewItems: React.FC<{
     const employees = group.employee
     const dateGroupLength = employees?.length
 
-    return employees.map((employee: any, index: number) => ({
-      ...employee,
-      isLastInGroup: index === dateGroupLength - 1,
-      writeDateTitle: index === 0,
-    }))
+    return employees.map(
+      (employee: ListEmployee_listEmployee_edges_node, index: number) => ({
+        ...employee,
+        isLastInGroup: index === dateGroupLength - 1,
+        writeDateTitle: index === 0,
+      })
+    )
   })
 
   return (

@@ -12,9 +12,9 @@ import {
   RatingSalon,
   GlobusWrapper,
 } from './styles'
-import AttentionIcon from '../../../../public/img/attention-icon.svg'
-import GlobusIcon from '../../../../public/img/globus-icon.svg'
-import LocationIcon from '../../../../public/img/location-pin-icon.svg'
+import AttentionIcon from '/public/img/attention-icon.svg'
+import GlobusIcon from '/public/img/globus-icon.svg'
+import LocationIcon from '/public/img/location-pin-icon.svg'
 import { CustomButton } from '@/components/generic'
 
 export const SalonSinglePageWidget: React.FC = () => {

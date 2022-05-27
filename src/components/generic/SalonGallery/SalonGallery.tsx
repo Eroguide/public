@@ -7,7 +7,7 @@ import {
   GalleryItem,
 } from './styles'
 import { SalonCard } from '@/components/generic'
-import { PaginationWidget } from '@/components/widgets/PaginationWidget'
+// import { PaginationWidget } from '@/components/widgets/PaginationWidget'
 // import { NextPage } from 'next'
 import { ListSalons_listSalons_edges_node } from '@/graphql/types/ListSalons'
 export const SalonGallery: React.FC<{
@@ -28,7 +28,7 @@ export const SalonGallery: React.FC<{
             </GalleryItem>
           ))}
         </Wrapper>
-        <PaginationWidget itemsPerPage={4} />
+        {/*<PaginationWidget itemsPerPage={4} />*/}
       </Container>
     </>
   )

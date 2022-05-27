@@ -128,7 +128,4 @@ export const NavItem = styled.div<{ isActive: boolean }>`
       stroke: ${({ theme }) => theme.primary[0]};
     }
   }
-  //&:not(:last-of-type) {
-  //  margin-bottom: 16px;
-  //}
 `

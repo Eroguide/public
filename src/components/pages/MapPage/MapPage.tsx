@@ -1,23 +1,12 @@
 import {
   Container,
   Wrapper,
-  MapPin,
   // Details,
-  MapPinLeg,
-  MapPinWrapper,
 } from './styles'
 import GoogleMapReact, { Coords, MapOptions } from 'google-map-react'
 import { useState } from 'react'
 import { FloatingGallery } from '@/components/widgets/FloatingGallery'
-
-const AnyReactComponent: React.FC<Coords & { type: string }> = (props) => (
-  <MapPinWrapper>
-    <MapPinLeg />
-    <MapPin {...props}>{props.type === 'lady' ? 'M' : 'S'}</MapPin>
-    {/*<Details>Some textsddasds</Details>*/}
-  </MapPinWrapper>
-)
-
+import { MapPinElement } from './MapPinElement'
 const pinList: Array<Coords & { type: string }> = [
   {
     lat: 50.0865,
@@ -81,6 +70,7 @@ export const MapPage: React.FC = () => {
     // console.log('map', map, maps)
     setIsReady(true)
   }
+  const [isOpenId, setIsOpenId] = useState<number>()
 
   return (
     <Container>
@@ -96,10 +86,17 @@ export const MapPage: React.FC = () => {
         >
           {isReady &&
             pinList.map((pin, i) => (
-              <AnyReactComponent key={pin.lat * pin.lng * i} {...pin} />
+              <MapPinElement
+                key={pin.lat * pin.lng * i}
+                handlePinClick={() => setIsOpenId(i)}
+                isActive={i === isOpenId}
+                {...pin}
+              />
             ))}
         </GoogleMapReact>
-        <FloatingGallery />
+        {isOpenId !== -1 && (
+          <FloatingGallery handleClose={() => setIsOpenId(-1)} />
+        )}
       </Wrapper>
     </Container>
   )

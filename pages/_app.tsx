@@ -7,6 +7,9 @@ import { ApolloProvider } from '@apollo/client'
 import { useApollo } from '@/graphql/apollo'
 import { Loader } from '@/components/widgets/LoaderWidget'
 import { AdultPrompt } from '@/components/generic'
+import 'swiper/css'
+import 'swiper/css/effect-fade'
+import 'swiper/css/pagination'
 
 function MyApp({ Component, pageProps }: AppProps) {
   const apolloClient = useApollo(pageProps)

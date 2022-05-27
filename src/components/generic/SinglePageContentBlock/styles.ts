@@ -17,10 +17,16 @@ export const TopLine = styled.div`
   margin-bottom: 32px;
   display: flex;
   align-items: baseline;
+  justify-content: space-between;
 `
 
 export const IconWrapper = styled.div`
   display: flex;
   justify-content: center;
+  align-items: center;
+`
+
+export const Block = styled.div`
+  display: flex;
   align-items: center;
 `

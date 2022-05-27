@@ -6,6 +6,28 @@ export const AboutPage: React.FC = () => {
     <Container>
       <Row>
         <BigInfoCard
+          title="All under
+your controll"
+          details="You can manage your profile yourself in your personal account. Turn it on and off every day, as well as change the basic information in it!
+
+Submit your questionnaire for just a few days to be sure of its effectiveness!"
+        />
+        <BigInfoCard
+          title="I’am not
+an auditor"
+          details="I will create an effective profile, highlighting the beauty and dignity of the masseuse in the photo."
+        />
+      </Row>
+      <Row>
+        <BlackInfoCard
+          title1="When not all topics are covered in the questionnaire"
+          title2="looks good, I'll take a chance"
+          details1="When not all topics are covered in the questionnaire"
+          details2="looks good, I'll take a chance"
+        />
+      </Row>
+      <Row>
+        <BigInfoCard
           title="When the selection process beats all desire"
           details="so where would you like to go today?"
         />
@@ -15,7 +37,12 @@ export const AboutPage: React.FC = () => {
         />
       </Row>
       <Row>
-        <BlackInfoCard />
+        <BlackInfoCard
+          title1="Enough tolerating this!"
+          title2="Enough tolerating this!"
+          details1="i created my own project"
+          details2="i created my own project"
+        />
       </Row>
       <Row>
         <BigInfoCard
@@ -28,7 +55,12 @@ export const AboutPage: React.FC = () => {
         />
       </Row>
       <Row>
-        <BlackInfoCard />
+        <BlackInfoCard
+          title1="How do i select a ladys"
+          details1="looks good, I'll take a chance"
+          title2="When not all topics are covered in the questionnaire"
+          details2="looks good, I'll take a chance"
+        />
       </Row>
       <Row>
         <BigInfoCard title="Simple rules" />

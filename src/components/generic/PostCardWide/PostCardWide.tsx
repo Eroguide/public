@@ -13,6 +13,7 @@ import {
 import { PostCardWideProps } from './types'
 import Link from 'next/link'
 import { CustomButton } from '@/components/generic'
+import { format, isToday } from 'date-fns'
 
 export const PostCardWide: React.FC<PostCardWideProps> = ({
   id,
@@ -22,6 +23,9 @@ export const PostCardWide: React.FC<PostCardWideProps> = ({
   text,
   image,
 }) => {
+  const dateText = isToday(createdAt)
+    ? `today ${format(new Date(createdAt), 'k:m')}`
+    : format(new Date(createdAt), 'iiii k:m')
   return (
     <>
       <CardMainContainer inSwipe={inSwipe}>
@@ -42,8 +46,7 @@ export const PostCardWide: React.FC<PostCardWideProps> = ({
               />
             </Description>
             <BottomLine>
-              <DateText>{createdAt}</DateText>
-
+              <DateText>{dateText}</DateText>
               <CustomButton
                 styleType="tertiary"
                 sizeType="medium"
