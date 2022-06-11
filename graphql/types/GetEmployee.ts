@@ -44,7 +44,7 @@ export interface GetEmployee_getEmployee {
   /**
    * Is private employee ?
    */
-  isPrivate: boolean | null
+  // isPrivate: boolean | null
   /**
    * Emploee's weight
    */

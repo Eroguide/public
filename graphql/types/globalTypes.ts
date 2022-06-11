@@ -16,6 +16,19 @@ export enum SortDirection {
 }
 
 /**
+ * Filtering or sorting on BigInt column
+ */
+export interface BigIntColumn {
+  sort?: SortDirection | null
+  priority?: number | null
+  eq?: any | null
+  neq?: any | null
+  from?: any | null
+  to?: any | null
+  in?: any[] | null
+}
+
+/**
  * Filtering or sorting on Date column
  */
 export interface DateColumn {
@@ -30,6 +43,7 @@ export interface DateColumn {
  */
 export interface PostFilterSort {
   fastSearch?: string | null
+  byCategory?: string | null
   created?: DateColumn | null
 }
 
@@ -38,8 +52,12 @@ export interface PostFilterSort {
  */
 export interface EmployeeFilterSort {
   fastSearch?: string | null
+  shift?: string | null
+  top?: string | null
   isDraft?: boolean | null
-  isPrivate?: boolean | null
+  type?: string | null
+  identificatior?: BigIntColumn | null
+  shlUpdated?: DateColumn | null
   created?: DateColumn | null
 }
 
@@ -58,6 +76,8 @@ export interface EmployeeSchedule {
 export interface SalonFilterSort {
   fastSearch?: string | null
   isPrivate?: boolean | null
+  isTurnedOff?: boolean | null
   isDraft?: boolean | null
+  shlUpdated?: DateColumn | null
   created?: DateColumn | null
 }

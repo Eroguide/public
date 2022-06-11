@@ -1,7 +1,6 @@
 import styled from '@emotion/styled'
 
 export const HeaderContainer = styled.div`
-  width: 100%;
   padding: 0 80px;
   position: fixed;
   left: 0;
@@ -27,7 +26,6 @@ export const HeaderInner = styled.div`
   margin: 0 auto;
   width: 100%;
   max-width: 1280px;
-  //padding: 0 32px;
 
   ${({ theme }) => theme.media.md`
     // padding: 0;
@@ -36,9 +34,6 @@ export const HeaderInner = styled.div`
   ${({ theme }) => theme.media.sm`
  
     width: calc(100% - 32px * 2);
-  `}
-  ${({ theme }) => theme.media.mobile`
-  // padding: 0;
   `}
 `
 
@@ -206,4 +201,8 @@ export const SearchIconWrapper = styled.button<{ isActive: boolean }>`
       stroke: ${({ theme }) => theme.primary[1]};
     }
   }
+
+  ${({ theme }) => theme.media.mobile`
+ display: none;
+  `}
 `

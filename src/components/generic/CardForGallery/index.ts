@@ -1,1 +1,0 @@
-export { CardForGallery } from './CardForGallery'

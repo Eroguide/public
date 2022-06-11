@@ -2,7 +2,7 @@ import styled from '@emotion/styled'
 
 export const FilterScrollContainer = styled.div`
   height: 100%;
-  width: calc(100% - 64px);
+  width: calc(100% - 128px);
   display: flex;
   align-items: center;
 `

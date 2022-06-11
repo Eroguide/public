@@ -1,0 +1,22 @@
+query GetEmployee($id: BigInt!) {
+    getEmployee(id: $id) {
+        id
+        name
+        description
+        interview
+        createdAt
+        age
+        price
+        meetingPoint
+        #      isPrivate
+        weight
+        height
+        email
+        address
+        mainPhoto
+        headPhoto
+        #            breastSize
+        #            footSize
+        #            isDraft
+    }
+}

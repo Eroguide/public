@@ -28,18 +28,21 @@ export const CardInner = styled.div`
     z-index: -1;
     border-radius: 32px;
   }
-
-  &:hover {
-    &:before {
-      content: '';
-      transition: box-shadow 0.15s ease-in-out;
-      box-shadow: 0 0.91px 2.21px rgba(255, 0, 93, 0.0197),
-        0 2.19px 5.32px rgba(255, 0, 93, 0.0283),
-        0 4.13px 5px rgba(255, 0, 93, 0.035),
-        0 7.37px 10px rgba(255, 0, 93, 0.0417),
-        0 6px 15px rgba(255, 0, 93, 0.0503), 0 17px 40px rgba(255, 0, 93, 0.07);
+  @media all and (min-width: 960px) {
+    &:hover {
+      &:before {
+        content: '';
+        transition: box-shadow 0.15s ease-in-out;
+        box-shadow: 0 0.91px 2.21px rgba(255, 0, 93, 0.0197),
+          0 2.19px 5.32px rgba(255, 0, 93, 0.0283),
+          0 4.13px 5px rgba(255, 0, 93, 0.035),
+          0 7.37px 10px rgba(255, 0, 93, 0.0417),
+          0 6px 15px rgba(255, 0, 93, 0.0503),
+          0 17px 40px rgba(255, 0, 93, 0.07);
+      }
     }
   }
+
   &:active {
     &:before {
       content: '';
@@ -135,6 +138,7 @@ export const PriceValue = styled.span`
   line-height: 24px;
   margin-right: 4px;
 `
+
 export const PriceSuffix = styled.span`
   color: ${({ theme }) => theme.grayScale[4]};
   font-size: ${({ theme }) => theme.fontSize['xs']};
@@ -155,7 +159,7 @@ export const RowGroup = styled.div`
   margin-bottom: 16px;
 `
 export const Left = styled.div`
-  a {
+  & a {
     text-decoration: none;
   }
 `
@@ -167,11 +171,11 @@ export const TopImageTag = styled.span`
   font-weight: 500;
   border-radius: 0 0 8px 8px;
   padding: 2px 16px;
+  min-width: 60px;
+  text-align: center;
   height: 24px;
   display: flex;
   align-items: center;
-  min-width: 60px;
-  text-align: center;
   color: ${({ theme }) => theme.grayScale[0]};
 `
 
@@ -237,8 +241,7 @@ export const ContentColumn = styled.div`
 
 export const InfoItem = styled.div`
   color: ${({ theme }) => theme.grayScale[0]};
-  ${({ theme }) => theme.typography.h6};
-  font-weight: 500;
+  ${({ theme }) => theme.typography.ps};
   margin-bottom: 8px;
   & span {
     margin-right: 4px;

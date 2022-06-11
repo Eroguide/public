@@ -8,7 +8,7 @@ export const CardMainContainer = styled.div`
   border-radius: 32px;
   margin-bottom: 32px;
   position: relative;
-  padding: 9px;
+  padding: 9px 9px 30px 9px;
 
   ${({ theme }) => theme.media.mobile`
     width: 100% ;
@@ -22,30 +22,36 @@ export const PostCardInner = styled.div`
   position: relative;
   z-index: 1;
   cursor: pointer;
+
   &:before {
     content: '';
     position: absolute;
     inset: 0 0 0 0;
     filter: blur(0);
-    transition: filter 0.15s ease-in-out;
+    transition: box-shadow 0.15s ease-in-out;
     z-index: -1;
     border-radius: 32px;
   }
   &:hover {
     &:before {
       content: '';
-      background-color: ${({ theme }) => theme.opacity[70][0]};
-      transition: filter 0.15s ease-in-out;
-      filter: blur(4px);
+      transition: box-shadow 0.15s ease-in-out;
+      box-shadow: 0 0.91px 2.21px rgba(255, 0, 93, 0.0197),
+        0 2.19px 5.32px rgba(255, 0, 93, 0.0283),
+        0 4.13px 5px rgba(255, 0, 93, 0.035),
+        0 7.37px 10px rgba(255, 0, 93, 0.0417),
+        0 6px 15px rgba(255, 0, 93, 0.0503), 0 17px 40px rgba(255, 0, 93, 0.07);
     }
   }
-
   &:active {
     &:before {
       content: '';
-      background-color: ${({ theme }) => theme.opacity[70][0]};
-      transition: filter 0.2s ease-out;
-      filter: blur(2px);
+      transition: box-shadow 0.15s ease-in-out;
+      box-shadow: 0 0.91px 2.21px rgba(255, 0, 93, 0.0197),
+        0 2.19px 5.32px rgba(255, 0, 93, 0.0283),
+        0 4.13px 5px rgba(255, 0, 93, 0.035),
+        0 7.37px 10px rgba(255, 0, 93, 0.0417),
+        0 6px 15px rgba(255, 0, 93, 0.0503), 0 17px 40px rgba(255, 0, 93, 0.07);
     }
   }
 `

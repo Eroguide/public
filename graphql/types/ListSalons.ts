@@ -53,29 +53,29 @@ export interface ListSalons_listSalons_edges_node_staff_languages {
 }
 
 export interface ListSalons_listSalons_edges_node_staff {
-  __typename: 'SalonEmployee'
+  __typename: 'Employee'
   /**
    * ID
    */
   id: any
   /**
-   * Name of Employee
+   * Name of employee
    */
   name: string
   /**
-   * Main photo of Emploee
+   * Main photo of employee
    */
   mainPhoto: string
   /**
-   * Head photo of Emploee
+   * Head photo of employee
    */
   headPhoto: string
   /**
-   * Salon status
+   * Employee status
    */
   status: boolean | null
   /**
-   * Age of Emploee
+   * Age of employee
    */
   age: any
   /**
@@ -103,11 +103,11 @@ export interface ListSalons_listSalons_edges_node_staff {
    */
   departureCost: string
   /**
-   * Service price
+   * Employee price
    */
   price: any
   /**
-   * Emploee desc
+   * Employee desc
    */
   description: string
   /**
@@ -117,9 +117,9 @@ export interface ListSalons_listSalons_edges_node_staff {
   /**
    * Represents belonging to the salon.
    */
-  salonId: any
+  salonId: any | null
   /**
-   * Created at
+   * Date when employee was created
    */
   createdAt: any
   /**

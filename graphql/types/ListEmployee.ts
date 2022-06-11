@@ -16,6 +16,70 @@ export interface ListEmployee_listEmployee_pageInfo {
   hasNextPage: boolean
 }
 
+export interface ListEmployee_listEmployee_edges_node_serviceLike {
+  __typename: 'SalonEmployeeServiceLike'
+  /**
+   * ID of current service
+   */
+  serviceId: any
+  /**
+   * preference
+   */
+  preferences: string
+}
+
+export interface ListEmployee_listEmployee_edges_node_services {
+  __typename: 'Service'
+  /**
+   * ID
+   */
+  id: any
+  /**
+   * PREFERENCE OF employeeId
+   */
+  preference: string | null
+}
+
+export interface ListEmployee_listEmployee_edges_node_schedule {
+  __typename: 'EmployeeSchedule'
+  /**
+   * id: BigInt!
+   */
+  id: any
+  /**
+   * Day of week
+   */
+  day: string
+  /**
+   * status in current day
+   */
+  status: string
+  /**
+   * Start work in current day
+   */
+  startTime: any
+  /**
+   * End work in current day
+   */
+  endTime: any
+}
+
+export interface ListEmployee_listEmployee_edges_node_languages {
+  __typename: 'Language'
+  /**
+   * ID
+   */
+  id: any
+  /**
+   * Language name
+   */
+  name: string
+  /**
+   * Date when language was created
+   */
+  createdAt: any
+}
+
 export interface ListEmployee_listEmployee_edges_node {
   __typename: 'Employee'
   /**
@@ -27,33 +91,37 @@ export interface ListEmployee_listEmployee_edges_node {
    */
   name: string
   /**
-   * Employee desc
+   * Main photo of employee
    */
-  description: string
+  mainPhoto: string
   /**
-   * interview with Emploee
+   * Head photo of employee
    */
-  interview: string | null
+  headPhoto: string
   /**
-   * Date when employee was created
+   * Employee status
    */
-  createdAt: any
+  status: boolean | null
+  /**
+   * Active til
+   */
+  active: string | null
+  /**
+   * Salon address
+   */
+  address: string | null
+  /**
+   * Salon email
+   */
+  email: string | null
+  /**
+   * Salon phone
+   */
+  phone: string | null
   /**
    * Age of employee
    */
   age: any
-  /**
-   * Employee price
-   */
-  price: any
-  /**
-   * Availability of emploee to come out
-   */
-  meetingPoint: string
-  /**
-   * Is private employee ?
-   */
-  isPrivate: boolean | null
   /**
    * Emploee's weight
    */
@@ -63,22 +131,6 @@ export interface ListEmployee_listEmployee_edges_node {
    */
   height: any
   /**
-   * Salon email
-   */
-  email: string
-  /**
-   * Salon address
-   */
-  address: string
-  /**
-   * Main photo of employee
-   */
-  mainPhoto: string
-  /**
-   * Head photo of employee
-   */
-  headPhoto: string
-  /**
    * Emploee's bust
    */
   breastSize: any
@@ -87,9 +139,65 @@ export interface ListEmployee_listEmployee_edges_node {
    */
   footSize: any
   /**
-   * Is draft salon ?
+   * Is private employee ?
    */
-  isDraft: boolean | null
+  type: string
+  /**
+   * Availability of emploee to come out
+   */
+  meetingPoint: string
+  /**
+   * Info about cost of departure
+   */
+  departureCost: string
+  /**
+   * Employee price
+   */
+  price: any
+  /**
+   * Employee desc
+   */
+  description: string
+  /**
+   * interview with Emploee
+   */
+  interview: string | null
+  /**
+   * Date of top ends
+   */
+  topDate: any | null
+  /**
+   * Date of top of day ends
+   */
+  dayTop: any | null
+  /**
+   * Date when schedule was updated
+   */
+  scheduleUpdatedAt: any
+  /**
+   * Date when employee was created
+   */
+  createdAt: any
+  /**
+   * Gallery of current employee
+   */
+  gallery: string[]
+  /**
+   * Emploee's services like
+   */
+  serviceLike: ListEmployee_listEmployee_edges_node_serviceLike[]
+  /**
+   * Emploee's services
+   */
+  services: ListEmployee_listEmployee_edges_node_services[]
+  /**
+   * Emploee's schedule
+   */
+  schedule: ListEmployee_listEmployee_edges_node_schedule[]
+  /**
+   * Emploee's languages
+   */
+  languages: ListEmployee_listEmployee_edges_node_languages[]
 }
 
 export interface ListEmployee_listEmployee_edges {

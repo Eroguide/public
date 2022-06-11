@@ -1,7 +1,6 @@
-import { Overlay, LoaderIcon } from './styles'
+import { Overlay, LoaderIcon, GridLogo, Cell } from './styles'
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
-import SpinnerIcon from '/public/img/spinner.svg'
 export const Loader: React.FC = () => {
   const router = useRouter()
 
@@ -46,7 +45,12 @@ export const Loader: React.FC = () => {
   return (
     <Overlay>
       <LoaderIcon>
-        <SpinnerIcon />
+        <GridLogo>
+          {[1, 2, 3, 6, 9, 8, 7, 4, 5].map((x, i) => (
+            <Cell key={x} idx={x} index={i} />
+          ))}
+        </GridLogo>
+        {/*<SpinnerIcon />*/}
       </LoaderIcon>
     </Overlay>
   )

@@ -7,21 +7,11 @@ import {
   TopLinePageContent,
 } from '@/components/generic'
 
-import { CategoryLanding } from '@/components/pages'
+// import { CategoryLanding } from '@/components/pages'
 import { SectionBlock } from '@/components/layouts/SectionBlock'
+import { Loader } from '@/components/widgets/LoaderWidget'
 // import { useBreakpoint } from '@/hooks/useBreakpoint'
 // import { breakpoints, BreakpointsEnum } from '@/src/theme'
-
-// const fixtures = [
-//   { id: '222dsadas', slug: 'one-project-time', best: 1 },
-//   { id: 'asddsad222sadasd', slug: 'two-project-time', best: 0 },
-//   { id: 'asdsad3242asd', slug: 'three-project-time', best: 0 },
-//   { id: 'asdsdadasfffsadasd', slug: 'four-project-time', best: 0 },
-//   { id: '222dsadassssd', slug: 'one-project-time', best: 1 },
-//   { id: 'asddsad222sadasssdsdsd', slug: 'two-project-time', best: 0 },
-//   { id: 'asdsad3242asdssdss', slug: 'three-project-time', best: 0 },
-//   { id: 'asdsdadasfffsadadsdsdsd', slug: 'four-project-time', best: 0 },
-// ]
 
 const CategoryAllPage: NextPage = () => {
   return (
@@ -34,7 +24,8 @@ const CategoryAllPage: NextPage = () => {
       <BaseLayout>
         <SectionBlock>
           <TopLinePageContent />
-          <CategoryLanding />
+          <Loader />
+          {/*<CategoryLanding />*/}
           {/*<CardGallery cards={fixtures} title={'All'} />*/}
         </SectionBlock>
       </BaseLayout>

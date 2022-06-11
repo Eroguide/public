@@ -1,0 +1,60 @@
+query ListSalons($filterSort: SalonFilterSort, $first: Int, $after: Cursor) {
+    listSalons(filterSort: $filterSort, first: $first, after: $after) {
+        totalCount
+        pageInfo {
+            startCursor
+            endCursor
+            hasNextPage
+        }
+        edges {
+            cursor
+            node {
+                id
+                title
+                logo
+                mainPhoto
+                headPhoto
+                address
+                status
+                site
+                email
+                phone
+                description
+                metaDescription
+                isTurnOff
+                #          isPrivate
+                createdAt
+                advantages {
+                    id
+                    name
+                    image
+                    createdAt
+                }
+                staff {
+                    id
+                    name
+                    mainPhoto
+                    headPhoto
+                    status
+                    age
+                    weight
+                    height
+                    breastSize
+                    footSize
+                    meetingPoint
+                    departureCost
+                    price
+                    description
+                    interview
+                    salonId
+                    createdAt
+                    languages {
+                        id
+                        name
+                        createdAt
+                    }
+                }
+            }
+        }
+    }
+}

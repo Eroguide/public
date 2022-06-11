@@ -1,0 +1,12 @@
+overwrite: true
+schema: "http://eroguide-api.cz/query"
+documents: "/graphql/queries/**.*.graphql"
+generates:
+  src/generated/graphql.tsx:
+    plugins:
+      - "typescript"
+      - "typescript-operations"
+      - "typescript-react-apollo"
+  ./schema.json:
+    plugins:
+      - "introspection"

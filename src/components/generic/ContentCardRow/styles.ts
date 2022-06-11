@@ -4,6 +4,7 @@ export const ContentCardRowContainer = styled.div`
   width: 100%;
   padding: 0 9px;
   margin: 72px 0;
+  overflow: hidden;
   .swiper {
     overflow: visible;
   }

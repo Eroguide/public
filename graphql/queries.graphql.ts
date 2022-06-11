@@ -1,14 +1,5 @@
 import { gql } from '@apollo/client'
 
-export const getLaunches = gql`
-  query GetLaunches {
-    launchesPast(limit: 10) {
-      mission_name
-      id
-    }
-  }
-`
-
 export const getPost = gql`
   query GetPost($id: BigInt!) {
     getPost(id: $id) {
@@ -39,7 +30,7 @@ export const getEmployee = gql`
       age
       price
       meetingPoint
-      isPrivate
+      #      isPrivate
       weight
       height
       email
@@ -68,7 +59,7 @@ export const getSalon = gql`
       description
       metaDescription
       isTurnOff
-      isPrivate
+      #      isPrivate
       createdAt
     }
   }
@@ -122,7 +113,7 @@ export const listSalons = gql`
           description
           metaDescription
           isTurnOff
-          isPrivate
+          #          isPrivate
           createdAt
           advantages {
             id
@@ -178,26 +169,49 @@ export const listEmployee = gql`
         node {
           id
           name
-          description
-          interview
-          createdAt
-          age
-          price
-          meetingPoint
-          isPrivate
-          weight
-          height
-          email
-          address
           mainPhoto
           headPhoto
+          status
+          active
+          address
+          email
+          phone
+          age
+          weight
+          height
           breastSize
           footSize
-          isDraft
-          #          schedule
-          address
-          active
-          #          services
+          type
+          meetingPoint
+          departureCost
+          price
+          description
+          interview
+          topDate
+          dayTop
+          scheduleUpdatedAt
+          createdAt
+          gallery
+          serviceLike {
+            serviceId
+            preferences
+          }
+          services {
+            id
+            preference
+          }
+          schedule {
+            id
+            day
+            status
+            startTime
+            endTime
+          }
+          languages {
+            id
+            name
+            createdAt
+          }
         }
       }
     }

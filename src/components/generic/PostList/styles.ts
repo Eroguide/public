@@ -4,7 +4,7 @@ export const PostListRowContainer = styled.div`
   width: 100%;
   margin-top: 64px;
   padding: 0 9px;
-
+  overflow: hidden;
   .swiper {
     overflow: visible;
   }

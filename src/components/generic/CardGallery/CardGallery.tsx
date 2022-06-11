@@ -10,7 +10,7 @@ import {
   ButtonRow,
 } from './styles'
 import { CardGalleryProps } from './types'
-import { CardForGallery, CustomButton } from '@/components/generic'
+import { Card, CustomButton } from '@/components/generic'
 import { useState } from 'react'
 
 export const CardGallery: React.FC<CardGalleryProps> = ({
@@ -41,7 +41,7 @@ export const CardGallery: React.FC<CardGalleryProps> = ({
           {galleryList.length ? (
             contentToShow.map((card) => (
               <GalleryItem key={card.id}>
-                <CardForGallery {...card} />
+                <Card {...card} />
               </GalleryItem>
             ))
           ) : (

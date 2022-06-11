@@ -1,0 +1,19 @@
+query GetSalon($id: BigInt!) {
+    getSalon(id: $id) {
+        id
+        title
+        logo
+        mainPhoto
+        headPhoto
+        address
+        status
+        site
+        email
+        phone
+        description
+        metaDescription
+        isTurnOff
+        #      isPrivate
+        createdAt
+    }
+}
