@@ -16,7 +16,7 @@ function createApolloClient() {
   return new ApolloClient({
     ssrMode: typeof window === 'undefined',
     link: new HttpLink({
-      uri: 'http://eroguide-api.cz/query',
+      uri: 'https://eroguide-api.cz/query',
       // uri: 'https://api.spacex.land/graphql', // Server URL (must be absolute)
     }),
     cache: new InMemoryCache(),

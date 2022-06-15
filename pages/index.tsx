@@ -173,6 +173,7 @@ const Home: NextPage<MainPageSsrProps> = ({
     </>
   )
 }
+
 export const getServerSideProps: GetServerSideProps = async () => {
   const apolloClient = initializeApollo()
 
@@ -199,6 +200,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
   const postsListArray =
     posts.listPosts.edges.map((edge: ListPosts_listPosts_edges) => edge.node) ||
     []
+
   const employeeListArray =
     employee.listEmployee.edges.map(
       (edge: ListEmployee_listEmployee_edges) => edge.node

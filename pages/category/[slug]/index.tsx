@@ -1,20 +1,121 @@
-import { GetServerSideProps, NextPage } from 'next'
+import { GetServerSideProps } from 'next'
 import Head from 'next/head'
 import { BaseLayout } from '@/components/layouts/BaseLayout'
-import {
-  // CardGallery,
-  // HeroFilters,
-  TopLinePageContent,
-} from '@/components/generic'
-// import { useRouter } from 'next/router'
+import { CardGallery, TopLinePageContent } from '@/components/generic'
 import { CategoryLanding } from '@/components/pages'
 import { SectionBlock } from '@/components/layouts/SectionBlock'
 import { Loader } from '@/components/widgets/LoaderWidget'
-// import { useBreakpoint } from '@/hooks/useBreakpoint'
-// import { breakpoints, BreakpointsEnum } from '@/src/theme'
+import { addApolloState, initializeApollo } from '@/graphql/apollo'
+import { listEmployee as listEmployeeQuery } from '@/graphql/queries.graphql'
+import {
+  ListEmployee_listEmployee_edges,
+  ListEmployee_listEmployee_edges_node,
+} from '@/graphql/types/ListEmployee'
 
-const CategorySinglePage: NextPage<{ slug?: string }> = () => {
-  // const { query } = useRouter()
+import { CategoryEnum } from '@/components/generic'
+import { useQuery } from '@apollo/client'
+import { employeePagination } from '@/graphql/services/employeeService'
+
+const CategorySinglePage: ({
+  slug,
+}: {
+  slug: string
+}) => string | JSX.Element = ({ slug }) => {
+  let filterSort: {
+    created?: {
+      from: string // today
+      to: string
+    }
+    top?: string
+    shift?: string
+    filter?: { type: string }
+    type?: string
+  }
+  const first = 8
+
+  switch (slug) {
+    case 'all':
+      filterSort = {}
+      break
+    case 'new':
+      filterSort = {
+        created: {
+          from: '2021-01-01', // today
+          to: '2022-06-12', // TODO GET THE CORRECT DATE month ago
+        },
+      }
+      break
+    case 'top':
+      filterSort = {
+        top: 'day_top',
+        // Variants:
+        // top_date - top employees
+        // day_top - top employees of the day
+      }
+      break
+    case 'shift':
+      filterSort = {
+        shift: 'Monday', // TODO Current Day
+      }
+      break
+    case 'private':
+      filterSort = {
+        filter: {
+          type: 'private-escort',
+        },
+        //Variants:
+        // salon-escort - employees of private salon
+        // salon-masseur - employees of common salon
+        // private-escort - private employees
+        // private-massaur - common masseur
+      }
+      break
+    case 'massage':
+      filterSort = {
+        type: 'private-massaur',
+      }
+      break
+    default:
+      filterSort = {}
+  }
+  const { data, fetchMore, loading, error } = useQuery(listEmployeeQuery, {
+    variables: { first, filterSort },
+  })
+  const employeeListArray = data?.listEmployee.edges.map(
+    (edge: ListEmployee_listEmployee_edges) => edge.node
+  )
+  if (!data || loading) {
+    return <Loader />
+  }
+
+  if (error) return `Error! ${error.message}`
+
+  const total = data?.listEmployee.totalCount
+  const endCursor = data?.listEmployee.pageInfo.endCursor
+
+  console.log('endCursor', endCursor)
+
+  const handleShowMore = async (): Promise<void> => {
+    const dataLength = employeeListArray.length
+
+    if (total > dataLength) {
+      await fetchMore({
+        variables: {
+          filterSort,
+          first, // @ts-ignore
+          after: endCursor,
+        },
+        updateQuery: (prevResult, { fetchMoreResult }) => {
+          fetchMoreResult.listEmployee.edges = [
+            ...prevResult.listEmployee.edges,
+            ...fetchMoreResult.listEmployee.edges,
+          ]
+          return fetchMoreResult
+        },
+      })
+    }
+  }
+
   return (
     <>
       <Head>
@@ -26,16 +127,93 @@ const CategorySinglePage: NextPage<{ slug?: string }> = () => {
         <SectionBlock>
           <TopLinePageContent />
           <CategoryLanding />
-          <Loader />
-          {/*<CardGallery cards={fixtures} title={String(query.slug)} />*/}
+          <CardGallery
+            galleryList={employeeListArray}
+            title={String(slug)}
+            handleShowMore={handleShowMore}
+            counter={total}
+          />
         </SectionBlock>
       </BaseLayout>
     </>
   )
 }
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  return { props: { slug: context.query.slug } }
+export const getServerSideProps: GetServerSideProps = async ({ query }) => {
+  const slug: CategoryEnum | string = String(query.slug) ?? 'all'
+  const apolloClient = initializeApollo()
+  // let filterSort
+  //
+  // switch (slug) {
+  //   case 'all':
+  //     filterSort = {}
+  //     break
+  //   case 'new':
+  //     filterSort = {
+  //       created: {
+  //         from: '2021-01-01', // today
+  //         to: '2022-06-12', // TODO GET THE CORRECT DATE month ago
+  //       },
+  //     }
+  //     break
+  //   case 'top':
+  //     filterSort = {
+  //       top: 'day_top',
+  //       // Variants:
+  //       // top_date - top employees
+  //       // day_top - top employees of the day
+  //     }
+  //     break
+  //   case 'shift':
+  //     filterSort = {
+  //       shift: 'Monday', // TODO Current Day
+  //     }
+  //     break
+  //   case 'private':
+  //     filterSort = {
+  //       type: 'private-escort',
+  //       //Variants:
+  //       // salon-escort - employees of private salon
+  //       // salon-masseur - employees of common salon
+  //       // private-escort - private employees
+  //       // private-massaur - common masseur
+  //     }
+  //     break
+  //   case 'massage':
+  //     filterSort = {
+  //       type: 'private-massaur',
+  //     }
+  //     break
+  //   default:
+  //     filterSort = {}
+  // }
+  //
+  // const pagination = employeePagination(8, 1)
+  //
+  // const { data: employee } = await apolloClient.query({
+  //   query: listEmployeeQuery,
+  //   variables: {
+  //     ...pagination,
+  //     // filterSort,
+  //   },
+  // })
+
+  // const employeeListArray =
+  //   employee.listEmployee.edges.map(
+  //     (edge: ListEmployee_listEmployee_edges) => edge.node
+  //   ) || []
+  //
+  // // const total = employee.listEmployee.totalCount
+  // const endCursor = employee.listEmployee.pageInfo?.endCursor
+
+  return addApolloState(apolloClient, {
+    props: {
+      slug,
+      // total,
+      // listEmployee: employeeListArray,
+      // endCursor,
+    },
+  })
 }
 
 export default CategorySinglePage

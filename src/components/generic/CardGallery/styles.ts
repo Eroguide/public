@@ -68,6 +68,7 @@ export const Counter = styled.h3`
   ${({ theme }) => theme.typography.h2};
   font-weight: 600;
   color: ${({ theme }) => theme.grayScale[4]};
+  text-transform: capitalize;
 `
 
 export const ListWrapper = styled.div`

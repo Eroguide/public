@@ -1,7 +1,8 @@
-import { NextPage } from 'next'
+import { GetServerSideProps, NextPage } from 'next'
 import Head from 'next/head'
 import { BaseLayout } from '@/components/layouts/BaseLayout'
 import {
+  CardGallery,
   // CardGallery,
   // HeroFilters,
   TopLinePageContent,
@@ -10,10 +11,19 @@ import {
 // import { CategoryLanding } from '@/components/pages'
 import { SectionBlock } from '@/components/layouts/SectionBlock'
 import { Loader } from '@/components/widgets/LoaderWidget'
+import { addApolloState, initializeApollo } from '@/graphql/apollo'
+import {
+  ListEmployee_listEmployee_edges,
+  ListEmployee_listEmployee_edges_node,
+} from '@/graphql/types/ListEmployee'
+import { listEmployee } from '@/graphql/queries.graphql'
+import { CategoryLanding } from '@/components/pages'
 // import { useBreakpoint } from '@/hooks/useBreakpoint'
 // import { breakpoints, BreakpointsEnum } from '@/src/theme'
 
-const CategoryAllPage: NextPage = () => {
+const CategoryAllPage: NextPage<{
+  listEmployee: Array<ListEmployee_listEmployee_edges_node>
+}> = ({ listEmployee }) => {
   return (
     <>
       <Head>
@@ -25,12 +35,39 @@ const CategoryAllPage: NextPage = () => {
         <SectionBlock>
           <TopLinePageContent />
           <Loader />
-          {/*<CategoryLanding />*/}
-          {/*<CardGallery cards={fixtures} title={'All'} />*/}
+          <CategoryLanding />
+          <CardGallery galleryList={listEmployee} title={'All'} />
         </SectionBlock>
       </BaseLayout>
     </>
   )
+}
+
+export const getServerSideProps: GetServerSideProps = async () => {
+  const apolloClient = initializeApollo()
+
+  const { data: employee } = await apolloClient.query({
+    query: listEmployee,
+    variables: {
+      filterSort: {
+        created: {
+          from: '2021-01-01',
+          to: '2022-06-12',
+        },
+      },
+    },
+  })
+
+  const employeeListArray =
+    employee.listEmployee.edges.map(
+      (edge: ListEmployee_listEmployee_edges) => edge.node
+    ) || []
+
+  return addApolloState(apolloClient, {
+    props: {
+      listEmployee: employeeListArray,
+    },
+  })
 }
 
 export default CategoryAllPage

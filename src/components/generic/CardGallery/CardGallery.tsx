@@ -11,19 +11,15 @@ import {
 } from './styles'
 import { CardGalleryProps } from './types'
 import { Card, CustomButton } from '@/components/generic'
-import { useState } from 'react'
+import { Loader } from '@/components/widgets/LoaderWidget'
 
 export const CardGallery: React.FC<CardGalleryProps> = ({
   title,
   counter,
   galleryList,
+  handleShowMore,
 }) => {
-  const [isShowMore, setIsShowMode] = useState<boolean>(false)
-
-  if (!galleryList) return <p>...loading...</p>
-
-  const contentToShow =
-    galleryList && (isShowMore ? galleryList : galleryList.slice(0, 8))
+  if (!galleryList) return <Loader />
 
   return (
     <Container>
@@ -39,7 +35,7 @@ export const CardGallery: React.FC<CardGalleryProps> = ({
       <CardGalleryContainer>
         <ListWrapper>
           {galleryList.length ? (
-            contentToShow.map((card) => (
+            galleryList.map((card) => (
               <GalleryItem key={card.id}>
                 <Card {...card} />
               </GalleryItem>
@@ -53,10 +49,11 @@ export const CardGallery: React.FC<CardGalleryProps> = ({
       </CardGalleryContainer>
       <ButtonRow>
         <CustomButton
-          onClick={() => setIsShowMode(!isShowMore)}
+          disabled={galleryList.length === counter}
+          onClick={() => handleShowMore?.()}
           styleType="tertiary"
           sizeType="medium"
-          counter={321}
+          counter={Number(counter) - galleryList.length ?? 0}
         >
           Zobrazit více
         </CustomButton>

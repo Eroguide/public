@@ -1,6 +1,5 @@
 import styled from '@emotion/styled'
 import { keyframes } from '@emotion/react'
-import { css } from '@emotion/css'
 
 export const Overlay = styled.div`
   position: fixed;
@@ -43,15 +42,10 @@ const quickGlow = keyframes`
     }
 `
 
-const animate = css`
-  animation: ${quickGlow} infinite linear;
-  animation-duration: 0.1s;
-`
-
 export const Cell = styled.div<{ idx: number; index: number }>`
   width: 10px;
   height: 10px;
-  background: #5c002e;
+  background: #fff;
   border-radius: 50%;
   margin: 2px;
 

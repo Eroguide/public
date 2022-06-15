@@ -53,15 +53,15 @@ const navItemList: MobileNavList = {
       icon: <NewIcon />,
       title: 'Nové',
       counter: 213,
-      href: '/employee/new',
-      slug: 'employee',
+      href: '/category/new',
+      slug: 'new',
     },
     {
       id: '3',
       icon: <TopIcon />,
       title: 'Top',
       counter: 213,
-      href: '/employee/top',
+      href: '/category/top',
       slug: 'top',
     },
     {
@@ -69,8 +69,8 @@ const navItemList: MobileNavList = {
       icon: <ChangeIcon />,
       title: 'Na směně',
       counter: 213,
-      href: '/employee/on-shift',
-      slug: 'on-shift',
+      href: '/category/shift',
+      slug: 'shift',
     },
     {
       id: '5',
@@ -93,7 +93,7 @@ const navItemList: MobileNavList = {
       icon: <HeartIcon />,
       title: 'Privátní slečny',
       counter: 22,
-      href: '/employee/privat',
+      href: '/category/privat',
       slug: 'privat',
     },
     {
