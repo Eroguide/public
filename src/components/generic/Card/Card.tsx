@@ -113,7 +113,7 @@ export const Card: React.FC<CardProps> = ({
               </AdditionalInformationContent>
             )}
           </CardImageWrapper>
-          <CardContent>
+          <CardContent isOpenSchedule={isOpenSchedule}>
             <RowGroup>
               <Row mb={4}>
                 {isOpenSchedule ? (

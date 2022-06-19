@@ -5,16 +5,14 @@ import { CardGallery, TopLinePageContent } from '@/components/generic'
 import { CategoryLanding } from '@/components/pages'
 import { SectionBlock } from '@/components/layouts/SectionBlock'
 import { Loader } from '@/components/widgets/LoaderWidget'
-import { addApolloState, initializeApollo } from '@/graphql/apollo'
 import { listEmployee as listEmployeeQuery } from '@/graphql/queries.graphql'
 import {
+  ListEmployee,
   ListEmployee_listEmployee_edges,
-  ListEmployee_listEmployee_edges_node,
+  ListEmployeeVariables,
 } from '@/graphql/types/ListEmployee'
 
-import { CategoryEnum } from '@/components/generic'
-import { useQuery } from '@apollo/client'
-import { employeePagination } from '@/graphql/services/employeeService'
+import { OperationVariables, useQuery } from '@apollo/client'
 
 const CategorySinglePage: ({
   slug,
@@ -35,7 +33,12 @@ const CategorySinglePage: ({
 
   switch (slug) {
     case 'all':
-      filterSort = {}
+      filterSort = {
+        created: {
+          from: '1976-01-01', // today
+          to: '2030-06-12', // TODO GET THE CORRECT DATE month ago
+        },
+      }
       break
     case 'new':
       filterSort = {
@@ -76,12 +79,20 @@ const CategorySinglePage: ({
       }
       break
     default:
-      filterSort = {}
+      filterSort = {
+        // created: {
+        //   from: '2021-01-01', // today
+        //   to: '2022-06-12', // TODO GET THE CORRECT DATE month ago
+        // },
+      }
   }
-  const { data, fetchMore, loading, error } = useQuery(listEmployeeQuery, {
-    variables: { first, filterSort },
+  const { data, fetchMore, loading, error } = useQuery<
+    ListEmployee,
+    ListEmployeeVariables
+  >(listEmployeeQuery, {
+    variables: { filterSort, first },
   })
-  const employeeListArray = data?.listEmployee.edges.map(
+  const employeeListArray = data?.listEmployee?.edges.map(
     (edge: ListEmployee_listEmployee_edges) => edge.node
   )
   if (!data || loading) {
@@ -91,25 +102,30 @@ const CategorySinglePage: ({
   if (error) return `Error! ${error.message}`
 
   const total = data?.listEmployee.totalCount
-  const endCursor = data?.listEmployee.pageInfo.endCursor
-
-  console.log('endCursor', endCursor)
+  const after = data?.listEmployee.pageInfo.endCursor || null
 
   const handleShowMore = async (): Promise<void> => {
-    const dataLength = employeeListArray.length
+    const dataLength = employeeListArray?.length || 0
 
     if (total > dataLength) {
-      await fetchMore({
+      await fetchMore<ListEmployee, ListEmployeeVariables>({
         variables: {
           filterSort,
-          first, // @ts-ignore
-          after: endCursor,
+          first,
+          after,
         },
-        updateQuery: (prevResult, { fetchMoreResult }) => {
+        updateQuery: (
+          prevResult: ListEmployee,
+          { fetchMoreResult }: OperationVariables
+        ) => {
+          if (!fetchMoreResult) {
+            return
+          }
           fetchMoreResult.listEmployee.edges = [
             ...prevResult.listEmployee.edges,
             ...fetchMoreResult.listEmployee.edges,
           ]
+
           return fetchMoreResult
         },
       })
@@ -128,7 +144,7 @@ const CategorySinglePage: ({
           <TopLinePageContent />
           <CategoryLanding />
           <CardGallery
-            galleryList={employeeListArray}
+            galleryList={employeeListArray || []}
             title={String(slug)}
             handleShowMore={handleShowMore}
             counter={total}
@@ -140,80 +156,22 @@ const CategorySinglePage: ({
 }
 
 export const getServerSideProps: GetServerSideProps = async ({ query }) => {
-  const slug: CategoryEnum | string = String(query.slug) ?? 'all'
-  const apolloClient = initializeApollo()
-  // let filterSort
-  //
-  // switch (slug) {
-  //   case 'all':
-  //     filterSort = {}
-  //     break
-  //   case 'new':
-  //     filterSort = {
-  //       created: {
-  //         from: '2021-01-01', // today
-  //         to: '2022-06-12', // TODO GET THE CORRECT DATE month ago
-  //       },
-  //     }
-  //     break
-  //   case 'top':
-  //     filterSort = {
-  //       top: 'day_top',
-  //       // Variants:
-  //       // top_date - top employees
-  //       // day_top - top employees of the day
-  //     }
-  //     break
-  //   case 'shift':
-  //     filterSort = {
-  //       shift: 'Monday', // TODO Current Day
-  //     }
-  //     break
-  //   case 'private':
-  //     filterSort = {
-  //       type: 'private-escort',
-  //       //Variants:
-  //       // salon-escort - employees of private salon
-  //       // salon-masseur - employees of common salon
-  //       // private-escort - private employees
-  //       // private-massaur - common masseur
-  //     }
-  //     break
-  //   case 'massage':
-  //     filterSort = {
-  //       type: 'private-massaur',
-  //     }
-  //     break
-  //   default:
-  //     filterSort = {}
-  // }
-  //
-  // const pagination = employeePagination(8, 1)
-  //
-  // const { data: employee } = await apolloClient.query({
-  //   query: listEmployeeQuery,
-  //   variables: {
-  //     ...pagination,
-  //     // filterSort,
-  //   },
-  // })
+  const slug = query.slug
 
-  // const employeeListArray =
-  //   employee.listEmployee.edges.map(
-  //     (edge: ListEmployee_listEmployee_edges) => edge.node
-  //   ) || []
-  //
-  // // const total = employee.listEmployee.totalCount
-  // const endCursor = employee.listEmployee.pageInfo?.endCursor
+  if (
+    !['all', 'new', 'shift', 'top', 'privat', 'massage'].includes(String(slug))
+  ) {
+    return {
+      // returns the default 404 page with a status code of 404
+      notFound: true,
+    }
+  }
 
-  return addApolloState(apolloClient, {
+  return {
     props: {
       slug,
-      // total,
-      // listEmployee: employeeListArray,
-      // endCursor,
     },
-  })
+  }
 }
 
 export default CategorySinglePage

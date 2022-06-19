@@ -81,6 +81,7 @@ export interface ListEmployee_listEmployee_edges_node_languages {
 }
 
 export interface ListEmployee_listEmployee_edges_node {
+  listEmployee: any
   __typename: 'Employee'
   /**
    * ID

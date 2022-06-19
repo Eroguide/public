@@ -79,11 +79,13 @@ export const ImageProduct = styled.div`
   inset: 0;
 `
 
-export const CardContent = styled.div`
+export const CardContent = styled.div<{ isOpenSchedule: boolean }>`
   border-left: 1px solid ${({ theme }) => theme.grayScale[1]};
   border-right: 1px solid ${({ theme }) => theme.grayScale[1]};
   border-bottom: 1px solid ${({ theme }) => theme.grayScale[1]};
-  padding: 16px 16px 24px 16px;
+  padding: ${({ isOpenSchedule }) =>
+    isOpenSchedule ? `4px 16px 24px 16px` : '16px 16px 24px 16px'};
+  min-height: 140px;
   display: flex;
   flex-direction: column;
   background-color: #fff;
@@ -156,7 +158,7 @@ export const RowGroup = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
-  margin-bottom: 16px;
+  margin-bottom: 10px;
 `
 export const Left = styled.div`
   & a {
@@ -250,6 +252,7 @@ export const InfoItem = styled.div`
 
 export const WorkingDaysWrapper = styled.div`
   width: 100%;
+  height: 72px;
   background: ${({ theme }) => theme.grayScale[0]};
   z-index: 50;
 `
