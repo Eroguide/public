@@ -111,6 +111,11 @@ export interface ListEmployee_listEmployee_edges_node {
    * Salon address
    */
   address: string | null
+  street: string | null
+  city: string | null
+  province: string | null
+  country: string | null
+
   /**
    * Salon email
    */

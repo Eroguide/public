@@ -20,8 +20,12 @@ import Cloud from '/public/img/cloud-icon.svg'
 import Whazaap from '/public/img/whazaap-icon.svg'
 import { CustomButton } from '@/components/generic'
 import { useState } from 'react'
+import { ListEmployee_listEmployee_edges_node } from '@/graphql/types/ListEmployee'
+import { format } from 'date-fns'
 
-export const PersonalInfoSinglePageWidget: React.FC = () => {
+export const PersonalInfoSinglePageWidget: React.FC<{
+  employee: ListEmployee_listEmployee_edges_node
+}> = ({ employee }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false)
 
   const handleOnClick = () => {
@@ -29,9 +33,9 @@ export const PersonalInfoSinglePageWidget: React.FC = () => {
   }
   return (
     <Container>
-      <AvatarImage />
+      <AvatarImage img={employee.headPhoto} />
       <NameWrapper>
-        <Name>Victoria</Name>
+        <Name>{employee.name}</Name>
         <BlueCheckIcon />
       </NameWrapper>
 
@@ -49,7 +53,7 @@ export const PersonalInfoSinglePageWidget: React.FC = () => {
         </Parameter>
         <Parameter>
           <ParameterTitle>photo</ParameterTitle>
-          <ParameterCounter>65</ParameterCounter>
+          <ParameterCounter>{employee.gallery.length}</ParameterCounter>
         </Parameter>
         <Parameter>
           <ParameterTitle>video</ParameterTitle>
@@ -77,11 +81,15 @@ export const PersonalInfoSinglePageWidget: React.FC = () => {
           sizeType="medium"
           onClick={handleOnClick}
         >
-          {isOpen ? '+420 254 256 444' : 'Contact'}
+          {isOpen ? employee.phone : 'Contact'}
         </CustomButton>
       </ButtonsRow>
       <Divider />
-      <MemberSince>Member 655054 since Mar 15. 2021</MemberSince>
+
+      <MemberSince>
+        Member {employee.id} since
+        {format(new Date(employee.createdAt), ' MMM dd. yyyy')}
+      </MemberSince>
     </Container>
   )
 }

@@ -34,24 +34,15 @@ import CovidAntisepIcon from '/public/img/covid-icon-antisep.svg'
 import CovidMaskIcon from '/public/img/covid-icon-mask.svg'
 import { SwiperSlide } from 'swiper/react'
 import { ScheduleFilters } from '@/components/generic/ScheduleFilters'
-import { GetSalon_getSalon } from '@/graphql/types/GetSalon'
+import { GetSalon, GetSalon_getSalon } from '@/graphql/types/GetSalon'
 import { ListSalons_listSalons_edges_node } from '@/graphql/types/ListSalons'
 
-export const SalonSinglePageContent: React.FC<{
-  getSalon: GetSalon_getSalon
-  listSalons: Array<ListSalons_listSalons_edges_node>
-}> = ({ getSalon, listSalons }) => {
+export const SalonSinglePageContent: React.FC<
+  GetSalon & {
+    listSalons: Array<ListSalons_listSalons_edges_node>
+  }
+> = ({ getSalon, listSalons }) => {
   console.log('SalonSinglePageContent getSalon', getSalon)
-  // const fixtures = [
-  //   { id: '222dsadas', slug: 'one-project-time', best: 1 },
-  //   { id: 'asddsad222sadasd', slug: 'two-project-time', best: 0 },
-  //   { id: 'asdsad3242asd', slug: 'three-project-time', best: 0 },
-  //   { id: 'asdsdadasfffsadasd', slug: 'four-project-time', best: 0 },
-  //   { id: 'asdxfsadasd', slug: 'four-project-time', best: 0 },
-  //   { id: 'asdsdadvadasd', slug: 'four-project-time', best: 0 },
-  //   { id: 'xfffsadasd', slug: 'four-project-time', best: 0, tag: 'New' },
-  //   { id: 'xfffsadssasd', slug: 'four-project-time', best: 0, tag: 'New' },
-  // ]
   const covidInfoList = [
     {
       id: 213213,
@@ -86,32 +77,36 @@ export const SalonSinglePageContent: React.FC<{
     { title: 'Imitations (each masseuse has its own)', price: 1500 },
   ]
   const {
-    // headPhoto,
-    mainPhoto,
+    headPhoto,
+    // mainPhoto,
     // email,
     // phone,
     // address,
     // description,
     // title,
+    advantages,
+    gallery,
     status,
   } = getSalon
 
-  // console.log('listSalons', listSalons)
   return (
     <SinglePageContentContainer>
-      <Banner image={mainPhoto} />
+      <Banner image={headPhoto} />
       <SinglePageBody>
         <LeftWidgets>
           <Widget>
             <SalonInfoSinglePageWidget getSalon={getSalon} />
           </Widget>
-          <ServiceFeaturesSalonWidget />
+          <ServiceFeaturesSalonWidget advantages={advantages} />
         </LeftWidgets>
 
         <BodyContent>
-          <SinglePageContentBlock title="Photo">
-            <ProductSlider status={!!status} />
-          </SinglePageContentBlock>
+          {gallery.length ? (
+            <SinglePageContentBlock title="Photo">
+              <ProductSlider status={!!status} sliderGallery={gallery} />
+            </SinglePageContentBlock>
+          ) : null}
+
           <SinglePageContentBlock title="Covid protection">
             <InfoCard borderRad={32} strokeColor="gray" padding={'32px 40px'}>
               <CovidProtectionCardContent>

@@ -53,7 +53,7 @@ const navItemList: MobileNavList = {
       icon: <NewIcon />,
       title: 'Nové',
       counter: 213,
-      href: '/category/new',
+      href: '/category?type=new',
       slug: 'new',
     },
     {
@@ -61,7 +61,7 @@ const navItemList: MobileNavList = {
       icon: <TopIcon />,
       title: 'Top',
       counter: 213,
-      href: '/category/top',
+      href: '/category?type=top',
       slug: 'top',
     },
     {
@@ -69,7 +69,7 @@ const navItemList: MobileNavList = {
       icon: <ChangeIcon />,
       title: 'Na směně',
       counter: 213,
-      href: '/category/shift',
+      href: '/category?type=shift',
       slug: 'shift',
     },
     {
@@ -85,7 +85,7 @@ const navItemList: MobileNavList = {
       icon: <SalonIcon />,
       title: 'Masážní salóny',
       counter: 213,
-      href: '/salons/massage',
+      href: '/category?type=massage',
       slug: 'salons-massage',
     },
     {
@@ -93,7 +93,7 @@ const navItemList: MobileNavList = {
       icon: <HeartIcon />,
       title: 'Privátní slečny',
       counter: 22,
-      href: '/category/privat',
+      href: '/category?type=privat',
       slug: 'privat',
     },
     {

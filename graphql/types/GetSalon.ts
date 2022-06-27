@@ -7,6 +7,8 @@
 // GraphQL query operation: GetSalon
 // ====================================================
 
+import { ListSalons_listSalons_edges_node_advantages } from '@/graphql/types/ListSalons'
+
 export interface GetSalon_getSalon {
   __typename: 'Salon'
   /**
@@ -32,7 +34,12 @@ export interface GetSalon_getSalon {
   /**
    * Salon address
    */
-  address: string
+  address: string | null
+  street: string | null
+  city: string | null
+  province: string | null
+  country: string | null
+
   /**
    * Salon status
    */
@@ -69,6 +76,13 @@ export interface GetSalon_getSalon {
    * Date when salon was created
    */
   createdAt: any
+
+  gallery: Array<string>
+
+  /**
+   * Advantages of current salon
+   */
+  advantages: ListSalons_listSalons_edges_node_advantages[]
 }
 
 export interface GetSalon {

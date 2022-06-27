@@ -153,7 +153,12 @@ export interface ListSalons_listSalons_edges_node {
   /**
    * Salon address
    */
-  address: string
+  address: string | null
+  street: string | null
+  city: string | null
+  province: string | null
+  country: string | null
+
   /**
    * Salon status
    */

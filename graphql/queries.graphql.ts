@@ -33,34 +33,81 @@ export const getEmployee = gql`
       #      isPrivate
       weight
       height
+      phone
       email
       address
       mainPhoto
       headPhoto
-      #            breastSize
-      #            footSize
-      #            isDraft
+      breastSize
+      footSize
+      isDraft
+      meetingPoint
+      departureCost
+      topDate
+      dayTop
+      scheduleUpdatedAt
+      salonId
+      schedule {
+        id
+      }
+      #      schedule
+      #      services
+      #      serviceLike
+      gallery
     }
   }
 `
+
 export const getSalon = gql`
   query GetSalon($id: BigInt!) {
     getSalon(id: $id) {
       id
       title
+      isDraft
       logo
       mainPhoto
       headPhoto
-      address
+      street
+      city
+      province
       status
       site
       email
       phone
       description
       metaDescription
-      isTurnOff
-      #      isPrivate
       createdAt
+      gallery
+      services {
+        id
+        name
+        price
+      }
+      advantages {
+        id
+        name
+        image
+        createdAt
+      }
+      staff {
+        id
+        name
+        price
+        schedule {
+          id
+          day
+          status
+          startTime
+          endTime
+        }
+      }
+      active
+      isPrivate
+      isDraft
+      isTurnOff
+      managerEmail
+      managerPhone
+      address
     }
   }
 `
@@ -78,6 +125,15 @@ export const listPosts = gql`
         cursor
         node {
           id
+          image
+          isDraft
+          metaDescription
+          metaTitle
+          categories {
+            id
+            createdAt
+            name
+          }
           title
           image
           text
@@ -105,6 +161,9 @@ export const listSalons = gql`
           logo
           mainPhoto
           headPhoto
+          street
+          city
+          province
           address
           status
           site
@@ -138,6 +197,13 @@ export const listSalons = gql`
             description
             interview
             salonId
+            schedule {
+              id
+              day
+              status
+              startTime
+              endTime
+            }
             createdAt
             languages {
               id

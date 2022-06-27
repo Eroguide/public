@@ -23,8 +23,12 @@ import ArrowLeftIcon from '/public/img/arrow-left.svg'
 import ArrowRightIcon from '/public/img/arrow-right.svg'
 import GreenCheckIcon from '/public/img/green-circle-check.svg'
 import { Swiper as SwiperClass } from 'swiper/types'
+import { ListEmployee_listEmployee_edges_node } from '@/graphql/types/ListEmployee'
 
-export const ProductSlider: React.FC<{ status: boolean }> = ({ status }) => {
+export const ProductSlider: React.FC<{
+  status: boolean
+  sliderGallery?: ListEmployee_listEmployee_edges_node['gallery']
+}> = ({ status }) => {
   const [thumbsSwiper, setThumbsSwiper] = useState<SwiperClass>()
   const navigationPrevRef = useRef<HTMLDivElement>(null)
   const navigationNextRef = useRef<HTMLDivElement>(null)
@@ -93,6 +97,7 @@ export const ProductSlider: React.FC<{ status: boolean }> = ({ status }) => {
       img: '/img/fake.png',
     },
   ]
+
   return (
     <>
       <TitleBeforeSlider>

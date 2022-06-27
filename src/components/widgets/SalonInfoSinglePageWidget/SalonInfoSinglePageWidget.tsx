@@ -24,11 +24,21 @@ import LocationIcon from '/public/img/location-pin-icon.svg'
 import { CustomButton } from '@/components/generic'
 import { useState } from 'react'
 import { GetSalon_getSalon } from '@/graphql/types/GetSalon'
+import { format } from 'date-fns'
 
 export const SalonInfoSinglePageWidget: React.FC<{
   getSalon: GetSalon_getSalon
 }> = ({ getSalon }) => {
-  const { title, headPhoto, phone } = getSalon
+  const {
+    title,
+    headPhoto,
+    phone,
+    createdAt,
+    __typename: metaName,
+    province,
+    address,
+    logo,
+  } = getSalon
   const [isOpen, setIsOpen] = useState<boolean>(false)
 
   const handleOnClick = () => {
@@ -45,7 +55,7 @@ export const SalonInfoSinglePageWidget: React.FC<{
         </NameWrapper>
 
         <ImageWrapper>
-          <AvatarImage src={headPhoto ?? '/img/fake.png'} alt={title} />
+          <AvatarImage src={logo ?? '/img/fake.png'} alt={title} />
         </ImageWrapper>
       </Row>
       <Divider />
@@ -55,18 +65,21 @@ export const SalonInfoSinglePageWidget: React.FC<{
           <IconWrapperLocation>
             <LocationIcon />
           </IconWrapperLocation>
-          <LocationText>Prague 15</LocationText>
+          <LocationText>{province}</LocationText>
         </Left>
         <Right>
           <Link href="/map" passHref>
-            <CustomButton
-              iconRight
-              isLink
-              styleType="tertiary"
-              sizeType="small"
-            >
-              Show map
-            </CustomButton>
+            <>
+              <CustomButton
+                iconRight
+                isLink
+                styleType="tertiary"
+                sizeType="small"
+              >
+                Show map
+              </CustomButton>
+              <address style={{ display: 'none' }}>{address}</address>
+            </>
           </Link>
         </Right>
       </Row>
@@ -91,7 +104,9 @@ export const SalonInfoSinglePageWidget: React.FC<{
         </CustomButton>
       </ButtonsRow>
       <Divider />
-      <MemberSince>Member 655054 since Mar 15. 2021</MemberSince>
+      <MemberSince>
+        Member since {format(new Date(createdAt), ' MMM dd. yyyy')}
+      </MemberSince>
     </Container>
   )
 }

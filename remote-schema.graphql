@@ -74,7 +74,15 @@ type Employee {
     "Active til"
     active: String
     "Salon address"
-    address: String
+    address: String!
+
+        street: String!
+
+        city: String!
+
+    province: String!
+
+    country: String!
     "Age of employee"
     age: BigInt!
     "Emploee's bust"

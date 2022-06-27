@@ -168,7 +168,7 @@ export const RatingValue = styled.span`
 export const SmallGallery = styled.div`
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  //justify-content: space-between;
 `
 
 export const SmallGalleryImageOverlay = styled.div`
@@ -182,15 +182,19 @@ export const SmallGalleryImageOverlay = styled.div`
   inset: 0;
 `
 
-export const SmallGalleryItem = styled.div`
-  width: calc(100% / 3 - 4px);
+export const SmallGalleryItem = styled.div<{ image: string }>`
+  width: calc(100% / 3 - 8px);
   height: 168px;
   border-radius: 10px;
-  background: url('/img/fake.png') no-repeat center top;
+  background: url(${({ image }) => image ?? '/img/fake.png'}) no-repeat center
+    top;
   background-size: cover;
   overflow: hidden;
   position: relative;
   cursor: pointer;
+  &:not(:last-of-type) {
+    margin-right: 8px;
+  }
 `
 
 export const WorkingHoursTag = styled.span`

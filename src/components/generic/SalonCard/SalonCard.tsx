@@ -30,30 +30,23 @@ import DotIcon from 'public/img/dot.svg'
 import CheckIcon from 'public/img/check-blue.svg'
 import { Left, Right } from '@/components/generic/Card/styles'
 import { CustomButton } from '@/components/generic'
+import { useBreakpoint } from '@/hooks/useBreakpoint'
+import { breakpoints, BreakpointsEnum } from '@/src/theme'
 
 export const SalonCard: React.FC<SalonCardProps> = ({
   id,
   inSwipe,
   title,
   mainPhoto,
+  staff,
+  province,
 }) => {
-  const cardList = [
-    { id: '23123' },
-    { id: '23123' },
-    { id: '23123' },
-    { id: '23123' },
-    { id: '23123' },
-    { id: '23123' },
-    { id: '23123' },
-    { id: '23123' },
-    { id: '23123' },
-    { id: '23123' },
-    { id: '23123' },
-    { id: '23123' },
-    { id: '23123' },
-    { id: '23123' },
-  ]
+  const isSmall = useBreakpoint({
+    min: breakpoints[BreakpointsEnum.xxs].min,
+    max: breakpoints[BreakpointsEnum.sm].max,
+  })
 
+  const numberOfGirls = staff.length
   return (
     <SalonCardMainContainer inSwipe={inSwipe}>
       <SalonCardInner>
@@ -64,7 +57,7 @@ export const SalonCard: React.FC<SalonCardProps> = ({
                 <InformationContent>
                   <LeftBlock>
                     <Title>{title}</Title>
-                    <Description>Prague 2</Description>
+                    <Description>{province}</Description>
                   </LeftBlock>
                   <RightBlock>
                     <RatingStartIcon />
@@ -77,41 +70,33 @@ export const SalonCard: React.FC<SalonCardProps> = ({
         </CardImageWrapper>
         <CardContent>
           <SmallGallery>
-            {cardList.map(
-              (x, i) =>
-                i < 2 && (
-                  // i < (isSmall ? 5 : 3) &&
-                  <Link key={x.id + i} href={`/employee/${id}`} passHref>
-                    <SmallGalleryItem>
+            {staff.map(
+              (girl, i) =>
+                i < 3 &&
+                i < (isSmall ? 5 : 3) && (
+                  <Link key={girl.id} href={`/employee/${girl.id}`} passHref>
+                    <SmallGalleryItem image={girl.mainPhoto}>
                       <WorkingHoursTag>12-20</WorkingHoursTag>
                       <SmallGalleryItemDescription>
-                        <TitleName>Candy,24</TitleName>
+                        <TitleName>{girl.name}</TitleName>
                         <CheckIcon />
                       </SmallGalleryItemDescription>
+                      {numberOfGirls! < 3 && i === 2 && (
+                        <SmallGalleryImageOverlay>
+                          <Counter>+{numberOfGirls - 3}</Counter>
+                          <CounterTitle>slečen</CounterTitle>
+                        </SmallGalleryImageOverlay>
+                      )}
                     </SmallGalleryItem>
                   </Link>
                 )
             )}
-
-            <Link href={`/employee/${id}`} passHref>
-              <SmallGalleryItem>
-                <WorkingHoursTag>12-20</WorkingHoursTag>
-                <SmallGalleryItemDescription>
-                  <TitleName>Candy,24</TitleName>
-                  <CheckIcon />
-                </SmallGalleryItemDescription>
-                <SmallGalleryImageOverlay>
-                  <Counter>+13</Counter>
-                  <CounterTitle>slečen</CounterTitle>
-                </SmallGalleryImageOverlay>
-              </SmallGalleryItem>
-            </Link>
           </SmallGallery>
           <BottomRow>
             <Left>
               <CounterAvailable>
                 <DotIcon />
-                <CounterText>26 slečen k dispozici</CounterText>
+                <CounterText>{numberOfGirls} slečen k dispozici</CounterText>
               </CounterAvailable>
             </Left>
             <Right>

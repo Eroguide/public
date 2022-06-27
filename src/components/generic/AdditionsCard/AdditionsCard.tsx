@@ -12,14 +12,6 @@ import {
 } from './styles'
 import TimerIcon from '/public/img/timer-icon.svg'
 
-// const addtiionsList = [
-//   {
-//     id: '1sads',
-//   },
-// ]
-//
-// import { useState } from 'react'
-
 export type InfoCardProps = {
   title?: string
   price?: number

@@ -9,7 +9,7 @@ import { listEmployee as listEmployeeQuery } from '@/graphql/queries.graphql'
 import {
   ListEmployee,
   ListEmployee_listEmployee_edges,
-  ListEmployee_listEmployee_edges_node,
+  // ListEmployee_listEmployee_edges_node,
   ListEmployeeVariables,
 } from '@/graphql/types/ListEmployee'
 
@@ -19,10 +19,10 @@ import { CategoryLanding } from '@/components/pages'
 // import { breakpoints, BreakpointsEnum } from '@/src/theme'
 
 import { OperationVariables, useQuery } from '@apollo/client'
+import { useEffect, useState } from 'react'
+import { useRouter } from 'next/router'
 
-const CategoryAllPage: ({ slug }: { slug: string }) => string | JSX.Element = ({
-  slug,
-}) => {
+const CategoryAllPage: () => JSX.Element | string = () => {
   let filterSort: {
     created?: {
       from: string // today
@@ -33,11 +33,10 @@ const CategoryAllPage: ({ slug }: { slug: string }) => string | JSX.Element = ({
     filter?: { type: string }
     type?: string
   }
+  const { query } = useRouter()
+  const [category, setCategory] = useState<string>('all')
   const first = 8
-
-  console.log('slug', slug)
-
-  switch (slug) {
+  switch (category) {
     case 'all':
       filterSort = {
         created: {
@@ -92,15 +91,22 @@ const CategoryAllPage: ({ slug }: { slug: string }) => string | JSX.Element = ({
         // },
       }
   }
+
   const { data, fetchMore, loading, error } = useQuery<
     ListEmployee,
     ListEmployeeVariables
   >(listEmployeeQuery, {
     variables: { filterSort, first },
   })
+
+  useEffect(() => {
+    if (query.type) setCategory(String(query.type))
+  }, [query.type])
+
   const employeeListArray = data?.listEmployee?.edges.map(
     (edge: ListEmployee_listEmployee_edges) => edge.node
   )
+
   if (!data || loading) {
     return <Loader />
   }
@@ -112,7 +118,6 @@ const CategoryAllPage: ({ slug }: { slug: string }) => string | JSX.Element = ({
 
   const handleShowMore = async (): Promise<void> => {
     const dataLength = employeeListArray?.length || 0
-
     if (total > dataLength) {
       await fetchMore<ListEmployee, ListEmployeeVariables>({
         variables: {
@@ -151,7 +156,7 @@ const CategoryAllPage: ({ slug }: { slug: string }) => string | JSX.Element = ({
           <CategoryLanding />
           <CardGallery
             galleryList={employeeListArray || []}
-            title={String(slug)}
+            title={String(category)}
             handleShowMore={handleShowMore}
             counter={total}
           />
@@ -162,19 +167,21 @@ const CategoryAllPage: ({ slug }: { slug: string }) => string | JSX.Element = ({
 }
 
 export const getServerSideProps: GetServerSideProps = async ({ query }) => {
-  const slug = query.slug
+  const type = query.type
 
   if (
-    !['all', 'new', 'shift', 'top', 'privat', 'massage'].includes(String(slug))
+    !['all', 'new', 'shift', 'top', 'privat', 'massage'].includes(String(type))
   ) {
     return {
-      notFound: true,
+      props: {
+        type: 'all',
+      },
     }
   }
 
   return {
     props: {
-      slug: query,
+      type,
     },
   }
 }

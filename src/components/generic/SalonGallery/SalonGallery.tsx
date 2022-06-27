@@ -7,8 +7,8 @@ import {
   GalleryItem,
 } from './styles'
 import { SalonCard } from '@/components/generic'
-// import { PaginationWidget } from '@/components/widgets/PaginationWidget'
-// import { NextPage } from 'next'
+import { PaginationWidget } from '@/components/widgets/PaginationWidget'
+
 import { ListSalons_listSalons_edges_node } from '@/graphql/types/ListSalons'
 export const SalonGallery: React.FC<{
   listSalons: Array<ListSalons_listSalons_edges_node>
@@ -17,7 +17,7 @@ export const SalonGallery: React.FC<{
     <>
       <TitlePanel>
         <LeftFilters>
-          <Counter>Salons: 136</Counter>
+          <Counter>Salons: {listSalons.length}</Counter>
         </LeftFilters>
       </TitlePanel>
       <Container>
@@ -28,7 +28,7 @@ export const SalonGallery: React.FC<{
             </GalleryItem>
           ))}
         </Wrapper>
-        {/*<PaginationWidget itemsPerPage={4} />*/}
+        <PaginationWidget itemsPerPage={4} />
       </Container>
     </>
   )

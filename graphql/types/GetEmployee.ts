@@ -60,7 +60,12 @@ export interface GetEmployee_getEmployee {
   /**
    * Salon address
    */
-  address: string
+  address: string | null
+  street: string | null
+  city: string | null
+  province: string | null
+  country: string | null
+
   /**
    * Main photo of employee
    */

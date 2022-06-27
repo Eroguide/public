@@ -20,19 +20,19 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { Loader } from '@/components/widgets/LoaderWidget'
 
-const options: Array<{ name: string; slug: keyof typeof CategoryEnum }> = [
-  { name: 'Vše', slug: 'all' },
-  { name: 'Nové', slug: 'new' },
-  { name: 'Top', slug: 'top' },
-  { name: 'Na směně', slug: 'shift' },
-  { name: 'Privat', slug: 'privat' },
-  { name: 'Masáže', slug: 'massage' },
+const options: Array<{ name: string; type: keyof typeof CategoryEnum }> = [
+  { name: 'Vše', type: 'all' },
+  { name: 'Nové', type: 'new' },
+  { name: 'Top', type: 'top' },
+  { name: 'Na směně', type: 'shift' },
+  { name: 'Privat', type: 'privat' },
+  { name: 'Masáže', type: 'massage' },
 ]
 
 export const FilterScroll: React.FC = () => {
   const [initSlider, setInitSlider] = useState<boolean>(false)
   const { query } = useRouter()
-  const { slug } = query
+  const { type } = query
 
   const swiperSettings: SwiperOptions = {
     slidesPerView: 'auto',
@@ -49,8 +49,15 @@ export const FilterScroll: React.FC = () => {
           {initSlider ? (
             options.map((option, i) => (
               <SwiperSlide key={`${option.name}-${i}`}>
-                <Link href={`/category/${option.slug}`} passHref>
-                  <FilterCategory isActive={slug === option.slug}>
+                <Link
+                  href={`/category?type=${option.type}`}
+                  passHref
+                  shallow={true}
+                >
+                  <FilterCategory
+                    isActive={type === option.type}
+                    // onClick={() => handleChangeCategory(option.type)}
+                  >
                     <FlexBox>
                       <FlexRow>
                         <CategoryTitle>{option.name}</CategoryTitle>

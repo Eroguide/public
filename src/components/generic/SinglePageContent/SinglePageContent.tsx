@@ -12,7 +12,7 @@ import {
 
 import {
   CustomButton,
-  // ProductSlider,
+  ProductSlider,
   SinglePageContentBlock,
 } from '@/components/generic'
 import { ApperianceWidget } from '@/components/widgets/ApperianceWidget'
@@ -23,13 +23,28 @@ import { LadiesGalleryWidget } from '@/components/widgets/LadiesGalleryWidget'
 import { PersonalInfoSinglePageWidget } from '@/components/widgets/PersonalInfoSinglePageWidget'
 import { ScheduleSinglePageWidget } from '@/components/widgets/ScheduleSinglePageWidget'
 import { SalonSinglePageWidget } from '@/components/widgets/SalonSinglePageWidget'
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import AnimateHeight from 'react-animate-height'
 import { useRouter } from 'next/router'
+import {
+  ListEmployee_listEmployee_edges,
+  ListEmployee_listEmployee_edges_node,
+} from '@/graphql/types/ListEmployee'
 
-export const SinglePageContent: React.FC = () => {
+export const SinglePageContent: React.FC<{
+  employee: ListEmployee_listEmployee_edges_node
+  girls: Array<ListEmployee_listEmployee_edges>
+}> = ({ employee, girls }) => {
   const [isShowMore, setIsShowMore] = useState<boolean>(false)
   const router = useRouter()
+  const ref = useRef<HTMLDivElement>(null)
+  const sliderGallery = employee.gallery
+
+  useEffect(() => {
+    if (ref && employee && ref.current) {
+      ref.current.innerHTML = String(employee.interview)
+    }
+  }, [ref, employee])
 
   return (
     <SinglePageContentContainer>
@@ -37,20 +52,20 @@ export const SinglePageContent: React.FC = () => {
       <SinglePageBody>
         <LeftWidgets>
           <Widget>
-            <PersonalInfoSinglePageWidget />
+            <PersonalInfoSinglePageWidget employee={employee} />
           </Widget>
           <Widget>
-            <ScheduleSinglePageWidget />
+            <ScheduleSinglePageWidget price={employee.price} />
           </Widget>
           <SalonSinglePageWidget />
         </LeftWidgets>
         <BodyContent>
           <SinglePageContentBlock title="Photo">
-            {/*<ProductSlider />*/}
+            <ProductSlider status sliderGallery={sliderGallery} />
           </SinglePageContentBlock>
           <DetailsSection>
             <SinglePageContentBlock title="Appearance">
-              <ApperianceWidget />
+              <ApperianceWidget employee={employee} />
             </SinglePageContentBlock>
             <SinglePageContentBlock title="Preferences and experience">
               <ExperianceWidget />
@@ -61,74 +76,7 @@ export const SinglePageContent: React.FC = () => {
                   duration={500}
                   height={isShowMore ? 'auto' : 400}
                 >
-                  <InterviewBlockWrapper>
-                    <div>
-                      <h3>
-                        Mohu se u Vás před masáží nebo po masáži osprchovat?
-                      </h3>
-                      <p>
-                        Mohu se u Vás před masáží nebo po masáži osprchovat?
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Imperdiet aliquet risus, libero egestas enim at. Quis
-                        maecenas at sit
-                      </p>
-                    </div>
-                    <div>
-                      <h3>
-                        Mohu se u Vás před masáží nebo po masáži osprchovat?
-                      </h3>
-                      <p>
-                        Mohu se u Vás před masáží nebo po masáži osprchovat?
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Imperdiet aliquet risus, libero egestas enim at. Quis
-                        maecenas at sit
-                      </p>
-                    </div>
-                    <div>
-                      <h3>
-                        Mohu se u Vás před masáží nebo po masáži osprchovat?
-                      </h3>
-                      <p>
-                        Mohu se u Vás před masáží nebo po masáži osprchovat?
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Imperdiet aliquet risus, libero egestas enim at. Quis
-                        maecenas at sit
-                      </p>
-                    </div>
-                    <div>
-                      <h3>
-                        Mohu se u Vás před masáží nebo po masáži osprchovat?
-                      </h3>
-                      <p>
-                        Mohu se u Vás před masáží nebo po masáži osprchovat?
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Imperdiet aliquet risus, libero egestas enim at. Quis
-                        maecenas at sit
-                      </p>
-                    </div>
-                    <div>
-                      <h3>
-                        Mohu se u Vás před masáží nebo po masáži osprchovat?
-                      </h3>
-                      <p>
-                        Mohu se u Vás před masáží nebo po masáži osprchovat?
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Imperdiet aliquet risus, libero egestas enim at. Quis
-                        maecenas at sit
-                      </p>
-                    </div>
-                    <div>
-                      <h3>
-                        Mohu se u Vás před masáží nebo po masáži osprchovat?
-                      </h3>
-                      <p>
-                        Mohu se u Vás před masáží nebo po masáži osprchovat?
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Imperdiet aliquet risus, libero egestas enim at. Quis
-                        maecenas at sit
-                      </p>
-                    </div>
-                  </InterviewBlockWrapper>
+                  <InterviewBlockWrapper ref={ref} />
                 </AnimateHeight>
                 <RowRight>
                   <CustomButton
@@ -152,7 +100,7 @@ export const SinglePageContent: React.FC = () => {
               title="Salon ladies"
               topButtonHandler={() => router.push('/salons')}
             >
-              <LadiesGalleryWidget />
+              <LadiesGalleryWidget girls={girls} />
             </SinglePageContentBlock>
           </DetailsSection>
         </BodyContent>

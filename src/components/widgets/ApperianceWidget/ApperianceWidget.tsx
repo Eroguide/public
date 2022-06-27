@@ -9,13 +9,36 @@ import SandWatchIcon from '/public/img/sand-watch-icon.svg'
 import HeightIcon from '/public/img/height-appearance-icon.svg'
 import FootIcon from '/public/img/foot-appearance-icon.svg'
 import BreastIcon from '/public/img/breast-appearance-icon.svg'
+import { ListEmployee_listEmployee_edges_node } from '@/graphql/types/ListEmployee'
 
-export const ApperianceWidget: React.FC = () => {
+export const ApperianceWidget: React.FC<{
+  employee: ListEmployee_listEmployee_edges_node
+}> = ({ employee }) => {
   const parametersList = [
-    { id: '123123', label: 'Age', value: 28, icon: <SandWatchIcon /> },
-    { id: '1223', label: 'Height', value: 175, icon: <HeightIcon /> },
-    { id: '13123', label: 'Breast', value: 2, icon: <FootIcon /> },
-    { id: '1423', label: 'Foot', value: 28, icon: <BreastIcon /> },
+    {
+      id: '1',
+      label: 'Age',
+      value: employee.age,
+      icon: <SandWatchIcon />,
+    },
+    {
+      id: '2',
+      label: 'Height',
+      value: employee.height,
+      icon: <HeightIcon />,
+    },
+    {
+      id: '3',
+      label: 'Breast',
+      value: employee.breastSize,
+      icon: <FootIcon />,
+    },
+    {
+      id: '4',
+      label: 'Foot',
+      value: employee.footSize,
+      icon: <BreastIcon />,
+    },
   ]
 
   return (

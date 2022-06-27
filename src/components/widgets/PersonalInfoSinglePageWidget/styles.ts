@@ -7,13 +7,14 @@ export const Container = styled.div`
   align-items: center;
 `
 
-export const AvatarImage = styled.div`
+export const AvatarImage = styled.div<{ img: string }>`
   width: 160px;
   height: 160px;
   border-radius: 100%;
   margin-bottom: 24px;
   overflow: hidden;
-  background: white url('/img/single-avatar.jpg') no-repeat center center;
+  background: white url(${({ img }) => img ?? '/img/single-avatar.jpg'})
+    no-repeat center center;
   background-size: cover;
 `
 

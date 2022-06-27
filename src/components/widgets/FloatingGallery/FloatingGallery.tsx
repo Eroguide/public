@@ -56,7 +56,7 @@ export const FloatingGallery: React.FC<{ handleClose: () => void }> = ({
               renderThumbVertical={() => <div />}
               universal
             >
-              <LadiesGalleryWidget />
+              <LadiesGalleryWidget girls={[]} />
             </Scrollbars>
           </ContentGallery>
         </Content>

@@ -15,7 +15,7 @@ export const Banner = styled.div<{ image: string }>`
   overflow: hidden;
   border-radius: 24px;
   ${({ theme }) => theme.media.sm`
-margin-bottom: 24px;  
+    margin-bottom: 24px;  
   `}
   ${({ theme }) => theme.media.mobile`
    margin-bottom: 24px;

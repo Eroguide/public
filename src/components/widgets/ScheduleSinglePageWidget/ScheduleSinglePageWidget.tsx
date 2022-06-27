@@ -14,7 +14,9 @@ import {
 import GreenCheck from '/public/img/green-check.svg'
 import { CustomButton, WorkingDays } from '@/components/generic'
 
-export const ScheduleSinglePageWidget: React.FC = () => {
+export const ScheduleSinglePageWidget: React.FC<{ price: string }> = ({
+  price,
+}) => {
   return (
     <WidgetInner>
       <ScheduleBlockWidget>
@@ -31,7 +33,7 @@ export const ScheduleSinglePageWidget: React.FC = () => {
       <Divider />
       <PriceBlock>
         <Prefix>od</Prefix>
-        <Price>2500</Price>
+        <Price>{price}</Price>
         <Suffix>Kč/h</Suffix>
       </PriceBlock>
       <CustomButton styleType="tertiary" sizeType="medium" margin={'auto'}>
