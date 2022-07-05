@@ -34,7 +34,7 @@ import CovidAntisepIcon from '/public/img/covid-icon-antisep.svg'
 import CovidMaskIcon from '/public/img/covid-icon-mask.svg'
 import { SwiperSlide } from 'swiper/react'
 import { ScheduleFilters } from '@/components/generic/ScheduleFilters'
-import { GetSalon, GetSalon_getSalon } from '@/graphql/types/GetSalon'
+import { GetSalon } from '@/graphql/types/GetSalon'
 import { ListSalons_listSalons_edges_node } from '@/graphql/types/ListSalons'
 
 export const SalonSinglePageContent: React.FC<
@@ -42,7 +42,6 @@ export const SalonSinglePageContent: React.FC<
     listSalons: Array<ListSalons_listSalons_edges_node>
   }
 > = ({ getSalon, listSalons }) => {
-  console.log('SalonSinglePageContent getSalon', getSalon)
   const covidInfoList = [
     {
       id: 213213,
@@ -84,11 +83,13 @@ export const SalonSinglePageContent: React.FC<
     // address,
     // description,
     // title,
+    staff,
+    services,
     advantages,
     gallery,
     status,
   } = getSalon
-
+  console.log('getSalon', getSalon)
   return (
     <SinglePageContentContainer>
       <Banner image={headPhoto} />
@@ -122,10 +123,9 @@ export const SalonSinglePageContent: React.FC<
           <DetailsSection>
             <SinglePageContentBlock withIcon title="Schedule">
               <ScheduleFilters />
-              <SalonScheduleCard />
-              <SalonScheduleCard />
-              <SalonScheduleCard />
-              <SalonScheduleCard />
+              {staff.map((x) => (
+                <SalonScheduleCard key={x.id} {...x} />
+              ))}
             </SinglePageContentBlock>
 
             <SinglePageContentBlock title="Massage programs">
@@ -149,12 +149,10 @@ export const SalonSinglePageContent: React.FC<
                 margin={'0 0 32px 0'}
                 strokeColor={'green'}
               />
-              <MassageProgramCard />
-              <MassageProgramCard />
-              <MassageProgramCard />
-              <MassageProgramCard />
-              <MassageProgramCard />
-              <MassageProgramCard />
+
+              {services.map((x) => (
+                <MassageProgramCard key={x.id} {...x} />
+              ))}
 
               <ButtonRow>
                 <CustomButton styleType="tertiary" counter={32}>

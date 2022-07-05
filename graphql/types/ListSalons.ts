@@ -3,7 +3,7 @@
 // @generated
 // This file was automatically generated and should not be edited.
 
-import { SalonFilterSort } from './globalTypes'
+import { EmployeeSchedule, SalonFilterSort } from './globalTypes'
 
 // ====================================================
 // GraphQL query operation: ListSalons
@@ -106,6 +106,7 @@ export interface ListSalons_listSalons_edges_node_staff {
    * Employee price
    */
   price: any
+  schedule: Array<EmployeeSchedule>
   /**
    * Employee desc
    */
@@ -126,6 +127,7 @@ export interface ListSalons_listSalons_edges_node_staff {
    * Emploee's languages
    */
   languages: ListSalons_listSalons_edges_node_staff_languages[]
+  topDate: boolean
 }
 
 export interface ListSalons_listSalons_edges_node {

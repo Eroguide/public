@@ -1,3 +1,7 @@
+import { format } from 'date-fns'
+import Markdown from 'markdown-to-jsx'
+import Image from 'next/image'
+
 import {
   Container,
   Wrapper,
@@ -10,8 +14,7 @@ import {
 } from './styles'
 import { ContentCardRow, PostCard } from '@/components/generic'
 import { GetPost } from '@/graphql/__generated__/GetLaunches'
-import { format } from 'date-fns'
-import Image from 'next/image'
+
 import { SwiperSlide } from 'swiper/react'
 export const SinglePostContent: React.FC<GetPost> = ({ post, posts }) => {
   const { title, text, image, createdAt } = post
@@ -27,7 +30,9 @@ export const SinglePostContent: React.FC<GetPost> = ({ post, posts }) => {
           <SubTitle>
             The story about Patagonia. We hiked through Mountains and Canyons.
           </SubTitle>
-          <Text>{text}</Text>
+          <Text>
+            <Markdown>{text}</Markdown>
+          </Text>
           <Image src={image} width="100%" height="100%" alt="" />
         </Wrapper>
       </Container>

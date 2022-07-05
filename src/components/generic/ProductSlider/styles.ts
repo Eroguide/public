@@ -28,7 +28,8 @@ export const ThumbsSliderImage = styled.img`
   border-radius: 32px;
   overflow: hidden;
   height: 157px;
-  width: 157px;
+  max-width: 157px;
+  width: 100%;
   border: 1px solid ${({ theme }) => theme.grayScale[0]};
   transition: border 0.2s ease-in-out;
   &:hover {

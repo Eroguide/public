@@ -11,8 +11,7 @@ export const SalonScheduleCardContainer = styled.div`
 `
 
 export const DayList = styled.div`
-  width: calc(100% - 16px);
-  max-width: 426px;
+  width: 100%;
   display: flex;
   margin-left: 16px;
 `

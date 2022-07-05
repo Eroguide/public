@@ -3,13 +3,14 @@ import { Label, Input, CheckboxContainer, Title } from './styles'
 import Checkmark from '/public/img/check-box-icon.svg'
 
 export type CheckboxProps = {
-  name?: string
+  name: string
   label?: string
   defaultChecked?: boolean
   disabled?: boolean
   isError?: boolean
   fontSize?: string
   width?: string
+  onChange?: (value: string, name: string) => void
 }
 export type StyledComponentProps = Pick<
   CheckboxProps,
@@ -24,6 +25,7 @@ export const CheckBox: React.FC<CheckboxProps> = ({
   isError,
   fontSize,
   width,
+  onChange,
 }) => {
   return (
     <Label
@@ -33,8 +35,12 @@ export const CheckBox: React.FC<CheckboxProps> = ({
       width={width}
     >
       <Input
+        onChange={(e) => {
+          console.log('e.currentTarget.value', e)
+          onChange?.(e.target.checked, name)
+        }}
         name={name}
-        type="radio"
+        type="checkbox"
         disabled={disabled}
         defaultChecked={defaultChecked}
       />

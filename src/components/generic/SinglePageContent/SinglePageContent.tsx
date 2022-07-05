@@ -23,7 +23,9 @@ import { LadiesGalleryWidget } from '@/components/widgets/LadiesGalleryWidget'
 import { PersonalInfoSinglePageWidget } from '@/components/widgets/PersonalInfoSinglePageWidget'
 import { ScheduleSinglePageWidget } from '@/components/widgets/ScheduleSinglePageWidget'
 import { SalonSinglePageWidget } from '@/components/widgets/SalonSinglePageWidget'
-import { useEffect, useRef, useState } from 'react'
+import { useState } from 'react'
+
+import Markdown from 'markdown-to-jsx'
 import AnimateHeight from 'react-animate-height'
 import { useRouter } from 'next/router'
 import {
@@ -37,18 +39,11 @@ export const SinglePageContent: React.FC<{
 }> = ({ employee, girls }) => {
   const [isShowMore, setIsShowMore] = useState<boolean>(false)
   const router = useRouter()
-  const ref = useRef<HTMLDivElement>(null)
   const sliderGallery = employee.gallery
-
-  useEffect(() => {
-    if (ref && employee && ref.current) {
-      ref.current.innerHTML = String(employee.interview)
-    }
-  }, [ref, employee])
-
+  //employee.interview
   return (
     <SinglePageContentContainer>
-      <Banner />
+      <Banner image={employee.mainPhoto} />
       <SinglePageBody>
         <LeftWidgets>
           <Widget>
@@ -71,24 +66,26 @@ export const SinglePageContent: React.FC<{
               <ExperianceWidget />
             </SinglePageContentBlock>
             <SinglePageContentBlock title="Interview for Eroguide">
-              <>
-                <AnimateHeight
-                  duration={500}
-                  height={isShowMore ? 'auto' : 400}
-                >
-                  <InterviewBlockWrapper ref={ref} />
-                </AnimateHeight>
-                <RowRight>
-                  <CustomButton
-                    styleType={'tertiary'}
-                    sizeType={'small'}
-                    onClick={() => setIsShowMore(!isShowMore)}
-                    width={'105px'}
+              {employee.interview ? (
+                <>
+                  <AnimateHeight
+                    duration={500}
+                    height={isShowMore ? 'auto' : 100}
                   >
-                    Vice
-                  </CustomButton>
-                </RowRight>
-              </>
+                    <Markdown>{String(employee.interview)}</Markdown>
+                  </AnimateHeight>
+                  <RowRight>
+                    <CustomButton
+                      styleType={'tertiary'}
+                      sizeType={'small'}
+                      onClick={() => setIsShowMore(!isShowMore)}
+                      width={'105px'}
+                    >
+                      Vice
+                    </CustomButton>
+                  </RowRight>
+                </>
+              ) : null}
             </SinglePageContentBlock>
             <SinglePageContentBlock title="Video">
               <VideoPlayerWidget />

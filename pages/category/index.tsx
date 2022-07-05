@@ -1,4 +1,4 @@
-import { GetServerSideProps } from 'next'
+import { GetServerSideProps, NextPage } from 'next'
 import Head from 'next/head'
 import { BaseLayout } from '@/components/layouts/BaseLayout'
 import { CardGallery, TopLinePageContent } from '@/components/generic'
@@ -22,10 +22,10 @@ import { OperationVariables, useQuery } from '@apollo/client'
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 
-const CategoryAllPage: () => JSX.Element | string = () => {
+const CategoryAllPage: NextPage = () => {
   let filterSort: {
     created?: {
-      from: string // today
+      from: string
       to: string
     }
     top?: string
@@ -111,7 +111,7 @@ const CategoryAllPage: () => JSX.Element | string = () => {
     return <Loader />
   }
 
-  if (error) return `Error! ${error.message}`
+  if (error) return <p>`Error! ${error.message}`</p>
 
   const total = data?.listEmployee.totalCount
   const after = data?.listEmployee.pageInfo.endCursor || null

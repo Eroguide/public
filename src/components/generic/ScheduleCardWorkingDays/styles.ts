@@ -13,7 +13,6 @@ export const Wrapper = styled.div`
   flex-direction: row;
   position: relative;
   width: 100%;
-  //margin: 0 -9px;
   & .swiper {
     width: 100%;
     display: flex;
@@ -21,6 +20,13 @@ export const Wrapper = styled.div`
   & .swiper-slide {
     padding: 0 4px;
     width: auto;
+
+    &:first-of-type {
+      padding: 0 4px 0 0;
+    }
+    &:last-of-type {
+      padding: 0 0 0 4px;
+    }
   }
   ${({ theme }) => theme.media.mobile`
        min-width: auto;

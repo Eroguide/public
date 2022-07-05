@@ -1,16 +1,15 @@
 import { SalonScheduleCardContainer, DayList } from './styles'
-import {
-  // LadyCard,
+import { LadyCard, ScheduleCardWorkingDays } from '@/components/generic'
+import { ListSalons_listSalons_edges_node_staff } from '@/graphql/types/ListSalons'
 
-  SchedyleCardWorkingDays,
-} from '@/components/generic'
-
-export const SalonScheduleCard: React.FC = () => {
+export const SalonScheduleCard: React.FC<
+  ListSalons_listSalons_edges_node_staff
+> = ({ schedule, id, ...props }) => {
   return (
     <SalonScheduleCardContainer>
-      {/*<LadyCard href="#" />*/}
+      <LadyCard href={id} girl={props} />
       <DayList>
-        <SchedyleCardWorkingDays withDateBottom />
+        <ScheduleCardWorkingDays withDateBottom schedule={schedule} />
       </DayList>
     </SalonScheduleCardContainer>
   )

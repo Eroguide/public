@@ -54,8 +54,6 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
       (node: ListEmployee_listEmployee_edges) => node
     ) || []
 
-  console.log('postListArray', postListArray)
-
   return addApolloState(apolloClient, {
     props: {
       employee: data.getEmployee,

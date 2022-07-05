@@ -46,7 +46,7 @@ export const SinglePageBody = styled.div`
 
 export const DetailsSection = styled.div`
   width: 100%;
-  max-width: 569px;
+  max-width: 580px;
   ${({ theme }) => theme.media.sm`
       max-width: 100%;
   `}

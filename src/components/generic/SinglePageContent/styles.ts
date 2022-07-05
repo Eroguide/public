@@ -6,10 +6,11 @@ export const SinglePageContentContainer = styled.div`
   flex-direction: column;
 `
 
-export const Banner = styled.div`
+export const Banner = styled.div<{ image: string }>`
   width: 100%;
   height: 320px;
-  background: #ebebf0 url('/img/fake.png') no-repeat center;
+  background: gray url(${({ image }) => image ?? '/img/fake.png'}) no-repeat
+    center;
   background-size: cover;
   overflow: hidden;
   border-radius: 24px;

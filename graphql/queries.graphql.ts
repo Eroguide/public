@@ -49,10 +49,38 @@ export const getEmployee = gql`
       salonId
       schedule {
         id
+        day
+        status
+        startTime
+        endTime
       }
-      #      schedule
-      #      services
-      #      serviceLike
+      services {
+        id
+        name
+        price
+        comment
+        description
+        fifPrice
+        createdAt
+        salonId
+        massages {
+          id
+          image
+          createdAt
+          name
+        }
+        fstPrice
+        fthPrice
+        sdPrice
+        tdPrice
+      }
+      serviceLike {
+        id
+        serviceId
+        description
+        serviceId
+        preferences
+      }
       gallery
     }
   }
@@ -82,6 +110,21 @@ export const getSalon = gql`
         id
         name
         price
+        comment
+        description
+        fifPrice
+        createdAt
+        salonId
+        massages {
+          id
+          image
+          createdAt
+          name
+        }
+        fstPrice
+        fthPrice
+        sdPrice
+        tdPrice
       }
       advantages {
         id
@@ -92,13 +135,52 @@ export const getSalon = gql`
       staff {
         id
         name
+        mainPhoto
+        headPhoto
+        status
+        age
+        weight
+        height
+        breastSize
+        footSize
+        meetingPoint
+        departureCost
         price
+        description
+        interview
+        services {
+          id
+          name
+          price
+          comment
+          description
+          fifPrice
+          createdAt
+          salonId
+          massages {
+            id
+            image
+            createdAt
+            name
+          }
+          fstPrice
+          fthPrice
+          sdPrice
+          tdPrice
+        }
+        salonId
         schedule {
           id
           day
           status
           startTime
           endTime
+        }
+        createdAt
+        languages {
+          id
+          name
+          createdAt
         }
       }
       active
@@ -264,7 +346,23 @@ export const listEmployee = gql`
           }
           services {
             id
-            preference
+            name
+            price
+            comment
+            description
+            fifPrice
+            createdAt
+            salonId
+            massages {
+              id
+              image
+              createdAt
+              name
+            }
+            fstPrice
+            fthPrice
+            sdPrice
+            tdPrice
           }
           schedule {
             id
@@ -283,3 +381,28 @@ export const listEmployee = gql`
     }
   }
 `
+
+export const listLocation = gql`
+  query ListLocation($filterSort: LocationFilterSort) {
+    listLocation(filterSort: $filterSort) {
+      id
+      longitude
+      latitude
+      salonId
+      employeeId
+      salon {
+        id
+        title
+        staff {
+          id
+          name
+        }
+      }
+      employee {
+        id
+        name
+      }
+    }
+  }
+`
+//schema:download --endpoint=http://localhost:8080/graphql

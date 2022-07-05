@@ -18,54 +18,12 @@ import {
 } from './styles'
 import TimerIcon from '/public/img/timer-icon.svg'
 import ChevronIcon from '/public/img/chevron-lg.svg'
-import TwoPlusOne from '/public/img/twoplusone-massage.svg'
-import OnePlusTwo from '/public/img/oneplustwo-massage.svg'
-import TwoPlusTwo from '/public/img/twoplustwo-massage.svg'
-import ReplaceIcon from '/public/img/replace-massage.svg'
-import PeepIcon from '/public/img/peep-massage.svg'
-import Kiss from '/public/img/kiss-massage.svg'
-import Imitation from '/public/img/imitation-massage.svg'
+import Image from 'next/image'
 
-const massageTypes = [
-  {
-    id: '1sads',
-    text: 'Assumenda consectetur culpa dolorum ducimus.',
-    icon: <TwoPlusTwo />,
-  },
-  {
-    id: '2sads',
-    text: 'Assumenda consectetur culpa dolorum ducimus.',
-    icon: <Kiss />,
-  },
-  {
-    id: '3sads',
-    text: 'Assumenda consectetur culpa dolorum ducimus.',
-    icon: <Imitation />,
-  },
-  {
-    id: '4sads',
-    text: 'Assumenda consectetur culpa dolorum ducimus.',
-    icon: <PeepIcon />,
-  },
-  {
-    id: '5sads',
-    text: 'Assumenda consectetur culpa dolorum ducimus.',
-    icon: <ReplaceIcon />,
-  },
-  {
-    id: '6sads',
-    text: 'Assumenda consectetur culpa dolorum ducimus.',
-    icon: <OnePlusTwo />,
-  },
-  {
-    id: '7sads',
-    text: 'Assumenda consectetur culpa dolorum ducimus.',
-    icon: <TwoPlusOne />,
-  },
-]
 import { useState } from 'react'
 import { FreeMode, SwiperOptions } from 'swiper'
 import { SwiperSlide, Swiper } from 'swiper/react'
+import { Service } from '@/graphql/types/GetSalon'
 export enum StrokeColorTypes {
   gray = 'gray',
   yellow = 'yellow',
@@ -76,12 +34,13 @@ export type InfoCardProps = {
   padding?: string
   margin?: string
   strokeColor?: keyof typeof StrokeColorTypes
-}
+} & Service
 
 export const MassageProgramCard: React.FC<InfoCardProps> = ({
   padding,
   margin,
   strokeColor,
+  ...props
 }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false)
   const swiperSettings: SwiperOptions = {
@@ -90,13 +49,13 @@ export const MassageProgramCard: React.FC<InfoCardProps> = ({
     spaceBetween: 0,
   }
   const [initSlider, setInitSlider] = useState<boolean>(false)
-
+  const { name, description, massages, price } = props
   return (
     <Container padding={padding} margin={margin} strokeColor={strokeColor}>
       <MainInfo onClick={() => setIsOpen(!isOpen)} isOpen={isOpen}>
         <Left>
-          <Title>Mamy Yami</Title>
-          <Details>(basic program)</Details>
+          <Title>{name}</Title>
+          <Details>{description}</Details>
         </Left>
         <ToggleButton isOpen={isOpen}>
           <ChevronIcon />
@@ -113,10 +72,12 @@ export const MassageProgramCard: React.FC<InfoCardProps> = ({
       <BottomRow>
         <IconsRow>
           <Swiper {...swiperSettings} onAfterInit={() => setInitSlider(true)}>
-            {initSlider
-              ? massageTypes.map((x) => (
+            {initSlider && massages
+              ? massages.map((x) => (
                   <SwiperSlide key={x.id}>
-                    <SingleIconWrapper key={x.id}>{x.icon}</SingleIconWrapper>
+                    <SingleIconWrapper key={x.id}>
+                      <img src={x.image} alt="" />
+                    </SingleIconWrapper>
                   </SwiperSlide>
                 ))
               : 'loading'}
@@ -124,19 +85,21 @@ export const MassageProgramCard: React.FC<InfoCardProps> = ({
         </IconsRow>
 
         <Price>
-          1500 <Suffix>Kč/h</Suffix>
+          {price} <Suffix>Kč/h</Suffix>
         </Price>
       </BottomRow>
 
       <Description isOpen={isOpen}>
-        <>
-          {massageTypes.map((x, i) => (
-            <HiddenContentItem key={x.id} delay={i} isOpen={isOpen}>
-              <IconWrapperHiddenContent>{x.icon}</IconWrapperHiddenContent>
-              <span>{x.text}</span>
-            </HiddenContentItem>
-          ))}
-        </>
+        {massages
+          ? massages.map((x, i) => (
+              <HiddenContentItem key={x.id} delay={i} isOpen={isOpen}>
+                <IconWrapperHiddenContent>
+                  <img src={x.image} />
+                </IconWrapperHiddenContent>
+                <span>{x.name}</span>
+              </HiddenContentItem>
+            ))
+          : null}
       </Description>
     </Container>
   )

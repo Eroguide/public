@@ -14,7 +14,7 @@ export const AvatarImage = styled.div<{ img: string }>`
   margin-bottom: 24px;
   overflow: hidden;
   background: white url(${({ img }) => img ?? '/img/single-avatar.jpg'})
-    no-repeat center center;
+    no-repeat center top;
   background-size: cover;
 `
 

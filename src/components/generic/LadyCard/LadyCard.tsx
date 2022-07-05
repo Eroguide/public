@@ -10,16 +10,18 @@ import {
 import Link from 'next/link'
 
 import BadgeIcon from '/public/img/lady-card-badge.svg'
-import { ListEmployee_listEmployee_edges_node } from '@/graphql/types/ListEmployee'
+
+import { ListSalons_listSalons_edges_node_staff } from '@/graphql/types/ListSalons'
 export const LadyCard: React.FC<{
   href: string
-  girl: ListEmployee_listEmployee_edges_node
+  girl: Partial<ListSalons_listSalons_edges_node_staff>
 }> = ({ href, girl }) => {
+  console.log('girl', girl)
   return (
     <Container>
       <Wrapper>
         <Link href={href && `/employee/${href}`} passHref>
-          <CardImage img={girl.mainPhoto}>
+          <CardImage img={girl?.headPhoto}>
             <Tag>{girl.status && 'new'}</Tag>
             <StatusTag>
               <Circle />
@@ -27,7 +29,7 @@ export const LadyCard: React.FC<{
           </CardImage>
         </Link>
         <Title>
-          {girl.name} {girl.topDate && <BadgeIcon />}
+          {girl.name} {girl?.topDate ? <BadgeIcon /> : null}
         </Title>
       </Wrapper>
     </Container>

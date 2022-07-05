@@ -9,11 +9,12 @@ export const Wrapper = styled.div`
   width: 100%;
 `
 
-export const CardImage = styled.div<{ img: string }>`
+export const CardImage = styled.div<{ img?: string }>`
   width: 78px;
   height: 78px;
   border-radius: 16px;
-  background: gray url(${({ img }) => img}) no-repeat center center;
+  background: gray url(${({ img }) => img ?? '/img/fake.png'}) no-repeat center
+    top;
   background-size: cover;
   position: relative;
 `

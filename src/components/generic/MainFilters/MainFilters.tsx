@@ -23,23 +23,96 @@ import BreastIcon from '/public/img/breast-filter.svg'
 import HeightIcon from '/public/img/height-filter.svg'
 import PhotoIcon from '/public/img/photo-filter.svg'
 import ProgramIcon from '/public/img/program-filter.svg'
-// import { FooterLogo } from '@/components/layouts/Footer/styles'
+
 import { useRouter } from 'next/router'
+import {
+  ListEmployee,
+  ListEmployeeVariables,
+} from '@/graphql/types/ListEmployee'
+import { useQuery } from '@apollo/client'
+import { listEmployee as listEmployeeQuery } from '@/graphql/queries.graphql'
+import { Loader } from '@/components/widgets/LoaderWidget'
+import { ParsedUrlQuery } from 'querystring'
+import { useEffect, useState } from 'react'
+const prepareQuery = (queryParams: ParsedUrlQuery): ParsedUrlQuery => {
+  console.log('queryParams', queryParams)
+  const preparedQuery: ParsedUrlQuery = queryParams
+
+  if (queryParams?.onShift && queryParams.onShift !== 'false') {
+    preparedQuery.onShift = String(queryParams.onShift)
+  }
+  if (queryParams?.new && queryParams?.new !== 'false') {
+    preparedQuery.new = String(queryParams.new)
+  }
+  if (queryParams?.age) {
+    preparedQuery.age = String(queryParams.age)
+  }
+
+  return preparedQuery
+}
 
 export const MainFilters: React.FC = () => {
-  const { back } = useRouter()
+  const router = useRouter()
+  const { push, back, query } = router
+  const [dirtyQuery, setDirtyQuery] = useState<ParsedUrlQuery>(query)
+
+  useEffect(() => {
+    if (dirtyQuery) {
+      push(
+        '/search',
+        {
+          query: dirtyQuery,
+        },
+        { shallow: false }
+      )
+    }
+  }, [dirtyQuery])
+
+  const { data, loading, error } = useQuery<
+    ListEmployee,
+    ListEmployeeVariables
+  >(listEmployeeQuery, {
+    variables: { filterSort: dirtyQuery },
+  })
+  if (!data || loading) {
+    return <Loader />
+  }
+
+  const queryFilterHandler = (value: string, name: string): void => {
+    const composeValue = {
+      [name]: value,
+    }
+    setDirtyQuery({ ...dirtyQuery, ...composeValue })
+  }
+
+  if (error) return <p>`Error! ${error.message}`</p>
+
   const actualRadio = (
     <ProgramGrid>
-      <CheckBox label={'Na směně'} />
-      <CheckBox label={'Nové slečny'} />
+      <CheckBox
+        onChange={queryFilterHandler}
+        name={'onShift'}
+        label={'Na směně'}
+      />
+      <CheckBox
+        onChange={queryFilterHandler}
+        name={'new'}
+        label={'Nové slečny'}
+      />
     </ProgramGrid>
   )
+
   const ageFilter = (
     <>
-      <CustomButton styleType={'tertiary'} sizeType={'small'}>
+      <CustomButton
+        styleType={'tertiary'}
+        sizeType={'small'}
+        onClick={() => queryFilterHandler('1', 'age')}
+      >
         18-22
       </CustomButton>
       <CustomButton
+        onClick={() => queryFilterHandler('2', 'age')}
         margin="0 0 0 16px"
         styleType={'tertiary'}
         sizeType={'small'}
@@ -47,6 +120,7 @@ export const MainFilters: React.FC = () => {
         23-28
       </CustomButton>
       <CustomButton
+        onClick={() => queryFilterHandler('3', 'age')}
         margin="0 0 0 16px"
         styleType={'tertiary'}
         sizeType={'small'}
@@ -57,9 +131,21 @@ export const MainFilters: React.FC = () => {
   )
   const placeRadio = (
     <ProgramGrid>
-      <CheckBox label={'Masáže'} />
-      <CheckBox label={'Privat'} />
-      <CheckBox label={'Escort'} />
+      <CheckBox
+        onChange={queryFilterHandler}
+        label={'Masáže'}
+        name={'massage'}
+      />
+      <CheckBox
+        onChange={queryFilterHandler}
+        label={'Privat'}
+        name={'privat'}
+      />
+      <CheckBox
+        onChange={queryFilterHandler}
+        label={'Escort'}
+        name={'escort'}
+      />
     </ProgramGrid>
   )
   const bodyType = (
@@ -85,16 +171,40 @@ export const MainFilters: React.FC = () => {
   )
   const photoRadio = (
     <ProgramGrid>
-      <CheckBox label={'Ověřeno Eroguide'} />
-      <CheckBox label={'Vlastní'} />
+      <CheckBox
+        name={'photo'}
+        onChange={queryFilterHandler}
+        label={'Ověřeno Eroguide'}
+      />
+      <CheckBox
+        name={'photo'}
+        onChange={queryFilterHandler}
+        label={'Vlastní'}
+      />
     </ProgramGrid>
   )
   const programRadio = (
     <ProgramGrid>
-      <CheckBox label={'peep-show'} />
-      <CheckBox label={'sakura branch'} />
-      <CheckBox label={'foot fetish'} />
-      <CheckBox label={'urological massage'} />
+      <CheckBox
+        onChange={queryFilterHandler}
+        name={'program'}
+        label={'peep-show'}
+      />
+      <CheckBox
+        name={'program'}
+        onChange={queryFilterHandler}
+        label={'sakura branch'}
+      />
+      <CheckBox
+        name={'program'}
+        onChange={queryFilterHandler}
+        label={'foot fetish'}
+      />
+      <CheckBox
+        name={'program'}
+        onChange={queryFilterHandler}
+        label={'urological massage'}
+      />
     </ProgramGrid>
   )
 
@@ -139,7 +249,7 @@ export const MainFilters: React.FC = () => {
           </Left>
           <Right>
             <CustomButton styleType="primary" sizeType="default">
-              Zobrazit (386)
+              Zobrazit ({data.listEmployee.totalCount})
             </CustomButton>
           </Right>
         </TopMainFiltersPanel>

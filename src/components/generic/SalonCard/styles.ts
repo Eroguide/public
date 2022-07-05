@@ -5,7 +5,7 @@ export const SalonCardMainContainer = styled.div<{ inSwipe?: boolean }>`
   width: 100%;
   flex-direction: column;
   border-radius: 32px;
-  padding: 9px;
+  padding: 9px 9px 30px 9px;
   min-width: 411px;
   ${({ theme }) => theme.media.sm`
     width: calc(100%  - 18px);

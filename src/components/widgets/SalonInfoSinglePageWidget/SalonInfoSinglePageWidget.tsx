@@ -29,16 +29,7 @@ import { format } from 'date-fns'
 export const SalonInfoSinglePageWidget: React.FC<{
   getSalon: GetSalon_getSalon
 }> = ({ getSalon }) => {
-  const {
-    title,
-    headPhoto,
-    phone,
-    createdAt,
-    __typename: metaName,
-    province,
-    address,
-    logo,
-  } = getSalon
+  const { title, phone, createdAt, province, address, logo } = getSalon
   const [isOpen, setIsOpen] = useState<boolean>(false)
 
   const handleOnClick = () => {

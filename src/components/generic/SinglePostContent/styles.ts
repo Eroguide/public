@@ -72,9 +72,12 @@ export const SubTitle = styled.h2`
   margin-bottom: 64px;
 `
 
-export const Text = styled.p`
-  ${({ theme }) => theme.typography.pm};
-  font-weight: 400;
-  color: ${({ theme }) => theme.grayScale[4]};
+export const Text = styled.div`
+  p {
+    ${({ theme }) => theme.typography.pm};
+    font-weight: 400;
+    color: ${({ theme }) => theme.grayScale[4]};
+  }
+
   margin-bottom: 56px;
 `
