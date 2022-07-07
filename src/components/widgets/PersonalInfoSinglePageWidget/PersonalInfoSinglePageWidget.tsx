@@ -20,7 +20,7 @@ import Cloud from '/public/img/cloud-icon.svg'
 import Whazaap from '/public/img/whazaap-icon.svg'
 import { CustomButton } from '@/components/generic'
 import { useState } from 'react'
-import { ListEmployee_listEmployee_edges_node } from '@/graphql/types/ListEmployee'
+import { ListEmployee_listEmployee_edges_node } from '@/graphql/types/ListEmployeeNew'
 import { format } from 'date-fns'
 
 export const PersonalInfoSinglePageWidget: React.FC<{

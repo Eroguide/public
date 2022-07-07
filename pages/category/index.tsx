@@ -11,7 +11,7 @@ import {
   ListEmployee_listEmployee_edges,
   // ListEmployee_listEmployee_edges_node,
   ListEmployeeVariables,
-} from '@/graphql/types/ListEmployee'
+} from '@/graphql/types/ListEmployeeNew'
 
 import { CategoryLanding } from '@/components/pages'
 

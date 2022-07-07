@@ -4,7 +4,7 @@
   "extensions": {
     "endpoints": {
       "Remote EROGUIDE GraphQL Endpoint": {
-        "url": "http://eroguide-api.cz/query",
+        "url": "https://eroguide-api.cz/query",
         "headers": {
           "user-agent": "JS GraphQL"
         },

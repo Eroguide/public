@@ -16,7 +16,6 @@ const SalonsItem: NextPage<{
   getSalon: GetSalon_getSalon
   listSalons: Array<ListSalons_listSalons_edges_node>
 }> = ({ getSalon, listSalons }) => {
-  console.log('getSalon', getSalon)
   return (
     <>
       <Head>

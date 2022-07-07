@@ -7,7 +7,7 @@ import {
   FeatureItem,
   Wrapper,
 } from './styles'
-
+import Image from 'next/image'
 import { useBreakpoint } from '@/hooks/useBreakpoint'
 import { breakpoints, BreakpointsEnum } from '@/src/theme'
 import { CustomButton } from '@/components/generic'
@@ -35,7 +35,12 @@ export const ServiceFeaturesSalonWidget: React.FC<{
               i < ((!showMore && isSmall && 4) || 10) && (
                 <FeatureItem key={id + '-' + name}>
                   <IconWrapper>
-                    <img src={image} alt={name + 'service-advantages'} />
+                    <Image
+                      src={image}
+                      alt={name + 'service-advantages'}
+                      width={40}
+                      height={40}
+                    />
                   </IconWrapper>
                   <span>{name}</span>
                 </FeatureItem>

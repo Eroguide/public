@@ -1,6 +1,6 @@
 import { Container, Inner, ItemWrapper } from './styles'
 import { LadyCard } from '@/components/generic'
-import { ListEmployee_listEmployee_edges } from '@/graphql/types/ListEmployee'
+import { ListEmployee_listEmployee_edges } from '@/graphql/types/ListEmployeeNew'
 
 export const LadiesGalleryWidget: React.FC<{
   girls: Array<ListEmployee_listEmployee_edges>

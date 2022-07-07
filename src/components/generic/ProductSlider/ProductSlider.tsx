@@ -23,12 +23,12 @@ import ArrowLeftIcon from '/public/img/arrow-left.svg'
 import ArrowRightIcon from '/public/img/arrow-right.svg'
 import GreenCheckIcon from '/public/img/green-circle-check.svg'
 import { Swiper as SwiperClass } from 'swiper/types'
-import { ListEmployee_listEmployee_edges_node } from '@/graphql/types/ListEmployee'
+import { ListEmployee_listEmployee_edges_node } from '@/graphql/types/ListEmployeeNew'
 
 export const ProductSlider: React.FC<{
   status: boolean
   sliderGallery?: ListEmployee_listEmployee_edges_node['gallery']
-}> = ({ status }) => {
+}> = ({ status, sliderGallery }) => {
   const [thumbsSwiper, setThumbsSwiper] = useState<SwiperClass>()
   const navigationPrevRef = useRef<HTMLDivElement>(null)
   const navigationNextRef = useRef<HTMLDivElement>(null)
@@ -47,7 +47,7 @@ export const ProductSlider: React.FC<{
   }
   const swiperSettings2: SwiperOptions = {
     slidesPerView: 4,
-    loop: true,
+    loop: false,
     breakpoints: {
       0: {
         slidesPerView: 3,
@@ -65,64 +65,31 @@ export const ProductSlider: React.FC<{
   }
   const [initSlider, setInitSlider] = useState(false)
 
-  const fixtures = [
-    {
-      id: '222dsadas',
-      slug: 'one-project-time',
-      best: 1,
-      img: '/img/fake.png',
-    },
-    {
-      id: 'asddsad222sadasd',
-      slug: 'two-project-time',
-      best: 0,
-      img: '/img/fake.png',
-    },
-    {
-      id: 'asdsad3242asd',
-      slug: 'three-project-time',
-      best: 0,
-      img: '/img/fake.png',
-    },
-    {
-      id: 'asdsdadasfffsadasd',
-      slug: 'four-project-time',
-      best: 0,
-      img: '/img/fake.png',
-    },
-    {
-      id: '222dsadassssd',
-      slug: 'one-project-time',
-      best: 1,
-      img: '/img/fake.png',
-    },
-  ]
-
   return (
     <>
-      <TitleBeforeSlider>
-        <IconWrapper>
-          <GreenCheckIcon />
-        </IconWrapper>
-        <span>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores,
-          natus.
-        </span>
-      </TitleBeforeSlider>
+      {status && (
+        <TitleBeforeSlider>
+          <IconWrapper>
+            <GreenCheckIcon />
+          </IconWrapper>
+          <span>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores,
+            natus.
+          </span>
+        </TitleBeforeSlider>
+      )}
       <Container>
         <Wrapper>
           <Swiper {...swiperSettings} onAfterInit={() => setInitSlider(true)}>
-            {initSlider && fixtures
-              ? fixtures.map(
-                  (post) =>
-                    post && (
-                      <SwiperSlide key={post.id}>
-                        <GallerySliderImage src={post.img} />
-                      </SwiperSlide>
-                    )
-                )
+            {initSlider && sliderGallery
+              ? sliderGallery.map((imgUrl, index) => (
+                  <SwiperSlide key={imgUrl + index}>
+                    <GallerySliderImage src={imgUrl} />
+                  </SwiperSlide>
+                ))
               : 'loading'}
           </Swiper>
+
           <ThumbNavigationWrapper>
             <Swiper
               onSwiper={(e) => setThumbsSwiper(e)}
@@ -133,15 +100,12 @@ export const ProductSlider: React.FC<{
               modules={[FreeMode, Thumbs, Navigation]}
               {...swiperSettings2}
             >
-              {initSlider && fixtures
-                ? fixtures.map(
-                    (post) =>
-                      post && (
-                        <SwiperSlide key={post.id}>
-                          <ThumbsSliderImage src={post.img} />
-                        </SwiperSlide>
-                      )
-                  )
+              {initSlider && sliderGallery
+                ? sliderGallery.map((url) => (
+                    <SwiperSlide key={url}>
+                      <ThumbsSliderImage src={url} />
+                    </SwiperSlide>
+                  ))
                 : 'loading'}
             </Swiper>
           </ThumbNavigationWrapper>
@@ -157,7 +121,6 @@ export const ProductSlider: React.FC<{
                 </NextButton>
               </NextPrevWrapper>
             </Right>
-            {!status && null}
           </BottomRow>
         </Wrapper>
       </Container>

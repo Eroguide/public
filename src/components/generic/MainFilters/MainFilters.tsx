@@ -28,28 +28,28 @@ import { useRouter } from 'next/router'
 import {
   ListEmployee,
   ListEmployeeVariables,
-} from '@/graphql/types/ListEmployee'
+} from '@/graphql/types/ListEmployeeNew'
 import { useQuery } from '@apollo/client'
 import { listEmployee as listEmployeeQuery } from '@/graphql/queries.graphql'
 import { Loader } from '@/components/widgets/LoaderWidget'
 import { ParsedUrlQuery } from 'querystring'
 import { useEffect, useState } from 'react'
-const prepareQuery = (queryParams: ParsedUrlQuery): ParsedUrlQuery => {
-  console.log('queryParams', queryParams)
-  const preparedQuery: ParsedUrlQuery = queryParams
-
-  if (queryParams?.onShift && queryParams.onShift !== 'false') {
-    preparedQuery.onShift = String(queryParams.onShift)
-  }
-  if (queryParams?.new && queryParams?.new !== 'false') {
-    preparedQuery.new = String(queryParams.new)
-  }
-  if (queryParams?.age) {
-    preparedQuery.age = String(queryParams.age)
-  }
-
-  return preparedQuery
-}
+// const prepareQuery = (queryParams: ParsedUrlQuery): ParsedUrlQuery => {
+//   console.log('queryParams', queryParams)
+//   const preparedQuery: ParsedUrlQuery = queryParams
+//
+//   if (queryParams?.onShift && queryParams.onShift !== 'false') {
+//     preparedQuery.onShift = String(queryParams.onShift)
+//   }
+//   if (queryParams?.new && queryParams?.new !== 'false') {
+//     preparedQuery.new = String(queryParams.new)
+//   }
+//   if (queryParams?.age) {
+//     preparedQuery.age = String(queryParams.age)
+//   }
+//
+//   return preparedQuery
+// }
 
 export const MainFilters: React.FC = () => {
   const router = useRouter()

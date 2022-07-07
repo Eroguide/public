@@ -20,7 +20,7 @@ import { Card } from '@/components/generic'
 
 import ArrowLeftIcon from '/public/img/arrow-left.svg'
 import ArrowRightIcon from '/public/img/arrow-right.svg'
-import { ListEmployee_listEmployee_edges_node } from '@/graphql/types/ListEmployee'
+import { ListEmployee_listEmployee_edges_node } from '@/graphql/types/ListEmployeeNew'
 
 export type ShowNewProps = {
   date: number
@@ -114,17 +114,17 @@ export const ShowNewItems: React.FC<{
       <ContentRow>
         <Swiper {...swiperSettings} onAfterInit={() => setInitSlider(true)}>
           {initSlider &&
-            arrayEmployee.map((items) => {
+            arrayEmployee.map((items, i) => {
               return items.map((x) => (
                 <SwiperSlide key={x.id}>
                   <>
                     <Card {...x} tagTitle={'Best'} inSwipe />
                     {x.createdAt && (
                       <>
-                        <TimeLine date={'2'} isLast={!!x.isLastInGroup} />
+                        <TimeLine date={'' + i} isLast={!!x.isLastInGroup} />
                         {x.writeDateTitle && (
-                          <DateTag date={2}>
-                            {format(new Date(x.createdAt), 'MM/dd/yyyy')}
+                          <DateTag date={i}>
+                            {format(new Date(x.createdAt), 'iii, dd MMM.  ')}
                           </DateTag>
                         )}
                       </>

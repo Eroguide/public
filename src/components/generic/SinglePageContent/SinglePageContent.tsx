@@ -6,7 +6,6 @@ import {
   Widget,
   BodyContent,
   DetailsSection,
-  InterviewBlockWrapper,
   RowRight,
 } from './styles'
 
@@ -31,7 +30,7 @@ import { useRouter } from 'next/router'
 import {
   ListEmployee_listEmployee_edges,
   ListEmployee_listEmployee_edges_node,
-} from '@/graphql/types/ListEmployee'
+} from '@/graphql/types/ListEmployeeNew'
 
 export const SinglePageContent: React.FC<{
   employee: ListEmployee_listEmployee_edges_node
@@ -40,24 +39,27 @@ export const SinglePageContent: React.FC<{
   const [isShowMore, setIsShowMore] = useState<boolean>(false)
   const router = useRouter()
   const sliderGallery = employee.gallery
-  //employee.interview
+
+  const { mainPhoto, price } = employee
   return (
     <SinglePageContentContainer>
-      <Banner image={employee.mainPhoto} />
+      <Banner image={mainPhoto} />
       <SinglePageBody>
         <LeftWidgets>
           <Widget>
             <PersonalInfoSinglePageWidget employee={employee} />
           </Widget>
           <Widget>
-            <ScheduleSinglePageWidget price={employee.price} />
+            <ScheduleSinglePageWidget price={price} />
           </Widget>
           <SalonSinglePageWidget />
         </LeftWidgets>
         <BodyContent>
-          <SinglePageContentBlock title="Photo">
-            <ProductSlider status sliderGallery={sliderGallery} />
-          </SinglePageContentBlock>
+          {sliderGallery.length > 0 && (
+            <SinglePageContentBlock title="Photo">
+              <ProductSlider status sliderGallery={sliderGallery} />
+            </SinglePageContentBlock>
+          )}
           <DetailsSection>
             <SinglePageContentBlock title="Appearance">
               <ApperianceWidget employee={employee} />

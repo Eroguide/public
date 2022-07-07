@@ -13,6 +13,7 @@ import {
 
 import GreenCheck from '/public/img/green-check.svg'
 import { CustomButton, WorkingDays } from '@/components/generic'
+import { numberWithSpaces } from '@/utils/helpers'
 
 export const ScheduleSinglePageWidget: React.FC<{ price: string }> = ({
   price,
@@ -33,7 +34,7 @@ export const ScheduleSinglePageWidget: React.FC<{ price: string }> = ({
       <Divider />
       <PriceBlock>
         <Prefix>od</Prefix>
-        <Price>{price}</Price>
+        <Price>{numberWithSpaces(+price)}</Price>
         <Suffix>Kč/h</Suffix>
       </PriceBlock>
       <CustomButton styleType="tertiary" sizeType="medium" margin={'auto'}>

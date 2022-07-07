@@ -1,23 +1,23 @@
-import { GetServerSideProps, NextPage } from 'next'
+// import { GetServerSideProps, NextPage } from 'next'
 import Head from 'next/head'
 import { BaseLayout } from '@/components/layouts/BaseLayout'
 import { MainFilters } from '@/components/generic/MainFilters/MainFilters'
 import { SectionBlock } from '@/components/layouts/SectionBlock'
-import { useQuery } from '@apollo/client'
-import {
-  ListEmployee,
-  ListEmployee_listEmployee_edges,
-  ListEmployeeVariables,
-} from '@/graphql/types/ListEmployee'
-import {
-  listEmployee,
-  listEmployee as listEmployeeQuery,
-} from '@/graphql/queries.graphql'
-import { Loader } from '@/components/widgets/LoaderWidget'
-import { useRouter } from 'next/router'
-import { addApolloState, initializeApollo } from '@/graphql/apollo'
-import { findAndLoadGraphQLConfig } from '@graphql-codegen/cli'
-// import { EmployeeFilterSort } from '@/graphql/types/ListEmployee'
+// import { useQuery } from '@apollo/client'
+// import {
+//   ListEmployee,
+//   ListEmployee_listEmployee_edges,
+//   ListEmployeeVariables,
+// } from '@/graphql/types/ListEmployeeNew'
+// import {
+//   listEmployee,
+//   listEmployee as listEmployeeQuery,
+// } from '@/graphql/queries.graphql'
+// import { Loader } from '@/components/widgets/LoaderWidget'
+// import { useRouter } from 'next/router'
+// import { addApolloState, initializeApollo } from '@/graphql/apollo'
+// import { findAndLoadGraphQLConfig } from '@graphql-codegen/cli'
+// import { EmployeeFilterSort } from '@/graphql/types/ListEmployeeNew'
 
 const SearchPage: () => JSX.Element = () => {
   return (

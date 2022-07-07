@@ -8,7 +8,7 @@ import { getEmployee, listEmployee } from '@/graphql/queries.graphql'
 import {
   ListEmployee_listEmployee_edges,
   ListEmployee_listEmployee_edges_node,
-} from '@/graphql/types/ListEmployee'
+} from '@/graphql/types/ListEmployeeNew'
 
 export type EmployeeType = {
   employee: ListEmployee_listEmployee_edges_node
@@ -16,9 +16,11 @@ export type EmployeeType = {
 }
 
 const GalleryItem: NextPage<EmployeeType> = ({ employee, girls }) => {
+  // console.log('employee', employee)
   return (
     <>
       <Head>
+        DateTag
         <title>{employee.name}</title>
         <meta name="description" content={employee.description} />
         <link rel="icon" href="/favicon.ico" />

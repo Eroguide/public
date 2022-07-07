@@ -56,33 +56,6 @@ export const DetailsSection = styled.div`
   `}
 `
 
-export const InterviewBlockWrapper = styled.div`
-  width: 100%;
-  max-width: 508px;
-
-  h3 {
-    ${({ theme }) => theme.typography.h5};
-    color: ${({ theme }) => theme.grayScale[4]};
-    margin-bottom: 8px;
-  }
-
-  p {
-    ${({ theme }) => theme.typography.pm};
-    color: ${({ theme }) => theme.grayScale[3]};
-  }
-
-  div {
-    margin-bottom: 32px;
-  }
-
-  ${({ theme }) => theme.media.sm`
-      max-width: 100%;
-  `}
-  ${({ theme }) => theme.media.mobile`
-       max-width: 100%;
-  `}
-`
-
 export const LeftWidgets = styled.div`
   display: flex;
   flex-direction: column;

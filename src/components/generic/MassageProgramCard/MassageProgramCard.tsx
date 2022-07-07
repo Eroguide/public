@@ -94,7 +94,7 @@ export const MassageProgramCard: React.FC<InfoCardProps> = ({
           ? massages.map((x, i) => (
               <HiddenContentItem key={x.id} delay={i} isOpen={isOpen}>
                 <IconWrapperHiddenContent>
-                  <img src={x.image} />
+                  <Image src={x.image} alt={x.name} width={40} height={40} />
                 </IconWrapperHiddenContent>
                 <span>{x.name}</span>
               </HiddenContentItem>

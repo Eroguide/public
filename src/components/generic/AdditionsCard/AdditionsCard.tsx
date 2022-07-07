@@ -11,6 +11,7 @@ import {
   Suffix,
 } from './styles'
 import TimerIcon from '/public/img/timer-icon.svg'
+import { numberWithSpaces } from '@/utils/helpers'
 
 export type InfoCardProps = {
   title?: string
@@ -37,7 +38,7 @@ export const AdditionsCard: React.FC<InfoCardProps> = ({ title, price }) => {
           <span>1 hour</span>
         </Timer>
         <Price>
-          {price}
+          {price && numberWithSpaces(+price)}
           <Suffix>Kč/h</Suffix>
         </Price>
       </BottomRow>

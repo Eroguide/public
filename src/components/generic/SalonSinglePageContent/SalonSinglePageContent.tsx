@@ -75,20 +75,7 @@ export const SalonSinglePageContent: React.FC<
     },
     { title: 'Imitations (each masseuse has its own)', price: 1500 },
   ]
-  const {
-    headPhoto,
-    // mainPhoto,
-    // email,
-    // phone,
-    // address,
-    // description,
-    // title,
-    staff,
-    services,
-    advantages,
-    gallery,
-    status,
-  } = getSalon
+  const { headPhoto, staff, services, advantages, gallery, status } = getSalon
   console.log('getSalon', getSalon)
   return (
     <SinglePageContentContainer>
@@ -102,7 +89,7 @@ export const SalonSinglePageContent: React.FC<
         </LeftWidgets>
 
         <BodyContent>
-          {gallery.length ? (
+          {gallery.length > 0 ? (
             <SinglePageContentBlock title="Photo">
               <ProductSlider status={!!status} sliderGallery={gallery} />
             </SinglePageContentBlock>

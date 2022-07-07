@@ -31,7 +31,7 @@ import {
 import {
   ListEmployee_listEmployee_edges,
   ListEmployee_listEmployee_edges_node,
-} from '@/graphql/types/ListEmployee'
+} from '@/graphql/types/ListEmployeeNew'
 
 export type MainPageSsrProps = {
   listEmployee: Array<ListEmployee_listEmployee_edges_node>
