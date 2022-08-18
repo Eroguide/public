@@ -1,11 +1,14 @@
-import { NextPage } from 'next'
+import { GetServerSideProps, NextPage } from 'next'
 import Head from 'next/head'
 import { BaseLayout } from '@/components/layouts/BaseLayout'
 import { TopLinePageContent } from '@/components/generic'
 import { MapPage } from '@/components/pages'
 import { SectionBlock } from '@/components/layouts/SectionBlock'
+import { addApolloState, initializeApollo } from '@/graphql/apollo'
+import { listLocation } from '@/graphql/queries.graphql'
+import { ListLocation } from '@/graphql/types/ListLocations'
 
-const Map: NextPage = () => {
+const Map: NextPage<ListLocation> = ({ listLocation }) => {
   return (
     <>
       <Head>
@@ -16,11 +19,26 @@ const Map: NextPage = () => {
       <BaseLayout>
         <SectionBlock>
           <TopLinePageContent />
-          <MapPage />
+          <MapPage listLocation={listLocation} />
         </SectionBlock>
       </BaseLayout>
     </>
   )
 }
+export const getServerSideProps: GetServerSideProps = async () => {
+  const apolloClient = initializeApollo()
 
+  const { data: locations } = await apolloClient.query({
+    query: listLocation,
+    variables: { first: 10 },
+  })
+
+  const listLocationArray = locations.listLocation
+
+  return addApolloState(apolloClient, {
+    props: {
+      listLocation: listLocationArray,
+    },
+  })
+}
 export default Map

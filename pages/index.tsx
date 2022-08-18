@@ -5,18 +5,15 @@ import { HeroBanner } from '@/components/generic/HeroBanner'
 import { HeroFilters } from '@/components/generic/HeroFilters'
 import { SalonCard } from '@/components/generic/SalonCard'
 import { ContentCardRow } from '@/components/generic/ContentCardRow'
-import {
-  Card,
-  CardGallery,
-  MapSection,
-  PostList,
-  // PostCard,
-  // PostCardWide,
-  // PostList,
-} from '@/components/generic'
+import { Card, CardGallery, MapSection, PostList } from '@/components/generic'
 import { SwiperSlide } from 'swiper/react'
 import { ShowNewItems } from '@/components/generic/ShowNewItems'
-import { listEmployee, listPosts, listSalons } from '@/graphql/queries.graphql'
+import {
+  allCounters,
+  listEmployee,
+  listPosts,
+  listSalons,
+} from '@/graphql/queries.graphql'
 import { addApolloState, initializeApollo } from '@/graphql/apollo'
 import { SectionBlock } from '@/components/layouts/SectionBlock'
 import { Responsive } from '@/components/generic'
@@ -32,16 +29,19 @@ import {
   ListEmployee_listEmployee_edges,
   ListEmployee_listEmployee_edges_node,
 } from '@/graphql/types/ListEmployeeNew'
+import { AllCounters } from '@/graphql/types/GetAllCounters'
 
 export type MainPageSsrProps = {
   listEmployee: Array<ListEmployee_listEmployee_edges_node>
   listPosts: Array<ListPosts_listPosts_edges_node>
   listSalons: Array<ListSalons_listSalons_edges_node>
+  counters: AllCounters
 }
 const Home: NextPage<MainPageSsrProps> = ({
   listEmployee,
   listPosts,
   listSalons,
+  counters,
 }) => {
   return (
     <>
@@ -54,7 +54,7 @@ const Home: NextPage<MainPageSsrProps> = ({
         <SectionBlock isVisible>
           <HeroBanner />
           <Responsive desktop>
-            <HeroFilters />
+            <HeroFilters counters={counters.getCounters} />
           </Responsive>
           <ShowNewItems title={'Nové slečny'} listEmployee={listEmployee} />
 
@@ -62,7 +62,7 @@ const Home: NextPage<MainPageSsrProps> = ({
             title="Top z privátů"
             counter={52}
             counterTitle="Vše"
-            href="/gallery"
+            href="/category?type=top"
             bottomControl
           >
             {listEmployee.map((item) => (
@@ -77,7 +77,7 @@ const Home: NextPage<MainPageSsrProps> = ({
             title="Holky z privátů"
             counter={73}
             counterTitle="Vše"
-            href="/gallery"
+            href="/category?type=privat"
             bottomControl
           >
             {listEmployee.map((item) => (
@@ -143,6 +143,17 @@ export const getServerSideProps: GetServerSideProps = async () => {
     variables: { first: 10 },
   })
 
+  const { data: counters } = await apolloClient.query({
+    query: allCounters,
+    variables: {
+      info: {
+        from: '2020-03-01',
+        to: '2022-01-20',
+        weekDay: 'MONDAY',
+      },
+    },
+  })
+
   const salonsListArray =
     salons.listSalons.edges.map(
       (edge: ListSalons_listSalons_edges) => edge.node
@@ -162,6 +173,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
       listSalons: salonsListArray,
       listPosts: postsListArray,
       listEmployee: employeeListArray,
+      counters,
     },
   })
 }

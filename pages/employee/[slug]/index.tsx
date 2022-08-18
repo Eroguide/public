@@ -16,11 +16,10 @@ export type EmployeeType = {
 }
 
 const GalleryItem: NextPage<EmployeeType> = ({ employee, girls }) => {
-  // console.log('employee', employee)
+  console.log('employee', employee)
   return (
     <>
       <Head>
-        DateTag
         <title>{employee.name}</title>
         <meta name="description" content={employee.description} />
         <link rel="icon" href="/favicon.ico" />

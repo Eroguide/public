@@ -37,6 +37,8 @@ export const getEmployee = gql`
       email
       address
       mainPhoto
+      video
+      gallery
       headPhoto
       breastSize
       footSize
@@ -81,7 +83,6 @@ export const getEmployee = gql`
         serviceId
         preferences
       }
-      gallery
     }
   }
 `
@@ -393,16 +394,130 @@ export const listLocation = gql`
       salon {
         id
         title
+        isDraft
+        logo
+        mainPhoto
+        headPhoto
+        street
+        city
+        province
+        status
+        site
+        email
+        phone
         staff {
           id
           name
+          mainPhoto
+          headPhoto
+          status
+          age
+          weight
+          height
+          breastSize
+          footSize
+          meetingPoint
+          departureCost
+          price
+          description
+          interview
+          services {
+            id
+            name
+            price
+            comment
+            description
+            fifPrice
+            createdAt
+            salonId
+            massages {
+              id
+              image
+              createdAt
+              name
+            }
+            fstPrice
+            fthPrice
+            sdPrice
+            tdPrice
+          }
+          salonId
+          schedule {
+            id
+            day
+            status
+            startTime
+            endTime
+          }
+          createdAt
+          languages {
+            id
+            name
+            createdAt
+          }
         }
+        active
+        isPrivate
+        isDraft
+        isTurnOff
+        managerEmail
+        managerPhone
+        address
       }
       employee {
         id
         name
+        description
+        interview
+        createdAt
+        age
+        price
+        meetingPoint
+        #      isPrivate
+        weight
+        height
+        phone
+        email
+        province
+        street
+        city
+        address
+        mainPhoto
+        headPhoto
+        breastSize
+        footSize
+        isDraft
+        meetingPoint
+        departureCost
+        topDate
+        dayTop
+        scheduleUpdatedAt
+        salonId
       }
     }
   }
 `
+
+export const allCounters = gql`
+  query AllCounters($info: CounterInfo!) {
+    getCounters(info: $info) {
+      allEmployees
+      newEmployees
+      topEmployees
+      availableEmployees
+      allMasseurs
+      allPublicParlours
+      allPrivateEmployees
+      allPrivateParlours
+    }
+  }
+`
+
+//{
+//   "info": {
+//     "from": "2020-03-01",
+//     "to": "2022-01-20",
+//     "weekDay": "MONDAY"
+//   }
+// }
 //schema:download --endpoint=http://localhost:8080/graphql

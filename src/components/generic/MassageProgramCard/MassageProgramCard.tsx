@@ -47,6 +47,7 @@ export const MassageProgramCard: React.FC<InfoCardProps> = ({
     slidesPerView: 'auto',
     modules: [FreeMode],
     spaceBetween: 0,
+    cssMode: true,
   }
   const [initSlider, setInitSlider] = useState<boolean>(false)
   const { name, description, massages, price } = props

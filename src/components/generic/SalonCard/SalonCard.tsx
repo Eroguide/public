@@ -81,7 +81,7 @@ export const SalonCard: React.FC<SalonCardProps> = ({
                         <TitleName>{girl.name}</TitleName>
                         <CheckIcon />
                       </SmallGalleryItemDescription>
-                      {numberOfGirls! < 3 && i === 2 && (
+                      {numberOfGirls < 3 && i === 2 && (
                         <SmallGalleryImageOverlay>
                           <Counter>+{numberOfGirls - 3}</Counter>
                           <CounterTitle>slečen</CounterTitle>

@@ -33,56 +33,40 @@ import { useQuery } from '@apollo/client'
 import { listEmployee as listEmployeeQuery } from '@/graphql/queries.graphql'
 import { Loader } from '@/components/widgets/LoaderWidget'
 import { ParsedUrlQuery } from 'querystring'
-import { useEffect, useState } from 'react'
-// const prepareQuery = (queryParams: ParsedUrlQuery): ParsedUrlQuery => {
-//   console.log('queryParams', queryParams)
-//   const preparedQuery: ParsedUrlQuery = queryParams
-//
-//   if (queryParams?.onShift && queryParams.onShift !== 'false') {
-//     preparedQuery.onShift = String(queryParams.onShift)
-//   }
-//   if (queryParams?.new && queryParams?.new !== 'false') {
-//     preparedQuery.new = String(queryParams.new)
-//   }
-//   if (queryParams?.age) {
-//     preparedQuery.age = String(queryParams.age)
-//   }
-//
-//   return preparedQuery
-// }
+import { useState } from 'react'
 
 export const MainFilters: React.FC = () => {
   const router = useRouter()
   const { push, back, query } = router
   const [dirtyQuery, setDirtyQuery] = useState<ParsedUrlQuery>(query)
 
-  useEffect(() => {
-    if (dirtyQuery) {
-      push(
-        '/search',
-        {
-          query: dirtyQuery,
-        },
-        { shallow: false }
-      )
-    }
-  }, [dirtyQuery])
+  const pushQuery = async (): Promise<void> => {
+    await push(
+      '/search',
+      {
+        query: dirtyQuery,
+      },
+      { shallow: true }
+    )
+  }
 
   const { data, loading, error } = useQuery<
     ListEmployee,
     ListEmployeeVariables
   >(listEmployeeQuery, {
     variables: { filterSort: dirtyQuery },
+    defaultOptions: { canonizeResults: true },
   })
-  if (!data || loading) {
-    return <Loader />
-  }
 
-  const queryFilterHandler = (value: string, name: string): void => {
+  const queryFilterHandler = async (
+    value: string,
+    name: string
+  ): Promise<void> => {
     const composeValue = {
       [name]: value,
     }
-    setDirtyQuery({ ...dirtyQuery, ...composeValue })
+    await setDirtyQuery({ ...dirtyQuery, ...composeValue })
+    await pushQuery()
   }
 
   if (error) return <p>`Error! ${error.message}`</p>
@@ -238,6 +222,7 @@ export const MainFilters: React.FC = () => {
       container: programRadio,
     },
   ]
+
   return (
     <Container>
       <Wrapper>
@@ -249,7 +234,7 @@ export const MainFilters: React.FC = () => {
           </Left>
           <Right>
             <CustomButton styleType="primary" sizeType="default">
-              Zobrazit ({data.listEmployee.totalCount})
+              Zobrazit ({loading ? <Loader /> : data?.listEmployee.totalCount})
             </CustomButton>
           </Right>
         </TopMainFiltersPanel>

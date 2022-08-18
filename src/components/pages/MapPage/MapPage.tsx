@@ -1,47 +1,21 @@
-import {
-  Container,
-  Wrapper,
-  // Details,
-} from './styles'
+import { Container, Wrapper } from './styles'
 import GoogleMapReact, { Coords, MapOptions } from 'google-map-react'
 import { useState } from 'react'
 import { FloatingGallery } from '@/components/widgets/FloatingGallery'
 import { MapPinElement } from './MapPinElement'
-const pinList: Array<Coords & { type: string }> = [
-  {
-    lat: 50.0865,
-    lng: 14.40767,
-    type: 'salon',
-  },
-  {
-    lat: 50.086,
-    lng: 14.4076,
-    type: 'salon',
-  },
-  {
-    lat: 50.0864,
-    lng: 14.43,
-    type: 'lady',
-  },
-  {
-    lat: 50.0864,
-    lng: 14.42,
-    type: 'salon',
-  },
-  {
-    lat: 50.0890062,
-    lng: 14.4163511,
-    type: 'lady',
-  },
-]
+import { ListLocation } from '@/graphql/types/ListLocations'
 
-export const MapPage: React.FC = () => {
+export const MapPage: React.FC<ListLocation> = ({ listLocation }) => {
   // AIzaSyB5Yyn6-srMHw2DiyWnYOBsAixzReJD7hQ
+
   const center: Coords = {
     lat: 50.0865,
     lng: 14.40767,
   }
+
   const [isReady, setIsReady] = useState<boolean>(false)
+  const [selectedPin, setSelectedPin] = useState<string>('')
+
   const options: MapOptions = {
     zoomControl: false,
     styles: [
@@ -66,11 +40,16 @@ export const MapPage: React.FC = () => {
       },
     ],
   }
+
   const handleApiLoaded = (): void => {
-    // console.log('map', map, maps)
     setIsReady(true)
   }
-  const [isOpenId, setIsOpenId] = useState<number>()
+
+  const handlePinClick = (id: string): void => {
+    setSelectedPin(id)
+  }
+
+  const selectedLocation = listLocation.find((x) => x.id === selectedPin)
 
   return (
     <Container>
@@ -82,20 +61,24 @@ export const MapPage: React.FC = () => {
           heatmapLibrary={true}
           zoom={14}
           onGoogleApiLoaded={() => handleApiLoaded()}
-          // onGoogleApiLoaded={({ map, maps }) => handleApiLoaded(map, maps)}
         >
           {isReady &&
-            pinList.map((pin, i) => (
+            listLocation.map((pin) => (
               <MapPinElement
-                key={pin.lat * pin.lng * i}
-                handlePinClick={() => setIsOpenId(i)}
-                isActive={i === isOpenId}
+                key={pin.id}
+                handlePinClick={handlePinClick}
+                isActive={pin.id === selectedPin}
+                lat={pin.latitude}
+                lng={pin.longitude}
                 {...pin}
               />
             ))}
         </GoogleMapReact>
-        {isOpenId !== -1 && (
-          <FloatingGallery handleClose={() => setIsOpenId(-1)} />
+        {selectedLocation && (
+          <FloatingGallery
+            handleClose={() => setSelectedPin('')}
+            data={selectedLocation}
+          />
         )}
       </Wrapper>
     </Container>

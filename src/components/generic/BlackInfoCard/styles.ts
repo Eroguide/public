@@ -5,11 +5,14 @@ export const Inner = styled.div<{ isFlipped: boolean }>`
   position: relative;
   width: 100%;
   height: 100%;
-  background-color: ${({ theme }) => theme.grayScale[5]};
+  background-color: ${({ theme }) => theme.grayScale[0]};
   border-radius: 24px;
   flex-direction: row;
   transition: transform 0.8s;
   transform-style: preserve-3d;
+  border: 1px solid
+    ${({ isFlipped, theme }) =>
+      isFlipped ? theme.grayScale[5] : theme.grayScale[1]};
   transform: ${({ isFlipped }) =>
     isFlipped ? 'rotateX(180deg);' : 'rotateY(0deg);'};
 `
@@ -22,22 +25,53 @@ export const Container = styled.div<{ isFlipped: boolean }>`
   perspective: 1000px;
 `
 
-export const FrontSide = styled.div`
+export const Title = styled.h3`
+  color: ${({ theme }) => theme.grayScale[5]};
+  ${({ theme }) => theme.typography.h3};
+  margin-bottom: 24px;
+  max-width: 200px;
+  font-weight: 600;
+`
+
+export const Subtitle = styled.p`
+  color: ${({ theme }) => theme.grayScale[4]};
+  ${({ theme }) => theme.typography.pl};
+  max-width: 300px;
+`
+
+export const FrontSide = styled.div<{ image?: string }>`
   position: absolute;
   width: 100%;
   height: 100%;
   display: flex;
   backface-visibility: hidden;
   padding: 40px 32px;
+  border-radius: 24px;
+  background: url(${({ image }) => image}) no-repeat center center;
+  ${Title} {
+    color: ${({ theme }) => theme.grayScale[5]};
+  }
+  ${Subtitle} {
+    color: ${({ theme }) => theme.grayScale[4]};
+  }
 `
-export const BackSide = styled.div`
+export const BackSide = styled.div<{ image?: string }>`
   position: absolute;
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
   padding: 40px 32px;
+  background-color: ${({ theme }) => theme.grayScale[0]};
   display: flex;
   transform: rotateX(180deg);
+  border-radius: 24px;
+  background: url(${({ image }) => image}) no-repeat center center;
+  ${Title} {
+    color: ${({ theme }) => theme.grayScale[5]};
+  }
+  ${Subtitle} {
+    color: ${({ theme }) => theme.grayScale[4]};
+  }
 `
 export const Left = styled.div`
   display: flex;
@@ -45,20 +79,6 @@ export const Left = styled.div`
   flex-direction: column;
   align-items: stretch;
   justify-content: flex-end;
-`
-
-export const Title = styled.h3`
-  color: ${({ theme }) => theme.grayScale[0]};
-  ${({ theme }) => theme.typography.h3};
-  margin-bottom: 24px;
-  max-width: 150px;
-  font-weight: 600;
-`
-
-export const Subtitle = styled.p`
-  color: ${({ theme }) => theme.grayScale[0]};
-  ${({ theme }) => theme.typography.pl};
-  max-width: 300px;
 `
 
 export const Right = styled.div`
@@ -80,11 +100,11 @@ export const IconWrapper = styled.div`
   align-items: center;
 
   svg path {
-    stroke: ${({ theme }) => theme.grayScale[3]};
+    fill: ${({ theme }) => theme.grayScale[3]};
   }
   &:hover {
     svg path {
-      stroke: ${({ theme }) => theme.grayScale[0]};
+      fill: ${({ theme }) => theme.grayScale[5]};
     }
   }
 `
@@ -102,7 +122,7 @@ export const IconCloseWrapper = styled.div`
   }
   &:hover {
     svg path {
-      stroke: ${({ theme }) => theme.grayScale[0]};
+      stroke: ${({ theme }) => theme.grayScale[5]};
     }
   }
 `
@@ -115,8 +135,6 @@ export const BgOverlay = styled.div<{ isFlipped: boolean }>`
   top: 0;
   background: #1e1e297d;
   z-index: 1000;
-  opacity: 0;
-  ${({ isFlipped }) =>
-    (isFlipped && `visibility: visible;  opacity:1;`) || 'visibility:hidden;'};
+  opacity: ${({ isFlipped }) => (isFlipped ? 1 : 0)};
   transition: opacity 0.25s ease-in-out;
 `

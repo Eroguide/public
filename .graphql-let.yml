@@ -1,4 +1,4 @@
-schema: '**/*.graphqls'
+schema: '**/remote-schema.graphql'
 documents: '**/*.graphql'
 plugins:
   - typescript-operations

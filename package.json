@@ -12,7 +12,7 @@
     "deploy": "netlify deploy --build --prod"
   },
   "dependencies": {
-    "@apollo/client": "^3.5.9",
+    "@apollo/client": "^3.6.9",
     "@emotion/babel-plugin": "^11.7.2",
     "@emotion/css": "^11.7.1",
     "@emotion/react": "^11.8.2",

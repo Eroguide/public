@@ -67,7 +67,6 @@ export const PersonalInfoSinglePageWidget: React.FC<{
       <Divider />
       <ButtonsRow>
         <IconWrapper>
-          {/*<HeartLined />*/}
           <Heart />
         </IconWrapper>
         <IconWrapper>
@@ -76,13 +75,15 @@ export const PersonalInfoSinglePageWidget: React.FC<{
         <IconWrapper>
           <Whazaap />
         </IconWrapper>
-        <CustomButton
-          styleType="secondary"
-          sizeType="medium"
-          onClick={handleOnClick}
-        >
-          {isOpen ? employee.phone : 'Contact'}
-        </CustomButton>
+        {employee.phone && (
+          <CustomButton
+            styleType="secondary"
+            sizeType="medium"
+            onClick={handleOnClick}
+          >
+            {isOpen ? employee.phone : 'Contact'}
+          </CustomButton>
+        )}
       </ButtonsRow>
       <Divider />
 

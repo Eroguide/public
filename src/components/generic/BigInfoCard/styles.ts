@@ -1,28 +1,27 @@
 import styled from '@emotion/styled'
 
 export const Container = styled.div`
-  width: 416px;
-  height: 560px;
+  max-width: 416px;
+  width: 100%;
+  min-height: 560px;
   border-radius: 24px;
   align-items: flex-end;
   text-align: left;
   display: flex;
   border: 1px solid ${({ theme }) => theme.grayScale[1]};
-  margin: 0 8px;
-  padding: 56px 32px;
-
+  flex-direction: column;
+  overflow: hidden;
   ${({ theme }) => theme.media.md`
-     padding: 64px; 
-       width: 100%;
+         max-width: 100%;
   `}
 
   ${({ theme }) => theme.media.sm`
-    width: 100%;
+   max-width: 100%;
     margin: 16px auto;
   `}
   
   ${({ theme }) => theme.media.mobile`
-      width: 100%;
+         max-width: 100%;
       margin: 16px auto;
   `}
 `
@@ -38,14 +37,26 @@ export const Details = styled.p`
   max-width: 300px;
 `
 
+export const CardImage = styled.img`
+  width: 100%;
+  height: auto;
+`
+
+export const CardImageWrapper = styled.div`
+  width: 100%;
+  height: 368px;
+`
+
 export const Title = styled.h3`
   color: ${({ theme }) => theme.grayScale[4]};
   ${({ theme }) => theme.typography.h3};
   margin-bottom: 24px;
-  max-width: 150px;
+  max-width: 200px;
 `
 
 export const Content = styled.div`
   display: flex;
   flex-direction: column;
+  padding: 32px;
+  width: 100%;
 `

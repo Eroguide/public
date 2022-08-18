@@ -55,6 +55,7 @@ export const ContentCardRow: React.FC<{
     allowSlidePrev: true,
     allowSlideNext: true,
     centeredSlidesBounds: true,
+    cssMode: true,
     navigation: {
       prevEl: navigationPrevRef.current,
       nextEl: navigationNextRef.current,

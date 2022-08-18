@@ -39,6 +39,7 @@ export const SinglePageContent: React.FC<{
   const [isShowMore, setIsShowMore] = useState<boolean>(false)
   const router = useRouter()
   const sliderGallery = employee.gallery
+  const girlsList = girls.map((x) => x.node)
 
   const { mainPhoto, price } = employee
   return (
@@ -95,12 +96,15 @@ export const SinglePageContent: React.FC<{
             <SinglePageContentBlock title="Audio">
               <AudioPlayerWidget />
             </SinglePageContentBlock>
-            <SinglePageContentBlock
-              title="Salon ladies"
-              topButtonHandler={() => router.push('/salons')}
-            >
-              <LadiesGalleryWidget girls={girls} />
-            </SinglePageContentBlock>
+
+            {girlsList.length && (
+              <SinglePageContentBlock
+                title="Salon ladies"
+                topButtonHandler={() => router.push('/salons')}
+              >
+                <LadiesGalleryWidget girls={girlsList} />
+              </SinglePageContentBlock>
+            )}
           </DetailsSection>
         </BodyContent>
       </SinglePageBody>

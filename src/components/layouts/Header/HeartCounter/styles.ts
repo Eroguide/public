@@ -63,12 +63,12 @@ export const HeartCounterWrapper = styled.div<{ hasItems: boolean }>`
   cursor: pointer;
   height: 100%;
   padding: 0 20px;
+
   svg path {
     width: 24px;
     stroke: ${theme.primary[0]};
     fill: ${theme.grayScale[1]};
-    //stroke-dasharray: 54;
-    //stroke-dashoffset: 54;
+    stroke-width: 2px;
     ${({ hasItems }) =>
       hasItems
         ? `fill:${theme.primary[0]}; stroke:${theme.primary[0]}`
@@ -84,6 +84,7 @@ export const HeartCounterWrapper = styled.div<{ hasItems: boolean }>`
           : `fill: white; stroke: ${theme.primary[1]};`};
     }
   }
+
   &:active {
     svg path {
       ${({ hasItems }) =>

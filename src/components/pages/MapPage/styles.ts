@@ -33,3 +33,7 @@ export const Details = styled.span`
   color: ${({ theme }) => theme.grayScale[5]};
   visibility: hidden;
 `
+
+export const MapPinWrapper = styled.div`
+  display: contents;
+`

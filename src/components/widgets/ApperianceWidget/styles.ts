@@ -5,37 +5,41 @@ export const Container = styled.div`
   height: auto;
 `
 
-export const Inner = styled.div`
-  width: calc((115px + 16px) * 4);
+export const Inner = styled.div<{ size?: string }>`
+  width: calc(
+    (${({ size }) => (size === 'small' ? '80px' : '115px')} + 16px) * 4
+  );
   display: flex;
   flex-wrap: wrap;
-  ${({ theme }) => theme.media.md`
- width: calc((115px + 16px) * 2);
+  ${({ theme, size }) => theme.media.md`
+ width: calc((${size === 'small' ? '80px' : '115px'}  + 16px) * 2);
   `}
 
-  ${({ theme }) => theme.media.sm`
- width: calc((115px + 16px) * 4);
+  ${({ theme, size }) => theme.media.sm`
+ width: calc((${size === 'small' ? '80px' : '115px'} + 16px) * 4);
   `}
-  ${({ theme }) => theme.media.mobile`
- width: calc((115px + 16px) * 2);
+  
+  ${({ theme, size }) => theme.media.mobile`
+ width: calc((${size === 'small' ? '80px' : '115px'} + 16px) * 2);
   `}
 `
 
-export const ParameterLabel = styled.span`
+export const ParameterLabel = styled.span<{ size?: string }>`
   font-weight: 400;
-  ${({ theme }) => theme.typography.h4};
+  ${({ theme, size }) => (size ? theme.typography.ps : theme.typography.h4)};
   color: ${({ theme }) => theme.grayScale[5]};
 `
 
-export const ParameterValue = styled.span`
+export const ParameterValue = styled.span<{ size?: string }>`
   font-weight: 600;
-  ${({ theme }) => theme.typography.h3};
+  ${({ theme, size }) => (size ? theme.typography.h5 : theme.typography.h3)};
   color: ${({ theme }) => theme.grayScale[5]};
+  text-align: left;
 `
 
-export const ParameterItem = styled.div`
-  width: 115px;
-  height: 115px;
+export const ParameterItem = styled.div<{ size?: string }>`
+  width: ${({ size }) => (size === 'small' ? '80px' : '115px')};
+  height: ${({ size }) => (size === 'small' ? '104px' : '115px')};
   border-radius: 24px;
   background-color: white;
   border: 1px solid ${({ theme }) => theme.grayScale[1]};
@@ -44,15 +48,22 @@ export const ParameterItem = styled.div`
   padding: 16px 24px;
   justify-content: space-between;
   margin-bottom: 16px;
-  margin-right: 16px;
-  max-width: 115px;
-  ${({ theme }) => theme.media.md`
+  margin-right: ${({ size }) => (size === 'small' ? '8px' : '16px')};
+  max-width: ${({ size }) => (size === 'small' ? '104px' : '115px')};
+
+  ${({ theme, size }) =>
+    !size &&
+    theme.media.md`
     width: calc(100% / 2);
   `}
-  ${({ theme }) => theme.media.sm`
+  ${({ theme, size }) =>
+    !size &&
+    theme.media.sm`
    width: calc(100% / 4);
   `}
-  ${({ theme }) => theme.media.mobile`
+  ${({ theme, size }) =>
+    !size &&
+    theme.media.mobile`
     width: calc(100% / 2);
   `}
 `

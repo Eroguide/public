@@ -81,3 +81,13 @@ export interface SalonFilterSort {
   shlUpdated?: DateColumn | null
   created?: DateColumn | null
 }
+
+export interface LocationFilterSort {
+  parlourOrEmployee?: string | null
+}
+
+export interface CounterInfo {
+  from: any
+  to: any
+  weekDay: string
+}

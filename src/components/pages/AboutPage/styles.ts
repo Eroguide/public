@@ -14,6 +14,7 @@ export const Wrapper = styled.div`
 export const Row = styled.div`
   display: flex;
   width: 100%;
+  gap: 16px;
   justify-content: center;
   max-width: 848px;
   margin: 8px auto;

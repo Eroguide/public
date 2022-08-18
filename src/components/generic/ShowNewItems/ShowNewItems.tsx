@@ -50,6 +50,7 @@ export const ShowNewItems: React.FC<{
     },
     allowSlidePrev: true,
     allowSlideNext: true,
+    cssMode: true,
     navigation: {
       prevEl: navigationPrevRef.current,
       nextEl: navigationNextRef.current,

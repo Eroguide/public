@@ -29,7 +29,7 @@ export const TopPanel = styled.div`
   flex-direction: column;
   padding: 32px 24px;
   background-color: white;
-  height: 144px;
+  min-height: 144px;
 `
 
 export const Title = styled.h4`
@@ -47,6 +47,76 @@ export const InfoLine = styled.div`
 export const Left = styled.div`
   display: flex;
   align-items: center;
+`
+
+export const Tag = styled.span`
+  width: 50%;
+  position: absolute;
+  left: 0;
+  top: -2px;
+  height: 19px;
+  overflow: hidden;
+  border-bottom-right-radius: 32px;
+  background-size: cover;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  ${({ theme }) => theme.typography.h7};
+  color: ${({ theme }) => theme.primary[2]};
+`
+
+export const Circle = styled.span`
+  width: 12px;
+  height: 12px;
+  border-radius: 100%;
+  background: ${({ theme }) => theme.support[2]};
+`
+
+export const StatusTag = styled.div`
+  width: 18px;
+  height: 18px;
+  border-radius: 100%;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`
+
+export const PhotoWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin: 48px auto 0 auto;
+  align-items: center;
+  width: 100%;
+`
+
+export const Photo = styled.div<{ image: string }>`
+  display: flex;
+  width: 104px;
+  height: 104px;
+  border-radius: 16px;
+  background: gray url(${({ image }) => image ?? '/img/fake.png'}) no-repeat
+    center top;
+  background-size: cover;
+  position: relative;
+`
+
+export const Name = styled.h2`
+  ${({ theme }) => theme.typography.h3};
+  font-weight: 600;
+  color: ${({ theme }) => theme.grayScale[5]};
+`
+
+export const GirlsNameWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 8px;
 `
 
 export const LocationText = styled.span`
@@ -79,6 +149,7 @@ export const ButtonRow = styled.div`
   height: 80px;
   background-color: white;
 `
+
 export const Content = styled.div`
   display: flex;
   flex-direction: column;
@@ -95,11 +166,13 @@ export const IconWrapper = styled.div`
   svg path {
     stroke: ${({ theme }) => theme.grayScale[1]};
   }
+
   &:hover {
     svg path {
       stroke: ${({ theme }) => theme.grayScale[2]};
     }
   }
+
   &:active {
     svg path {
       stroke: ${({ theme }) => theme.grayScale[3]};

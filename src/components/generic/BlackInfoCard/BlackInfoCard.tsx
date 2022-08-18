@@ -10,6 +10,7 @@ import {
   Inner,
   BackSide,
   FrontSide,
+  IconCloseWrapper,
 } from './styles'
 import RightArrowIcon from '/public/img/arrow-right.svg'
 import CloseIcon from '/public/img/exit-icon.svg'
@@ -19,16 +20,20 @@ export const BlackInfoCard: React.FC<{
   title2?: string
   details1?: string
   details2?: string
-}> = ({ title1, title2, details1, details2 }) => {
+  image?: string
+  image2?: string
+}> = ({ title1, title2, details1, details2, image, image2 }) => {
   const [isFlipped, setIsFlipped] = useState<boolean>(false)
 
   return (
     <>
-      <BgOverlay isFlipped={isFlipped} onClick={() => setIsFlipped(false)} />
+      {isFlipped && (
+        <BgOverlay isFlipped={isFlipped} onClick={() => setIsFlipped(false)} />
+      )}
       <Container isFlipped={isFlipped}>
         <Inner isFlipped={isFlipped}>
           {!isFlipped ? (
-            <FrontSide>
+            <FrontSide image={image}>
               <Left>
                 <Title>{title1}</Title>
                 <Subtitle>{details1}</Subtitle>
@@ -40,15 +45,15 @@ export const BlackInfoCard: React.FC<{
               </Right>
             </FrontSide>
           ) : (
-            <BackSide>
+            <BackSide image={image2}>
               <Left>
                 <Title>{title2}</Title>
                 <Subtitle>{details2}</Subtitle>
               </Left>
               <Right>
-                <IconWrapper onClick={() => setIsFlipped(false)}>
+                <IconCloseWrapper onClick={() => setIsFlipped(false)}>
                   <CloseIcon />
-                </IconWrapper>
+                </IconCloseWrapper>
               </Right>
             </BackSide>
           )}
