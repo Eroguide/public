@@ -77,6 +77,7 @@ export const SalonSinglePageContent: React.FC<
   ]
   const { headPhoto, staff, services, advantages, gallery, status } = getSalon
   console.log('getSalon', getSalon)
+
   return (
     <SinglePageContentContainer>
       <Banner image={headPhoto} />

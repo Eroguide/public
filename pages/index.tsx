@@ -149,7 +149,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
       info: {
         from: '2020-03-01',
         to: '2022-01-20',
-        weekDay: 'MONDAY',
+        weekDay: '',
       },
     },
   })

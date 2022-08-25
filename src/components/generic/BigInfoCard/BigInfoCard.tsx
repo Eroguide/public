@@ -15,7 +15,7 @@ export const BigInfoCard: React.FC<{
   return (
     <Container>
       <CardImageWrapper>
-        <CardImage src={image} />
+        <CardImage image={image} />
       </CardImageWrapper>
       <Content>
         <Title>{title}</Title>
