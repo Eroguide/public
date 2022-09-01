@@ -40,8 +40,8 @@ export const SinglePageContent: React.FC<{
   const router = useRouter()
   const sliderGallery = employee.gallery
   const girlsList = girls.map((x) => x.node)
-
   const { mainPhoto, price } = employee
+
   return (
     <SinglePageContentContainer>
       <Banner image={mainPhoto} />
@@ -65,9 +65,12 @@ export const SinglePageContent: React.FC<{
             <SinglePageContentBlock title="Appearance">
               <ApperianceWidget employee={employee} />
             </SinglePageContentBlock>
-            <SinglePageContentBlock title="Preferences and experience">
-              <ExperianceWidget />
-            </SinglePageContentBlock>
+            {employee.serviceLike.length && (
+              <SinglePageContentBlock title="Preferences and experience">
+                <ExperianceWidget serviceLike={employee.serviceLike} />
+              </SinglePageContentBlock>
+            )}
+
             <SinglePageContentBlock title="Interview for Eroguide">
               {employee.interview ? (
                 <>
@@ -96,7 +99,6 @@ export const SinglePageContent: React.FC<{
             <SinglePageContentBlock title="Audio">
               <AudioPlayerWidget />
             </SinglePageContentBlock>
-
             {girlsList.length && (
               <SinglePageContentBlock
                 title="Salon ladies"

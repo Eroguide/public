@@ -77,11 +77,18 @@ export const getEmployee = gql`
         tdPrice
       }
       serviceLike {
-        id
-        serviceId
-        description
         serviceId
         preferences
+        description
+        preferences
+        employeeId
+        service {
+          id
+          name
+          employeeId
+          description
+          comment
+        }
       }
     }
   }
@@ -344,6 +351,15 @@ export const listEmployee = gql`
           serviceLike {
             serviceId
             preferences
+            description
+            preferences
+            employeeId
+            service {
+              id
+              employeeId
+              description
+              comment
+            }
           }
           services {
             id

@@ -4,6 +4,7 @@
 // This file was automatically generated and should not be edited.
 
 import { EmployeeFilterSort } from './globalTypes'
+import { ListLocation_listLocation_salon_staff_services } from '@/graphql/types/ListLocations'
 
 // ====================================================
 // GraphQL query operation: ListEmployee
@@ -26,6 +27,8 @@ export interface ListEmployee_listEmployee_edges_node_serviceLike {
    * preference
    */
   preferences: string
+
+  service: ListLocation_listLocation_salon_staff_services
 }
 
 export interface ListEmployee_listEmployee_edges_node_services {
@@ -189,7 +192,7 @@ export interface ListEmployee_listEmployee_edges_node {
   /**
    * Emploee's services
    */
-  services: ListEmployee_listEmployee_edges_node_services[]
+  services: ListLocation_listLocation_salon_staff_services[]
   /**
    * Emploee's schedule
    */

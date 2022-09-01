@@ -16,7 +16,6 @@ export const LadyCard: React.FC<{
   href: string
   girl: Partial<ListSalons_listSalons_edges_node_staff>
 }> = ({ href, girl }) => {
-  console.log('girl', girl)
   return (
     <Container>
       <Wrapper>

@@ -76,7 +76,6 @@ export const SalonSinglePageContent: React.FC<
     { title: 'Imitations (each masseuse has its own)', price: 1500 },
   ]
   const { headPhoto, staff, services, advantages, gallery, status } = getSalon
-  console.log('getSalon', getSalon)
 
   return (
     <SinglePageContentContainer>

@@ -17,47 +17,16 @@ import HeartIcon from '/public/img/heart-exp-icon.svg'
 import DoIcon from '/public/img/check-exp-icon.svg'
 import IfIcon from '/public/img/if-like-exp-icon.svg'
 import DontIcon from '/public/img/dont-exp-icon.svg'
+import { ListEmployee_listEmployee_edges_node } from '@/graphql/types/ListEmployeeNew'
 
-export const ExperianceWidget: React.FC = () => {
+export const ExperianceWidget: React.FC<{
+  serviceLike: ListEmployee_listEmployee_edges_node['serviceLike']
+}> = ({ serviceLike }) => {
   const detailsList = [
-    { id: '123123', label: 'like', icon: <HeartIcon />, status: 1 },
-    { id: '1223', label: 'do', icon: <DoIcon />, status: 2 },
-    { id: '13123', label: 'if like', icon: <IfIcon />, status: 3 },
-    { id: '1423', label: 'do not', icon: <DontIcon />, status: 4 },
-  ]
-
-  const contentList = [
-    {
-      id: '12312223',
-      label: 'classic massage',
-      details: 'graduated courses',
-      status: 1,
-    },
-    { id: '1231ss23', label: 'erotic massage', status: 1 },
-    {
-      id: '123ff123',
-      label: 'role playing',
-      details: 'favorite costume: madam',
-      status: 2,
-    },
-    { id: '1231aa23', label: 'Massage for ladies', status: 4 },
-    {
-      id: '12312223dd',
-      label: 'urological massage',
-      details: 'gentle',
-      status: 1,
-    },
-    { id: '1231ss23vvs', label: 'lesbian show', status: 3 },
-    { id: '123ff123a', label: 'sakura branch', status: 1 },
-    { id: '1231aa23vv', label: 'erotic massage', status: 1 },
-    {
-      id: '1231aa23vvc',
-      label: 'lap dance',
-      details: 'not against',
-      status: 3,
-    },
-    { id: '1231aa23vsavv', label: 'aquagel massage', status: 1 },
-    { id: '1231aa21323vv', label: 'peep show', status: 1 },
+    { label: 'like', icon: <HeartIcon />, status: 'ilike' },
+    { label: 'do', icon: <DoIcon />, status: 'do' },
+    { label: 'if like', icon: <IfIcon />, status: 'iflike' },
+    { label: 'do not', icon: <DontIcon />, status: 'donot' },
   ]
 
   return (
@@ -76,20 +45,25 @@ export const ExperianceWidget: React.FC = () => {
 
         <ParametersAnnotation>
           {detailsList.map((listItem) => (
-            <ParametersItem key={listItem.id}>
+            <ParametersItem key={listItem.status}>
               <IconWrapperParameter>{listItem.icon}</IconWrapperParameter>
               <span>{listItem.label}</span>
             </ParametersItem>
           ))}
         </ParametersAnnotation>
         <ParametersList>
-          {contentList.map((x) => (
-            <ParametersListItem key={x.id}>
+          {serviceLike.map((x) => (
+            <ParametersListItem key={x.serviceId + x.preferences}>
               <IconWrapperParameter>
-                {detailsList.find((icon) => icon.status === x.status)?.icon}
+                {
+                  detailsList.find((icon) => icon.status === x.preferences)
+                    ?.icon
+                }
               </IconWrapperParameter>
-              <Title isCrossed={x.status === 4}>{x.label}</Title>
-              <Details>{x?.details}</Details>
+              <Title isCrossed={x.preferences === 'donot'}>
+                {x?.service?.name}
+              </Title>
+              <Details>{x?.service?.description}</Details>
             </ParametersListItem>
           ))}
         </ParametersList>
