@@ -61,20 +61,6 @@ export const SalonSinglePageContent: React.FC<
     { id: 215213, icon: <CovidMaskIcon />, text: 'mask massage (optional)' },
   ]
 
-  const additions = [
-    {
-      title:
-        '3rd level of frankness of touch. Weasels without "Uncle Ku" (you can touch the masseuse everywhere).',
-      price: 500,
-    },
-    { title: 'Imitations (each masseuse has its own)', price: 900 },
-    {
-      title:
-        '3rd level of frankness of touch. Weasels without "Uncle Ku" (you can touch the masseuse everywhere). 3rd level of frankness of touch.',
-      price: 1200,
-    },
-    { title: 'Imitations (each masseuse has its own)', price: 1500 },
-  ]
   const { headPhoto, staff, services, advantages, gallery, status } = getSalon
 
   return (
@@ -147,17 +133,24 @@ export const SalonSinglePageContent: React.FC<
                 </CustomButton>
               </ButtonRow>
             </SinglePageContentBlock>
+            {getSalon.extraServices.length && (
+              <SinglePageContentBlock title="Program additions">
+                {getSalon.extraServices.map((x) => (
+                  <AdditionsCard key={x.id} {...x} />
+                ))}
 
-            <SinglePageContentBlock title="Program additions">
-              {additions.map((x) => (
-                <AdditionsCard key={x.title} {...x} />
-              ))}
-              <ButtonRow>
-                <CustomButton styleType="tertiary" counter={43}>
-                  all programs
-                </CustomButton>
-              </ButtonRow>
-            </SinglePageContentBlock>
+                {getSalon.extraServices.length > 5 && (
+                  <ButtonRow>
+                    <CustomButton
+                      styleType="tertiary"
+                      counter={getSalon.extraServices.length}
+                    >
+                      all programs
+                    </CustomButton>
+                  </ButtonRow>
+                )}
+              </SinglePageContentBlock>
+            )}
           </DetailsSection>
         </BodyContent>
       </SinglePageBody>

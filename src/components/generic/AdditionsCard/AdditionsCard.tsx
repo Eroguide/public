@@ -9,16 +9,14 @@ import {
   BottomRow,
   Price,
   Suffix,
+  Content,
 } from './styles'
 import TimerIcon from '/public/img/timer-icon.svg'
 import { numberWithSpaces } from '@/utils/helpers'
+import { TExtraService } from '@/graphql/types/GetSalon'
 
-export type InfoCardProps = {
-  title?: string
-  price?: number
-}
-
-export const AdditionsCard: React.FC<InfoCardProps> = ({ title, price }) => {
+export const AdditionsCard: React.FC<TExtraService> = (data) => {
+  const { name, price, description } = data
   return (
     <Container>
       <MainInfo>
@@ -27,7 +25,9 @@ export const AdditionsCard: React.FC<InfoCardProps> = ({ title, price }) => {
             <TimerIcon />
           </IconWrapperAdditions>
         </Left>
-        <Description>{title}</Description>
+        <Content>
+          <Description>{name + ' - ' + description}</Description>
+        </Content>
       </MainInfo>
 
       <BottomRow>

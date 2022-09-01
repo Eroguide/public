@@ -198,6 +198,14 @@ export const getSalon = gql`
       managerEmail
       managerPhone
       address
+      extraServices {
+        id
+        name
+        description
+        price
+        preference
+        comment
+      }
     }
   }
 `

@@ -33,6 +33,16 @@ export type Service = {
   name: string
   massages: Array<Massage>
 }
+export type TExtraService = {
+  comment?: string
+  description?: string
+  createdAt: Date
+  employeeId: any
+  price: number
+  id: any
+  name: string
+  massages: Array<Massage>
+}
 
 export interface GetSalon_getSalon {
   __typename: 'Salon'
@@ -109,6 +119,7 @@ export interface GetSalon_getSalon {
    */
   advantages: ListSalons_listSalons_edges_node_advantages[]
   staff: ListSalons_listSalons_edges_node_staff[]
+  extraServices: Array<TExtraService>
 }
 
 export interface GetSalon {

@@ -79,17 +79,11 @@ export const MainInfo = styled.div`
   align-items: flex-start;
   width: 100%;
 `
-//     &:hover {
-//   ${ToggleButton} {
-//     svg {
-//       fill: ${({ theme }) => theme.grayScale[3]};
-// }
-// }
-// }
-//
-// svg {
-//   margin-right: 8px;
-// }
+
+export const Content = styled.h4`
+  display: flex;
+  flex-direction: column;
+`
 
 export const BottomRow = styled.div`
   display: flex;
