@@ -35,7 +35,7 @@ import { Loader } from '@/components/widgets/LoaderWidget'
 import { ParsedUrlQuery } from 'querystring'
 import { useState } from 'react'
 
-export const MainFilters: React.FC = () => {
+export const MainFilters: React.FC<ListEmployee> = ({ listEmployee }) => {
   const router = useRouter()
   const { push, back, query } = router
   const [dirtyQuery, setDirtyQuery] = useState<ParsedUrlQuery>(query)
@@ -49,15 +49,15 @@ export const MainFilters: React.FC = () => {
       { shallow: true }
     )
   }
-
+  console.log('listEmployee', listEmployee)
   const { data, loading, error } = useQuery<
     ListEmployee,
     ListEmployeeVariables
   >(listEmployeeQuery, {
     variables: { filterSort: dirtyQuery },
-    defaultOptions: { canonizeResults: true },
+    defaultOptions: { canonizeResults: true, fetchPolicy: 'cache-first' },
   })
-
+  console.log('data', data)
   const queryFilterHandler = async (
     value: string,
     name: string
@@ -234,7 +234,8 @@ export const MainFilters: React.FC = () => {
           </Left>
           <Right>
             <CustomButton styleType="primary" sizeType="default">
-              Zobrazit ({loading ? <Loader /> : data?.listEmployee.totalCount})
+              Zobrazit
+              {loading ? <Loader /> : `(${data?.listEmployee.totalCount})`}
             </CustomButton>
           </Right>
         </TopMainFiltersPanel>

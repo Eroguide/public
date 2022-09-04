@@ -16,6 +16,7 @@ export const Container = styled.div`
 export const Wrapper = styled.div`
   width: 100%;
   height: 100%;
+  position: relative;
 `
 
 export const Left = styled.div`
@@ -77,6 +78,8 @@ export const TopMainFiltersPanel = styled.div`
   width: 100%;
   display: flex;
   align-items: center;
+  max-width: 410px;
+  position: fixed;
 `
 
 export const FiltersList = styled.div`

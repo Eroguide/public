@@ -1,25 +1,18 @@
-// import { GetServerSideProps, NextPage } from 'next'
+import { GetServerSideProps, NextPage } from 'next'
 import Head from 'next/head'
 import { BaseLayout } from '@/components/layouts/BaseLayout'
 import { MainFilters } from '@/components/generic/MainFilters/MainFilters'
 import { SectionBlock } from '@/components/layouts/SectionBlock'
-// import { useQuery } from '@apollo/client'
-// import {
-//   ListEmployee,
-//   ListEmployee_listEmployee_edges,
-//   ListEmployeeVariables,
-// } from '@/graphql/types/ListEmployeeNew'
-// import {
-//   listEmployee,
-//   listEmployee as listEmployeeQuery,
-// } from '@/graphql/queries.graphql'
-// import { Loader } from '@/components/widgets/LoaderWidget'
-// import { useRouter } from 'next/router'
-// import { addApolloState, initializeApollo } from '@/graphql/apollo'
-// import { findAndLoadGraphQLConfig } from '@graphql-codegen/cli'
-// import { EmployeeFilterSort } from '@/graphql/types/ListEmployeeNew'
 
-const SearchPage: () => JSX.Element = () => {
+import {
+  ListEmployee,
+  ListEmployee_listEmployee_edges,
+} from '@/graphql/types/ListEmployeeNew'
+import { listEmployee } from '@/graphql/queries.graphql'
+
+import { addApolloState, initializeApollo } from '@/graphql/apollo'
+
+const SearchPage: NextPage<ListEmployee> = ({ listEmployee }) => {
   return (
     <>
       <Head>
@@ -29,29 +22,28 @@ const SearchPage: () => JSX.Element = () => {
       </Head>
       <BaseLayout>
         <SectionBlock>
-          <MainFilters />
+          <MainFilters listEmployee={listEmployee} />
         </SectionBlock>
       </BaseLayout>
     </>
   )
 }
-// export const getServerSideProps: GetServerSideProps = async ({ query }) => {
-//   const apolloClient = initializeApollo()
-//   const { data } = await apolloClient.query({
-//     query: listEmployee,
-//     // variables: { first: 10 },
-//   })
-//
-//   console.log('query', query)
-//
-//   return addApolloState(apolloClient, {
-//     props: {
-//       query,
-//       listEmployee: data.listEmployee,
-//       galleryList: data.listEmployee.edges.map(
-//         (v: ListEmployee_listEmployee_edges) => v.node
-//       ),
-//     },
-//   })
-// }
+export const getServerSideProps: GetServerSideProps = async ({ query }) => {
+  const apolloClient = initializeApollo()
+
+  const { data } = await apolloClient.query({
+    query: listEmployee,
+    variables: { filterSort: query },
+  })
+
+  return addApolloState(apolloClient, {
+    props: {
+      query,
+      listEmployee: data.listEmployee,
+      galleryList: data.listEmployee.edges.map(
+        (v: ListEmployee_listEmployee_edges) => v.node
+      ),
+    },
+  })
+}
 export default SearchPage
