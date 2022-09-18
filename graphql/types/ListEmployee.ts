@@ -4,6 +4,7 @@
 // This file was automatically generated and should not be edited.
 
 import { EmployeeFilterSort } from './globalTypes'
+// import { ListLocation_listLocation_salon_staff_services } from '@/graphql/types/ListLocations'
 
 // ====================================================
 // GraphQL query operation: ListEmployee
@@ -16,16 +17,76 @@ export interface ListEmployee_listEmployee_pageInfo {
   hasNextPage: boolean
 }
 
+export interface ListEmployee_listEmployee_edges_node_serviceLike_service {
+  __typename: 'Service'
+  /**
+   * ID
+   */
+  id: any
+  /**
+   * ID
+   */
+  name: string
+  /**
+   * Service which accept to current employee
+   */
+  employeeId: any | null
+  /**
+   * Desc of service
+   */
+  description: string
+  /**
+   * COMMENT OF employeeId
+   */
+  comment: string | null
+}
+
 export interface ListEmployee_listEmployee_edges_node_serviceLike {
   __typename: 'SalonEmployeeServiceLike'
+  /**
+   * ID
+   */
+  id: any
+  /**
+   * ID of current employee
+   */
+  employeeId: any
+  /**
+   * description
+   */
+  description: string | null
+  /**
+   * preference
+   */
+  preferences: string
   /**
    * ID of current service
    */
   serviceId: any
   /**
-   * preference
+   * service info
    */
-  preferences: string
+  service: ListEmployee_listEmployee_edges_node_serviceLike_service
+}
+
+export interface ListEmployee_listEmployee_edges_node_services_massages {
+  __typename: 'Massage'
+  /**
+   * ID
+   */
+  id: any
+  /**
+   * Image picture
+   */
+  image: string
+  /**
+   * Date of creation
+   */
+  createdAt: any
+  /**
+   * Name of massage
+   */
+  name: string
 }
 
 export interface ListEmployee_listEmployee_edges_node_services {
@@ -35,9 +96,57 @@ export interface ListEmployee_listEmployee_edges_node_services {
    */
   id: any
   /**
-   * PREFERENCE OF employeeId
+   * Name of service
    */
-  preference: string | null
+  name: string
+  /**
+   * Price of service
+   */
+  price: any
+  /**
+   * COMMENT OF employeeId
+   */
+  comment: string | null
+  /**
+   * Desc of service
+   */
+  description: string
+  /**
+   * Desc of phone
+   */
+  phone: string
+  /**
+   * Price for 3 hours
+   */
+  fifPrice: any
+  /**
+   * Date service creation
+   */
+  createdAt: any
+  /**
+   * Service which accept to current salon
+   */
+  salonId: any | null
+  /**
+   * Massages included into current service
+   */
+  massages: ListEmployee_listEmployee_edges_node_services_massages[]
+  /**
+   * Price for half hour
+   */
+  fstPrice: any
+  /**
+   * Price for 2 hours
+   */
+  fthPrice: any
+  /**
+   * Price for hour
+   */
+  sdPrice: any
+  /**
+   * Price for hour and half
+   */
+  tdPrice: any
 }
 
 export interface ListEmployee_listEmployee_edges_node_schedule {
@@ -81,7 +190,6 @@ export interface ListEmployee_listEmployee_edges_node_languages {
 }
 
 export interface ListEmployee_listEmployee_edges_node {
-  listEmployee: any
   __typename: 'Employee'
   /**
    * ID
@@ -92,42 +200,33 @@ export interface ListEmployee_listEmployee_edges_node {
    */
   name: string
   /**
-   * Main photo of employee
+   * Employee desc
    */
-  mainPhoto: string
+  description: string
   /**
-   * Head photo of employee
+   * interview with Emploee
    */
-  headPhoto: string
+  interview: string | null
   /**
-   * Employee status
-   */
-  status: boolean | null
-  /**
-   * Active til
-   */
-  active: string | null
-  /**
-   * Salon address
-   */
-  address: string | null
-  street: string | null
-  city: string | null
-  province: string | null
-  country: string | null
-
-  /**
-   * Salon email
-   */
-  email: string | null
-  /**
-   * Salon phone
+   * interview with Emploee
    */
   phone: string | null
+  /**
+   * Date when employee was created
+   */
+  createdAt: any
   /**
    * Age of employee
    */
   age: any
+  /**
+   * Employee price
+   */
+  price: any
+  /**
+   * Availability of emploee to come out
+   */
+  meetingPoint: string
   /**
    * Emploee's weight
    */
@@ -137,6 +236,22 @@ export interface ListEmployee_listEmployee_edges_node {
    */
   height: any
   /**
+   * Employee email
+   */
+  email: string | null
+  /**
+   * Employee address
+   */
+  address: string
+  /**
+   * Main photo of employee
+   */
+  mainPhoto: string
+  /**
+   * Head photo of employee
+   */
+  headPhoto: string
+  /**
    * Emploee's bust
    */
   breastSize: any
@@ -145,29 +260,17 @@ export interface ListEmployee_listEmployee_edges_node {
    */
   footSize: any
   /**
-   * Is private employee ?
+   * Is draft salon ?
    */
-  type: string
+  isDraft: boolean | null
   /**
-   * Availability of emploee to come out
+   * Active til
    */
-  meetingPoint: string
+  active: string | null
   /**
    * Info about cost of departure
    */
   departureCost: string
-  /**
-   * Employee price
-   */
-  price: any
-  /**
-   * Employee desc
-   */
-  description: string
-  /**
-   * interview with Emploee
-   */
-  interview: string | null
   /**
    * Date of top ends
    */
@@ -181,9 +284,13 @@ export interface ListEmployee_listEmployee_edges_node {
    */
   scheduleUpdatedAt: any
   /**
-   * Date when employee was created
+   * Represents belonging to the salon.
    */
-  createdAt: any
+  salonId: any | null
+  /**
+   * Employee status
+   */
+  status: boolean | null
   /**
    * Gallery of current employee
    */

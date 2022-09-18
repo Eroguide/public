@@ -8,17 +8,22 @@ import {
 } from './styles'
 import { theme } from '@/src/theme'
 import { getTrackBackground, Range } from 'react-range'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 export const RangeSliderCustom: React.FC<{
   min?: number
   max?: number
   step?: number
-  getValue?: (value: Array<number>) => void
-}> = ({ min = 1, max = 4, step = 1 }) => {
+  queryFilterHandler?: (value: string | Array<string>, name: string) => void
+  name: string
+}> = ({ min = 1, max = 4, step = 1, queryFilterHandler, name }) => {
   const [value, setValue] = useState<Array<number>>([min, max])
   const pink = theme.primary[0]
   const gray = theme.grayScale[2]
+
+  useEffect(() => {
+    queryFilterHandler?.(['' + value[0] ?? min, '' + value[1]] ?? max, name)
+  }, [value, min, max, name])
 
   return (
     <MinMaxSlider>

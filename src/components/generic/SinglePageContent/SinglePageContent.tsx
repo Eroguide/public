@@ -30,12 +30,14 @@ import { useRouter } from 'next/router'
 import {
   ListEmployee_listEmployee_edges,
   ListEmployee_listEmployee_edges_node,
-} from '@/graphql/types/ListEmployeeNew'
+} from '@/graphql/types/ListEmployee'
+import { GetSalon_getSalon } from '@/graphql/types/GetSalon'
 
 export const SinglePageContent: React.FC<{
   employee: ListEmployee_listEmployee_edges_node
   girls: Array<ListEmployee_listEmployee_edges>
-}> = ({ employee, girls }) => {
+  salon?: GetSalon_getSalon
+}> = ({ employee, girls, salon }) => {
   const [isShowMore, setIsShowMore] = useState<boolean>(false)
   const router = useRouter()
   const sliderGallery = employee.gallery
@@ -53,23 +55,24 @@ export const SinglePageContent: React.FC<{
           <Widget>
             <ScheduleSinglePageWidget price={price} />
           </Widget>
-          <SalonSinglePageWidget />
+          {salon ? <SalonSinglePageWidget salon={salon} /> : null}
         </LeftWidgets>
+
         <BodyContent>
-          {sliderGallery.length > 0 && (
+          {sliderGallery.length > 0 ? (
             <SinglePageContentBlock title="Photo">
               <ProductSlider status sliderGallery={sliderGallery} />
             </SinglePageContentBlock>
-          )}
+          ) : null}
           <DetailsSection>
             <SinglePageContentBlock title="Appearance">
               <ApperianceWidget employee={employee} />
             </SinglePageContentBlock>
-            {employee.serviceLike.length && (
+            {employee.serviceLike.length ? (
               <SinglePageContentBlock title="Preferences and experience">
                 <ExperianceWidget serviceLike={employee.serviceLike} />
               </SinglePageContentBlock>
-            )}
+            ) : null}
 
             <SinglePageContentBlock title="Interview for Eroguide">
               {employee.interview ? (
@@ -99,14 +102,14 @@ export const SinglePageContent: React.FC<{
             <SinglePageContentBlock title="Audio">
               <AudioPlayerWidget />
             </SinglePageContentBlock>
-            {girlsList.length && (
+            {girlsList.length ? (
               <SinglePageContentBlock
                 title="Salon ladies"
                 topButtonHandler={() => router.push('/salons')}
               >
                 <LadiesGalleryWidget girls={girlsList} />
               </SinglePageContentBlock>
-            )}
+            ) : null}
           </DetailsSection>
         </BodyContent>
       </SinglePageBody>

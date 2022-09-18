@@ -9,6 +9,7 @@ import {
   TitleBeforeSlider,
   IconWrapper,
   ThumbNavigationWrapper,
+  ImageWrapper,
 } from './styles'
 import { useRef, useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
@@ -23,7 +24,7 @@ import ArrowLeftIcon from '/public/img/arrow-left.svg'
 import ArrowRightIcon from '/public/img/arrow-right.svg'
 import GreenCheckIcon from '/public/img/green-circle-check.svg'
 import { Swiper as SwiperClass } from 'swiper/types'
-import { ListEmployee_listEmployee_edges_node } from '@/graphql/types/ListEmployeeNew'
+import { ListEmployee_listEmployee_edges_node } from '@/graphql/types/ListEmployee'
 
 export const ProductSlider: React.FC<{
   status: boolean
@@ -35,11 +36,13 @@ export const ProductSlider: React.FC<{
   const swiperSettings: SwiperOptions = {
     slidesPerView: 1,
     loop: true,
+    autoHeight: true,
+    centeredSlides: true,
+    cssMode: true,
     modules: [Thumbs, Navigation],
     thumbs: { swiper: thumbsSwiper },
     allowSlidePrev: true,
     allowSlideNext: true,
-
     navigation: {
       prevEl: navigationPrevRef.current,
       nextEl: navigationNextRef.current,
@@ -48,6 +51,7 @@ export const ProductSlider: React.FC<{
   const swiperSettings2: SwiperOptions = {
     slidesPerView: 4,
     loop: false,
+
     breakpoints: {
       0: {
         slidesPerView: 3,
@@ -84,12 +88,13 @@ export const ProductSlider: React.FC<{
             {initSlider && sliderGallery
               ? sliderGallery.map((imgUrl, index) => (
                   <SwiperSlide key={imgUrl + index}>
-                    <GallerySliderImage src={imgUrl} />
+                    <ImageWrapper>
+                      <GallerySliderImage src={imgUrl} />
+                    </ImageWrapper>
                   </SwiperSlide>
                 ))
               : 'loading'}
           </Swiper>
-
           <ThumbNavigationWrapper>
             <Swiper
               onSwiper={(e) => setThumbsSwiper(e)}
@@ -103,7 +108,7 @@ export const ProductSlider: React.FC<{
               {initSlider && sliderGallery
                 ? sliderGallery.map((url) => (
                     <SwiperSlide key={url}>
-                      <ThumbsSliderImage src={url} />
+                      <ThumbsSliderImage url={url} />
                     </SwiperSlide>
                   ))
                 : 'loading'}

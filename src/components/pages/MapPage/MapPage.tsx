@@ -4,17 +4,22 @@ import { useState } from 'react'
 import { FloatingGallery } from '@/components/widgets/FloatingGallery'
 import { MapPinElement } from './MapPinElement'
 import { ListLocation } from '@/graphql/types/ListLocations'
+import { useRouter } from 'next/router'
 
-export const MapPage: React.FC<ListLocation> = ({ listLocation }) => {
+export const MapPage: React.FC<ListLocation & { pinId: string }> = ({
+  listLocation,
+  pinId,
+}) => {
   // AIzaSyB5Yyn6-srMHw2DiyWnYOBsAixzReJD7hQ
 
   const center: Coords = {
     lat: 50.0865,
     lng: 14.40767,
   }
-
+  const router = useRouter()
+  const { push } = router
   const [isReady, setIsReady] = useState<boolean>(false)
-  const [selectedPin, setSelectedPin] = useState<string>('')
+  const [selectedPin, setSelectedPin] = useState<string>(pinId)
 
   const options: MapOptions = {
     zoomControl: false,
@@ -44,9 +49,16 @@ export const MapPage: React.FC<ListLocation> = ({ listLocation }) => {
   const handleApiLoaded = (): void => {
     setIsReady(true)
   }
-
-  const handlePinClick = (id: string): void => {
+  const handlePinClick = (id: string, type: 1 | 2, itemId: string): void => {
     setSelectedPin(id)
+    const query = type === 1 ? { salonId: itemId } : { employeeId: itemId }
+    push(
+      '/map',
+      {
+        query,
+      },
+      { shallow: true }
+    )
   }
 
   const selectedLocation = listLocation.find((x) => x.id === selectedPin)

@@ -79,7 +79,6 @@ export const TopMainFiltersPanel = styled.div`
   display: flex;
   align-items: center;
   max-width: 410px;
-  position: fixed;
 `
 
 export const FiltersList = styled.div`

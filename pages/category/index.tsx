@@ -10,7 +10,7 @@ import {
   ListEmployee,
   ListEmployee_listEmployee_edges,
   ListEmployeeVariables,
-} from '@/graphql/types/ListEmployeeNew'
+} from '@/graphql/types/ListEmployee'
 
 import { CategoryLanding } from '@/components/pages'
 import { OperationVariables, useQuery } from '@apollo/client'
@@ -18,41 +18,36 @@ import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import { AllCounters } from '@/graphql/types/GetAllCounters'
 import { initializeApollo } from '@/graphql/apollo'
+import {
+  getDateEndOfToday,
+  getDateMonthAgo,
+  getTodayString,
+} from '@/utils/helpers'
+import {
+  // BigFilterColumn,
+  EmployeeFilterSort,
+} from '@/graphql/types/globalTypes'
 
 const CategoryAllPage: NextPage<{ counters: AllCounters; type: string }> = ({
   counters,
   type,
 }) => {
-  let filterSort: {
-    created?: {
-      from: string
-      to: string
-    }
-    top?: string
-    shift?: string
-    filter?: { type: string }
-    type?: string
-  }
   const { query } = useRouter()
 
   const [category, setCategory] = useState<string>('all')
 
+  const monthAgo = getDateMonthAgo()
+  const endOfToday = getDateEndOfToday()
   const first = 8
-
+  let filterSort: EmployeeFilterSort = {}
   switch (category) {
     case 'all':
-      filterSort = {
-        created: {
-          from: '1976-01-01', // today
-          to: '2030-06-12', // TODO GET THE CORRECT DATE month ago
-        },
-      }
       break
     case 'new':
       filterSort = {
         created: {
-          from: '2021-01-01', // today
-          to: '2022-06-12', // TODO GET THE CORRECT DATE month ago
+          from: monthAgo,
+          to: endOfToday, // TODO GET THE CORRECT DATE month ago
         },
       }
       break
@@ -66,13 +61,13 @@ const CategoryAllPage: NextPage<{ counters: AllCounters; type: string }> = ({
       break
     case 'shift':
       filterSort = {
-        shift: 'Monday', // TODO Current Day
+        shift: getTodayString(), // TODO Current Day
       }
       break
     case 'private':
       filterSort = {
         filter: {
-          type: 'private-escort',
+          types: ['private-escort'],
         },
         //Variants:
         // salon-escort - employees of private salon
@@ -89,8 +84,8 @@ const CategoryAllPage: NextPage<{ counters: AllCounters; type: string }> = ({
     default:
       filterSort = {
         created: {
-          from: '1976-01-01', // today
-          to: '2030-06-12', // TODO GET THE CORRECT DATE month ago
+          from: monthAgo,
+          to: endOfToday,
         },
       }
   }
@@ -99,7 +94,7 @@ const CategoryAllPage: NextPage<{ counters: AllCounters; type: string }> = ({
     ListEmployee,
     ListEmployeeVariables
   >(listEmployee, {
-    variables: { filterSort, first },
+    variables: { filterSort: filterSort, first },
   })
 
   useEffect(() => {
@@ -185,9 +180,9 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
     query: allCounters,
     variables: {
       info: {
-        from: '2020-03-01',
-        to: '2022-01-20',
-        weekDay: 'MONDAY',
+        from: getDateMonthAgo(),
+        to: getDateEndOfToday(),
+        weekDay: getTodayString(),
       },
     },
   })

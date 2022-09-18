@@ -15,6 +15,17 @@ export enum SortDirection {
   DESC = 'DESC',
 }
 
+export interface BigFilterColumn {
+  shift?: string | null
+  created?: DateColumn | null
+  age?: BigIntColumn | null
+  types?: string[] | null
+  breastSize?: BigIntColumn | null
+  height?: BigIntColumn | null
+  weight?: BigIntColumn | null
+  program?: string[] | null
+}
+
 /**
  * Filtering or sorting on BigInt column
  */
@@ -26,6 +37,12 @@ export interface BigIntColumn {
   from?: any | null
   to?: any | null
   in?: any[] | null
+}
+
+export interface CounterInfo {
+  from: any
+  to: any
+  weekDay: string
 }
 
 /**
@@ -46,12 +63,14 @@ export interface PostFilterSort {
   byCategory?: string | null
   created?: DateColumn | null
 }
-
 /**
  * EmployeeFilterSort represents sorting of employee data
  */
 export interface EmployeeFilterSort {
+  filter?: BigFilterColumn | null
   fastSearch?: string | null
+  city?: string | null
+  province?: string | null
   shift?: string | null
   top?: string | null
   isDraft?: boolean | null

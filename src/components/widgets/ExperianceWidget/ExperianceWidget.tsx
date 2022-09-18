@@ -17,12 +17,12 @@ import HeartIcon from '/public/img/heart-exp-icon.svg'
 import DoIcon from '/public/img/check-exp-icon.svg'
 import IfIcon from '/public/img/if-like-exp-icon.svg'
 import DontIcon from '/public/img/dont-exp-icon.svg'
-import { ListEmployee_listEmployee_edges_node } from '@/graphql/types/ListEmployeeNew'
-import { memo, useMemo } from 'react'
+import { ListEmployee_listEmployee_edges_node } from '@/graphql/types/ListEmployee'
+import { useMemo } from 'react'
 
 export const ExperianceWidget: React.FC<{
   serviceLike: ListEmployee_listEmployee_edges_node['serviceLike']
-}> = memo(({ serviceLike }) => {
+}> = ({ serviceLike }) => {
   const detailsList = useMemo(
     () => [
       { label: 'like', icon: <HeartIcon />, status: 'ilike' },
@@ -74,4 +74,4 @@ export const ExperianceWidget: React.FC<{
       </Inner>
     </Container>
   )
-})
+}

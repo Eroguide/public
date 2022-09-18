@@ -124,6 +124,7 @@ export const SalonImage = styled.img`
   border-radius: 32px;
   overflow: hidden;
   margin: 0 auto 24px auto;
+  cursor: pointer;
 `
 
 export const TitleSalon = styled.h3`
@@ -146,6 +147,11 @@ export const Left = styled.div`
   svg path {
     stroke: ${({ theme }) => theme.grayScale[3]};
   }
+`
+
+export const ExternalLink = styled.a`
+  display: flex;
+  text-decoration: none;
 `
 
 export const GlobusWrapper = styled.div`

@@ -28,8 +28,10 @@ import {
 import {
   ListEmployee_listEmployee_edges,
   ListEmployee_listEmployee_edges_node,
-} from '@/graphql/types/ListEmployeeNew'
+} from '@/graphql/types/ListEmployee'
 import { AllCounters } from '@/graphql/types/GetAllCounters'
+import { getDateMonthAgo, getTodayString } from '@/utils/helpers'
+import { format } from 'date-fns'
 
 export type MainPageSsrProps = {
   listEmployee: Array<ListEmployee_listEmployee_edges_node>
@@ -147,9 +149,9 @@ export const getServerSideProps: GetServerSideProps = async () => {
     query: allCounters,
     variables: {
       info: {
-        from: '2020-03-01',
-        to: '2022-01-20',
-        weekDay: '',
+        from: getDateMonthAgo(),
+        to: format(new Date(), 'yyyy-MM-dd'),
+        weekDay: getTodayString(),
       },
     },
   })

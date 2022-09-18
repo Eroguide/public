@@ -9,7 +9,7 @@ import {
   ListEmployee_listEmployee,
   ListEmployee_listEmployee_edges,
   ListEmployee_listEmployee_edges_node,
-} from '@/graphql/types/ListEmployeeNew'
+} from '@/graphql/types/ListEmployee'
 
 const Employee: NextPage<{
   listEmployee: ListEmployee_listEmployee

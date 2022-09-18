@@ -36,7 +36,6 @@ export const CheckBox: React.FC<CheckboxProps> = ({
     >
       <Input
         onChange={(e) => {
-          console.log('e.currentTarget.value', e)
           onChange?.(e.target.checked ? '1' : '0', name)
         }}
         name={name}

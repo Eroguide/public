@@ -6,9 +6,15 @@ import { MapPage } from '@/components/pages'
 import { SectionBlock } from '@/components/layouts/SectionBlock'
 import { addApolloState, initializeApollo } from '@/graphql/apollo'
 import { listLocation } from '@/graphql/queries.graphql'
-import { ListLocation } from '@/graphql/types/ListLocations'
+import {
+  ListLocation,
+  ListLocation_listLocation,
+} from '@/graphql/types/ListLocations'
 
-const Map: NextPage<ListLocation> = ({ listLocation }) => {
+const Map: NextPage<ListLocation & { pin: string }> = ({
+  listLocation,
+  pin,
+}) => {
   return (
     <>
       <Head>
@@ -19,25 +25,37 @@ const Map: NextPage<ListLocation> = ({ listLocation }) => {
       <BaseLayout>
         <SectionBlock>
           <TopLinePageContent />
-          <MapPage listLocation={listLocation} />
+          <MapPage listLocation={listLocation} pinId={pin} />
         </SectionBlock>
       </BaseLayout>
     </>
   )
 }
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getServerSideProps: GetServerSideProps = async ({ query }) => {
   const apolloClient = initializeApollo()
+
+  const { salonId, employeeId } = query
 
   const { data: locations } = await apolloClient.query({
     query: listLocation,
-    variables: { first: 10 },
+    variables: { first: 16 },
   })
 
-  const listLocationArray = locations.listLocation
+  const listLocationArray: Array<ListLocation_listLocation> =
+    locations.listLocation
+  let selectedItemId = ''
+  if (salonId) {
+    selectedItemId =
+      listLocationArray.find((x) => x.salonId === salonId)?.id ?? 0
+  } else if (employeeId) {
+    selectedItemId =
+      listLocationArray.find((x) => x.employeeId === employeeId)?.id ?? 0
+  }
 
   return addApolloState(apolloClient, {
     props: {
       listLocation: listLocationArray,
+      pin: selectedItemId,
     },
   })
 }

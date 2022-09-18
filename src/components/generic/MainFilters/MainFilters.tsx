@@ -28,20 +28,52 @@ import { useRouter } from 'next/router'
 import {
   ListEmployee,
   ListEmployeeVariables,
-} from '@/graphql/types/ListEmployeeNew'
+} from '@/graphql/types/ListEmployee'
 import { useQuery } from '@apollo/client'
 import { listEmployee as listEmployeeQuery } from '@/graphql/queries.graphql'
-import { Loader } from '@/components/widgets/LoaderWidget'
-import { ParsedUrlQuery } from 'querystring'
-import { useState } from 'react'
 
-export const MainFilters: React.FC<ListEmployee> = ({ listEmployee }) => {
+import { ParsedUrlQuery } from 'querystring'
+import { useEffect, useState } from 'react'
+import { BigFilterColumn } from '@/graphql/types/globalTypes'
+
+export const prepareQueryForSubmit = (
+  query: ParsedUrlQuery
+): { filter: BigFilterColumn } => {
+  const listRange = ['age', 'breastSize', 'height', 'weight']
+  const specialQuery = {}
+
+  const queryList = Object.entries(query).filter((x) =>
+    listRange.includes(x[0])
+  )
+  if (queryList.length) {
+    queryList.forEach(
+      ([key, value]) =>
+        (specialQuery[key] = {
+          from: value?.[0] ?? '0',
+          to: value?.[1] ?? '0',
+        })
+    )
+    return { filter: { ...query, ...specialQuery } }
+  } else {
+    return { filter: { ...query } }
+  }
+}
+
+export const MainFilters: React.FC<ListEmployee> = () => {
   const router = useRouter()
   const { push, back, query } = router
   const [dirtyQuery, setDirtyQuery] = useState<ParsedUrlQuery>(query)
 
-  const pushQuery = async (): Promise<void> => {
-    await push(
+  const { data, error } = useQuery<ListEmployee, ListEmployeeVariables>(
+    listEmployeeQuery,
+    {
+      variables: { filterSort: prepareQueryForSubmit(dirtyQuery) },
+      defaultOptions: { canonizeResults: true, fetchPolicy: 'cache-first' },
+    }
+  )
+
+  const pushQuery = () => {
+    push(
       '/search',
       {
         query: dirtyQuery,
@@ -49,24 +81,48 @@ export const MainFilters: React.FC<ListEmployee> = ({ listEmployee }) => {
       { shallow: true }
     )
   }
-  console.log('listEmployee', listEmployee)
-  const { data, loading, error } = useQuery<
-    ListEmployee,
-    ListEmployeeVariables
-  >(listEmployeeQuery, {
-    variables: { filterSort: dirtyQuery },
-    defaultOptions: { canonizeResults: true, fetchPolicy: 'cache-first' },
-  })
-  console.log('data', data)
+
+  useEffect(() => {
+    pushQuery()
+  }, [dirtyQuery])
+
+  console.log('dirtyQuery', dirtyQuery)
+  console.log('CLEAN query', query)
+  const listOfPrograms: string | string[] | undefined = []
   const queryFilterHandler = async (
-    value: string,
+    value: string | Array<string>,
     name: string
   ): Promise<void> => {
     const composeValue = {
       [name]: value,
     }
-    await setDirtyQuery({ ...dirtyQuery, ...composeValue })
+
+    if (typeof value === 'string' && name === 'program') {
+      listOfPrograms.push(value)
+
+      console.log(' { ...listOfPrograms }', { ...listOfPrograms })
+
+      const { program } = dirtyQuery
+      dirtyQuery.program = { ...program, ...listOfPrograms }
+      console.log('dirtyQuery', dirtyQuery)
+      await setDirtyQuery({ ...composeValue, ...dirtyQuery })
+    } else if (Array.isArray(value)) {
+      const composeArray = {
+        [name]: value,
+      }
+      await setDirtyQuery({ ...dirtyQuery, ...composeArray })
+    }
     await pushQuery()
+  }
+
+  const handleSearchButton = (): void => {
+    push(
+      '/employee',
+      {
+        query: dirtyQuery,
+      },
+      { shallow: false }
+    )
   }
 
   if (error) return <p>`Error! ${error.message}`</p>
@@ -91,23 +147,26 @@ export const MainFilters: React.FC<ListEmployee> = ({ listEmployee }) => {
       <CustomButton
         styleType={'tertiary'}
         sizeType={'small'}
-        onClick={() => queryFilterHandler('1', 'age')}
+        onClick={() => queryFilterHandler(['18', '22'], 'age')}
+        isActive={dirtyQuery?.age === ['18', '22']}
       >
         18-22
       </CustomButton>
       <CustomButton
-        onClick={() => queryFilterHandler('2', 'age')}
+        onClick={() => queryFilterHandler(['23', '28'], 'age')}
         margin="0 0 0 16px"
         styleType={'tertiary'}
         sizeType={'small'}
+        isActive={dirtyQuery?.age === ['23', '28']}
       >
         23-28
       </CustomButton>
       <CustomButton
-        onClick={() => queryFilterHandler('3', 'age')}
+        onClick={() => queryFilterHandler(['29', '35'], 'age')}
         margin="0 0 0 16px"
         styleType={'tertiary'}
         sizeType={'small'}
+        isActive={dirtyQuery?.age === ['29', '35']}
       >
         29+
       </CustomButton>
@@ -134,10 +193,15 @@ export const MainFilters: React.FC<ListEmployee> = ({ listEmployee }) => {
   )
   const bodyType = (
     <>
-      <CustomButton styleType={'tertiary'} sizeType={'small'}>
+      <CustomButton
+        onClick={() => queryFilterHandler('1', 'type')}
+        styleType={'tertiary'}
+        sizeType={'small'}
+      >
         Hubená
       </CustomButton>
       <CustomButton
+        onClick={() => queryFilterHandler('2', 'type')}
         margin="0 0 0 16px"
         styleType={'tertiary'}
         sizeType={'small'}
@@ -145,6 +209,7 @@ export const MainFilters: React.FC<ListEmployee> = ({ listEmployee }) => {
         Normální
       </CustomButton>
       <CustomButton
+        onClick={() => queryFilterHandler('3', 'type')}
         margin="0 0 0 16px"
         styleType={'tertiary'}
         sizeType={'small'}
@@ -167,12 +232,12 @@ export const MainFilters: React.FC<ListEmployee> = ({ listEmployee }) => {
       />
     </ProgramGrid>
   )
-  const programRadio = (
+  const programCheckBox = (
     <ProgramGrid>
       <CheckBox
         onChange={queryFilterHandler}
         name={'program'}
-        label={'peep-show'}
+        label={'peep show'}
       />
       <CheckBox
         name={'program'}
@@ -193,7 +258,12 @@ export const MainFilters: React.FC<ListEmployee> = ({ listEmployee }) => {
   )
 
   const filterList = [
-    { id: 1, icon: <AktualIcon />, title: 'Aktuální', container: actualRadio },
+    {
+      id: 1,
+      icon: <AktualIcon />,
+      title: 'Aktuální',
+      container: actualRadio,
+    },
     { id: 2, icon: <TimeIcon />, title: 'Věk', container: ageFilter },
     {
       id: 3,
@@ -206,20 +276,36 @@ export const MainFilters: React.FC<ListEmployee> = ({ listEmployee }) => {
       id: 5,
       icon: <BreastIcon />,
       title: 'Prsa',
-      container: <RangeSliderCustom min={1} max={4} step={1} />,
+      container: (
+        <RangeSliderCustom
+          min={0}
+          max={5}
+          step={1}
+          queryFilterHandler={queryFilterHandler}
+          name={'breastSize'}
+        />
+      ),
     },
     {
       id: 6,
       icon: <HeightIcon />,
       title: 'Výška ',
-      container: <RangeSliderCustom min={1} max={200} step={1} />,
+      container: (
+        <RangeSliderCustom
+          queryFilterHandler={queryFilterHandler}
+          name={'height'}
+          min={150}
+          max={200}
+          step={1}
+        />
+      ),
     },
     { id: 7, icon: <PhotoIcon />, title: 'Photo ', container: photoRadio },
     {
       id: 8,
       icon: <ProgramIcon />,
       title: 'Oblíbený program ',
-      container: programRadio,
+      container: programCheckBox,
     },
   ]
 
@@ -233,9 +319,13 @@ export const MainFilters: React.FC<ListEmployee> = ({ listEmployee }) => {
             </ReturnButton>
           </Left>
           <Right>
-            <CustomButton styleType="primary" sizeType="default">
+            <CustomButton
+              styleType="primary"
+              sizeType="default"
+              onClick={handleSearchButton}
+            >
               Zobrazit
-              {loading ? <Loader /> : `(${data?.listEmployee.totalCount})`}
+              {`(${data?.listEmployee.totalCount ?? 0})`}
             </CustomButton>
           </Right>
         </TopMainFiltersPanel>

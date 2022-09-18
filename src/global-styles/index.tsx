@@ -1,7 +1,5 @@
 import { css, Global } from '@emotion/react'
 import emotionNormalize from 'emotion-normalize'
-// local libs
-import { theme } from '@/src/theme'
 
 export const globalStyles = (
   <Global

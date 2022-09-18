@@ -104,12 +104,12 @@ export const ParametersListItem = styled.div`
     white-space: nowrap;
   }
   ${({ theme }) => theme.media.md`
-  width: 100%;
+    max-width: 100%;
   `}
   ${({ theme }) => theme.media.sm`
-  width: 50%;
+   max-width: 50%;
   `}
   ${({ theme }) => theme.media.mobile`
-    width: 100%;
+  max-width: 100%;
   `}
 `

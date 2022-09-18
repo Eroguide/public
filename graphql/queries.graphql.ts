@@ -333,37 +333,39 @@ export const listEmployee = gql`
         node {
           id
           name
-          mainPhoto
-          headPhoto
-          status
-          active
-          address
-          email
-          phone
-          age
-          weight
-          height
-          breastSize
-          footSize
-          type
-          meetingPoint
-          departureCost
-          price
           description
           interview
+          createdAt
+          age
+          price
+          meetingPoint
+          weight
+          height
+          email
+          address
+          mainPhoto
+          headPhoto
+          breastSize
+          phone
+          footSize
+          isDraft
+          active
+          departureCost
           topDate
           dayTop
           scheduleUpdatedAt
-          createdAt
+          salonId
+          status
           gallery
           serviceLike {
-            serviceId
-            preferences
+            id
+            employeeId
             description
             preferences
-            employeeId
+            serviceId
             service {
               id
+              name
               employeeId
               description
               comment

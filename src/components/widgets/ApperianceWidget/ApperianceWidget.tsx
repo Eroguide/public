@@ -9,7 +9,7 @@ import SandWatchIcon from '/public/img/sand-watch-icon.svg'
 import HeightIcon from '/public/img/height-appearance-icon.svg'
 import FootIcon from '/public/img/foot-appearance-icon.svg'
 import BreastIcon from '/public/img/breast-appearance-icon.svg'
-import { ListEmployee_listEmployee_edges_node } from '@/graphql/types/ListEmployeeNew'
+import { ListEmployee_listEmployee_edges_node } from '@/graphql/types/ListEmployee'
 import { ListLocation_listLocation_employee } from '@/graphql/types/ListLocations'
 
 export const ApperianceWidget: React.FC<{

@@ -1,4 +1,4 @@
-import { ListEmployee_listEmployee_edges_node } from '@/graphql/types/ListEmployeeNew'
+import { ListEmployee_listEmployee_edges_node } from '@/graphql/types/ListEmployee'
 
 export interface FavoritesState {
   items: Array<ListEmployee_listEmployee_edges_node>

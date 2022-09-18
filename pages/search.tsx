@@ -1,13 +1,16 @@
 import { GetServerSideProps, NextPage } from 'next'
 import Head from 'next/head'
 import { BaseLayout } from '@/components/layouts/BaseLayout'
-import { MainFilters } from '@/components/generic/MainFilters/MainFilters'
+import {
+  MainFilters,
+  prepareQueryForSubmit,
+} from '@/components/generic/MainFilters/MainFilters'
 import { SectionBlock } from '@/components/layouts/SectionBlock'
 
 import {
   ListEmployee,
   ListEmployee_listEmployee_edges,
-} from '@/graphql/types/ListEmployeeNew'
+} from '@/graphql/types/ListEmployee'
 import { listEmployee } from '@/graphql/queries.graphql'
 
 import { addApolloState, initializeApollo } from '@/graphql/apollo'
@@ -33,7 +36,7 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
 
   const { data } = await apolloClient.query({
     query: listEmployee,
-    variables: { filterSort: query },
+    variables: { filter: prepareQueryForSubmit(query) },
   })
 
   return addApolloState(apolloClient, {

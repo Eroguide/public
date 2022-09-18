@@ -1,4 +1,4 @@
-import { ListEmployee_listEmployee_edges_node } from '@/graphql/types/ListEmployeeNew'
+import { ListEmployee_listEmployee_edges_node } from '@/graphql/types/ListEmployee'
 
 export type CardGalleryProps = {
   title?: string

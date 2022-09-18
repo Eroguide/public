@@ -1,6 +1,6 @@
 import { Container, Inner, ItemWrapper } from './styles'
 import { LadyCard } from '@/components/generic'
-import { ListEmployee_listEmployee_edges_node } from '@/graphql/types/ListEmployeeNew'
+import { ListEmployee_listEmployee_edges_node } from '@/graphql/types/ListEmployee'
 import { ListLocation_listLocation_salon_staff } from '@/graphql/types/ListLocations'
 
 export const LadiesGalleryWidget: React.FC<{

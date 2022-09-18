@@ -4,19 +4,20 @@ import { BaseLayout } from '@/components/layouts/BaseLayout'
 import { TopLinePageContent, SinglePageContent } from '@/components/generic'
 import { SectionBlock } from '@/components/layouts/SectionBlock'
 import { addApolloState, initializeApollo } from '@/graphql/apollo'
-import { getEmployee, listEmployee } from '@/graphql/queries.graphql'
+import { getEmployee, getSalon, listEmployee } from '@/graphql/queries.graphql'
 import {
   ListEmployee_listEmployee_edges,
   ListEmployee_listEmployee_edges_node,
-} from '@/graphql/types/ListEmployeeNew'
+} from '@/graphql/types/ListEmployee'
+import { GetSalon, GetSalon_getSalon } from '@/graphql/types/GetSalon'
 
 export type EmployeeType = {
   employee: ListEmployee_listEmployee_edges_node
   girls: Array<ListEmployee_listEmployee_edges>
+  salon: GetSalon_getSalon
 }
 
-const GalleryItem: NextPage<EmployeeType> = ({ employee, girls }) => {
-  console.log('employee', employee)
+const GalleryItem: NextPage<EmployeeType> = ({ employee, girls, salon }) => {
   return (
     <>
       <Head>
@@ -29,7 +30,7 @@ const GalleryItem: NextPage<EmployeeType> = ({ employee, girls }) => {
           <TopLinePageContent />
         </SectionBlock>
         <SectionBlock>
-          <SinglePageContent employee={employee} girls={girls} />
+          <SinglePageContent employee={employee} girls={girls} salon={salon} />
         </SectionBlock>
       </BaseLayout>
     </>
@@ -50,6 +51,15 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
     variables: { first: 10 },
   })
 
+  let salonData: { data: GetSalon | undefined } = { data: undefined }
+  const salonId = data.getEmployee.salonId
+  if (salonId) {
+    salonData = await apolloClient.query({
+      query: getSalon,
+      variables: { id: salonId },
+    })
+  }
+
   const postListArray =
     otherGirls.listEmployee.edges.map(
       (node: ListEmployee_listEmployee_edges) => node
@@ -59,6 +69,7 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
     props: {
       employee: data.getEmployee,
       girls: postListArray,
+      salon: salonData?.data?.getSalon ?? null,
     },
   })
 }

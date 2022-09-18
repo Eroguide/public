@@ -44,9 +44,9 @@ export const PaginationWidget: React.FC<{
   // Invoke when user click to request another page.
   const handlePageClick = (event: { selected: number }) => {
     const newOffset = (event.selected * itemsPerPage) % items.length
-    console.log(
-      `User requested page number ${event.selected}, which is offset ${newOffset}`
-    )
+    // console.log(
+    //   `User requested page number ${event.selected}, which is offset ${newOffset}`
+    // )
     setItemOffset(newOffset)
   }
 

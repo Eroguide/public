@@ -17,20 +17,30 @@ export const Wrapper = styled.div`
   height: 100%;
 `
 
+export const ImageWrapper = styled.div`
+  width: auto;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+`
+
 export const GallerySliderImage = styled.img`
-  width: 100%;
-  height: 100%;
+  width: auto;
+  height: auto;
   border-radius: 32px;
   overflow: hidden;
 `
 
-export const ThumbsSliderImage = styled.img`
+export const ThumbsSliderImage = styled.div<{ url: string }>`
   border-radius: 32px;
   overflow: hidden;
   height: 157px;
   max-width: 157px;
   width: 100%;
   border: 1px solid ${({ theme }) => theme.grayScale[0]};
+  background: url(${({ url }) => url ?? 'img/mascot/facepalm.jpg'}) no-repeat
+    center center;
+  background-size: cover;
   transition: border 0.2s ease-in-out;
   &:hover {
     border: 1px solid ${({ theme }) => theme.primary[0]};
@@ -82,11 +92,5 @@ export const IconWrapper = styled.div`
 export const ThumbNavigationWrapper = styled.div`
   width: 100%;
   height: 100%;
-  //& .swiper {
-  //  width: 100%;
-  //  display: flex;
-  //}
-  //& .swiper-slide {
-  //  width: auto;
-  //}
+  margin-top: 16px;
 `

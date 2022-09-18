@@ -20,7 +20,7 @@ import { Card } from '@/components/generic'
 
 import ArrowLeftIcon from '/public/img/arrow-left.svg'
 import ArrowRightIcon from '/public/img/arrow-right.svg'
-import { ListEmployee_listEmployee_edges_node } from '@/graphql/types/ListEmployeeNew'
+import { ListEmployee_listEmployee_edges_node } from '@/graphql/types/ListEmployee'
 
 export type ShowNewProps = {
   date: number
@@ -84,18 +84,18 @@ export const ShowNewItems: React.FC<{
         writeDateTitle?: boolean
       }
     >
-  > = groupArrays.map((group) => {
-    const employees = group.employee
-    const dateGroupLength = employees?.length
-
-    return employees.map(
-      (employee: ListEmployee_listEmployee_edges_node, index: number) => ({
-        ...employee,
-        isLastInGroup: index === dateGroupLength - 1,
-        writeDateTitle: index === 0,
-      })
-    )
-  })
+  > = groupArrays
+    .sort((a, b) => b.createdAt - a.createdAt)
+    .map((group) => {
+      const employees = group.employee
+      return employees.map(
+        (employee: ListEmployee_listEmployee_edges_node, index: number) => ({
+          ...employee,
+          isLastInGroup: index === employees?.length - 1,
+          writeDateTitle: index === 0,
+        })
+      )
+    })
 
   return (
     <ContentCardRowContainer>

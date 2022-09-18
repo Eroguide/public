@@ -1,0 +1,89 @@
+query ListEmployee(
+    $filterSort: EmployeeFilterSort
+    $first: Int
+    $after: Cursor
+) {
+    listEmployee(filterSort: $filterSort, first: $first, after: $after) {
+        totalCount
+        pageInfo {
+            startCursor
+            endCursor
+            hasNextPage
+        }
+        edges {
+            cursor
+            node {
+                id
+                name
+                description
+                interview
+                createdAt
+                age
+                price
+                meetingPoint
+                weight
+                height
+                email
+                address
+                mainPhoto
+                headPhoto
+                breastSize
+                footSize
+                isDraft
+                active
+                departureCost
+                topDate
+                dayTop
+                scheduleUpdatedAt
+                salonId
+                status
+                gallery
+                serviceLike {
+                    id
+                    employeeId
+                    description
+                    preferences
+                    serviceId
+                    service {
+                        id
+                        employeeId
+                        description
+                        comment
+                    }
+                }
+                services {
+                    id
+                    name
+                    price
+                    comment
+                    description
+                    fifPrice
+                    createdAt
+                    salonId
+                    massages {
+                        id
+                        image
+                        createdAt
+                        name
+                    }
+                    fstPrice
+                    fthPrice
+                    sdPrice
+                    tdPrice
+                }
+                schedule{
+                    id
+                    day
+                    status
+                    startTime
+                    endTime
+                }
+                languages {
+                        id
+                        name
+                    createdAt
+                }
+            }
+        }
+    }
+}
