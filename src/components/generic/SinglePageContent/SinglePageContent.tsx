@@ -42,8 +42,8 @@ export const SinglePageContent: React.FC<{
   const router = useRouter()
   const sliderGallery = employee.gallery
   const girlsList = girls.map((x) => x.node)
-  const { mainPhoto, price } = employee
-
+  const { mainPhoto, price, video } = employee
+  const salonId = salon?.id
   return (
     <SinglePageContentContainer>
       <Banner image={mainPhoto} />
@@ -73,39 +73,39 @@ export const SinglePageContent: React.FC<{
                 <ExperianceWidget serviceLike={employee.serviceLike} />
               </SinglePageContentBlock>
             ) : null}
-
-            <SinglePageContentBlock title="Interview for Eroguide">
-              {employee.interview ? (
-                <>
-                  <AnimateHeight
-                    duration={500}
-                    height={isShowMore ? 'auto' : 100}
+            {employee.interview ? (
+              <SinglePageContentBlock title="Interview for Eroguide">
+                <AnimateHeight
+                  duration={500}
+                  height={isShowMore ? 'auto' : 100}
+                >
+                  <Markdown>{String(employee.interview)}</Markdown>
+                </AnimateHeight>
+                <RowRight>
+                  <CustomButton
+                    styleType={'tertiary'}
+                    sizeType={'small'}
+                    onClick={() => setIsShowMore(!isShowMore)}
+                    width={'105px'}
                   >
-                    <Markdown>{String(employee.interview)}</Markdown>
-                  </AnimateHeight>
-                  <RowRight>
-                    <CustomButton
-                      styleType={'tertiary'}
-                      sizeType={'small'}
-                      onClick={() => setIsShowMore(!isShowMore)}
-                      width={'105px'}
-                    >
-                      Vice
-                    </CustomButton>
-                  </RowRight>
-                </>
-              ) : null}
-            </SinglePageContentBlock>
-            <SinglePageContentBlock title="Video">
-              <VideoPlayerWidget />
-            </SinglePageContentBlock>
+                    Vice
+                  </CustomButton>
+                </RowRight>
+              </SinglePageContentBlock>
+            ) : null}
+            {video ? (
+              <SinglePageContentBlock title="Video">
+                <VideoPlayerWidget url={video} />
+              </SinglePageContentBlock>
+            ) : null}
+
             <SinglePageContentBlock title="Audio">
               <AudioPlayerWidget />
             </SinglePageContentBlock>
-            {girlsList.length ? (
+            {girlsList.length && salonId ? (
               <SinglePageContentBlock
                 title="Salon ladies"
-                topButtonHandler={() => router.push('/salons')}
+                topButtonHandler={() => router.push(`/salons/${salonId}`)}
               >
                 <LadiesGalleryWidget girls={girlsList} />
               </SinglePageContentBlock>

@@ -295,6 +295,7 @@ export interface ListEmployee_listEmployee_edges_node {
    * Gallery of current employee
    */
   gallery: string[]
+  video: string
   /**
    * Emploee's services like
    */

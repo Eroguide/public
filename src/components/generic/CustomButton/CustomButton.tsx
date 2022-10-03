@@ -1,6 +1,4 @@
-// local libs
 import { Button, IconWrapperLeft, IconWrapperRight } from './styles'
-// types
 import { ButtonStylesEnum, ButtonStylesSizeEnum } from '@/src/theme'
 import { ButtonProps } from './types'
 import ChevronRight from '/public/img/chevron-right.svg'

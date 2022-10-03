@@ -44,21 +44,21 @@ export const SalonSinglePageContent: React.FC<
 > = ({ getSalon, listSalons }) => {
   const covidInfoList = [
     {
-      id: 213213,
+      id: 1,
       icon: <CovidStarsIcon />,
       text: 'treat rooms with a disinfectant',
     },
     {
-      id: 2123213,
+      id: 2,
       icon: <CovidTermoIcon />,
       text: 'measure temperature of masseuses',
     },
     {
-      id: 2134213,
+      id: 3,
       icon: <CovidAntisepIcon />,
       text: 'at the entrance antiseptic',
     },
-    { id: 215213, icon: <CovidMaskIcon />, text: 'mask massage (optional)' },
+    { id: 4, icon: <CovidMaskIcon />, text: 'mask massage (optional)' },
   ]
 
   const { headPhoto, staff, services, advantages, gallery, status } = getSalon
@@ -122,24 +122,31 @@ export const SalonSinglePageContent: React.FC<
                 margin={'0 0 32px 0'}
                 strokeColor={'green'}
               />
-
-              {services.map((x) => (
-                <MassageProgramCard key={x.id} {...x} />
-              ))}
-
-              <ButtonRow>
-                <CustomButton styleType="tertiary" counter={32}>
-                  all additions
-                </CustomButton>
-              </ButtonRow>
+              {services.length ? (
+                <>
+                  {services.map((x) => (
+                    <MassageProgramCard key={x.id} {...x} />
+                  ))}
+                  {services.length > 5 ? (
+                    <ButtonRow>
+                      <CustomButton
+                        styleType="tertiary"
+                        counter={services.length - 5}
+                      >
+                        all additions
+                      </CustomButton>
+                    </ButtonRow>
+                  ) : null}
+                </>
+              ) : null}
             </SinglePageContentBlock>
-            {getSalon.extraServices.length && (
+            {getSalon.extraServices.length ? (
               <SinglePageContentBlock title="Program additions">
                 {getSalon.extraServices.map((x) => (
                   <AdditionsCard key={x.id} {...x} />
                 ))}
 
-                {getSalon.extraServices.length > 5 && (
+                {getSalon.extraServices.length > 5 ? (
                   <ButtonRow>
                     <CustomButton
                       styleType="tertiary"
@@ -148,12 +155,13 @@ export const SalonSinglePageContent: React.FC<
                       all programs
                     </CustomButton>
                   </ButtonRow>
-                )}
+                ) : null}
               </SinglePageContentBlock>
-            )}
+            ) : null}
           </DetailsSection>
         </BodyContent>
       </SinglePageBody>
+
       <ContentCardRow
         title="Recent salons"
         counter={535}
@@ -162,11 +170,13 @@ export const SalonSinglePageContent: React.FC<
         href="/salons"
         withControls
       >
-        {listSalons?.map((item) => (
-          <SwiperSlide key={item.id}>
-            <SalonCard {...item} inSwipe />
-          </SwiperSlide>
-        ))}
+        {listSalons.length
+          ? listSalons?.map((item) => (
+              <SwiperSlide key={item.id}>
+                <SalonCard {...item} inSwipe />
+              </SwiperSlide>
+            ))
+          : null}
       </ContentCardRow>
     </SinglePageContentContainer>
   )

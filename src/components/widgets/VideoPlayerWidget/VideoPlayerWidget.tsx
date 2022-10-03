@@ -2,7 +2,7 @@ import { Container, Inner, VideoWrapper } from './styles'
 import ReactPlayer from 'react-player/youtube'
 import { ButtonDarkPlay } from '@/components/generic/ButtonStyled/styles'
 import PlayIcon from '/public/img/play-icon.svg'
-export const VideoPlayerWidget: React.FC = () => {
+export const VideoPlayerWidget: React.FC<{ url?: string }> = ({ url }) => {
   return (
     <Container>
       <Inner>
@@ -17,7 +17,7 @@ export const VideoPlayerWidget: React.FC = () => {
               </ButtonDarkPlay>
             }
             width="100%"
-            url="https://www.youtube.com/watch?v=NpEaa2P7qZI"
+            url={url}
           />
         </VideoWrapper>
       </Inner>

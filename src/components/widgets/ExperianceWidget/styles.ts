@@ -97,19 +97,8 @@ export const ParametersListItem = styled.div`
   display: flex;
   margin-bottom: 16px;
   align-items: center;
-  min-width: 30%;
-  max-width: 50%;
   width: 100%;
   span {
     white-space: nowrap;
   }
-  ${({ theme }) => theme.media.md`
-    max-width: 100%;
-  `}
-  ${({ theme }) => theme.media.sm`
-   max-width: 50%;
-  `}
-  ${({ theme }) => theme.media.mobile`
-  max-width: 100%;
-  `}
 `

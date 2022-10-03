@@ -35,16 +35,21 @@ import { listEmployee as listEmployeeQuery } from '@/graphql/queries.graphql'
 import { ParsedUrlQuery } from 'querystring'
 import { useEffect, useState } from 'react'
 import { BigFilterColumn } from '@/graphql/types/globalTypes'
+import { getDateMonthAgo } from '@/utils/helpers'
 
 export const prepareQueryForSubmit = (
   query: ParsedUrlQuery
 ): { filter: BigFilterColumn } => {
   const listRange = ['age', 'breastSize', 'height', 'weight']
   const specialQuery = {}
-
   const queryList = Object.entries(query).filter((x) =>
     listRange.includes(x[0])
   )
+
+  if (query.new === '1') {
+    query.created = getDateMonthAgo()
+  }
+
   if (queryList.length) {
     queryList.forEach(
       ([key, value]) =>
@@ -69,6 +74,7 @@ export const MainFilters: React.FC<ListEmployee> = () => {
     {
       variables: { filterSort: prepareQueryForSubmit(dirtyQuery) },
       defaultOptions: { canonizeResults: true, fetchPolicy: 'cache-first' },
+      query: { dirtyQuery },
     }
   )
 
@@ -86,33 +92,39 @@ export const MainFilters: React.FC<ListEmployee> = () => {
     pushQuery()
   }, [dirtyQuery])
 
-  console.log('dirtyQuery', dirtyQuery)
-  console.log('CLEAN query', query)
-  const listOfPrograms: string | string[] | undefined = []
   const queryFilterHandler = async (
     value: string | Array<string>,
     name: string
   ): Promise<void> => {
-    const composeValue = {
+    const composeArrayDefault = {
       [name]: value,
     }
 
-    if (typeof value === 'string' && name === 'program') {
+    const listOfPrograms: (string | string[])[] = dirtyQuery.program
+      ? new Array(dirtyQuery.program)
+      : []
+    if (name === 'program' && typeof value === 'string') {
       listOfPrograms.push(value)
 
-      console.log(' { ...listOfPrograms }', { ...listOfPrograms })
+      if (listOfPrograms.includes(value)) {
+        const index = listOfPrograms.indexOf(value)
+        if (index > -1) {
+          listOfPrograms.splice(index, 1)
+        }
+      }
 
-      const { program } = dirtyQuery
-      dirtyQuery.program = { ...program, ...listOfPrograms }
-      console.log('dirtyQuery', dirtyQuery)
-      await setDirtyQuery({ ...composeValue, ...dirtyQuery })
+      const customValue = {
+        [name]: `${value + ',' + dirtyQuery?.program}`,
+      }
+      await setDirtyQuery({ ...dirtyQuery, ...customValue })
     } else if (Array.isArray(value)) {
       const composeArray = {
         [name]: value,
       }
       await setDirtyQuery({ ...dirtyQuery, ...composeArray })
+    } else {
+      await setDirtyQuery({ ...dirtyQuery, ...composeArrayDefault })
     }
-    await pushQuery()
   }
 
   const handleSearchButton = (): void => {
@@ -131,7 +143,7 @@ export const MainFilters: React.FC<ListEmployee> = () => {
     <ProgramGrid>
       <CheckBox
         onChange={queryFilterHandler}
-        name={'onShift'}
+        name={'shift'}
         label={'Na směně'}
       />
       <CheckBox
@@ -141,7 +153,6 @@ export const MainFilters: React.FC<ListEmployee> = () => {
       />
     </ProgramGrid>
   )
-
   const ageFilter = (
     <>
       <CustomButton
@@ -232,26 +243,35 @@ export const MainFilters: React.FC<ListEmployee> = () => {
       />
     </ProgramGrid>
   )
+
+  const getProgramArray = (value: string): Array<string> => {
+    const { program } = dirtyQuery
+
+    if (program && Array.isArray(program)) {
+      return [...program, value]
+    }
+    return [value]
+  }
   const programCheckBox = (
     <ProgramGrid>
       <CheckBox
-        onChange={queryFilterHandler}
+        onChange={() => queryFilterHandler(getProgramArray('1'), 'program')}
         name={'program'}
         label={'peep show'}
       />
       <CheckBox
         name={'program'}
-        onChange={queryFilterHandler}
+        onChange={() => queryFilterHandler(getProgramArray('2'), 'program')}
         label={'sakura branch'}
       />
       <CheckBox
         name={'program'}
-        onChange={queryFilterHandler}
+        onChange={() => queryFilterHandler(getProgramArray('3'), 'program')}
         label={'foot fetish'}
       />
       <CheckBox
         name={'program'}
-        onChange={queryFilterHandler}
+        onChange={() => queryFilterHandler(getProgramArray('4'), 'program')}
         label={'urological massage'}
       />
     </ProgramGrid>

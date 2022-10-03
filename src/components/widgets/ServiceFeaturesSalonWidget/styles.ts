@@ -64,6 +64,7 @@ export const IconWrapper = styled.div`
   width: 40px;
   border-radius: 50%;
   border: 1px solid ${({ theme }) => theme.grayScale[1]};
+  padding: 8px;
 `
 
 export const Wrapper = styled.div`
