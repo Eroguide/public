@@ -7,10 +7,7 @@ import {
 } from '@/components/generic/MainFilters/MainFilters'
 import { SectionBlock } from '@/components/layouts/SectionBlock'
 
-import {
-  ListEmployee,
-  ListEmployee_listEmployee_edges,
-} from '@/graphql/types/ListEmployee'
+import { ListEmployee } from '@/graphql/types/ListEmployee'
 import { listEmployee } from '@/graphql/queries.graphql'
 
 import { addApolloState, initializeApollo } from '@/graphql/apollo'
@@ -43,9 +40,6 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
     props: {
       query,
       listEmployee: data.listEmployee,
-      galleryList: data.listEmployee.edges.map(
-        (v: ListEmployee_listEmployee_edges) => v.node
-      ),
     },
   })
 }

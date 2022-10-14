@@ -104,24 +104,24 @@ export const BurgerIconWrapper = styled.div`
    padding: 0 16px;
   `}
   svg path {
-    stroke: ${({ theme }) => theme.grayScale[1]};
+    stroke: ${({ theme }) => theme.grayScale[2]};
   }
   &:hover {
     ${CloseButton} {
-      border: 2px solid ${({ theme }) => theme.grayScale[2]};
+      border: 2px solid ${({ theme }) => theme.grayScale[3]};
     }
 
     svg path {
-      stroke: ${({ theme }) => theme.grayScale[2]};
+      stroke: ${({ theme }) => theme.grayScale[3]};
       fill: ${({ theme }) => theme.grayScale[0]};
     }
   }
   &:active {
     ${CloseButton} {
-      border: 2px solid ${({ theme }) => theme.grayScale[3]};
+      border: 2px solid ${({ theme }) => theme.grayScale[4]};
     }
     svg path {
-      stroke: ${({ theme }) => theme.grayScale[3]};
+      stroke: ${({ theme }) => theme.grayScale[4]};
     }
   }
 `

@@ -27,41 +27,46 @@ import ProgramIcon from '/public/img/program-filter.svg'
 import { useRouter } from 'next/router'
 import {
   ListEmployee,
-  // ListEmployeeVariables,
+  ListEmployeeVariables,
 } from '@/graphql/types/ListEmployee'
-import {
-  useLazyQuery,
-  // useQuery
-} from '@apollo/client'
+import { useLazyQuery } from '@apollo/client'
 import { listEmployee as listEmployeeQuery } from '@/graphql/queries.graphql'
 
 import { ParsedUrlQuery } from 'querystring'
 import { useEffect, useState } from 'react'
 import { BigFilterColumn } from '@/graphql/types/globalTypes'
-import { getDateMonthAgo } from '@/utils/helpers'
-// import { useSearchFilters } from '@/hooks/useSearchFilters'
+import { getDateMonthAgo, getTodayString } from '@/utils/helpers'
 
 export const prepareQueryForSubmit = (
   query: ParsedUrlQuery
 ): { filter?: BigFilterColumn } => {
   const listRange = ['age', 'breastSize', 'height', 'weight']
   const listBooleans = ['privat', 'escort', 'massage']
+  const listCheckboxes = ['photo', 'program', 'type']
 
   const specialQuery = {}
   const booleanQuery = {}
+  const collectedArrays = {}
+
   const arrayValueQueryList = Object.entries(query).filter((x) =>
     listRange.includes(x[0])
   )
+
   const booleanQueryList = Object.entries(query).filter((x) =>
     listBooleans.includes(x[0])
   )
 
+  const collectedArrList = Object.entries(query).filter((x) =>
+    listCheckboxes.includes(x[0])
+  )
+
   if (arrayValueQueryList.length) {
+    console.log('arrayValueQueryList,value', arrayValueQueryList)
     arrayValueQueryList.forEach(
       ([key, value]) =>
         (specialQuery[key] = {
-          from: value?.[0] ?? '0',
-          to: value?.[1] ?? '0',
+          from: String(value)?.split(',')[0] ?? '0',
+          to: String(value)?.split(',')[1] ?? '0',
         })
     )
   }
@@ -72,31 +77,29 @@ export const prepareQueryForSubmit = (
     )
   }
 
-  return { filter: { ...query, ...specialQuery, ...booleanQuery } }
+  if (collectedArrList.length) {
+    collectedArrList.forEach(
+      ([key, value]) =>
+        (collectedArrays[key] =
+          (value && typeof value === 'string' && value.split(',')) || null)
+    )
+  }
+
+  return {
+    filter: { ...query, ...specialQuery, ...collectedArrays, ...booleanQuery },
+  }
 }
+
 export const MainFilters: React.FC<ListEmployee> = () => {
   const router = useRouter()
   const { push, back, query } = router
+
   const [dirtyQuery, setDirtyQuery] = useState<ParsedUrlQuery>(query)
 
-  // const { filter, updateFilter } = useSearchFilters()
-
-  // const {
-  //   data,
-  //   error,
-  //   loading,
-  //   // refetch
-  // } = useQuery<ListEmployee, ListEmployeeVariables>(listEmployeeQuery, {
-  //   variables: { filterSort: prepareQueryForSubmit(dirtyQuery) },
-  //   defaultOptions: { canonizeResults: true, fetchPolicy: 'cache-first' },
-  //   query: { dirtyQuery },
-  // })
-  // if (loading) return <div>Loading</div>
-  // if (error) return <div>error</div>
-  // console.log('filter', filter)
-
-  const [executeSearch, { data }] = useLazyQuery(listEmployeeQuery)
-
+  const [executeSearch, { data }] = useLazyQuery<
+    ListEmployee,
+    ListEmployeeVariables
+  >(listEmployeeQuery)
   const pushQuery = (): void => {
     push(
       '/search',
@@ -108,33 +111,88 @@ export const MainFilters: React.FC<ListEmployee> = () => {
   }
 
   useEffect(() => {
-    pushQuery()
+    console.log(
+      ': prepareQueryForSubmit(dirtyQuery)',
+      prepareQueryForSubmit(dirtyQuery)
+    )
     executeSearch({
       variables: { filterSort: prepareQueryForSubmit(dirtyQuery) },
-    })
+    }).then(() => pushQuery())
   }, [dirtyQuery])
+
+  const getCollection = (name: string): Array<string> => {
+    const cloneQuery = dirtyQuery ?? {}
+    const getQueryValue = cloneQuery[name]
+
+    return Array.isArray(getQueryValue)
+      ? getQueryValue
+      : typeof getQueryValue === 'string' && getQueryValue.length > 0
+      ? getQueryValue?.split(',')
+      : []
+  }
+
+  const collectQueryInArray = (
+    value: string,
+    name: string
+  ): Record<string, Array<string>> => {
+    let composeProgramArray = {}
+
+    const collection = getCollection(name)
+    const valueIndex = collection?.findIndex((x) => x === value)
+
+    if (valueIndex !== -1) {
+      const filteredElements = collection?.filter((x) => x !== value)
+      composeProgramArray = {
+        [name]:
+          filteredElements.length > 1
+            ? filteredElements.toString()
+            : filteredElements,
+      }
+    } else if (valueIndex === -1 && collection?.length) {
+      composeProgramArray = {
+        [name]: [...collection, value].toString(),
+      }
+    } else if (!collection.length) {
+      composeProgramArray = {
+        [name]: [value],
+      }
+    }
+    return composeProgramArray
+  }
 
   const queryFilterHandler = async (
     value: string | Array<string>,
     name: string
   ): Promise<void> => {
-    console.log('dirtyQuery', dirtyQuery)
+    const cloneQuery = dirtyQuery ?? {}
+    const arrFilters = [
+      'photo',
+      'program',
+      'type',
+      'privat',
+      'escort',
+      'massage',
+    ]
 
-    if (Array.isArray(value)) {
+    if (arrFilters.includes(name) && typeof value === 'string') {
+      const queryValuesToArray = collectQueryInArray(value, name)
+
+      await setDirtyQuery({ ...cloneQuery, ...queryValuesToArray })
+    } else if (Array.isArray(value)) {
       const composeArray = {
-        [name]: value,
+        [name]: value.toString(),
       }
-      await setDirtyQuery({ ...dirtyQuery, ...composeArray })
+      await setDirtyQuery({ ...cloneQuery, ...composeArray })
     } else {
-      let composeArrayDefault
+      let val
 
-      if (value && value !== '0') {
-        composeArrayDefault = { ...dirtyQuery, [name]: value }
-      } else {
-        composeArrayDefault = { ...dirtyQuery }
+      if (value === '1') {
+        val = { ...cloneQuery, [name]: value }
+      } else if (cloneQuery[name]) {
+        val = { ...cloneQuery }
       }
 
-      await setDirtyQuery({ ...composeArrayDefault })
+      await setDirtyQuery({ ...val })
     }
   }
 
@@ -152,7 +210,7 @@ export const MainFilters: React.FC<ListEmployee> = () => {
     <ProgramGrid>
       <CheckBox
         onChange={(e) =>
-          queryFilterHandler(e === '1' ? getDateMonthAgo() : '', 'shift')
+          queryFilterHandler(e === '1' ? getTodayString() : '', 'shift')
         }
         name={'shift'}
         label={'Na směně'}
@@ -199,19 +257,22 @@ export const MainFilters: React.FC<ListEmployee> = () => {
   const placeRadio = (
     <ProgramGrid>
       <CheckBox
-        onChange={queryFilterHandler}
+        onChange={() => queryFilterHandler('1', 'massage')}
         label={'Masáže'}
         name={'massage'}
+        defaultChecked={dirtyQuery?.massage?.includes('1')}
       />
       <CheckBox
-        onChange={queryFilterHandler}
+        onChange={() => queryFilterHandler('1', 'privat')}
         label={'Privat'}
         name={'privat'}
+        defaultChecked={dirtyQuery?.privat?.includes('1')}
       />
       <CheckBox
-        onChange={queryFilterHandler}
+        onChange={() => queryFilterHandler('1', 'escort')}
         label={'Escort'}
         name={'escort'}
+        defaultChecked={dirtyQuery?.escort?.includes('1')}
       />
     </ProgramGrid>
   )
@@ -221,6 +282,7 @@ export const MainFilters: React.FC<ListEmployee> = () => {
         onClick={() => queryFilterHandler('1', 'type')}
         styleType={'tertiary'}
         sizeType={'small'}
+        isActive={dirtyQuery?.type?.includes('1')}
       >
         Hubená
       </CustomButton>
@@ -229,6 +291,7 @@ export const MainFilters: React.FC<ListEmployee> = () => {
         margin="0 0 0 16px"
         styleType={'tertiary'}
         sizeType={'small'}
+        isActive={dirtyQuery?.type?.includes('2')}
       >
         Normální
       </CustomButton>
@@ -237,6 +300,7 @@ export const MainFilters: React.FC<ListEmployee> = () => {
         margin="0 0 0 16px"
         styleType={'tertiary'}
         sizeType={'small'}
+        isActive={dirtyQuery?.type?.includes('3')}
       >
         Plnoštíhlá
       </CustomButton>
@@ -246,13 +310,15 @@ export const MainFilters: React.FC<ListEmployee> = () => {
     <ProgramGrid>
       <CheckBox
         name={'photo'}
-        onChange={queryFilterHandler}
+        onChange={() => queryFilterHandler('1', 'photo')}
         label={'Ověřeno Eroguide'}
+        defaultChecked={dirtyQuery?.photo?.includes('1')}
       />
       <CheckBox
         name={'photo'}
-        onChange={queryFilterHandler}
+        onChange={() => queryFilterHandler('2', 'photo')}
         label={'Vlastní'}
+        defaultChecked={dirtyQuery?.photo?.includes('2')}
       />
     </ProgramGrid>
   )
@@ -260,23 +326,27 @@ export const MainFilters: React.FC<ListEmployee> = () => {
   const programCheckBox = (
     <ProgramGrid>
       <CheckBox
-        onChange={(e) => queryFilterHandler(e, 'program1')}
+        onChange={() => queryFilterHandler('1', 'program')}
         name={'program'}
         label={'peep show'}
+        defaultChecked={dirtyQuery?.program?.includes('1')}
       />
       <CheckBox
         name={'program'}
-        onChange={(e) => queryFilterHandler(e, 'program2')}
+        onChange={() => queryFilterHandler('2', 'program')}
         label={'sakura branch'}
+        defaultChecked={dirtyQuery?.program?.includes('2')}
       />
       <CheckBox
         name={'program'}
-        onChange={(e) => queryFilterHandler(e, 'program3')}
+        onChange={() => queryFilterHandler('3', 'program')}
+        defaultChecked={dirtyQuery?.program?.includes('3')}
         label={'foot fetish'}
       />
       <CheckBox
         name={'program'}
-        onChange={(e) => queryFilterHandler(e, 'program4')}
+        onChange={() => queryFilterHandler('4', 'program')}
+        defaultChecked={dirtyQuery?.program?.includes('4')}
         label={'urological massage'}
       />
     </ProgramGrid>

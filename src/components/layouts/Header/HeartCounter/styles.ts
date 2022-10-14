@@ -68,15 +68,22 @@ export const HeartCounterWrapper = styled.div<{ hasItems: boolean }>`
     width: 24px;
     stroke: ${theme.primary[0]};
     fill: ${theme.grayScale[1]};
+
     stroke-width: 2px;
     ${({ hasItems }) =>
       hasItems
         ? `fill:${theme.primary[0]}; stroke:${theme.primary[0]}`
         : `fill: white; stroke: ${theme.grayScale[3]};`};
     transition: fill, stroke 0.06s ease-in-out;
+    & #filter0_f_706_6507 {
+      display: none;
+    }
   }
 
   &:hover {
+    & #filter0_f_706_6507 {
+      display: inherit;
+    }
     svg path {
       ${({ hasItems }) =>
         hasItems
@@ -86,6 +93,9 @@ export const HeartCounterWrapper = styled.div<{ hasItems: boolean }>`
   }
 
   &:active {
+    & #filter0_f_706_6507 {
+      display: inherit;
+    }
     svg path {
       ${({ hasItems }) =>
         hasItems
