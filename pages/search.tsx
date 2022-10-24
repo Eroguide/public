@@ -12,7 +12,7 @@ import { listEmployee } from '@/graphql/queries.graphql'
 
 import { addApolloState, initializeApollo } from '@/graphql/apollo'
 
-const SearchPage: NextPage<ListEmployee> = ({ listEmployee }) => {
+const SearchPage: NextPage<ListEmployee> = () => {
   return (
     <>
       <Head>
@@ -22,12 +22,13 @@ const SearchPage: NextPage<ListEmployee> = ({ listEmployee }) => {
       </Head>
       <BaseLayout>
         <SectionBlock>
-          <MainFilters listEmployee={listEmployee} />
+          <MainFilters />
         </SectionBlock>
       </BaseLayout>
     </>
   )
 }
+
 export const getServerSideProps: GetServerSideProps = async ({ query }) => {
   const apolloClient = initializeApollo()
 
