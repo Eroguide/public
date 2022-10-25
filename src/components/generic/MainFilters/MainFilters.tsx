@@ -28,6 +28,11 @@ import { FC, useEffect } from 'react'
 import { BigFilterColumn } from '@/graphql/types/globalTypes'
 import useFilters from '@/components/generic/MainFilters/useFilters'
 import queryString from 'query-string'
+import {
+  getDateEndOfToday,
+  getDateMonthAgo,
+  getTodayString,
+} from '@/utils/helpers'
 
 export const prepareQueryForSubmit = (
   query: ParsedUrlQuery
@@ -38,6 +43,8 @@ export const prepareQueryForSubmit = (
   const specialQuery = {}
   const booleanQuery = {}
   const collectedArrays = {}
+  let newGirls = {}
+  let onShift = {}
 
   const arrayValueQueryList = Object.entries(query).filter((x) =>
     listRange.includes(x[0])
@@ -52,17 +59,17 @@ export const prepareQueryForSubmit = (
   )
 
   if (arrayValueQueryList.length) {
-    arrayValueQueryList.forEach(
-      ([key, value]) =>
-        (specialQuery[key] = {
-          from:
-            queryString.parse(`${key}=${value}`, { arrayFormat: 'comma' })[0] ??
-            '0',
-          to:
-            queryString.parse(`${key}=${value}`, { arrayFormat: 'comma' })[1] ??
-            '0',
-        })
-    )
+    arrayValueQueryList.forEach(([key, value]) => {
+      console.log('key,value', key, value)
+      const parsedValue = queryString.parse(`${key}=${value}`, {
+        arrayFormat: 'comma',
+      })[key]
+      console.log('key,parsedValue', key, parsedValue)
+      specialQuery[key] = {
+        from: parsedValue?.[0] ?? '0',
+        to: parsedValue?.[1] ?? '0',
+      }
+    })
   }
 
   if (booleanQueryList.length) {
@@ -78,17 +85,30 @@ export const prepareQueryForSubmit = (
           (value && typeof value === 'string' && value.split(',')) || null)
     )
   }
+  if (query.created) {
+    newGirls = { created: { from: getDateMonthAgo(), to: getDateEndOfToday() } }
+  }
+  if (query.shift) {
+    onShift = { shift: getTodayString() }
+  }
 
   return {
-    filter: { ...query, ...specialQuery, ...collectedArrays, ...booleanQuery },
+    filter: {
+      ...query,
+      ...specialQuery,
+      ...collectedArrays,
+      ...booleanQuery,
+      ...newGirls,
+      ...onShift,
+    },
   }
 }
 
 export const MainFilters: FC = () => {
   const router = useRouter()
-  const { push, back, query } = router
+  const { push, back } = router
   const { dirtyQuery, filterElements } = useFilters()
-  const [executeSearch, { data, ...rest }] = useLazyQuery<
+  const [executeSearch, { data }] = useLazyQuery<
     ListEmployee,
     ListEmployeeVariables
   >(listEmployeeQuery)
@@ -117,7 +137,7 @@ export const MainFilters: FC = () => {
     executeSearch({
       variables: { filterSort: prepareQueryForSubmit(dirtyQuery) },
     }).then(() => pushQuery())
-  }, [dirtyQuery])
+  }, [dirtyQuery, executeSearch])
 
   return (
     <Container>

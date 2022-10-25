@@ -1,4 +1,4 @@
-import { format } from 'date-fns'
+import { endOfToday, format } from 'date-fns'
 export const numberWithSpaces = (x: number): string => {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ')
 }
@@ -27,6 +27,5 @@ export const getDateMonthAgo = (): string => {
 }
 
 export const getDateEndOfToday = (): string => {
-  const tomorrow = new Date()
-  return format(tomorrow.setHours(24, 0, 0, 0), 'yyyy-MM-dd')
+  return format(endOfToday(), 'yyyy-MM-dd')
 }

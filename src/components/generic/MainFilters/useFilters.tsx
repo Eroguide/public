@@ -1,7 +1,5 @@
-import queryString from 'query-string'
 import { ProgramGrid } from '@/components/generic/MainFilters/styles'
 import { CheckBox, CustomButton, RangeSliderCustom } from '@/components/generic'
-import { getDateMonthAgo, getTodayString } from '@/utils/helpers'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
 import { ParsedUrlQuery } from 'querystring'
@@ -16,11 +14,9 @@ import ProgramIcon from '/public/img/program-filter.svg'
 
 export const useFilters = () => {
   const router = useRouter()
-  const { query, asPath } = router
+  const { query } = router
 
   const [dirtyQuery, setDirtyQuery] = useState<ParsedUrlQuery>(query)
-
-  const clearPath = asPath.replace('/search?', '')
 
   const getCollection = (name: string): Array<string> => {
     const cloneQuery = dirtyQuery ?? {}
@@ -78,6 +74,8 @@ export const useFilters = () => {
       'privat',
       'escort',
       'massage',
+      'created',
+      'shift',
     ]
 
     if (arrFilters.includes(name) && typeof value === 'string') {
@@ -102,7 +100,6 @@ export const useFilters = () => {
     } else {
       //DEFAULT a new value
       let val
-
       if (value === '1') {
         val = { ...cloneQuery, [name]: value }
       } else if (cloneQuery[name] === value) {
@@ -118,17 +115,13 @@ export const useFilters = () => {
     actualRadio: (
       <ProgramGrid>
         <CheckBox
-          onChange={(e) =>
-            queryFilterHandler(e === '1' ? getTodayString() : '', 'shift')
-          }
+          onChange={() => queryFilterHandler('1', 'shift')}
           name={'shift'}
           label={'Na směně'}
         />
         <CheckBox
-          onChange={(e) =>
-            queryFilterHandler(e === '1' ? getDateMonthAgo() : '', 'create')
-          }
-          name={'create'}
+          onChange={() => queryFilterHandler('1', 'created')}
+          name={'created'}
           label={'Nové slečny'}
         />
       </ProgramGrid>
