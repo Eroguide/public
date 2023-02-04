@@ -21,7 +21,7 @@ query ListSalons($filterSort: SalonFilterSort, $first: Int, $after: Cursor) {
                 phone
                 description
                 metaDescription
-                isTurnOff
+#                isTurnOff
                 #          isPrivate
                 createdAt
                 advantages {

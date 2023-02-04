@@ -7,9 +7,36 @@ import {
   FormInputList,
 } from './styles'
 import { BigInfoCard, BlackInfoCard, CustomButton } from '@/components/generic'
-import { CustomInput } from '@/components/generic/CustomInput'
+import { useForm } from 'react-hook-form'
+import {
+  CreateOptionEnum,
+  InputApplication,
+} from '@/components/pages/CreateHowPage/types'
+import { useMutation } from '@apollo/client'
+import { createApplication } from '@/graphql/queries.graphql'
+import { Input } from '@/components/generic/CustomInput/styles'
 
 export const CreatePrivatSalonPage: React.FC = () => {
+  const { handleSubmit, register } = useForm<InputApplication>({
+    mode: 'onSubmit',
+    shouldFocusError: true,
+  })
+
+  const [handleMutation] = useMutation(createApplication)
+
+  const onSubmit = async (formData: InputApplication) => {
+    const requestBody = {
+      ...formData,
+      type: CreateOptionEnum.privatSalon,
+      status: 'new',
+    }
+    await handleMutation({
+      variables: {
+        application: requestBody,
+      },
+    })
+  }
+
   return (
     <Container>
       <Row>
@@ -42,16 +69,21 @@ in advertising costs"
           I will be happy to answer all your questions. or we will discuss the
           date of the photo session convenient for you.
         </FormDescription>
-
         <FormInputList>
-          <CustomInput type="text" placeholder="Salon name" />
-          <CustomInput type="text" placeholder="Website (if have)" />
-          <CustomInput type="text" placeholder="Your name" />
-          <CustomInput type="email" placeholder="Email" />
-          <CustomInput type="tel" placeholder="Phone" />
+          <Input
+            {...register('title')}
+            id={'title'}
+            type="text"
+            placeholder="Salon name"
+            required
+          />
+          <Input {...register('email')} type="email" placeholder="Email" />
+          <Input {...register('phone')} type="tel" placeholder="Phone" />
         </FormInputList>
 
-        <CustomButton type={'submit'}>Send request</CustomButton>
+        <CustomButton onClick={handleSubmit(onSubmit)} type={'submit'}>
+          Send request
+        </CustomButton>
       </FormSection>
     </Container>
   )

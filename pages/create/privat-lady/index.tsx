@@ -4,7 +4,16 @@ import { BaseLayout } from '@/components/layouts/BaseLayout'
 import { GalleryLanding, TopLinePageContent } from '@/components/generic'
 import { CreatePrivatLadyPage } from '@/components/pages'
 import { SectionBlock } from '@/components/layouts/SectionBlock'
+// import { useMutation } from '@apollo/client'
+// import { createApplication } from '@/graphql/queries.graphql'
 const CreateRequestSalonPage: NextPage = () => {
+  // const [handleMutation, { error }] = useMutation(createApplication)
+  // const submitHandler = async () => {
+  //   const variableOptions = {}
+  //   await handleMutation({
+  //     variables: variableOptions,
+  //   })
+  // }
   return (
     <>
       <Head>
@@ -16,7 +25,6 @@ const CreateRequestSalonPage: NextPage = () => {
         <SectionBlock>
           <TopLinePageContent />
         </SectionBlock>
-
         <SectionBlock>
           <GalleryLanding
             title="List your private masseuse quastionare"

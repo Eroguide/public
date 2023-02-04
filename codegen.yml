@@ -1,5 +1,5 @@
 overwrite: true
-schema: "https://eroguide-api.cz/query"
+schema: "https://eroguide-api.cz/graphql"
 documents: "/graphql/queries/**.*.graphql"
 generates:
   src/generated/graphql.tsx:

@@ -1,2079 +1,1603 @@
-"""
-Address is a 20 byte Opera address, represented as 0x prefixed hexadecimal number.
-"""
-scalar Address
+# This file was generated based on ".graphqlconfig". Do not edit manually.
 
-"""Represents advantage of salon"""
+schema {
+    query: Query
+    mutation: Mutation
+}
+
+"Represents advantage of salon"
 type Advantage {
-  """ID"""
-  id: BigInt!
-
-  """Name of advantage"""
-  name: String!
-
-  """Image of advantage"""
-  image: String!
-
-  """Created at"""
-  createdAt: Date!
+    "Created at"
+    createdAt: Date!
+    "ID"
+    id: BigInt!
+    "Image of advantage"
+    image: String!
+    "Name of advantage"
+    name: String!
 }
 
 type AdvantageConnection {
-  """Edges contains provided edges of the sequential list."""
-  edges: [AdvantageEdge!]!
-
-  """TotalCount is the total amount of items in the list."""
-  totalCount: BigInt!
-
-  """PageInfo is an information about the current page of the list."""
-  pageInfo: PageInfo!
+    "Edges contains provided edges of the sequential list."
+    edges: [AdvantageEdge!]!
+    "PageInfo is an information about the current page of the list."
+    pageInfo: PageInfo!
+    "TotalCount is the total amount of items in the list."
+    totalCount: BigInt!
 }
 
 type AdvantageEdge {
-  cursor: Cursor!
-  node: Advantage!
+    cursor: Cursor!
+    node: Advantage!
 }
 
 type AdvantageMutationOutput {
-  """list of errors"""
-  errors: [MutationError!]!
-
-  """operation results"""
-  advantage: Advantage
+    "operation results"
+    advantage: Advantage
+    "list of errors"
+    errors: [MutationError!]!
 }
 
-"""Type Application allows see contacts of potential employees and salons"""
+"Type Application allows see contacts of potential employees and salons"
 type Application {
-  """ID"""
-  id: BigInt!
+    "Date when application was created"
+    createdAt: Date!
+    "Email of applicant"
+    email: String!
+    "ID"
+    id: BigInt!
+    "Phone of applicant"
+    phone: String!
+    "status of application (canceled, considered, new)"
+    status: String!
+    "Name of employee/salon"
+    title: String!
+    """
 
-  """Name of employee/salon"""
-  title: String!
-
-  """
-  Type of application
-  Variants:
-  salon-escort - employees of private salon
-  salon-masseur - employees of common salon
-  private-escort - private employees
-  private-massaur - common masseur
-  """
-  type: String!
-
-  """Email of applicant"""
-  email: String!
-
-  """Phone of applicant"""
-  phone: String!
-
-  """status of application (canceled, considered, new)"""
-  status: String!
-
-  """Date when application was created"""
-  createdAt: Date!
+    Type of application
+    Variants:
+    salon-escort - employees of private salon
+    salon-masseur - employees of common salon
+    private-escort - private employees
+    private-massaur - common masseur
+    """
+    type: String!
 }
 
 type ApplicationConnection {
-  """Edges contains provided edges of the sequential list."""
-  edges: [ApplicationEdge!]!
-
-  """TotalCount is the total amount of items in the list."""
-  totalCount: BigInt!
-
-  """PageInfo is an information about the current page of the list."""
-  pageInfo: PageInfo!
+    "Edges contains provided edges of the sequential list."
+    edges: [ApplicationEdge!]!
+    "PageInfo is an information about the current page of the list."
+    pageInfo: PageInfo!
+    "TotalCount is the total amount of items in the list."
+    totalCount: BigInt!
 }
 
 type ApplicationEdge {
-  cursor: Cursor!
-  node: Application!
-}
-
-input ApplicationFilterSort {
-  """fast search by title"""
-  fastSearch: String
-
-  """
-  type of application
-  Variants:
-  salon-escort - employees of private salon
-  salon-masseur - employees of common salon
-  private-escort - private employees
-  private-massaur - common masseur
-  """
-  types: [String!]
-
-  """status of application (new, considered, canceled)"""
-  status: String
-
-  """Sort by created"""
-  created: Date
+    cursor: Cursor!
+    node: Application!
 }
 
 type ApplicationMutationOutput {
-  """list of errors"""
-  errors: [MutationError!]!
-
-  """operation results"""
-  application: Application
+    "operation results"
+    application: Application
+    "list of errors"
+    errors: [MutationError!]!
 }
 
-input BigFilterColumn {
-  """Sort by shift (ex. "Monday")"""
-  shift: String
-
-  """Sorting by created """
-  created: DateColumn
-
-  """Sorting by age """
-  age: BigIntColumn
-
-  """Sorting by type"""
-  types: [String!]
-
-  """Sorting by breast size"""
-  breastSize: BigIntColumn
-
-  """Sorting by height"""
-  height: BigIntColumn
-
-  """Sorting by weight"""
-  weight: BigIntColumn
-
-  """Sorting by service program (ex. ["1", "2"])"""
-  program: [String!]
-}
-
-"""BigInt is a large (256bits) integer value serialized as string."""
-scalar BigInt
-
-"""Filtering or sorting on BigInt column"""
-input BigIntColumn {
-  """Sort records by the column in given direction"""
-  sort: SortDirection
-
-  """
-  Sorting priority of the column (applies when sorting by multiple columns, smaller number first)
-  """
-  priority: Int
-
-  """Filter records where the column equals given value"""
-  eq: BigInt
-
-  """Filter records where the column does NOT equal given value"""
-  neq: BigInt
-
-  """
-  Filter records where is the value greater or equal (inclusive lower bound)
-  """
-  from: BigInt
-
-  """
-  Filter records where is the value less or equal (inclusive upper bound)
-  """
-  to: BigInt
-
-  """Filter records where the value equals one of given values"""
-  in: [BigInt!]
-}
-
-"""Filtering ONLY on BigInt column"""
-input BigIntColumnFilterOnly {
-  """Filter records where the column equals given value"""
-  eq: BigInt
-
-  """Filter records where the column does NOT equal given value"""
-  neq: BigInt
-
-  """
-  Filter records where is the value greater or equal (inclusive lower bound)
-  """
-  from: BigInt
-
-  """
-  Filter records where is the value less or equal (inclusive upper bound)
-  """
-  to: BigInt
-
-  """Filter records where the value equals one of given values"""
-  in: [BigInt!]
-}
-
-"""Category type"""
+"Category type"
 type Category {
-  """ID"""
-  id: BigInt!
-
-  """Category name"""
-  name: String!
-
-  """Date when category was created"""
-  createdAt: Date!
+    "Date when category was created"
+    createdAt: Date!
+    "ID"
+    id: BigInt!
+    "Category name"
+    name: String!
 }
 
 type CategoryConnection {
-  """Edges contains provided edges of the sequential list."""
-  edges: [CategoryEdge!]!
-
-  """TotalCount is the total amount of items in the list."""
-  totalCount: BigInt!
-
-  """PageInfo is an information about the current page of the list."""
-  pageInfo: PageInfo!
+    "Edges contains provided edges of the sequential list."
+    edges: [CategoryEdge!]!
+    "PageInfo is an information about the current page of the list."
+    pageInfo: PageInfo!
+    "TotalCount is the total amount of items in the list."
+    totalCount: BigInt!
 }
 
 type CategoryEdge {
-  cursor: Cursor!
-  node: Category!
+    cursor: Cursor!
+    node: Category!
 }
 
 type CategoryMutationOutput {
-  """list of errors"""
-  errors: [MutationError!]!
-
-  """operation results"""
-  category: Category
+    "operation results"
+    category: Category
+    "list of errors"
+    errors: [MutationError!]!
 }
 
-"""Counter type represents all counters for font-end menu"""
+"Counter type represents all counters for font-end menu"
 type Counter {
-  """Get all employees"""
-  allEmployees: BigInt!
-
-  """Get new employees"""
-  newEmployees: BigInt!
-
-  """Get top employees"""
-  topEmployees: BigInt!
-
-  """Get available employees"""
-  availableEmployees: BigInt!
-
-  """Get all private masseurs"""
-  allMasseurs: BigInt!
-
-  """Get all employees in public parlours"""
-  allPublicParlours: BigInt!
-
-  """Get all private escort employees"""
-  allPrivateEmployees: BigInt!
-
-  """Get all employees in a private parlours"""
-  allPrivateParlours: BigInt!
+    "Get all employees"
+    allEmployees: BigInt!
+    "Get all private masseurs"
+    allMasseurs: BigInt!
+    "Get all private escort employees"
+    allPrivateEmployees: BigInt!
+    "Get all employees in a private parlours"
+    allPrivateParlours: BigInt!
+    "Get all employees in public parlours"
+    allPublicParlours: BigInt!
+    "Get available employees"
+    availableEmployees: BigInt!
+    "Get new employees"
+    newEmployees: BigInt!
+    "Get top employees"
+    topEmployees: BigInt!
 }
 
-input CounterInfo {
-  from: Date!
-  to: Date!
-  weekDay: String!
-}
-
-"""
-Cursor is a string representing position in a sequential list of edges.
-"""
-scalar Cursor
-
-"""Date represents ..."""
-scalar Date
-
-"""Filtering or sorting on Date column"""
-input DateColumn {
-  """Sort records by the column in given direction"""
-  sort: SortDirection
-
-  """
-  Sorting priority of the column (applies when sorting by multiple columns, smaller number first)
-  """
-  priority: Int
-
-  """
-  Filter records whose date is equal or after given date (inclusive lower bound)
-  """
-  from: Date
-
-  """
-  Filter records whose date is equal of before given date (inclusive upper bound)
-  """
-  to: Date
-}
-
-"""Filtering ONLY on Date column"""
-input DateColumnFilterOnly {
-  """
-  Filter records whose date is equal or after given date (inclusive lower bound)
-  """
-  from: Date
-
-  """
-  Filter records whose date is equal of before given date (inclusive upper bound)
-  """
-  to: Date
-}
-
-"""Decimal is an exact numeric data type."""
-scalar Decimal
-
-"""Filtering or sorting on Decimal column"""
-input DecimalColumn {
-  """Sort records by the column in given direction"""
-  sort: SortDirection
-
-  """
-  Sorting priority of the column (applies when sorting by multiple columns, smaller number first)
-  """
-  priority: Int
-
-  """Filter records where the column equals given value"""
-  eq: Decimal
-
-  """Filter records where the column does NOT equal given value"""
-  neq: Decimal
-
-  """Filter records where is the value greater or equal"""
-  from: Decimal
-
-  """Filter records where is the value less or equal"""
-  to: Decimal
-}
-
-"""
-Type Employee represents emploee which works in current salon (salon_id)
-"""
+"Type Employee represents emploee which works in current salon (salon_id)"
 type Employee {
-  """ID"""
-  id: BigInt!
-
-  """Name of employee"""
-  name: String!
-
-  """Main photo of employee"""
-  mainPhoto: String!
-
-  """Head photo of employee"""
-  headPhoto: String!
-
-  """Employee status"""
-  status: Boolean
-
-  """Active til"""
-  active: String
-
-  """Employee address"""
-  address: String!
-
-  """Employee street"""
-  street: String
-
-  """Employee city"""
-  city: String
-
-  """Employee province"""
-  province: String
-
-  """Employee country"""
-  country: String
-
-  """Employee email"""
-  email: String
-
-  """Employee phone"""
-  phone: String
-
-  """Age of employee"""
-  age: BigInt!
-
-  """Emploee's weight"""
-  weight: BigInt!
-
-  """Emploee's height"""
-  height: BigInt!
-
-  """Emploee's bust"""
-  breastSize: BigInt!
-
-  """Emploee's foot"""
-  footSize: BigInt!
-
-  """Is draft salon ?"""
-  isDraft: Boolean
-
-  """Is private employee ?"""
-  type: String!
-
-  """Availability of emploee to come out"""
-  meetingPoint: String!
-
-  """Info about cost of departure"""
-  departureCost: String!
-
-  """Employee price"""
-  price: BigInt!
-
-  """Employee desc"""
-  description: String!
-
-  """interview with Emploee"""
-  interview: String
-
-  """Employee's video"""
-  video: String
-
-  """is employee turned on/off ?"""
-  isTurnOff: Boolean
-
-  """Date of top ends"""
-  topDate: Date
-
-  """Date of top of day ends"""
-  dayTop: Date
-
-  """Date when schedule was updated"""
-  scheduleUpdatedAt: Date!
-
-  """Represents belonging to the salon."""
-  salonId: BigInt
-
-  """Date when employee was created"""
-  createdAt: Date!
-
-  """Emploee's languages"""
-  languages: [Language!]!
-
-  """Emploee's schedule"""
-  schedule: [EmployeeSchedule!]!
-
-  """Emploee's services"""
-  services: [Service!]!
-
-  """Emploee's extra services"""
-  extraServices: [ExtraService!]!
-
-  """Emploee's services like"""
-  serviceLike: [SalonEmployeeServiceLike!]!
-
-  """Emploee's extra services like"""
-  extraServiceLike: [SalonEmployeeExtraServiceLike!]!
-
-  """Gallery of current employee"""
-  gallery: [String!]!
-
-  """Employee location"""
-  location: Location
-
-  """Employee can be belongs to salon"""
-  salon: Salon
+    "Active til"
+    active: String
+    "Employee address"
+    address: String!
+    "Age of employee"
+    age: BigInt!
+    "Emploee's bust"
+    breastSize: BigInt!
+    "Employee city"
+    city: String
+    "Employee country"
+    country: String
+    "Date when employee was created"
+    createdAt: Date!
+    "Date of top of day ends"
+    dayTop: Date
+    "Info about cost of departure"
+    departureCost: String!
+    "Employee desc"
+    description: String!
+    "Employee email"
+    email: String
+    "Emploee's extra services like"
+    extraServiceLike: [SalonEmployeeExtraServiceLike!]!
+    "Emploee's extra services"
+    extraServices: [ExtraService!]!
+    "Emploee's foot"
+    footSize: BigInt!
+    "Gallery of current employee"
+    gallery: [String!]!
+    "Head photo of employee"
+    headPhoto: String!
+    "Emploee's height"
+    height: BigInt!
+    "ID"
+    id: BigInt!
+    "interview with Emploee"
+    interview: String
+    "Is draft salon ?"
+    isDraft: Boolean
+    "is employee turned on/off ?"
+    isTurnOff: Boolean
+    "Emploee's languages"
+    languages: [Language!]!
+    "Employee location"
+    location: Location
+    "Main photo of employee"
+    mainPhoto: String!
+    "Availability of emploee to come out"
+    meetingPoint: String!
+    "Name of employee"
+    name: String!
+    "Employee phone"
+    phone: String
+    "Employee price"
+    price: BigInt!
+    "Employee province"
+    province: String
+    "Employee can be belongs to salon"
+    salon: Salon
+    "Represents belonging to the salon."
+    salonId: BigInt
+    "Emploee's schedule"
+    schedule: [EmployeeSchedule!]!
+    "Date when schedule was updated"
+    scheduleUpdatedAt: Date!
+    "Emploee's services like"
+    serviceLike: [SalonEmployeeServiceLike!]!
+    "Emploee's services"
+    services: [Service!]!
+    "Employee status"
+    status: Boolean
+    "Employee street"
+    street: String
+    "Date of top ends"
+    topDate: Date
+    "Is private employee ?"
+    type: String!
+    "Employee's video"
+    video: String
+    "Emploee's weight"
+    weight: BigInt!
 }
 
 type EmployeeConnection {
-  """Edges contains provided edges of the sequential list."""
-  edges: [EmployeeEdge!]!
-
-  """TotalCount is the total amount of items in the list."""
-  totalCount: BigInt!
-
-  """PageInfo is an information about the current page of the list."""
-  pageInfo: PageInfo!
+    "Edges contains provided edges of the sequential list."
+    edges: [EmployeeEdge!]!
+    "PageInfo is an information about the current page of the list."
+    pageInfo: PageInfo!
+    "TotalCount is the total amount of items in the list."
+    totalCount: BigInt!
 }
 
 type EmployeeEdge {
-  cursor: Cursor!
-  node: Employee!
-}
-
-"""EmployeeFilterSort represents sorting of employee data"""
-input EmployeeFilterSort {
-  """Big Filter"""
-  filter: BigFilterColumn
-
-  """Fast Search"""
-  fastSearch: String
-
-  """Filter by city"""
-  city: String
-
-  """Filter by province"""
-  province: String
-
-  """
-  Shift - day for searching employees wich works at that day (Full day of the week - ex. Monday)
-  """
-  shift: String
-
-  """
-  enter column for top filtering
-  Variants:
-  top_date - top employees
-  day_top - top employees of the day
-  """
-  top: String
-
-  """is a private employee ?"""
-  isDraft: Boolean
-
-  """
-  type of employee
-  Variants:
-  salon-escort - employees of private salon
-  salon-masseur - employees of common salon
-  private-escort - private employees
-  private-massaur - common masseur
-  """
-  type: String
-
-  """filter by ids"""
-  identificatior: BigIntColumn
-
-  """Filter by schedule update"""
-  shlUpdated: DateColumn
-
-  """Sorting by created """
-  created: DateColumn
+    cursor: Cursor!
+    node: Employee!
 }
 
 type EmployeeMutationOutput {
-  """list of errors"""
-  errors: [MutationError!]!
-
-  """operation results"""
-  employee: Employee
+    "operation results"
+    employee: Employee
+    "list of errors"
+    errors: [MutationError!]!
 }
 
-"""EmployeeSchedule represents schedule of salon by week days"""
+"EmployeeSchedule represents schedule of salon by week days"
 type EmployeeSchedule {
-  """id: BigInt!"""
-  id: BigInt!
-
-  """Day of week"""
-  day: String!
-
-  """status in current day"""
-  status: String!
-
-  """Start work in current day"""
-  startTime: Time!
-
-  """End work in current day"""
-  endTime: Time!
+    "Day of week"
+    day: String!
+    "End work in current day"
+    endTime: Time!
+    "id: BigInt!"
+    id: BigInt!
+    "Start work in current day"
+    startTime: Time!
+    "status in current day"
+    status: String!
 }
 
-"""
-# Type SalonEmployee represents emploee which works in current salon (salon_id)
-type SalonEmployee {
-	# ID
-	id: BigInt!
-	# Name of Employee
-	name: String!
-	# Main photo of Emploee
-	mainPhoto: String!
-	# Head photo of Emploee
-	headPhoto: String!
-	# Salon status
-	status: Boolean
-	# Age of Emploee
-	age: BigInt!
-	# Emploee's weight
-	weight: BigInt!
-	# Emploee's height
-	height: BigInt!
-	# Emploee's bust
-	breastSize: BigInt!
-	# Emploee's foot
-	footSize: BigInt!
-	# Availability of emploee to come out
-	meetingPoint: String!
-	# Info about cost of departure
-	departureCost: String!
-	# Service price 
-	price: BigInt!
-	# Emploee desc
-	description: String!
-	# interview with Emploee
-	interview: String
-	# Represents belonging to the salon.
-	salonId: BigInt!
-	# Created at
-	createdAt: Date!
-	# Emploee's languages
-	languages: [Language!]!
-	# Salon employee schedule
-	schedule: [SalonEmployeeSchedule!]!
-	# Emploee's like services
-	serviceLike: [SalonEmployeeServiceLike!]!
-}
-# Input SalonEmployee 
-input InputSalonEmployee {
-	# ID
-	id: BigInt
-	# Name of Employee
-	name: String!
-	# Main photo of Emploee
-	mainPhoto: Upload
-	# Head photo of Emploee
-	headPhoto: Upload
-	# Salon status
-	status: Boolean
-	# Age of Emploee
-	age: BigInt!
-	# Emploee's weight
-	weight: BigInt!
-	# Emploee's height
-	height: BigInt!
-	# Emploee's bust
-	breastSize: BigInt!
-	# Emploee's foot
-	footSize: BigInt!
-	# Availability of emploee to come out
-	meetingPoint: String!
-	# Info about cost of departure
-	departureCost: String!
-	# Service price 
-	price: BigInt!
-	# Emploee desc
-	description: String!
-	# interview with Employee
-	interview: String
-	# Represents belonging to the salon.
-	salonId: BigInt
-	# IDs of languages for salon employee
-	languageIDs: [BigInt!]
-	# Salon employee's schedule
-	schedule: [InputSalonEmployeeSchedule!]!
-	# service like preferences
-	serviceLikeInput: [InputSalonEmployeeServiceLike!]!
-}
-type SalonEmployeeMutationOutput {
-	# list of errors
-   errors: [MutationError!]!
-	#operation results
-	salonEmployee: SalonEmployee
-}
-type SalonEmployeeConnection {
-	# Edges contains provided edges of the sequential list.
-	edges: [SalonEmployeeEdge!]! 
-	# TotalCount is the total amount of items in the list.
-	totalCount: BigInt!
-	# PageInfo is an information about the current page of the list.
-	pageInfo: PageInfo!
-}
-type SalonEmployeeEdge {
-	cursor: Cursor!
-	node: SalonEmployee!
-}
-Entry points for querying API
-extend type Query {
-	# Get all salons
-	listSalonEmployee(first: Int, after: Cursor): SalonEmployeeConnection!
-	# Get salon by id
-	getSalonEmployee(id: BigInt!): SalonEmployee!
-}
-Mutation type holds entry points for update record through API
-extend type Mutation {
-	# Create SalonEmployee record in database
-	createSalonEmployee(salonEmployee: InputSalonEmployee!): SalonEmployeeMutationOutput!
-	# Update SalonEmployee record
-	updateSalonEmployee(salonEmployee: InputSalonEmployee!): SalonEmployeeMutationOutput!
-	# Delete SalonEmployee record
-	deleteSalonEmployee(id: BigInt!): SalonEmployeeMutationOutput!
-}
-"""
-enum ErrorLevel {
-  ERROR
-  WARNING
-  NOTE
-}
-
-"""ExtraService represents services which has salon or girl"""
+"ExtraService represents services which has salon or girl"
 type ExtraService {
-  """ID"""
-  id: BigInt!
-
-  """Name of extra service"""
-  name: String!
-
-  """Desc of extra service"""
-  description: String!
-
-  """Price of extra service"""
-  price: BigInt!
-
-  """ExtraService which accept to current salon"""
-  salonId: BigInt
-
-  """ExtraService which accept to current employee"""
-  employeeId: BigInt
-
-  """PREFERENCE OF employeeId"""
-  preference: String
-
-  """COMMENT OF employeeId"""
-  comment: String
-
-  """order position"""
-  order: BigInt
-
-  """Date extra service creation"""
-  createdAt: Date!
+    "COMMENT OF employeeId"
+    comment: String
+    "Date extra service creation"
+    createdAt: Date!
+    "Desc of extra service"
+    description: String!
+    "ExtraService which accept to current employee"
+    employeeId: BigInt
+    "ID"
+    id: BigInt!
+    "Name of extra service"
+    name: String!
+    "order position"
+    order: BigInt
+    "PREFERENCE OF employeeId"
+    preference: String
+    "Price of extra service"
+    price: BigInt!
+    "ExtraService which accept to current salon"
+    salonId: BigInt
 }
 
 type ExtraServiceMutationOutput {
-  """list of errors"""
-  errors: [MutationError!]!
-
-  """operation results"""
-  extraService: ExtraService
-}
-
-input InputAdvantage {
-  """ID"""
-  id: BigInt
-
-  """Name of advantage"""
-  name: String!
-
-  """Image of advantage"""
-  image: String!
-}
-
-input InputApplication {
-  """ID"""
-  id: BigInt
-
-  """Name of employee/salon"""
-  title: String!
-
-  """
-  Type of application
-  Variants:
-  salon-escort - employees of private salon
-  salon-masseur - employees of common salon
-  private-escort - private employees
-  private-massaur - common masseur
-  """
-  type: String!
-
-  """Email of applicant"""
-  email: String!
-
-  """Phone of applicant"""
-  phone: String!
-
-  """status of application (canceled, considered, new)"""
-  status: String
-}
-
-input InputCategory {
-  """ID"""
-  id: BigInt
-
-  """Category name"""
-  name: String!
-}
-
-input InputEmployee {
-  """ID"""
-  id: BigInt
-
-  """Name of employee"""
-  name: String!
-
-  """Main photo of employee"""
-  mainPhoto: String!
-
-  """Head photo of employee"""
-  headPhoto: String!
-
-  """Employee status"""
-  status: Boolean
-
-  """Active til"""
-  active: String
-
-  """Employee street"""
-  street: String
-
-  """Employee city"""
-  city: String
-
-  """Employee province"""
-  province: String
-
-  """Employee country"""
-  country: String
-
-  """Base on full address"""
-  longitude: Decimal
-
-  """Base on full address"""
-  latitude: Decimal
-
-  """Employee email"""
-  email: String
-
-  """Employee phone"""
-  phone: String
-
-  """Age of employee"""
-  age: BigInt!
-
-  """Emploee's weight"""
-  weight: BigInt!
-
-  """Emploee's height"""
-  height: BigInt!
-
-  """Emploee's bust"""
-  breastSize: BigInt!
-
-  """Emploee's foot"""
-  footSize: BigInt!
-
-  """Is draft salon ?"""
-  isDraft: Boolean
-
-  """Is private employee ?"""
-  type: String!
-
-  """Availability of emploee to come out"""
-  meetingPoint: String!
-
-  """Info about cost of departure"""
-  departureCost: String!
-
-  """Employee price"""
-  price: BigInt!
-
-  """Employee desc"""
-  description: String!
-
-  """interview with Emploee"""
-  interview: String
-
-  """Employee's video"""
-  video: String
-
-  """Represents belonging to the salon."""
-  salonId: BigInt
-
-  """IDs of languages for employee"""
-  languageIDs: [BigInt!]
-
-  """Employee's schedule"""
-  schedule: [InputEmployeeSchedule!]!
-
-  """service like preferences"""
-  serviceLikeInput: [InputSalonEmployeeServiceLike!]
-
-  """service like preferences"""
-  extraServiceLikeInput: [InputSalonEmployeeExtraServiceLike!]
-
-  """Gallery of current employee"""
-  gallery: [String!]!
-}
-
-input InputEmployeeSchedule {
-  """id: BigInt"""
-  id: BigInt
-
-  """Day of week"""
-  day: String!
-
-  """status in current day"""
-  status: String!
-
-  """Start work in current day"""
-  startTime: Time!
-
-  """End work in current day"""
-  endTime: Time!
-}
-
-input InputExtraService {
-  """ID"""
-  id: BigInt
-
-  """Name of extra service"""
-  name: String!
-
-  """Desc of extra service"""
-  description: String!
-
-  """Price of extra service"""
-  price: BigInt!
-
-  """ExtraService which accept to current salon"""
-  salonId: BigInt
-
-  """ExtraService which accept to current employee"""
-  employeeId: BigInt
-
-  """PREFERENCE OF employeeId"""
-  preference: String
-
-  """COMMENT OF employeeId"""
-  comment: String
-}
-
-input InputExtraServiceOrder {
-  """ID of extra extra service	"""
-  extraServiceId: BigInt!
-
-  """order position of extra serivice"""
-  orderPosition: BigInt!
-}
-
-input InputLanguage {
-  """ID"""
-  id: BigInt
-
-  """Language name"""
-  name: String!
-}
-
-input InputLocation {
-  """ID"""
-  id: BigInt
-
-  """longitude of salon or employee"""
-  longitude: Decimal!
-
-  """latitude of salon or employee"""
-  latitude: Decimal!
-  employeeId: BigInt
-  salonId: BigInt
-}
-
-input InputMassage {
-  """ID"""
-  id: BigInt
-
-  """Name of massage"""
-  name: String!
-
-  """Image picture"""
-  isPrivate: Boolean
-
-  """Image picture"""
-  image: String!
-}
-
-input InputPost {
-  """ID"""
-  id: BigInt
-
-  """Title of post"""
-  title: String!
-
-  """Image of post"""
-  image: String!
-
-  """Text of post"""
-  text: String!
-
-  """Is it draft or not"""
-  isDraft: Boolean
-
-  """Meta title of post"""
-  metaTitle: String!
-
-  """Meta description of post"""
-  metaDescription: String!
-
-  """IDs of categories"""
-  categoriesIDs: [BigInt!]
-}
-
-input InputSalon {
-  """id: BigInt!"""
-  id: BigInt
-
-  """Salon title"""
-  title: String!
-
-  """Salon image"""
-  logo: String!
-
-  """Main photo of salon"""
-  mainPhoto: String!
-
-  """Head photo of salon"""
-  headPhoto: String!
-
-  """Salon street"""
-  street: String!
-
-  """Salon city"""
-  city: String!
-
-  """Salon province"""
-  province: String!
-
-  """Salon country"""
-  country: String!
-
-  """Base on full address"""
-  longitude: Decimal!
-
-  """Base on full address"""
-  latitude: Decimal!
-
-  """Salon site"""
-  site: String!
-
-  """Salon email"""
-  email: String!
-
-  """Salon phone"""
-  phone: String!
-
-  """Salon manager phone"""
-  managerEmail: String!
-
-  """Salon status"""
-  status: Boolean
-
-  """Salon manager phone"""
-  managerPhone: String!
-
-  """Salon desc"""
-  description: String!
-
-  """Date when salon will be unactive"""
-  active: String!
-
-  """Salon meta"""
-  metaDescription: String!
-
-  """Salon video"""
-  video: String
-
-  """Is draft salon ?"""
-  isDraft: Boolean
-
-  """Is private salon ?"""
-  isPrivate: Boolean
-
-  """IDs of advantages"""
-  advantageIDs: [BigInt!]
-
-  """Gallery of current salon"""
-  gallery: [String!]!
-}
-
-"""InputSalonEmployeeExtraServiceLike"""
-input InputSalonEmployeeExtraServiceLike {
-  """ID"""
-  id: BigInt
-
-  """ID of current employee"""
-  employeeId: BigInt
-
-  """ID of current service"""
-  extraServiceId: BigInt!
-
-  """preference"""
-  preferences: String!
-
-  """description"""
-  description: String
-}
-
-input InputSalonEmployeeSchedule {
-  """id: BigInt"""
-  id: BigInt
-
-  """Day of week"""
-  day: String!
-
-  """status in current day"""
-  status: String!
-
-  """Start work in current day"""
-  startTime: String!
-
-  """End work in current day"""
-  endTime: String!
-}
-
-"""InputSalonEmployeeServiceLike"""
-input InputSalonEmployeeServiceLike {
-  """ID"""
-  id: BigInt
-
-  """ID of current employee"""
-  employeeId: BigInt
-
-  """ID of current service"""
-  serviceId: BigInt!
-
-  """preference"""
-  preferences: String!
-
-  """description"""
-  description: String
-}
-
-input InputService {
-  """ID"""
-  id: BigInt
-
-  """Name of service"""
-  name: String!
-
-  """Desc of service"""
-  description: String!
-
-  """Price of service"""
-  price: BigInt!
-
-  """Price for half hour"""
-  fstPrice: BigInt
-
-  """Price for hour"""
-  sdPrice: BigInt
-
-  """Price for hour and half"""
-  tdPrice: BigInt
-
-  """Price for 2 hours"""
-  fthPrice: BigInt
-
-  """Price for 3 hours"""
-  fifPrice: BigInt
-
-  """Service which accept to current salon"""
-  salonId: BigInt
-
-  """Service which accept to current employee"""
-  employeeId: BigInt
-
-  """PREFERENCE OF employeeId"""
-  preference: String
-
-  """COMMENT OF employeeId"""
-  comment: String
-
-  """Massages IDs included into current service"""
-  massageIDs: [BigInt!]
-}
-
-input InputServiceOrder {
-  """ID of service	"""
-  serviceId: BigInt!
-
-  """order position of serivice"""
-  orderPosition: BigInt!
+    "list of errors"
+    errors: [MutationError!]!
+    "operation results"
+    extraService: ExtraService
 }
 
 """
-type LoggedUser {
-	tokens: Tokens!
-	user: User!
+
+# Type SalonEmployee represents emploee which works in current salon (salon_id)
+type SalonEmployee {
+# ID
+id: BigInt!
+# Name of Employee
+name: String!
+# Main photo of Emploee
+mainPhoto: String!
+# Head photo of Emploee
+headPhoto: String!
+# Salon status
+status: Boolean
+# Age of Emploee
+age: BigInt!
+# Emploee's weight
+weight: BigInt!
+# Emploee's height
+height: BigInt!
+# Emploee's bust
+breastSize: BigInt!
+# Emploee's foot
+footSize: BigInt!
+# Availability of emploee to come out
+meetingPoint: String!
+# Info about cost of departure
+departureCost: String!
+# Service price
+price: BigInt!
+# Emploee desc
+description: String!
+# interview with Emploee
+interview: String
+# Represents belonging to the salon.
+salonId: BigInt!
+# Created at
+createdAt: Date!
+# Emploee's languages
+languages: [Language!]!
+# Salon employee schedule
+schedule: [SalonEmployeeSchedule!]!
+# Emploee's like services
+serviceLike: [SalonEmployeeServiceLike!]!
 }
-type LoggedUserMutationOutput {
-	# list of errors
-   errors: [MutationError!]!
-	#operation results
-	loggedUser: LoggedUser
+# Input SalonEmployee
+input InputSalonEmployee {
+# ID
+id: BigInt
+# Name of Employee
+name: String!
+# Main photo of Emploee
+mainPhoto: Upload
+# Head photo of Emploee
+headPhoto: Upload
+# Salon status
+status: Boolean
+# Age of Emploee
+age: BigInt!
+# Emploee's weight
+weight: BigInt!
+# Emploee's height
+height: BigInt!
+# Emploee's bust
+breastSize: BigInt!
+# Emploee's foot
+footSize: BigInt!
+# Availability of emploee to come out
+meetingPoint: String!
+# Info about cost of departure
+departureCost: String!
+# Service price
+price: BigInt!
+# Emploee desc
+description: String!
+# interview with Employee
+interview: String
+# Represents belonging to the salon.
+salonId: BigInt
+# IDs of languages for salon employee
+languageIDs: [BigInt!]
+# Salon employee's schedule
+schedule: [InputSalonEmployeeSchedule!]!
+# service like preferences
+serviceLikeInput: [InputSalonEmployeeServiceLike!]!
 }
+type SalonEmployeeMutationOutput {
+# list of errors
+errors: [MutationError!]!
+#operation results
+salonEmployee: SalonEmployee
+}
+Mutation type holds entry points for update record through API
+extend type Mutation {
+# Create SalonEmployee record in database
+createSalonEmployee(salonEmployee: InputSalonEmployee!): SalonEmployeeMutationOutput!
+# Update SalonEmployee record
+updateSalonEmployee(salonEmployee: InputSalonEmployee!): SalonEmployeeMutationOutput!
+# Delete SalonEmployee record
+deleteSalonEmployee(id: BigInt!): SalonEmployeeMutationOutput!
+}
+Entry points for querying API
+extend type Query {
+# Get all salons
+listSalonEmployee(first: Int, after: Cursor): SalonEmployeeConnection!
+# Get salon by id
+getSalonEmployee(id: BigInt!): SalonEmployee!
+}
+type SalonEmployeeConnection {
+# Edges contains provided edges of the sequential list.
+edges: [SalonEmployeeEdge!]!
+# TotalCount is the total amount of items in the list.
+totalCount: BigInt!
+# PageInfo is an information about the current page of the list.
+pageInfo: PageInfo!
+}
+type SalonEmployeeEdge {
+cursor: Cursor!
+node: SalonEmployee!
+}
+Language type
 """
-input InputUser {
-  """id: BigInt!"""
-  id: BigInt
-
-  """User name"""
-  name: String!
-
-  """User email"""
-  email: String!
-
-  """User password"""
-  password: String!
-}
-
-"""Filtering or sorting on Int column"""
-input IntColumn {
-  """Sort records by the column in given direction"""
-  sort: SortDirection
-
-  """
-  Sorting priority of the column (applies when sorting by multiple columns, smaller number first)
-  """
-  priority: Int
-
-  """Filter records where the column equals given value"""
-  eq: Int
-
-  """Filter records where the column does NOT equal given value"""
-  neq: Int
-
-  """
-  Filter records where is the value greater or equal (inclusive lower bound)
-  """
-  from: Int
-
-  """
-  Filter records where is the value less or equal (inclusive upper bound)
-  """
-  to: Int
-
-  """Filter records where the value equals one of given values"""
-  in: [Int!]
-}
-
-"""Filtering ONLY on Int column"""
-input IntColumnFilterOnly {
-  """Filter records where the column equals given value"""
-  eq: Int
-
-  """Filter records where the column does NOT equal given value"""
-  neq: Int
-
-  """
-  Filter records where is the value greater or equal (inclusive lower bound)
-  """
-  from: Int
-
-  """
-  Filter records where is the value less or equal (inclusive upper bound)
-  """
-  to: Int
-
-  """Filter records where the value equals one of given values"""
-  in: [Int!]
-}
-
-"""Language type"""
 type Language {
-  """ID"""
-  id: BigInt!
-
-  """Language name"""
-  name: String!
-
-  """Date when language was created"""
-  createdAt: Date!
+    "Date when language was created"
+    createdAt: Date!
+    "ID"
+    id: BigInt!
+    "Language name"
+    name: String!
 }
 
 type LanguageConnection {
-  """Edges contains provided edges of the sequential list."""
-  edges: [LanguageEdge!]!
-
-  """TotalCount is the total amount of items in the list."""
-  totalCount: BigInt!
-
-  """PageInfo is an information about the current page of the list."""
-  pageInfo: PageInfo!
+    "Edges contains provided edges of the sequential list."
+    edges: [LanguageEdge!]!
+    "PageInfo is an information about the current page of the list."
+    pageInfo: PageInfo!
+    "TotalCount is the total amount of items in the list."
+    totalCount: BigInt!
 }
 
 type LanguageEdge {
-  cursor: Cursor!
-  node: Language!
+    cursor: Cursor!
+    node: Language!
 }
 
 type LanguageMutationOutput {
-  """list of errors"""
-  errors: [MutationError!]!
-
-  """operation results"""
-  language: Language
+    "list of errors"
+    errors: [MutationError!]!
+    "operation results"
+    language: Language
 }
 
-"""Type Location represents location  of salon or employee"""
+"Type Location represents location  of salon or employee"
 type Location {
-  """ID"""
-  id: BigInt!
-
-  """longitude of salon or employee"""
-  longitude: Decimal!
-
-  """latitude of salon or employee"""
-  latitude: Decimal!
-
-  """Employee id"""
-  employeeId: BigInt
-
-  """Salon id"""
-  salonId: BigInt
-
-  """Date when location was created"""
-  createdAt: Date!
-
-  """Salon data of current loaction"""
-  salon: Salon
-
-  """Employee data of current loaction"""
-  employee: Employee
-}
-
-input LocationFilterSort {
-  """
-  Only parlours or only private employees
-  variats: 
-  - Parlours
-  - Employees
-  """
-  parlourOrEmployee: String
+    "Date when location was created"
+    createdAt: Date!
+    "Employee data of current loaction"
+    employee: Employee
+    "Employee id"
+    employeeId: BigInt
+    "ID"
+    id: BigInt!
+    "latitude of salon or employee"
+    latitude: Decimal!
+    "longitude of salon or employee"
+    longitude: Decimal!
+    "Salon data of current loaction"
+    salon: Salon
+    "Salon id"
+    salonId: BigInt
 }
 
 type Massage {
-  """ID"""
-  id: BigInt!
-
-  """Name of massage"""
-  name: String!
-
-  """Image picture"""
-  image: String!
-
-  """Image picture"""
-  isPrivate: Boolean!
-
-  """Date of creation"""
-  createdAt: Date!
+    "Date of creation"
+    createdAt: Date!
+    "ID"
+    id: BigInt!
+    "Image picture"
+    image: String!
+    "Image picture"
+    isPrivate: Boolean!
+    "Name of massage"
+    name: String!
 }
 
 type MassageConnection {
-  """Edges contains provided edges of the sequential list."""
-  edges: [MassageEdge!]!
-
-  """TotalCount is the total amount of items in the list."""
-  totalCount: BigInt!
-
-  """PageInfo is an information about the current page of the list."""
-  pageInfo: PageInfo!
+    "Edges contains provided edges of the sequential list."
+    edges: [MassageEdge!]!
+    "PageInfo is an information about the current page of the list."
+    pageInfo: PageInfo!
+    "TotalCount is the total amount of items in the list."
+    totalCount: BigInt!
 }
 
 type MassageEdge {
-  cursor: Cursor!
-  node: Massage!
-}
-
-"""MassageFilterSort represents sorting of employee data"""
-input MassageFilterSort {
-  """Fast Search"""
-  fastSearch: String
-
-  """is a private employee ?"""
-  isPrivate: Boolean
-
-  """Sorting by created """
-  created: DateColumn
+    cursor: Cursor!
+    node: Massage!
 }
 
 type MassageMutationOutput {
-  """list of errors"""
-  errors: [MutationError!]!
-
-  """operation results"""
-  massage: Massage
+    "list of errors"
+    errors: [MutationError!]!
+    "operation results"
+    massage: Massage
 }
 
 type Mutation {
-  """Create фpplication record in database"""
-  createApplication(application: InputApplication!): ApplicationMutationOutput!
+    "Change application status"
+    changeApplicationStatus(id: BigInt!, status: String!): Boolean!
+    "Create advantage record in database"
+    createAdvantage(advantage: InputAdvantage!): AdvantageMutationOutput!
+    "Create фpplication record in database"
+    createApplication(application: InputApplication!): ApplicationMutationOutput!
+    "Create category"
+    createCategory(category: InputCategory!): CategoryMutationOutput!
+    "Create employee record in database"
+    createEmployee(employee: InputEmployee!): EmployeeMutationOutput!
+    """
 
-  """Delete employee record"""
-  deleteApplication(id: BigInt!): ApplicationMutationOutput!
+    EXTRA SERVICES
+    Create extra service record in database
+    """
+    createExtraService(extraService: InputExtraService!): ExtraServiceMutationOutput!
+    "Create language"
+    createLanguage(language: InputLanguage!): LanguageMutationOutput!
+    "Create massage record in database"
+    createMassage(massage: InputMassage!): MassageMutationOutput!
+    "Create post record in database"
+    createPost(post: InputPost!): PostMutationOutput!
+    "Create salon record in database"
+    createSalon(salon: InputSalon!): SalonMutationOutput!
+    """
 
-  """Change application status"""
-  changeApplicationStatus(id: BigInt!, status: String!): Boolean!
-
-  """
-  SERVICES
-  Create service record in database
-  """
-  createService(service: InputService!): ServiceMutationOutput!
-
-  """Update service record"""
-  updateService(service: InputService!): ServiceMutationOutput!
-
-  """Delete service record"""
-  deleteService(id: BigInt!): ServiceMutationOutput!
-
-  """Update service order"""
-  updateServiceOrder(services: [InputServiceOrder]!): Boolean!
-
-  """
-  EXTRA SERVICES
-  Create extra service record in database
-  """
-  createExtraService(extraService: InputExtraService!): ExtraServiceMutationOutput!
-
-  """Update extra service record"""
-  updateExtraService(extraService: InputExtraService!): ExtraServiceMutationOutput!
-
-  """Delete extra service record"""
-  deleteExtraService(id: BigInt!): ExtraServiceMutationOutput!
-
-  """Update extra service order"""
-  updateExtraServiceOrder(extraServices: [InputExtraServiceOrder]!): Boolean!
-
-  """Create language"""
-  createLanguage(language: InputLanguage!): LanguageMutationOutput!
-
-  """Update language"""
-  updateLanguage(language: InputLanguage!): LanguageMutationOutput!
-
-  """Delete language"""
-  deleteLanguage(id: BigInt!): LanguageMutationOutput!
-
-  """createUser creates new record. Returns a created record."""
-  createUser(user: InputUser!): String!
-
-  """updateUser update database record. Returns an updated user"""
-  updateUser(user: InputUser!): UserMutationOutput!
-
-  """deleteUser delete record from database by ID. """
-  deleteUser(id: BigInt!): UserMutationOutput!
-
-  """Create advantage record in database"""
-  createAdvantage(advantage: InputAdvantage!): AdvantageMutationOutput!
-
-  """Update advantage record"""
-  updateAdvantage(advantage: InputAdvantage!): AdvantageMutationOutput!
-
-  """Delete advantage record"""
-  deleteAdvantage(id: BigInt!): AdvantageMutationOutput!
-
-  """Create employee record in database"""
-  createEmployee(employee: InputEmployee!): EmployeeMutationOutput!
-
-  """Update employee record"""
-  updateEmployee(employee: InputEmployee!): EmployeeMutationOutput!
-
-  """Delete employee record"""
-  deleteEmployee(id: BigInt!): EmployeeMutationOutput!
-
-  """Switch employee activity"""
-  switchEmployeeActivity(id: BigInt!, switch: Boolean!): EmployeeMutationOutput!
-
-  """Makes this employee at the top postion (24 hours)"""
-  putTopEmployee(id: BigInt!): EmployeeMutationOutput!
-
-  """Makes employee top of the day"""
-  putDayTopEmployee(id: BigInt!): EmployeeMutationOutput!
-
-  """Create post record in database"""
-  createPost(post: InputPost!): PostMutationOutput!
-
-  """Update post record"""
-  updatePost(post: InputPost!): PostMutationOutput!
-
-  """Delete post record"""
-  deletePost(id: BigInt!): PostMutationOutput!
-
-  """Create category"""
-  createCategory(category: InputCategory!): CategoryMutationOutput!
-
-  """Update category"""
-  updateCategory(category: InputCategory!): CategoryMutationOutput!
-
-  """Delete category"""
-  deleteCategory(id: BigInt!): CategoryMutationOutput!
-
-  """Create salon record in database"""
-  createSalon(salon: InputSalon!): SalonMutationOutput!
-
-  """Update salon record"""
-  updateSalon(salon: InputSalon!): SalonMutationOutput!
-
-  """Delete salon record"""
-  deleteSalon(id: BigInt!): SalonMutationOutput!
-
-  """Switch salon activity"""
-  switchSalonActivity(id: BigInt!, switch: Boolean!): SalonMutationOutput!
-
-  """Create massage record in database"""
-  createMassage(massage: InputMassage!): MassageMutationOutput!
-
-  """Update massage record"""
-  updateMassage(massage: InputMassage!): MassageMutationOutput!
-
-  """Delete massage record"""
-  deleteMassage(id: BigInt!): MassageMutationOutput!
+    SERVICES
+    Create service record in database
+    """
+    createService(service: InputService!): ServiceMutationOutput!
+    "createUser creates new record. Returns a created record."
+    createUser(user: InputUser!): String!
+    "Delete advantage record"
+    deleteAdvantage(id: BigInt!): AdvantageMutationOutput!
+    "Delete employee record"
+    deleteApplication(id: BigInt!): ApplicationMutationOutput!
+    "Delete category"
+    deleteCategory(id: BigInt!): CategoryMutationOutput!
+    "Delete employee record"
+    deleteEmployee(id: BigInt!): EmployeeMutationOutput!
+    "Delete extra service record"
+    deleteExtraService(id: BigInt!): ExtraServiceMutationOutput!
+    "Delete language"
+    deleteLanguage(id: BigInt!): LanguageMutationOutput!
+    "Delete massage record"
+    deleteMassage(id: BigInt!): MassageMutationOutput!
+    "Delete post record"
+    deletePost(id: BigInt!): PostMutationOutput!
+    "Delete salon record"
+    deleteSalon(id: BigInt!): SalonMutationOutput!
+    "Delete service record"
+    deleteService(id: BigInt!): ServiceMutationOutput!
+    "deleteUser delete record from database by ID. "
+    deleteUser(id: BigInt!): UserMutationOutput!
+    "Makes employee top of the day"
+    putDayTopEmployee(id: BigInt!): EmployeeMutationOutput!
+    "Makes this employee at the top postion (24 hours)"
+    putTopEmployee(id: BigInt!): EmployeeMutationOutput!
+    "Switch employee activity"
+    switchEmployeeActivity(id: BigInt!, switch: Boolean!): EmployeeMutationOutput!
+    "Switch salon activity"
+    switchSalonActivity(id: BigInt!, switch: Boolean!): SalonMutationOutput!
+    "Update advantage record"
+    updateAdvantage(advantage: InputAdvantage!): AdvantageMutationOutput!
+    "Update category"
+    updateCategory(category: InputCategory!): CategoryMutationOutput!
+    "Update employee record"
+    updateEmployee(employee: InputEmployee!): EmployeeMutationOutput!
+    "Update extra service record"
+    updateExtraService(extraService: InputExtraService!): ExtraServiceMutationOutput!
+    "Update extra service order"
+    updateExtraServiceOrder(extraServices: [InputExtraServiceOrder]!): Boolean!
+    "Update language"
+    updateLanguage(language: InputLanguage!): LanguageMutationOutput!
+    "Update massage record"
+    updateMassage(massage: InputMassage!): MassageMutationOutput!
+    "Update post record"
+    updatePost(post: InputPost!): PostMutationOutput!
+    "Update salon record"
+    updateSalon(salon: InputSalon!): SalonMutationOutput!
+    "Update service record"
+    updateService(service: InputService!): ServiceMutationOutput!
+    "Update service order"
+    updateServiceOrder(services: [InputServiceOrder]!): Boolean!
+    "updateUser update database record. Returns an updated user"
+    updateUser(user: InputUser!): UserMutationOutput!
 }
 
 type MutationError {
-  """offending input field"""
-  field: String
-  level: ErrorLevel!
-
-  """User readable error"""
-  msg: String!
+    "offending input field"
+    field: String
+    level: ErrorLevel!
+    "User readable error"
+    msg: String!
 }
 
 """
+
 Represents pagination info from client
 type PageInfo {
-	startCursor: Cursor
-	endCursor: Cursor
-	hasNextPage: Boolean!
+startCursor: Cursor
+endCursor: Cursor
+hasNextPage: Boolean!
 }
 """
 type PageInfo {
-  startCursor: Cursor!
-  endCursor: Cursor!
-  hasNextPage: Boolean!
+    endCursor: Cursor!
+    hasNextPage: Boolean!
+    startCursor: Cursor!
 }
 
-"""Represents post of blog"""
+"Represents post of blog"
 type Post {
-  """ID"""
-  id: BigInt!
-
-  """Title of post"""
-  title: String!
-
-  """Image of post"""
-  image: String!
-
-  """Text of post"""
-  text: String!
-
-  """Is it draft or not"""
-  isDraft: Boolean
-
-  """Meta title of post"""
-  metaTitle: String!
-
-  """Meta description of post"""
-  metaDescription: String!
-
-  """Date of post creation"""
-  createdAt: Date!
-
-  """Categories list which accept to post"""
-  categories: [Category!]!
+    "Categories list which accept to post"
+    categories: [Category!]!
+    "Date of post creation"
+    createdAt: Date!
+    "ID"
+    id: BigInt!
+    "Image of post"
+    image: String!
+    "Is it draft or not"
+    isDraft: Boolean
+    "Meta description of post"
+    metaDescription: String!
+    "Meta title of post"
+    metaTitle: String!
+    "Text of post"
+    text: String!
+    "Title of post"
+    title: String!
 }
 
 type PostConnection {
-  """Edges contains provided edges of the sequential list."""
-  edges: [PostEdge!]!
-
-  """TotalCount is the total amount of items in the list."""
-  totalCount: BigInt!
-
-  """PageInfo is an information about the current page of the list."""
-  pageInfo: PageInfo!
+    "Edges contains provided edges of the sequential list."
+    edges: [PostEdge!]!
+    "PageInfo is an information about the current page of the list."
+    pageInfo: PageInfo!
+    "TotalCount is the total amount of items in the list."
+    totalCount: BigInt!
 }
 
 type PostEdge {
-  cursor: Cursor!
-  node: Post!
-}
-
-"""PostFilterSort represents different ways of searching"""
-input PostFilterSort {
-  """Fast Search"""
-  fastSearch: String
-
-  """Sorting by category"""
-  byCategory: String
-
-  """Sorting by created """
-  created: DateColumn
+    cursor: Cursor!
+    node: Post!
 }
 
 type PostMutationOutput {
-  """list of errors"""
-  errors: [MutationError!]!
-
-  """operation results"""
-  post: Post
+    "list of errors"
+    errors: [MutationError!]!
+    "operation results"
+    post: Post
 }
 
 type Query {
-  """Get all applications"""
-  listApplication(filterSort: ApplicationFilterSort, first: Int, after: Cursor): ApplicationConnection!
+    "Get salon by id"
+    getAdvantage(id: BigInt!): Advantage!
+    "Get application by id"
+    getApplication(id: BigInt!): Application!
+    "Get category by id"
+    getCategory(id: BigInt!): Category!
+    "Get all counters"
+    getCounters(info: CounterInfo!): Counter!
+    "Get employee by id"
+    getEmployee(id: BigInt!): Employee!
+    "Get extra service by id"
+    getExtraService(id: BigInt!): ExtraService!
+    "Get language by id"
+    getLanguage(id: BigInt!): Language!
+    "Get salon by id"
+    getMassage(id: BigInt!): Massage!
+    "Get post by id"
+    getPost(id: BigInt!): Post!
+    "Get salon by id"
+    getSalon(id: BigInt!): Salon!
+    """
 
-  """Get application by id"""
-  getApplication(id: BigInt!): Application!
-
-  """Get all locations"""
-  listLocation(filterSort: LocationFilterSort): [Location!]!
-
-  """
-  Get all salons
-  listSalons(filterSort: SalonFilterSort, first: Int, after: Cursor): SalonConnection!
-  Get service by id
-  """
-  getService(id: BigInt!): Service!
-
-  """Get extra service by id"""
-  getExtraService(id: BigInt!): ExtraService!
-
-  """List of languages"""
-  listLanguages(first: Int, after: Cursor): LanguageConnection!
-
-  """Get language by id"""
-  getLanguage(id: BigInt!): Language!
-
-  """Get all users"""
-  listUsers(filterSort: UserFilterSort, first: Int, after: Cursor): UserConnection!
-
-  """Get one user by ID"""
-  getUser(id: BigInt!): User
-
-  """Get all salons"""
-  listAdvantages(first: Int, after: Cursor): AdvantageConnection!
-
-  """Get salon by id"""
-  getAdvantage(id: BigInt!): Advantage!
-
-  """Get all employees"""
-  listEmployee(filterSort: EmployeeFilterSort, first: Int, after: Cursor): EmployeeConnection!
-
-  """Get employee by id"""
-  getEmployee(id: BigInt!): Employee!
-
-  """Get all salons"""
-  listPosts(filterSort: PostFilterSort, first: Int, after: Cursor): PostConnection!
-
-  """Get post by id"""
-  getPost(id: BigInt!): Post!
-
-  """Get all counters"""
-  getCounters(info: CounterInfo!): Counter!
-
-  """List of categories"""
-  listCategories(first: Int, after: Cursor): CategoryConnection!
-
-  """Get category by id"""
-  getCategory(id: BigInt!): Category!
-
-  """Get all salons"""
-  listSalons(filterSort: SalonFilterSort, first: Int, after: Cursor): SalonConnection!
-
-  """Get salon by id"""
-  getSalon(id: BigInt!): Salon!
-
-  """Get all salons"""
-  listMassages(filterSort: MassageFilterSort, first: Int, after: Cursor): MassageConnection!
-
-  """Get salon by id"""
-  getMassage(id: BigInt!): Massage!
+    Get all salons
+    listSalons(filterSort: SalonFilterSort, first: Int, after: Cursor): SalonConnection!
+    Get service by id
+    """
+    getService(id: BigInt!): Service!
+    "Get one user by ID"
+    getUser(id: BigInt!): User
+    "Get all salons"
+    listAdvantages(after: Cursor, first: Int): AdvantageConnection!
+    "Get all applications"
+    listApplication(after: Cursor, filterSort: ApplicationFilterSort, first: Int): ApplicationConnection!
+    "List of categories"
+    listCategories(after: Cursor, first: Int): CategoryConnection!
+    "Get all employees"
+    listEmployee(after: Cursor, filterSort: EmployeeFilterSort, first: Int): EmployeeConnection!
+    "List of languages"
+    listLanguages(after: Cursor, first: Int): LanguageConnection!
+    "Get all locations"
+    listLocation(filterSort: LocationFilterSort): [Location!]!
+    "Get all salons"
+    listMassages(after: Cursor, filterSort: MassageFilterSort, first: Int): MassageConnection!
+    "Get all salons"
+    listPosts(after: Cursor, filterSort: PostFilterSort, first: Int): PostConnection!
+    "Get all salons"
+    listSalons(after: Cursor, filterSort: SalonFilterSort, first: Int): SalonConnection!
+    "Get all users"
+    listUsers(after: Cursor, filterSort: UserFilterSort, first: Int): UserConnection!
 }
 
-"""Represents salon"""
+"Represents salon"
 type Salon {
-  """id: BigInt!"""
-  id: BigInt!
-
-  """Salon title"""
-  title: String!
-
-  """Salon image"""
-  logo: String!
-
-  """Main photo of salon"""
-  mainPhoto: String!
-
-  """Head photo of salon"""
-  headPhoto: String!
-
-  """Salon address"""
-  address: String!
-
-  """Salon street"""
-  street: String!
-
-  """Salon city"""
-  city: String!
-
-  """Salon province"""
-  province: String!
-
-  """Salon country"""
-  country: String!
-
-  """Salon status"""
-  status: Boolean
-
-  """Salon site"""
-  site: String!
-
-  """Salon email"""
-  email: String!
-
-  """Salon phone"""
-  phone: String!
-
-  """Salon manager phone"""
-  managerPhone: String!
-
-  """Salon manager phone"""
-  managerEmail: String!
-
-  """Date when salon will be unactive"""
-  active: String!
-
-  """Salon desc"""
-  description: String!
-
-  """Salon meta"""
-  metaDescription: String!
-
-  """Salon video"""
-  video: String
-
-  """is salon turned on/off ?"""
-  isTurnOff: Boolean
-
-  """Is draft salon ?"""
-  isDraft: Boolean
-
-  """Is private salon ?"""
-  isPrivate: Boolean
-
-  """Date when schedule of salon employee was updated"""
-  scheduleUpdatedAt: Date!
-
-  """Date when salon was created"""
-  createdAt: Date!
-
-  """Girls which are accept to the salon"""
-  staff: [Employee!]!
-
-  """Advantages of current salon"""
-  advantages: [Advantage!]!
-
-  """Salons services"""
-  services: [Service!]!
-
-  """Salons extra services"""
-  extraServices: [ExtraService!]!
-
-  """Gallery of current salon"""
-  gallery: [String!]!
-
-  """Salon location"""
-  location: Location
+    "Date when salon will be unactive"
+    active: String!
+    "Salon address"
+    address: String!
+    "Advantages of current salon"
+    advantages: [Advantage!]!
+    "Salon city"
+    city: String!
+    "Salon country"
+    country: String!
+    "Date when salon was created"
+    createdAt: Date!
+    "Salon desc"
+    description: String!
+    "Salon email"
+    email: String!
+    "Salons extra services"
+    extraServices: [ExtraService!]!
+    "Gallery of current salon"
+    gallery: [String!]!
+    "Head photo of salon"
+    headPhoto: String!
+    "id: BigInt!"
+    id: BigInt!
+    "Is draft salon ?"
+    isDraft: Boolean
+    "Is private salon ?"
+    isPrivate: Boolean
+    "is salon turned on/off ?"
+    isTurnOff: Boolean
+    "Salon location"
+    location: Location
+    "Salon image"
+    logo: String!
+    "Main photo of salon"
+    mainPhoto: String!
+    "Salon manager phone"
+    managerEmail: String!
+    "Salon manager phone"
+    managerPhone: String!
+    "Salon meta"
+    metaDescription: String!
+    "Salon phone"
+    phone: String!
+    "Salon province"
+    province: String!
+    "Date when schedule of salon employee was updated"
+    scheduleUpdatedAt: Date!
+    "Salons services"
+    services: [Service!]!
+    "Salon site"
+    site: String!
+    "Girls which are accept to the salon"
+    staff: [Employee!]!
+    "Salon status"
+    status: Boolean
+    "Salon street"
+    street: String!
+    "Salon title"
+    title: String!
+    "Salon video"
+    video: String
 }
 
 type SalonConnection {
-  """Edges contains provided edges of the sequential list."""
-  edges: [SalonEdge!]!
-
-  """TotalCount is the total amount of items in the list."""
-  totalCount: BigInt!
-
-  """PageInfo is an information about the current page of the list."""
-  pageInfo: PageInfo!
+    "Edges contains provided edges of the sequential list."
+    edges: [SalonEdge!]!
+    "PageInfo is an information about the current page of the list."
+    pageInfo: PageInfo!
+    "TotalCount is the total amount of items in the list."
+    totalCount: BigInt!
 }
 
 type SalonEdge {
-  cursor: Cursor!
-  node: Salon!
+    cursor: Cursor!
+    node: Salon!
 }
 
-"""
-# Represents preferences of emploee to current service in current salon
-"""
+"# Represents preferences of emploee to current service in current salon"
 type SalonEmployeeExtraServiceLike {
-  """ID"""
-  id: BigInt!
-
-  """ID of current employee"""
-  employeeId: BigInt!
-
-  """ID of current service"""
-  extraServiceId: BigInt!
-
-  """preference"""
-  preferences: String!
-
-  """description"""
-  description: String
-
-  """extra service"""
-  extraService: ExtraService!
+    "description"
+    description: String
+    "ID of current employee"
+    employeeId: BigInt!
+    "extra service"
+    extraService: ExtraService!
+    "ID of current service"
+    extraServiceId: BigInt!
+    "ID"
+    id: BigInt!
+    "preference"
+    preferences: String!
 }
 
-"""SalonEmployeeSchedule represents schedule of salon by week days"""
+"SalonEmployeeSchedule represents schedule of salon by week days"
 type SalonEmployeeSchedule {
-  """id: BigInt!"""
-  id: BigInt!
-
-  """Day of week"""
-  day: String!
-
-  """status in current day"""
-  status: String!
-
-  """Start work in current day"""
-  startTime: String!
-
-  """End work in current day"""
-  endTime: String!
+    "Day of week"
+    day: String!
+    "End work in current day"
+    endTime: String!
+    "id: BigInt!"
+    id: BigInt!
+    "Start work in current day"
+    startTime: String!
+    "status in current day"
+    status: String!
 }
 
-"""
-# Represents preferences of emploee to current service in current salon
-"""
+"# Represents preferences of emploee to current service in current salon"
 type SalonEmployeeServiceLike {
-  """ID"""
-  id: BigInt!
-
-  """ID of current employee"""
-  employeeId: BigInt!
-
-  """ID of current service"""
-  serviceId: BigInt!
-
-  """preference"""
-  preferences: String!
-
-  """description"""
-  description: String
-
-  """service info"""
-  service: Service!
-}
-
-"""SalonFilterSort represents different ways of searching"""
-input SalonFilterSort {
-  """Fast Search"""
-  fastSearch: String
-
-  """is a private salon ?"""
-  isPrivate: Boolean
-
-  """turnoff/on salon"""
-  isTurnedOff: Boolean
-
-  """is a draft of salon ?"""
-  isDraft: Boolean
-
-  """Filter by schedule update"""
-  shlUpdated: DateColumn
-
-  """Sorting by created """
-  created: DateColumn
+    "description"
+    description: String
+    "ID of current employee"
+    employeeId: BigInt!
+    "ID"
+    id: BigInt!
+    "preference"
+    preferences: String!
+    "service info"
+    service: Service!
+    "ID of current service"
+    serviceId: BigInt!
 }
 
 type SalonMutationOutput {
-  """list of errors"""
-  errors: [MutationError!]!
-
-  """operation results"""
-  salon: Salon
+    "list of errors"
+    errors: [MutationError!]!
+    "operation results"
+    salon: Salon
 }
 
-"""Services represents services which has salon or girl"""
+"Services represents services which has salon or girl"
 type Service {
-  """ID"""
-  id: BigInt!
-
-  """Name of service"""
-  name: String!
-
-  """Desc of service"""
-  description: String!
-
-  """Price of service"""
-  price: BigInt!
-
-  """Price for half hour"""
-  fstPrice: BigInt!
-
-  """Price for hour"""
-  sdPrice: BigInt!
-
-  """Price for hour and half"""
-  tdPrice: BigInt!
-
-  """Price for 2 hours"""
-  fthPrice: BigInt!
-
-  """Price for 3 hours"""
-  fifPrice: BigInt!
-
-  """Service which accept to current salon"""
-  salonId: BigInt
-
-  """Service which accept to current employee"""
-  employeeId: BigInt
-
-  """PREFERENCE OF employeeId"""
-  preference: String
-
-  """COMMENT OF employeeId"""
-  comment: String
-
-  """order position"""
-  order: BigInt
-
-  """Date service creation"""
-  createdAt: Date!
-
-  """Massages included into current service"""
-  massages: [Massage!]!
+    "COMMENT OF employeeId"
+    comment: String
+    "Date service creation"
+    createdAt: Date!
+    "Desc of service"
+    description: String!
+    "Service which accept to current employee"
+    employeeId: BigInt
+    "Price for 3 hours"
+    fifPrice: BigInt!
+    "Price for half hour"
+    fstPrice: BigInt!
+    "Price for 2 hours"
+    fthPrice: BigInt!
+    "ID"
+    id: BigInt!
+    "Massages included into current service"
+    massages: [Massage!]!
+    "Name of service"
+    name: String!
+    "order position"
+    order: BigInt
+    "PREFERENCE OF employeeId"
+    preference: String
+    "Price of service"
+    price: BigInt!
+    "Service which accept to current salon"
+    salonId: BigInt
+    "Price for hour"
+    sdPrice: BigInt!
+    "Price for hour and half"
+    tdPrice: BigInt!
 }
 
 type ServiceMutationOutput {
-  """list of errors"""
-  errors: [MutationError!]!
-
-  """operation results"""
-  service: Service
-}
-
-"""Direction of sorting"""
-enum SortDirection {
-  ASC
-  DESC
-}
-
-"""Filtering or sorting on String column"""
-input StringColumn {
-  """Sort records by the column in given direction"""
-  sort: SortDirection
-
-  """
-  Sorting priority of the column (applies when sorting by multiple columns, smaller number first)
-  """
-  priority: Int
-
-  """Filter records where the column equals given value"""
-  eq: String
-
-  """Filter records where the column does NOT equal given value"""
-  neq: String
-
-  """Filter records where the column starts with given value"""
-  starts: String
-
-  """Filter records where the column contains given value"""
-  contains: String
-
-  """Filter records where the value equals one of given values"""
-  in: [String!]
-}
-
-"""Filtering ONLY on String column"""
-input StringColumnFilterOnly {
-  """Filter records where the column equals given value"""
-  eq: String
-
-  """Filter records where the column does NOT equal given value"""
-  neq: String
-
-  """Filter records where the column starts with given value"""
-  starts: String
-
-  """Filter records where the column contains given value"""
-  contains: String
-
-  """Filter records where the value equals one of given values"""
-  in: [String!]
-}
-
-"""
-Time represents date and time including time zone information in RFC3339 format.
-"""
-scalar Time
-
-"""Filtering or sorting on Time column"""
-input TimeColumn {
-  """Sort records by the column in given direction"""
-  sort: SortDirection
-
-  """
-  Sorting priority of the column (applies when sorting by multiple columns, smaller number first)
-  """
-  priority: Int
-
-  """
-  Filter records whose time is equal or after given time (inclusive lower bound)
-  """
-  from: Time
-
-  """Filter records whose time is before given time (exclusive upper bound)"""
-  to: Time
-
-  """When filtering from-to, include NULL values?"""
-  includeNull: Boolean
-}
-
-"""Filtering or sorting on TimeRange column"""
-input TimeRangeColumn {
-  """Sort records by the column in given direction"""
-  sort: SortDirection
-
-  """
-  Sorting priority of the column (applies when sorting by multiple columns, smaller number first)
-  """
-  priority: Int
-
-  """Filter records whose time is equal or after given time"""
-  contains: Time
+    "list of errors"
+    errors: [MutationError!]!
+    "operation results"
+    service: Service
 }
 
 type Tokens {
-  """accessToken"""
-  accessToken: String!
-
-  """accessExpAt"""
-  accessExpAt: BigInt!
-
-  """refreshToken"""
-  refreshToken: String!
-
-  """refreshExpAt"""
-  refreshExpAt: BigInt!
+    "accessExpAt"
+    accessExpAt: BigInt!
+    "accessToken"
+    accessToken: String!
+    "refreshExpAt"
+    refreshExpAt: BigInt!
+    "refreshToken"
+    refreshToken: String!
 }
 
-"""Upload """
-scalar Upload
-
-"""Represents user in admin panel"""
+"Represents user in admin panel"
 type User {
-  """id: BigInt!"""
-  id: BigInt!
-
-  """User name"""
-  name: String!
-
-  """User email"""
-  email: String!
-
-  """User password"""
-  password: String!
-
-  """User roles"""
-  roles: [String!]!
-
-  """Time when user was created"""
-  createdAt: Date!
+    "Time when user was created"
+    createdAt: Date!
+    "User email"
+    email: String!
+    "id: BigInt!"
+    id: BigInt!
+    "User name"
+    name: String!
+    "User password"
+    password: String!
+    "User roles"
+    roles: [String!]!
 }
 
 type UserConnection {
-  """Edges contains provided edges of the sequential list."""
-  edges: [UserEdge!]!
-
-  """TotalCount is the total amount of items in the list."""
-  totalCount: BigInt!
-
-  """PageInfo is an information about the current page of the list."""
-  pageInfo: PageInfo!
+    "Edges contains provided edges of the sequential list."
+    edges: [UserEdge!]!
+    "PageInfo is an information about the current page of the list."
+    pageInfo: PageInfo!
+    "TotalCount is the total amount of items in the list."
+    totalCount: BigInt!
 }
 
 type UserEdge {
-  cursor: Cursor!
-  node: User!
-}
-
-"""UserFilterSort represents different ways of searching"""
-input UserFilterSort {
-  fastSearch: String
-  created: DateColumn
+    cursor: Cursor!
+    node: User!
 }
 
 type UserMutationOutput {
-  """list of errors"""
-  errors: [MutationError!]!
-
-  """operation results"""
-  user: User
+    "list of errors"
+    errors: [MutationError!]!
+    "operation results"
+    user: User
 }
 
+enum ErrorLevel {
+    ERROR
+    NOTE
+    WARNING
+}
+
+"Direction of sorting"
+enum SortDirection {
+    ASC
+    DESC
+}
+
+"Address is a 20 byte Opera address, represented as 0x prefixed hexadecimal number."
+scalar Address
+
+"BigInt is a large (256bits) integer value serialized as string."
+scalar BigInt
+
+"Cursor is a string representing position in a sequential list of edges."
+scalar Cursor
+
+"Date represents ..."
+scalar Date
+
+"Decimal is an exact numeric data type."
+scalar Decimal
+
+"Time represents date and time including time zone information in RFC3339 format."
+scalar Time
+
+"Upload "
+scalar Upload
+
+input ApplicationFilterSort {
+    "Sort by created"
+    created: Date
+    "fast search by title"
+    fastSearch: String
+    "status of application (new, considered, canceled)"
+    status: String
+    """
+
+    type of application
+    Variants:
+    salon-escort - employees of private salon
+    salon-masseur - employees of common salon
+    private-escort - private employees
+    private-massaur - common masseur
+    """
+    types: [String!]
+}
+
+input BigFilterColumn {
+    "Sorting by age "
+    age: BigIntColumn
+    "Sorting by breast size"
+    breastSize: BigIntColumn
+    "Sorting by created "
+    created: DateColumn
+    "Sorting by height"
+    height: BigIntColumn
+    "Sorting by service program (ex. [\"1\", \"2\"])"
+    program: [String!]
+    "Sort by shift (ex. \"Monday\")"
+    shift: String
+    "Sorting by type"
+    types: [String!]
+    "Sorting by weight"
+    weight: BigIntColumn
+}
+
+"Filtering or sorting on BigInt column"
+input BigIntColumn {
+    "Filter records where the column equals given value"
+    eq: BigInt
+    "Filter records where is the value greater or equal (inclusive lower bound)"
+    from: BigInt
+    "Filter records where the value equals one of given values"
+    in: [BigInt!]
+    "Filter records where the column does NOT equal given value"
+    neq: BigInt
+    "Sorting priority of the column (applies when sorting by multiple columns, smaller number first)"
+    priority: Int
+    "Sort records by the column in given direction"
+    sort: SortDirection
+    "Filter records where is the value less or equal (inclusive upper bound)"
+    to: BigInt
+}
+
+"Filtering ONLY on BigInt column"
+input BigIntColumnFilterOnly {
+    "Filter records where the column equals given value"
+    eq: BigInt
+    "Filter records where is the value greater or equal (inclusive lower bound)"
+    from: BigInt
+    "Filter records where the value equals one of given values"
+    in: [BigInt!]
+    "Filter records where the column does NOT equal given value"
+    neq: BigInt
+    "Filter records where is the value less or equal (inclusive upper bound)"
+    to: BigInt
+}
+
+input CounterInfo {
+    from: Date!
+    to: Date!
+    weekDay: String!
+}
+
+"Filtering or sorting on Date column"
+input DateColumn {
+    "Filter records whose date is equal or after given date (inclusive lower bound)"
+    from: Date
+    "Sorting priority of the column (applies when sorting by multiple columns, smaller number first)"
+    priority: Int
+    "Sort records by the column in given direction"
+    sort: SortDirection
+    "Filter records whose date is equal of before given date (inclusive upper bound)"
+    to: Date
+}
+
+"Filtering ONLY on Date column"
+input DateColumnFilterOnly {
+    "Filter records whose date is equal or after given date (inclusive lower bound)"
+    from: Date
+    "Filter records whose date is equal of before given date (inclusive upper bound)"
+    to: Date
+}
+
+"Filtering or sorting on Decimal column"
+input DecimalColumn {
+    "Filter records where the column equals given value"
+    eq: Decimal
+    "Filter records where is the value greater or equal"
+    from: Decimal
+    "Filter records where the column does NOT equal given value"
+    neq: Decimal
+    "Sorting priority of the column (applies when sorting by multiple columns, smaller number first)"
+    priority: Int
+    "Sort records by the column in given direction"
+    sort: SortDirection
+    "Filter records where is the value less or equal"
+    to: Decimal
+}
+
+"EmployeeFilterSort represents sorting of employee data"
+input EmployeeFilterSort {
+    "Filter by city"
+    city: String
+    "Sorting by created "
+    created: DateColumn
+    "Fast Search"
+    fastSearch: String
+    "Big Filter"
+    filter: BigFilterColumn
+    "filter by ids"
+    identificatior: BigIntColumn
+    "is a private employee ?"
+    isDraft: Boolean
+    "Filter by province"
+    province: String
+    "Shift - day for searching employees wich works at that day (Full day of the week - ex. Monday)"
+    shift: String
+    "Filter by schedule update"
+    shlUpdated: DateColumn
+    """
+
+    enter column for top filtering
+    Variants:
+    top_date - top employees
+    day_top - top employees of the day
+    """
+    top: String
+    """
+
+    type of employee
+    Variants:
+    salon-escort - employees of private salon
+    salon-masseur - employees of common salon
+    private-escort - private employees
+    private-massaur - common masseur
+    """
+    type: String
+}
+
+input InputAdvantage {
+    "ID"
+    id: BigInt
+    "Image of advantage"
+    image: String!
+    "Name of advantage"
+    name: String!
+}
+
+input InputApplication {
+    "Email of applicant"
+    email: String!
+    "ID"
+    id: BigInt
+    "Phone of applicant"
+    phone: String!
+    "status of application (canceled, considered, new)"
+    status: String
+    "Name of employee/salon"
+    title: String!
+    """
+
+    Type of application
+    Variants:
+    salon-escort - employees of private salon
+    salon-masseur - employees of common salon
+    private-escort - private employees
+    private-massaur - common masseur
+    """
+    type: String!
+}
+
+input InputCategory {
+    "ID"
+    id: BigInt
+    "Category name"
+    name: String!
+}
+
+input InputEmployee {
+    "Active til"
+    active: String
+    "Age of employee"
+    age: BigInt!
+    "Emploee's bust"
+    breastSize: BigInt!
+    "Employee city"
+    city: String
+    "Employee country"
+    country: String
+    "Info about cost of departure"
+    departureCost: String!
+    "Employee desc"
+    description: String!
+    "Employee email"
+    email: String
+    "service like preferences"
+    extraServiceLikeInput: [InputSalonEmployeeExtraServiceLike!]
+    "Emploee's foot"
+    footSize: BigInt!
+    "Gallery of current employee"
+    gallery: [String!]!
+    "Head photo of employee"
+    headPhoto: String!
+    "Emploee's height"
+    height: BigInt!
+    "ID"
+    id: BigInt
+    "interview with Emploee"
+    interview: String
+    "Is draft salon ?"
+    isDraft: Boolean
+    "IDs of languages for employee"
+    languageIDs: [BigInt!]
+    "Base on full address"
+    latitude: Decimal
+    "Base on full address"
+    longitude: Decimal
+    "Main photo of employee"
+    mainPhoto: String!
+    "Availability of emploee to come out"
+    meetingPoint: String!
+    "Name of employee"
+    name: String!
+    "Employee phone"
+    phone: String
+    "Employee price"
+    price: BigInt!
+    "Employee province"
+    province: String
+    "Represents belonging to the salon."
+    salonId: BigInt
+    "Employee's schedule"
+    schedule: [InputEmployeeSchedule!]!
+    "service like preferences"
+    serviceLikeInput: [InputSalonEmployeeServiceLike!]
+    "Employee status"
+    status: Boolean
+    "Employee street"
+    street: String
+    "Is private employee ?"
+    type: String!
+    "Employee's video"
+    video: String
+    "Emploee's weight"
+    weight: BigInt!
+}
+
+input InputEmployeeSchedule {
+    "Day of week"
+    day: String!
+    "End work in current day"
+    endTime: Time!
+    "id: BigInt"
+    id: BigInt
+    "Start work in current day"
+    startTime: Time!
+    "status in current day"
+    status: String!
+}
+
+input InputExtraService {
+    "COMMENT OF employeeId"
+    comment: String
+    "Desc of extra service"
+    description: String!
+    "ExtraService which accept to current employee"
+    employeeId: BigInt
+    "ID"
+    id: BigInt
+    "Name of extra service"
+    name: String!
+    "PREFERENCE OF employeeId"
+    preference: String
+    "Price of extra service"
+    price: BigInt!
+    "ExtraService which accept to current salon"
+    salonId: BigInt
+}
+
+input InputExtraServiceOrder {
+    "ID of extra extra service\t"
+    extraServiceId: BigInt!
+    "order position of extra serivice"
+    orderPosition: BigInt!
+}
+
+input InputLanguage {
+    "ID"
+    id: BigInt
+    "Language name"
+    name: String!
+}
+
+input InputLocation {
+    employeeId: BigInt
+    "ID"
+    id: BigInt
+    "latitude of salon or employee"
+    latitude: Decimal!
+    "longitude of salon or employee"
+    longitude: Decimal!
+    salonId: BigInt
+}
+
+input InputMassage {
+    "ID"
+    id: BigInt
+    "Image picture"
+    image: String!
+    "Image picture"
+    isPrivate: Boolean
+    "Name of massage"
+    name: String!
+}
+
+input InputPost {
+    "IDs of categories"
+    categoriesIDs: [BigInt!]
+    "ID"
+    id: BigInt
+    "Image of post"
+    image: String!
+    "Is it draft or not"
+    isDraft: Boolean
+    "Meta description of post"
+    metaDescription: String!
+    "Meta title of post"
+    metaTitle: String!
+    "Text of post"
+    text: String!
+    "Title of post"
+    title: String!
+}
+
+input InputSalon {
+    "Date when salon will be unactive"
+    active: String!
+    "IDs of advantages"
+    advantageIDs: [BigInt!]
+    "Salon city"
+    city: String!
+    "Salon country"
+    country: String!
+    "Salon desc"
+    description: String!
+    "Salon email"
+    email: String!
+    "Gallery of current salon"
+    gallery: [String!]!
+    "Head photo of salon"
+    headPhoto: String!
+    "id: BigInt!"
+    id: BigInt
+    "Is draft salon ?"
+    isDraft: Boolean
+    "Is private salon ?"
+    isPrivate: Boolean
+    "Base on full address"
+    latitude: Decimal!
+    "Salon image"
+    logo: String!
+    "Base on full address"
+    longitude: Decimal!
+    "Main photo of salon"
+    mainPhoto: String!
+    "Salon manager phone"
+    managerEmail: String!
+    "Salon manager phone"
+    managerPhone: String!
+    "Salon meta"
+    metaDescription: String!
+    "Salon phone"
+    phone: String!
+    "Salon province"
+    province: String!
+    "Salon site"
+    site: String!
+    "Salon status"
+    status: Boolean
+    "Salon street"
+    street: String!
+    "Salon title"
+    title: String!
+    "Salon video"
+    video: String
+}
+
+"InputSalonEmployeeExtraServiceLike"
+input InputSalonEmployeeExtraServiceLike {
+    "description"
+    description: String
+    "ID of current employee"
+    employeeId: BigInt
+    "ID of current service"
+    extraServiceId: BigInt!
+    "ID"
+    id: BigInt
+    "preference"
+    preferences: String!
+}
+
+input InputSalonEmployeeSchedule {
+    "Day of week"
+    day: String!
+    "End work in current day"
+    endTime: String!
+    "id: BigInt"
+    id: BigInt
+    "Start work in current day"
+    startTime: String!
+    "status in current day"
+    status: String!
+}
+
+"InputSalonEmployeeServiceLike"
+input InputSalonEmployeeServiceLike {
+    "description"
+    description: String
+    "ID of current employee"
+    employeeId: BigInt
+    "ID"
+    id: BigInt
+    "preference"
+    preferences: String!
+    "ID of current service"
+    serviceId: BigInt!
+}
+
+input InputService {
+    "COMMENT OF employeeId"
+    comment: String
+    "Desc of service"
+    description: String!
+    "Service which accept to current employee"
+    employeeId: BigInt
+    "Price for 3 hours"
+    fifPrice: BigInt
+    "Price for half hour"
+    fstPrice: BigInt
+    "Price for 2 hours"
+    fthPrice: BigInt
+    "ID"
+    id: BigInt
+    "Massages IDs included into current service"
+    massageIDs: [BigInt!]
+    "Name of service"
+    name: String!
+    "PREFERENCE OF employeeId"
+    preference: String
+    "Price of service"
+    price: BigInt!
+    "Service which accept to current salon"
+    salonId: BigInt
+    "Price for hour"
+    sdPrice: BigInt
+    "Price for hour and half"
+    tdPrice: BigInt
+}
+
+input InputServiceOrder {
+    "order position of serivice"
+    orderPosition: BigInt!
+    "ID of service\t"
+    serviceId: BigInt!
+}
+
+"""
+
+type LoggedUser {
+tokens: Tokens!
+user: User!
+}
+type LoggedUserMutationOutput {
+# list of errors
+errors: [MutationError!]!
+#operation results
+loggedUser: LoggedUser
+}
+"""
+input InputUser {
+    "User email"
+    email: String!
+    "id: BigInt!"
+    id: BigInt
+    "User name"
+    name: String!
+    "User password"
+    password: String!
+}
+
+"Filtering or sorting on Int column"
+input IntColumn {
+    "Filter records where the column equals given value"
+    eq: Int
+    "Filter records where is the value greater or equal (inclusive lower bound)"
+    from: Int
+    "Filter records where the value equals one of given values"
+    in: [Int!]
+    "Filter records where the column does NOT equal given value"
+    neq: Int
+    "Sorting priority of the column (applies when sorting by multiple columns, smaller number first)"
+    priority: Int
+    "Sort records by the column in given direction"
+    sort: SortDirection
+    "Filter records where is the value less or equal (inclusive upper bound)"
+    to: Int
+}
+
+"Filtering ONLY on Int column"
+input IntColumnFilterOnly {
+    "Filter records where the column equals given value"
+    eq: Int
+    "Filter records where is the value greater or equal (inclusive lower bound)"
+    from: Int
+    "Filter records where the value equals one of given values"
+    in: [Int!]
+    "Filter records where the column does NOT equal given value"
+    neq: Int
+    "Filter records where is the value less or equal (inclusive upper bound)"
+    to: Int
+}
+
+input LocationFilterSort {
+    """
+
+    Only parlours or only private employees
+    variats:
+    - Parlours
+    - Employees
+    """
+    parlourOrEmployee: String
+}
+
+"MassageFilterSort represents sorting of employee data"
+input MassageFilterSort {
+    "Sorting by created "
+    created: DateColumn
+    "Fast Search"
+    fastSearch: String
+    "is a private employee ?"
+    isPrivate: Boolean
+}
+
+"PostFilterSort represents different ways of searching"
+input PostFilterSort {
+    "Sorting by category"
+    byCategory: String
+    "Sorting by created "
+    created: DateColumn
+    "Fast Search"
+    fastSearch: String
+}
+
+"SalonFilterSort represents different ways of searching"
+input SalonFilterSort {
+    "Sorting by created "
+    created: DateColumn
+    "Fast Search"
+    fastSearch: String
+    "is a draft of salon ?"
+    isDraft: Boolean
+    "is a private salon ?"
+    isPrivate: Boolean
+    "turnoff/on salon"
+    isTurnedOff: Boolean
+    "Filter by schedule update"
+    shlUpdated: DateColumn
+}
+
+"Filtering or sorting on String column"
+input StringColumn {
+    "Filter records where the column contains given value"
+    contains: String
+    "Filter records where the column equals given value"
+    eq: String
+    "Filter records where the value equals one of given values"
+    in: [String!]
+    "Filter records where the column does NOT equal given value"
+    neq: String
+    "Sorting priority of the column (applies when sorting by multiple columns, smaller number first)"
+    priority: Int
+    "Sort records by the column in given direction"
+    sort: SortDirection
+    "Filter records where the column starts with given value"
+    starts: String
+}
+
+"Filtering ONLY on String column"
+input StringColumnFilterOnly {
+    "Filter records where the column contains given value"
+    contains: String
+    "Filter records where the column equals given value"
+    eq: String
+    "Filter records where the value equals one of given values"
+    in: [String!]
+    "Filter records where the column does NOT equal given value"
+    neq: String
+    "Filter records where the column starts with given value"
+    starts: String
+}
+
+"Filtering or sorting on Time column"
+input TimeColumn {
+    "Filter records whose time is equal or after given time (inclusive lower bound)"
+    from: Time
+    "When filtering from-to, include NULL values?"
+    includeNull: Boolean
+    "Sorting priority of the column (applies when sorting by multiple columns, smaller number first)"
+    priority: Int
+    "Sort records by the column in given direction"
+    sort: SortDirection
+    "Filter records whose time is before given time (exclusive upper bound)"
+    to: Time
+}
+
+"Filtering or sorting on TimeRange column"
+input TimeRangeColumn {
+    "Filter records whose time is equal or after given time"
+    contains: Time
+    "Sorting priority of the column (applies when sorting by multiple columns, smaller number first)"
+    priority: Int
+    "Sort records by the column in given direction"
+    sort: SortDirection
+}
+
+"UserFilterSort represents different ways of searching"
+input UserFilterSort {
+    created: DateColumn
+    fastSearch: String
+}

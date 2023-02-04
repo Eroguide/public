@@ -1,10 +1,6 @@
 import styled from '@emotion/styled'
 import { HTMLInputTypeAttribute } from 'react'
 
-export const Container = styled.div`
-  margin-bottom: 16px;
-`
-
 export const Input = styled.input<{
   type: HTMLInputTypeAttribute
   placeholder?: string
@@ -24,4 +20,5 @@ export const Input = styled.input<{
     border: 1px solid ${({ theme }) => theme.grayScale[3]};
     transition: border 0.2s ease-in-out;
   }
+  margin-bottom: 16px;
 `

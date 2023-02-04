@@ -12,19 +12,18 @@ import {
 import { CustomButton, RadioButtonInput } from '@/components/generic'
 import { useState } from 'react'
 import { useRouter } from 'next/router'
+import { CreateOptionEnum, OptionsArray } from './types'
 
-export enum CreateOptionEnum {
-  massageSalon = 'massage-salon',
-  privatSalon = 'privat-salon',
-  privatMasseuse = 'privat-masseuse',
-  privatLady = 'privat-lady',
-}
-
-type OptionsArray = {
-  id: number
-  name: string
-  slug: CreateOptionEnum
-}
+// "Email of applicant"
+// email: String!
+// "ID"
+// id: BigInt
+// "Phone of applicant"
+// phone: String!
+// "status of application (canceled, considered, new)"
+// status: String
+// "Name of employee/salon"
+// title: String!
 
 const options: Array<OptionsArray> = [
   { id: 1, name: 'Privat Salon', slug: CreateOptionEnum.privatSalon },

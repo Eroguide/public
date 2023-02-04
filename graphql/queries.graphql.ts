@@ -93,7 +93,6 @@ export const getEmployee = gql`
     }
   }
 `
-
 export const getSalon = gql`
   query GetSalon($id: BigInt!) {
     getSalon(id: $id) {
@@ -194,7 +193,7 @@ export const getSalon = gql`
       active
       isPrivate
       isDraft
-      isTurnOff
+      #      isTurnOff
       managerEmail
       managerPhone
       address
@@ -269,7 +268,7 @@ export const listSalons = gql`
           phone
           description
           metaDescription
-          isTurnOff
+          #          isTurnOff
           #          isPrivate
           createdAt
           advantages {
@@ -485,7 +484,7 @@ export const listLocation = gql`
         active
         isPrivate
         isDraft
-        isTurnOff
+        #        isTurnOff
         managerEmail
         managerPhone
         address
@@ -539,6 +538,35 @@ export const allCounters = gql`
   }
 `
 
+export const createApplication = gql`
+  mutation CreateApplication($application: InputApplication!) {
+    createApplication(application: $application) {
+      application {
+        id
+        title
+        status
+        email
+        phone
+        createdAt
+        type
+        #        Type of application
+        #        Variants:
+        #        privat-salon - employees of private salon
+        #        massage-salon - employees of common salon
+        #        private-masseuse - private employees
+        #        private-lady - common masseur
+      }
+    }
+  }
+`
+// "inputApplication": {
+//   "phone":"2222222222",
+//       "email": "wdww@gmail.com",
+//       "title": "niiinn",
+//       "status": "new",
+//       "type": "salon-escort",
+//       "id": "231322123"
+// }
 //{
 //   "info": {
 //     "from": "2020-03-01",

@@ -17,13 +17,13 @@ export const Row = styled.div`
   justify-content: center;
   max-width: 848px;
   margin: 8px auto;
+  gap: 16px;
   ${({ theme }) => theme.media.sm`
    flex-direction: column;
      max-width: 100%;
   `}
   ${({ theme }) => theme.media.mobile`
-  
-     max-width: 100%;
+    max-width: 100%;
     flex-direction: column;
   `}
 `

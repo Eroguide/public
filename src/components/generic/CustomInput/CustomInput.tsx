@@ -1,4 +1,4 @@
-import { Container, Input } from './styles'
+import { Input } from './styles'
 import { HTMLInputTypeAttribute } from 'react'
 
 export const CustomInput: React.FC<{
@@ -6,9 +6,5 @@ export const CustomInput: React.FC<{
   type?: HTMLInputTypeAttribute
   placeholder?: string
 }> = ({ type = 'text', placeholder, required }) => {
-  return (
-    <Container>
-      <Input type={type} placeholder={placeholder} required={required} />
-    </Container>
-  )
+  return <Input type={type} placeholder={placeholder} required={required} />
 }

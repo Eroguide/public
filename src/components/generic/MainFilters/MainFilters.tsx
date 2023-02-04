@@ -24,15 +24,12 @@ import { useLazyQuery } from '@apollo/client'
 import { listEmployee as listEmployeeQuery } from '@/graphql/queries.graphql'
 
 import { ParsedUrlQuery } from 'querystring'
-import { FC, useEffect } from 'react'
+import { FC, useCallback, useEffect } from 'react'
 import { BigFilterColumn } from '@/graphql/types/globalTypes'
 import useFilters from '@/components/generic/MainFilters/useFilters'
 import queryString from 'query-string'
-import {
-  getDateEndOfToday,
-  getDateMonthAgo,
-  getTodayString,
-} from '@/utils/helpers'
+import { getTimeStampMonthAgo, getTodayString } from '@/utils/helpers'
+import { endOfToday } from 'date-fns'
 
 export const prepareQueryForSubmit = (
   query: ParsedUrlQuery
@@ -86,7 +83,7 @@ export const prepareQueryForSubmit = (
     )
   }
   if (query.created) {
-    newGirls = { created: { from: getDateMonthAgo(), to: getDateEndOfToday() } }
+    newGirls = { created: { from: getTimeStampMonthAgo(), to: endOfToday() } }
   }
   if (query.shift) {
     onShift = { shift: getTodayString() }
@@ -113,7 +110,7 @@ export const MainFilters: FC = () => {
     ListEmployeeVariables
   >(listEmployeeQuery)
 
-  const pushQuery = (): void => {
+  const pushQuery = useCallback(() => {
     push(
       '/search',
       {
@@ -121,7 +118,7 @@ export const MainFilters: FC = () => {
       },
       { shallow: true }
     )
-  }
+  }, [dirtyQuery])
 
   const handleSearchButton = (): void => {
     push(
@@ -137,7 +134,7 @@ export const MainFilters: FC = () => {
     executeSearch({
       variables: { filterSort: prepareQueryForSubmit(dirtyQuery) },
     }).then(() => pushQuery())
-  }, [dirtyQuery, executeSearch])
+  }, [dirtyQuery, executeSearch, pushQuery])
 
   return (
     <Container>

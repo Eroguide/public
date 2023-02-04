@@ -12,7 +12,7 @@ query GetSalon($id: BigInt!) {
         phone
         description
         metaDescription
-        isTurnOff
+#        isTurnOff
         #      isPrivate
         createdAt
     }
