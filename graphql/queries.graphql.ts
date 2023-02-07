@@ -43,6 +43,9 @@ export const getEmployee = gql`
       breastSize
       footSize
       isDraft
+      active
+      status
+      isTurnOff
       meetingPoint
       departureCost
       topDate
@@ -99,6 +102,7 @@ export const getSalon = gql`
       id
       title
       isDraft
+      isTurnoff
       logo
       mainPhoto
       headPhoto

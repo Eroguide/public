@@ -88,6 +88,12 @@ export const RatingSalon = styled.span`
     transform: rotate(180deg);
     margin-left: 8px;
   }
+
+  span {
+    svg {
+      transform: rotate(0deg);
+    }
+  }
 `
 
 export const LocationText = styled.span`

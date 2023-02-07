@@ -102,7 +102,7 @@ export interface GetSalon_getSalon {
   /**
    * is salon turned on/off ?
    */
-  isTurnOff: boolean | null
+  isTurnoff: boolean | null
   /**
    * Is private salon ?
    */

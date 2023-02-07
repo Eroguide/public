@@ -291,6 +291,7 @@ export interface ListEmployee_listEmployee_edges_node {
    * Employee status
    */
   status: boolean | null
+  isTurnOff: boolean | null
   /**
    * Gallery of current employee
    */

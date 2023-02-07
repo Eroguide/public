@@ -36,7 +36,7 @@ export const ServiceFeaturesSalonWidget: React.FC<{
                 <FeatureItem key={id + '-' + name}>
                   <IconWrapper>
                     <Image
-                      src={image}
+                      src={image ?? '/img/fake.png'}
                       alt={name + 'service-advantages'}
                       width={40}
                       height={40}

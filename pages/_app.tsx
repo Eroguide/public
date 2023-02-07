@@ -12,7 +12,6 @@ import 'swiper/css/effect-fade'
 import 'swiper/css/pagination'
 
 function MyApp({ Component, pageProps }: AppProps) {
-  console.log('pageProps', pageProps)
   const apolloClient = useApollo(pageProps)
   if (!apolloClient) {
     return

@@ -44,6 +44,7 @@ export const SinglePageContent: React.FC<{
   const girlsList = girls.map((x) => x.node)
   const { mainPhoto, price, video } = employee
   const salonId = salon?.id
+  const isOn = !employee.isTurnOff
   return (
     <SinglePageContentContainer>
       <Banner image={mainPhoto} />
@@ -52,10 +53,12 @@ export const SinglePageContent: React.FC<{
           <Widget>
             <PersonalInfoSinglePageWidget employee={employee} />
           </Widget>
-          <Widget>
-            <ScheduleSinglePageWidget price={price} />
-          </Widget>
-          {salon ? <SalonSinglePageWidget salon={salon} /> : null}
+          {isOn ? (
+            <Widget>
+              <ScheduleSinglePageWidget price={price} />
+            </Widget>
+          ) : null}
+          {salon && isOn ? <SalonSinglePageWidget salon={salon} /> : null}
         </LeftWidgets>
 
         <BodyContent>
@@ -64,53 +67,55 @@ export const SinglePageContent: React.FC<{
               <ProductSlider status sliderGallery={sliderGallery} />
             </SinglePageContentBlock>
           ) : null}
-          <DetailsSection>
-            <SinglePageContentBlock title="Appearance">
-              <ApperianceWidget employee={employee} />
-            </SinglePageContentBlock>
-            {employee.serviceLike.length ? (
-              <SinglePageContentBlock title="Preferences and experience">
-                <ExperianceWidget serviceLike={employee.serviceLike} />
+          {isOn ? (
+            <DetailsSection>
+              <SinglePageContentBlock title="Appearance">
+                <ApperianceWidget employee={employee} />
               </SinglePageContentBlock>
-            ) : null}
-            {employee.interview ? (
-              <SinglePageContentBlock title="Interview for Eroguide">
-                <AnimateHeight
-                  duration={500}
-                  height={isShowMore ? 'auto' : 100}
-                >
-                  <Markdown>{String(employee.interview)}</Markdown>
-                </AnimateHeight>
-                <RowRight>
-                  <CustomButton
-                    styleType={'tertiary'}
-                    sizeType={'small'}
-                    onClick={() => setIsShowMore(!isShowMore)}
-                    width={'105px'}
+              {employee.serviceLike.length ? (
+                <SinglePageContentBlock title="Preferences and experience">
+                  <ExperianceWidget serviceLike={employee.serviceLike} />
+                </SinglePageContentBlock>
+              ) : null}
+              {employee.interview ? (
+                <SinglePageContentBlock title="Interview for Eroguide">
+                  <AnimateHeight
+                    duration={500}
+                    height={isShowMore ? 'auto' : 100}
                   >
-                    Vice
-                  </CustomButton>
-                </RowRight>
-              </SinglePageContentBlock>
-            ) : null}
-            {video ? (
-              <SinglePageContentBlock title="Video">
-                <VideoPlayerWidget url={video} />
-              </SinglePageContentBlock>
-            ) : null}
+                    <Markdown>{String(employee.interview)}</Markdown>
+                  </AnimateHeight>
+                  <RowRight>
+                    <CustomButton
+                      styleType={'tertiary'}
+                      sizeType={'small'}
+                      onClick={() => setIsShowMore(!isShowMore)}
+                      width={'105px'}
+                    >
+                      Vice
+                    </CustomButton>
+                  </RowRight>
+                </SinglePageContentBlock>
+              ) : null}
+              {video ? (
+                <SinglePageContentBlock title="Video">
+                  <VideoPlayerWidget url={video} />
+                </SinglePageContentBlock>
+              ) : null}
 
-            <SinglePageContentBlock title="Audio">
-              <AudioPlayerWidget />
-            </SinglePageContentBlock>
-            {girlsList.length && salonId ? (
-              <SinglePageContentBlock
-                title="Salon ladies"
-                topButtonHandler={() => router.push(`/salons/${salonId}`)}
-              >
-                <LadiesGalleryWidget girls={girlsList} />
+              <SinglePageContentBlock title="Audio">
+                <AudioPlayerWidget />
               </SinglePageContentBlock>
-            ) : null}
-          </DetailsSection>
+              {girlsList.length && salonId ? (
+                <SinglePageContentBlock
+                  title="Salon ladies"
+                  topButtonHandler={() => router.push(`/salons/${salonId}`)}
+                >
+                  <LadiesGalleryWidget girls={girlsList} />
+                </SinglePageContentBlock>
+              ) : null}
+            </DetailsSection>
+          ) : null}
         </BodyContent>
       </SinglePageBody>
     </SinglePageContentContainer>
