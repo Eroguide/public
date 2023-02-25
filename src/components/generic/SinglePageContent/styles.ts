@@ -69,7 +69,7 @@ export const LeftWidgets = styled.div`
 
   ${({ theme }) => theme.media.sm`
     margin-top: 0;
-  width: 100%;
+    width: 100%;
   `}
 
   ${({ theme }) => theme.media.mobile`
