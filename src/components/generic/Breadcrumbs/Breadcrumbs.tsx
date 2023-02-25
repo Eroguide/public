@@ -67,7 +67,7 @@ export const Breadcrumbs: React.FC = () => {
 
   // Call the function to generate the breadcrumbs list
   const breadcrumbs = generateBreadcrumbs()
-
+  console.log('breadcrumbs', breadcrumbs)
   return (
     <Container>
       <Wrapper>

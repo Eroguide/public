@@ -73,11 +73,13 @@ export const SalonInfoSinglePageWidget: React.FC<{
       </Row>
 
       {!isOn ? (
-        <InfoCard strokeColor="yellow">
-          <p style={{ color: theme.support[1] }}>
-            Attention, information about the salon may be not up to date
-          </p>
-        </InfoCard>
+        <Row>
+          <InfoCard strokeColor="yellow">
+            <p style={{ color: theme.support[1] }}>
+              Attention, information about the salon may be not up to date
+            </p>
+          </InfoCard>
+        </Row>
       ) : null}
 
       {isOn ? (
